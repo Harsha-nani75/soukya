@@ -1,0 +1,128 @@
+<div id="left-sidebar" class="sidebar" style="background-color:#163c60">
+  <div class="sidebar-scroll">
+    <div class="tab-content p-l-0 p-r-0" style="padding-top:40px">
+      <div class="tab-pane active" id="menu">
+        <nav class="sidebar-nav">
+          <ul class="main-menu">
+
+            <!-- Dashboard -->
+            <li>
+              <a routerLink="/admin/dashboard" routerLinkActive="active">
+                <i class="icon-home"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+
+            <!-- General Enquiry -->
+            <li>
+              <a routerLink="/admin/generalenq" routerLinkActive="active">
+                <i class="icon-home"></i>
+                <span>General Enquiry</span>
+              </a>
+            </li>
+
+            <!-- Geriatric Care -->
+            <li [class.open]="activeMenu === 'geriatrics'">
+              <a href="javascript:void(0);" class="has-arrow" (click)="toggleMenu('geriatrics')">
+                <i class="icon-user-follow"></i>
+                <span>Geriatric Care</span>
+              </a>
+              <ul>
+                <li><a routerLink="/admin/geriatrics/enquiry">Enquiry</a></li>
+                <li><a routerLink="/admin/geriatrics/faq">Faq Questions</a></li>
+                <li><a routerLink="/admin/geriatrics/package-enquiry">Package Enquiry</a></li>
+                <li><a routerLink="/admin/geriatrics/patients">Patient List</a></li>
+                <li><a routerLink="/admin/geriatrics/add-patient">Add Patient</a></li>
+                <li><a routerLink="/admin/geriatrics/recyclebin">Recyclebin</a></li>
+              </ul>
+            </li>
+
+            <!-- Testimonials -->
+            <li [class.open]="activeMenu === 'testimonials'">
+              <a href="javascript:void(0);" class="has-arrow" (click)="toggleMenu('testimonials')">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <span>Testimonials</span>
+              </a>
+              <ul>
+                <li><a routerLink="/admin/testimonials">Testimonials</a></li>
+              </ul>
+            </li>
+
+            <!-- Medical Tourism -->
+            <li [class.open]="activeMenu === 'medical'">
+              <a href="javascript:void(0);" class="has-arrow" (click)="toggleMenu('medical')">
+                <i class="fa fa-medkit" aria-hidden="true"></i>
+                <span>Medical Tourism</span>
+              </a>
+              <ul>
+                <li><a routerLink="/admin/medical-tourism/enquiry">Enquiry</a></li>
+                <li><a routerLink="/admin/medical-tourism/faq">Faq Questions</a></li>
+                <li><a routerLink="/admin/medical-tourism/add-patient">Add Patient</a></li>
+                <li><a routerLink="/admin/medical-tourism/patients">Patient List</a></li>
+                <li><a routerLink="/admin/medical-tourism/recyclebin">Recyclebin</a></li>
+              </ul>
+            </li>
+
+            <!-- Packages -->
+            <li [class.open]="activeMenu === 'packages'">
+              <a href="javascript:void(0);" class="has-arrow" (click)="toggleMenu('packages')">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <span>Packages</span>
+              </a>
+              <ul>
+                <li><a routerLink="/admin/packages/add">Add Packages</a></li>
+              </ul>
+            </li>
+
+            <!-- Brochures -->
+            <li [class.open]="activeMenu === 'brochures'">
+              <a href="javascript:void(0);" class="has-arrow" (click)="toggleMenu('brochures')">
+                <i class="fa fa-download" aria-hidden="true"></i>
+                <span>Brochures</span>
+              </a>
+              <ul>
+                <li><a routerLink="/admin/brochures/medical">Medical Brochure</a></li>
+                <li><a routerLink="/admin/brochures/geriatric">Geriatric Brochure</a></li>
+                <li><a routerLink="/admin/brochures/add">Add Brochures</a></li>
+              </ul>
+            </li>
+
+            <!-- Services -->
+            <li [class.open]="activeMenu === 'services'">
+              <a href="javascript:void(0);" class="has-arrow" (click)="toggleMenu('services')">
+                <i class="fa fa-medkit" aria-hidden="true"></i>
+                <span>Services</span>
+              </a>
+              <ul>
+                <li><a routerLink="/admin/services/mt">MT Service</a></li>
+              </ul>
+            </li>
+
+            <!-- Blogs -->
+            <li [class.open]="activeMenu === 'blogs'">
+              <a href="javascript:void(0);" class="has-arrow" (click)="toggleMenu('blogs')">
+                <i class="fa fa-medkit" aria-hidden="true"></i>
+                <span>Blogs</span>
+              </a>
+              <ul>
+                <li><a routerLink="/admin/blogs/add-category">Add Category</a></li>
+                <li><a routerLink="/admin/blogs/add-tags">Add Tags</a></li>
+                <li><a routerLink="/admin/blogs/add">Add Blogs</a></li>
+                <li><a routerLink="/admin/blogs/view">View Blogs</a></li>
+              </ul>
+            </li>
+
+            <!-- Logout -->
+            <li>
+              <a (click)="logout()" style="cursor:pointer">
+                <i class="icon-login"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
