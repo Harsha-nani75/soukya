@@ -32,4 +32,5 @@ app-sidebar {
   padding: 20px;
   overflow-y: auto;
   background-color: #f9f9f9;
+    height: calc(100vh - 60px); /* 60px is navbar height */
 }
