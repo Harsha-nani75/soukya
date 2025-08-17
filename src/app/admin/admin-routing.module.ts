@@ -7,11 +7,13 @@ import { roleGuard } from '../services/role.guard';
 import { MedicaltourismComponent } from './medicaltourism/medicaltourism.component';
 import { GenticcareComponent } from './genticcare/genticcare.component';
 import { BlogsComponent } from './blogs/blogs.component';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
-  {
+    {
     path: '',
-    canActivate: [authGuard, roleGuard],   // ✅ Protect all admin routes
+    component: LayoutComponent,
+    canActivate: [authGuard, roleGuard],  // ✅ Protect all child routes
     data: { role: 'admin' },
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -21,7 +23,8 @@ const routes: Routes = [
       { path: 'generalenq', component: GenralenquiryComponent },
       { path: 'blog', component: BlogsComponent }
     ]
-  }
+  },
+  { path: '**', redirectTo: 'dashboard' }
 ];
 
 @NgModule({

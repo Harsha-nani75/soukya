@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -26,7 +27,12 @@ email = '';
         this.router.navigate(['/']); // fallback
       }
     } else {
-      this.errorMessage = 'Invalid username or password';
+      // this.errorMessage = 'Invalid username or password';
+      Swal.fire({
+      icon: 'error',
+      title: 'Login Failed',
+      text: 'Invalid credentials. Please try again!',
+    });
     }}
     
 }

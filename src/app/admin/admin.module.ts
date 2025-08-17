@@ -13,6 +13,7 @@ import { PackagesComponent } from './packages/packages.component';
 import { BrochersComponent } from './brochers/brochers.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LayoutComponent } from './layout/layout.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     MedicaltourismComponent,
     PackagesComponent,
     BrochersComponent,
-    BlogsComponent
+    BlogsComponent,
+    LayoutComponent
   ],
   imports: [
     CommonModule,

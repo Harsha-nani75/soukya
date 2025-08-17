@@ -1,0 +1,135 @@
+/* Full page split layout */
+.login-container {
+    display: flex;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Left white background (25%) */
+  .login-left {
+    flex: 0 0 25%;
+    background: #ffffff;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Right background image (only desktop, hidden on mobile) */
+  .login-right {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: url('/assets/auth_bg.jpg');
+    background-size: cover;
+  }
+  
+  /* Login card overlay */
+  .login-card {
+    background: white;
+    /* width: 100%; */
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  .login_card_wrapper {
+    position: absolute;
+    top: 50%;
+    left: 22%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 90%;
+    max-width: 480px;
+    padding: 10px;
+  }
+  .form-control {
+    width: 100%;
+    padding: 0.75rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+  }
+  
+  /* Logo */
+  .logo {
+    max-width: 200px;
+    /* margin: 0 auto; */
+  }
+  
+  /* Input wrapper for icon */
+  .input-wrapper {
+    position: relative;
+  }
+  .input-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+  }
+  
+  /* Button */
+  .btn-primary {
+    background-color: #00bcd4;
+    border: none;
+    padding: 0.5rem 1rem !important;
+  }
+  .btn-primary:hover {
+    background-color: #0097a7;
+  }
+  
+  /* Forgot password link */
+  .forgot-text {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .forgot-link {
+    color: #007bff;
+    text-decoration: none;
+  }
+  .forgot-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Checkbox size */
+  input[type="checkbox"] {
+    transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .login-left {
+      flex: 0 0 20%;
+    }
+    .login_card_wrapper {
+      left: 25%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .login-left {
+      display: none; /* Hide left panel */
+    }
+    .login-right {
+      display: none; /* Hide background image on mobile */
+    }
+    .login_card_wrapper {
+      position: relative;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+  

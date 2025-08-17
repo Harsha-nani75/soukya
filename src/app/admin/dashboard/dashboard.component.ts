@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Chart } from 'chart.js';
+import { Chart, ChartConfiguration, ChartOptions } from 'chart.js';
 import { AuthService } from 'src/app/services/auth.service';
 import { DashboardService } from 'src/app/services/dashboard.service';
-import { ChartConfiguration, ChartType } from 'chart.js';
+import {  ChartType } from 'chart.js';
 
 
 @Component({
@@ -13,19 +13,22 @@ import { ChartConfiguration, ChartType } from 'chart.js';
 })
 export class DashboardComponent implements OnInit {
    
-  public barChartOptions: ChartConfiguration['options'] = {
+  public barChartOptions: ChartOptions<'bar'> = {
     responsive: true,
+    plugins: {
+      legend: { display: true },
+    }
   };
 
-  public barChartLabels: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
-  public barChartType: ChartType = 'bar';
-  public barChartLegend = true;
+  // Labels
+  public barChartLabels: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May'];
 
-  public barChartData: ChartConfiguration['data']['datasets'] = [
-    { data: [65, 59, 80, 81, 56, 55], label: 'Sales' },
-    { data: [28, 48, 40, 19, 86, 27], label: 'Expenses' }
+  // Dataset
+  public barChartDatasets: ChartConfiguration<'bar'>['data']['datasets'] = [
+    { data: [10, 20, 30, 40, 50], label: 'Sales' },
+    { data: [15, 25, 35, 45, 55], label: 'Revenue' }
   ];
-// Dashboard data
+  
   dashboardData: any = {
     geriatricEnquiries: 0,
     medicalEnquiries: 0,
