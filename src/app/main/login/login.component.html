@@ -1,0 +1,60 @@
+<img src="../../../assets/sowkhya-health.png" alt="Lucid">
+
+<div class="login-page">
+  <div class="login-left">
+    <div class="login-card">
+      <p class="lead">Login to your account</p>
+
+      <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+        <div class="form-group mb-3 input-icon">
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            [(ngModel)]="email"
+            required
+            placeholder="Your email"
+          />
+          <i class="fa fa-envelope"></i>
+        </div>
+
+        <div class="form-group mb-3 input-icon">
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="password"
+            required
+            placeholder="Password"
+          />
+          <i class="fa fa-lock"></i>
+        </div>
+
+        <div class="form-check mb-3">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="remember"
+            [(ngModel)]="remember"
+          />
+          <label class="form-check-label">Remember me</label>
+        </div>
+
+        <!-- 🔴 Error Message -->
+        <div *ngIf="errorMessage" class="alert alert-danger text-center">
+          {{ errorMessage }}
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 mb-3">
+          LOGIN
+        </button>
+
+        <div class="bottom text-center">
+          <a routerLink="/forgot-password">Forgot Your Password?</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="login-right"></div>
+</div>
