@@ -1,27 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { GenralenquiryComponent } from './genralenquiry/genralenquiry.component';
-import { authGuard } from '../services/auth.guard';
-import { roleGuard } from '../services/role.guard';
-import { MedicaltourismComponent } from './medicaltourism/medicaltourism.component';
-import { GenticcareComponent } from './genticcare/genticcare.component';
-import { BlogsComponent } from './blogs/blogs.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    canActivate: [authGuard, roleGuard],   // ✅ Protect all admin routes
-    data: { role: 'admin' },
-    children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'medicaltourism', component: MedicaltourismComponent },
-      { path: 'gentic', component: GenticcareComponent },
-      { path: 'generalenq', component: GenralenquiryComponent },
-      { path: 'blog', component: BlogsComponent }
-    ]
-  }
+    { path: '', component: DashboardComponent },
+  
 ];
 
 @NgModule({
