@@ -13,9 +13,12 @@ import { EldercareComponent } from './eldercare/eldercare.component';
 import { BlogComponent } from './blog/blog.component';
 import { FormsModule } from '@angular/forms';
 import { MedicalTourismComponent } from './medicaltourism/medical-tourism.component';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
+    HeaderComponent,
     HomeComponent,
     NavbarComponent,
     LoginComponent,
@@ -24,7 +27,9 @@ import { MedicalTourismComponent } from './medicaltourism/medical-tourism.compon
     FooterComponent,
     EldercareComponent,
     MedicalTourismComponent,
-    BlogComponent
+    BlogComponent,
+    MainLayoutComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,

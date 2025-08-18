@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chart, ChartConfiguration, ChartOptions } from 'chart.js';
 import { AuthService } from 'src/app/services/auth.service';
-import { DashboardService } from 'src/app/services/dashboard.service';
+// import { DashboardService } from 'src/app/services/dashboard.service';
 import {  ChartType } from 'chart.js';
 
 
@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
     activeUsers: [],
     pageViews: []
   };
- constructor(public auth: AuthService, private router: Router,private dashboardService: DashboardService) {}
+ constructor(public auth: AuthService, private router: Router) {}
    
   ngOnInit():void {
      this.loadDashboard();

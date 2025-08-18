@@ -1,0 +1,84 @@
+/* Header styling */
+.main-header {
+    background: transparent;
+    padding: 10px 0;
+  }
+  
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Logo */
+  .logo img {
+    width: 200px;
+  }
+  
+  /* Middle buttons */
+  .header-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .btn {
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+  
+  .blue-btn {
+    background: #2d6d9a;
+    border: 1px solid #2d6d9a;
+  }
+  
+  .blue-btn:hover {
+    background: #255a80;
+  }
+  
+  .orange-btn {
+    background: #e9653c;
+    border: 1px solid #e9653c;
+  }
+  
+  .orange-btn:hover {
+    background: #c8512f;
+  }
+  
+  /* Right section */
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .phone-btn {
+    border: 1px solid #fff;
+    padding: 8px 15px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 15px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .phone-btn i {
+    font-size: 16px;
+  }
+  
+  .menu-toggle {
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-size: 18px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  

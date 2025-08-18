@@ -7,15 +7,24 @@ import { BlogComponent } from './blog/blog.component';
 // import { MedicaltourismComponent } from './medicaltourism/medicaltourism.component';
 import { EldercareComponent } from './eldercare/eldercare.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 const routes: Routes = [
-   { path: '', component: HomeComponent },
+  {
+    path: '',
+    component: MainLayoutComponent,   
+    children: [
+      { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'about-us', component: AboutUsComponent },
   {path: 'contact-us', component: ContactUsComponent },
   {path: 'eldercare', component: EldercareComponent },
-  // {path: 'medical-tourism', component: MedicaltourismComponent },
-  { path: 'blog', component: BlogComponent }
+  {path:'home', component:HomeComponent},
+  { path: 'blog', component: BlogComponent },
+      { path: '', redirectTo: 'home', pathMatch: 'full' }
+    ]
+  }
+   
   
   
 
