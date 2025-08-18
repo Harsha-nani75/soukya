@@ -1,0 +1,9 @@
+.hero-section {
+    height: 100vh;
+    background: url('your-image.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 60px; /* prevents content hiding behind navbar */
+  }

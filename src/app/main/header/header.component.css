@@ -82,3 +82,89 @@
     cursor: pointer;
   }
   
+
+
+  /* new css */
+
+  .main-nav {
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+  
+  .logo-img {
+    width: 180px;
+  }
+  
+  /* Buttons */
+  .elder-btn {
+    background-color: #2d6d9a !important;
+    border: 1px solid #2d6d9a !important;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 16px;
+    color: #fff !important;
+  }
+  
+  .tourism-btn {
+    background-color: #e9653c !important;
+    border: 1px solid #e9653c !important;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 16px;
+    color: #fff !important;
+  }
+  
+  /* Phone */
+  .phone-btn {
+    font-weight: 600;
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+  }
+  .phone-btn:hover {
+    color: #2d6d9a;
+  }
+  
+  /* Dropdown hover */
+  .elder-dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 5px;
+  }
+  
+  .dropdown-menu {
+    border-radius: 8px;
+    min-width: 140px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  }
+  .dropdown-item {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 15px;
+  }
+  .dropdown-item:hover {
+    background-color: #f5f5f5;
+  }
+
+  .main-nav {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    background: transparent !important;
+    z-index: 1030; /* keep it above content */
+  }
+  
+  /* On scroll */
+  .main-nav.scrolled {
+    background: #fff !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .main-nav .nav-link {
+    color: #fff; /* white text initially */
+    transition: color 0.3s ease;
+  }
+  
+  .main-nav.scrolled .nav-link {
+    color: #000; /* black text after scroll */
+  }
+  
