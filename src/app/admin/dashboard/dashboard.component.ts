@@ -48,7 +48,8 @@ export class DashboardComponent implements OnInit {
   loadDashboard(): void {
     this.dashboardService.getDashboardData().subscribe(data => {
       this.dashboardData = data;
-    });
+    }
+  );
   }
   
 renderCharts(): void {
