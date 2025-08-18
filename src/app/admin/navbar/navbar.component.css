@@ -1,20 +1,27 @@
 /* Navbar Wrapper */
 .custom-navbar {
+  position: sticky;       /* sticky navbar on top */
+  top: 0;
+  z-index: 1050;          /* higher than sidebar */
   background-color: #ffffff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   padding: 0;
-  height: 60px;
+  height: 70px;           /* increased height */
+  display: flex;
+  align-items: center;
 }
 
 /* Left Blue Logo Section */
 .logo-section {
   background-color: #163c60;
   padding: 0 20px;
-  height: 60px;
+  height: 70px;           /* same height as navbar */
+  display: flex;
+  align-items: center;
 }
 
 .logo-img {
-  width: 120px; /* adjust to match screenshot */
+  width: 250px;           /* sidebar width */
   height: auto;
 }
 
@@ -22,14 +29,17 @@
 .profile-image {
   border-radius: 50%;
   object-fit: cover;
+  width: 40px;
+  height: 40px;
 }
 
 /* Welcome Text */
 .user-name {
   font-weight: 600;
-  color: #007bff; /* Blue like in screenshot */
+  color: #007bff;          /* Blue like in screenshot */
   text-decoration: none;
   font-size: 14px;
+  margin-left: 8px;
 }
 
 .user-name:hover {
@@ -41,4 +51,13 @@
   color: #333;
   font-size: 18px;
   padding: 0 10px;
+}
+
+/* Container tweaks */
+.container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  width: 100%;
 }

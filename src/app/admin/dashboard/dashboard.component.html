@@ -1,47 +1,76 @@
+<div class="container-fluid py-3">
+  <div class="row g-3">
 
+    <!-- Left cards -->
+    <div class="col-md-3">
 
- <div class="container-fluid">
-
-  <!-- Cards -->
-  <div class="row">
-    <div class="col-md-3" *ngFor="let card of [
-      {title: 'Geriatric Enquires', value: dashboardData.geriatricEnquiries, icon:'fa-user'},
-      {title: 'Medical Tourism Enquires', value: dashboardData.medicalEnquiries, icon:'fa-hospital-o'},
-      {title: 'Total Visitors', value: dashboardData.totalVisitors, icon:'fa-eye'},
-      {title: 'Revenue', value: dashboardData.revenue | currency:'INR'},
-      {title: 'Total Patients', value: dashboardData.totalPatients, icon:'fa-users'},
-      {title: 'General Enquiries', value: dashboardData.generalEnquiries, icon:'fa-comments'}
-    ]">
-      <div class="card p-3 shadow-sm mb-3">
-        <i class="fa {{card.icon}} fa-2x"></i>
-        <h6>{{card.title}}</h6>
-        <h3>{{card.value}}</h3>
+      <!-- Card 1: Geriatric + Medical Enquiries -->
+      <div class="card p-3 mb-3">
+        <div class="d-flex align-items-center mb-2">
+          <i class="fa-solid fa-user me-3 fa-lg"></i>
+          <div>
+            <div>Geriatric Enquiries</div>
+            <h5>{{ data?.geriatricEnq || 0 }}</h5>
+          </div>
+        </div>
+        <hr>
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-people-group me-3 fa-lg"></i>
+          <div>
+            <div>Medical Tourism Enquiries</div>
+            <h5>{{ data?.medicalTourismEnq || 0 }}</h5>
+          </div>
+        </div>
       </div>
-    </div>
+
+      <!-- Card 2: Visitors + Revenue -->
+
+      <div class="card p-3 mb-3">
+  <div class="mb-2">
+    <i class="fa-solid fa-calendar-days me-2"></i>Visitors
   </div>
 
-  <!-- Total Enquiries Chart -->
-  <div class="card mt-4 p-3">
-    <h5>Total Enquiries</h5>
-    <canvas id="enquiriesChart"></canvas>
+  <!-- Show only one visitor mode at a time -->
+  <div>
+    <small>{{ currentVisitorLabel }}:</small>
+    <b>{{ currentVisitorValue }}</b>
   </div>
 
-  <!-- Google Analytics -->
-  <h3 class="mt-4">Google Analytics Dashboard</h3>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="card p-3">
-        <h6>Active Users in the Last 7 Days</h6>
-        <canvas id="activeUsersChart"></canvas>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card p-3">
-        <h6>Screen Page Views in the Last 7 Days</h6>
-        <canvas id="pageViewsChart"></canvas>
-      </div>
+  <hr>
+  <div class="d-flex align-items-center">
+    <i class="fa-solid fa-building-columns me-3 fa-lg"></i>
+    <div>
+      <div>Revenue</div>
+      <h5>₹{{ data?.revenue || 0 }}</h5>
     </div>
   </div>
 </div>
 
+      <!-- Card 3: Patients + General Enquiries -->
+      <div class="card p-3 mb-3">
+        <div class="mb-2">
+          <i class="fa-solid fa-user-md me-2"></i>Total Patients
+        </div>
+        <h5>{{ data?.totalPatients || 0 }}</h5>
+        <hr>
+        <div>
+          <i class="fa-solid fa-face-smile me-2"></i>General Enquiries
+        </div>
+        <h5>{{ data?.generalEnq || 0 }}</h5>
+      </div>
 
+    </div>
+
+    <!-- Right chart -->
+    <div class="col-md-9">
+      <div class="card p-3 h-100">
+        <h5 class="mb-3">Total Enquiries</h5>
+        <canvas baseChart
+          [data]="chartData"
+          [options]="chartOptions"
+          [type]="'line'">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>

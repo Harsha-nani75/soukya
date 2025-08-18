@@ -8,6 +8,8 @@ import { MedicaltourismComponent } from './medicaltourism/medicaltourism.compone
 import { GenticcareComponent } from './genticcare/genticcare.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { LayoutComponent } from './layout/layout.component';
+import { PackagesComponent } from './packages/packages.component';
+import { PtViewComponent } from './pt-view/pt-view.component';
 
 const routes: Routes = [
     {
@@ -20,6 +22,8 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'medicaltourism', component: MedicaltourismComponent },
       { path: 'gentic', component: GenticcareComponent },
+      { path: 'ptview/:id', component: PtViewComponent },
+      { path: 'packages', component: PackagesComponent },
       { path: 'generalenq', component: GenralenquiryComponent },
       { path: 'blog', component: BlogsComponent }
     ]

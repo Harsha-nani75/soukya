@@ -1,1 +1,127 @@
-<p>packages works!</p>
+<div class="container-fluid py-3">
+
+  <div class="d-flex align-items-center justify-content-between mb-2">
+    <h4 class="mb-0">Packages</h4>
+    <!-- <button class="btn btn-primary" (click)="seedDemo()">
+      <i class="fa-solid fa-wand-magic-sparkles me-2"></i>Demo data
+    </button> -->
+  </div>
+
+  <!-- Card: Add / Edit -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="card-title mb-0">{{ mode === 'create' ? 'Add Package' : 'Edit Package' }}</h5>
+        <!-- <button type="button" class="btn btn-outline-primary">
+          <i class="fa-solid fa-plus me-2"></i>Add Privileges
+        </button> -->
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <div class="row g-3">
+          <div class="col-md-3">
+            <label class="form-label">Service</label>
+            <select class="form-select" formControlName="service">
+              <option value="" disabled>- SERVICE SELECT -</option>
+              <option *ngFor="let s of services" [value]="s">{{ s }}</option>
+            </select>
+            <div class="invalid-feedback d-block" *ngIf="form.get('service')?.touched && form.get('service')?.invalid">
+              Service is required.
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <label class="form-label">Package Name</label>
+            <input class="form-control" formControlName="name" placeholder="Package Name" />
+            <div class="invalid-feedback d-block" *ngIf="form.get('name')?.touched && form.get('name')?.invalid">
+              Package name is required.
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <label class="form-label">Price (MONTHLY)</label>
+            <input type="number" class="form-control" formControlName="priceMonthly" placeholder="Price (MONTHLY)" />
+          </div>
+
+          <div class="col-md-3">
+            <label class="form-label">Price (Yearly)</label>
+            <input type="number" class="form-control" formControlName="priceYearly" placeholder="Price (Yearly)" />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">About Package</label>
+            <textarea rows="3" class="form-control" formControlName="description1" placeholder="About Package"></textarea>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Terms & Conditions</label>
+            <textarea rows="3" class="form-control" formControlName="description2" placeholder="Terms & Conditions"></textarea>
+          </div>
+
+          <div class="col-12 d-flex gap-2">
+            <button type="submit" class="btn btn-success">
+              <i class="fa-solid" [class.fa-floppy-disk]="mode==='create'" [class.fa-rotate]="mode==='edit'"></i>
+              <span class="ms-2">{{ mode === 'create' ? 'Save' : 'Update' }}</span>
+            </button>
+            <button type="button" class="btn btn-secondary" *ngIf="mode==='edit'" (click)="cancelEdit()">
+              <i class="fa-solid fa-ban me-2"></i>Cancel
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- List -->
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <div class="row g-2 align-items-center mb-3">
+        <div class="col-auto">
+          <label class="col-form-label fw-semibold">Search:</label>
+        </div>
+        <div class="col-12 col-md-4">
+          <input class="form-control" [(ngModel)]="search" (input)="applyFilter()" placeholder="Search packages..." />
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead class="table-light">
+            <tr>
+              <th style="width: 80px;">S.No</th>
+              <th>Service</th>
+              <th>Name</th>
+              <th>Price (MONTHLY)</th>
+              <th>Price (Yearly)</th>
+              <th style="width: 130px;" class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of filtered; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ item.service }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.priceMonthly == null ? '-' : (item.priceMonthly | currency:'INR':'symbol':'1.0-0') }}</td>
+              <td>{{ item.priceYearly  == null ? '-' : (item.priceYearly  | currency:'INR':'symbol':'1.0-0') }}</td>
+              <td class="text-center">
+                <button class="btn btn-sm btn-outline-primary me-1" (click)="view(item)" title="View">
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-warning me-1" (click)="edit(item)" title="Edit">
+                  <i class="fa-solid fa-pen"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-danger" (click)="remove(item)" title="Delete">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr *ngIf="!filtered.length">
+              <td colspan="6" class="text-center text-muted py-4">No packages found</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

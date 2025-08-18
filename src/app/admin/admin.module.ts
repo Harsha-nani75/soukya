@@ -14,6 +14,10 @@ import { BrochersComponent } from './brochers/brochers.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutComponent } from './layout/layout.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgChartsModule } from 'ng2-charts';
+import { PtViewComponent } from './pt-view/pt-view.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +31,13 @@ import { LayoutComponent } from './layout/layout.component';
     PackagesComponent,
     BrochersComponent,
     BlogsComponent,
-    LayoutComponent
+    LayoutComponent,
+    PtViewComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    HttpClientModule
+    HttpClientModule,NgxPaginationModule,FormsModule,NgChartsModule,ReactiveFormsModule
   ]
 })
 export class AdminModule { }

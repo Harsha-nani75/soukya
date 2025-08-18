@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Chart, ChartConfiguration, ChartOptions } from 'chart.js';
+import { Chart, ChartConfiguration, ChartData, ChartOptions } from 'chart.js';
 import { AuthService } from 'src/app/services/auth.service';
-// import { DashboardService } from 'src/app/services/dashboard.service';
+import { DashboardService } from 'src/app/services/dashboard.service';
 import {  ChartType } from 'chart.js';
+import { interval, subscribeOn, Subscription } from 'rxjs';
 
 
 @Component({
@@ -12,17 +13,21 @@ import {  ChartType } from 'chart.js';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-   
-  public barChartOptions: ChartOptions<'bar'> = {
+   data: any = {};
+  chartData!: ChartData<'line'>;
+  chartOptions: ChartOptions<'line'> = {
     responsive: true,
-    plugins: {
-      legend: { display: true },
-    }
+    plugins: { legend: { position: 'top' } }
   };
+    sub!: Subscription;
 
-  // Labels
-  public barChartLabels: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May'];
+  // Visitors cycle
+  visitorModes = ['today', 'monthly', 'yearly', 'total'];
+  currentModeIndex = 0;
+  currentVisitorLabel = 'Today';
+  currentVisitorValue = 0;
 
+<<<<<<< Updated upstream
   // Dataset
   public barChartDatasets: ChartConfiguration<'bar'>['data']['datasets'] = [
     { data: [10, 20, 30, 40, 50], label: 'Sales' },
@@ -50,40 +55,77 @@ export class DashboardComponent implements OnInit {
   //     this.dashboardData = data;
   //   }
   // );
+=======
+  constructor(private dashboardService: DashboardService) {}
+
+  ngOnInit(): void {
+    this.dashboardService.getDashboardData().subscribe(res => {
+      this.data = res;
+      this.chartData = {
+        labels: res.chart.labels,
+        datasets: [
+          {
+            label: 'Geriatric Enquiries',
+            data: res.chart.geriatric,
+            borderColor: 'green',
+            fill: false
+          },
+          {
+            label: 'Medical Enquiries',
+            data: res.chart.medical,
+            borderColor: 'orange',
+            fill: false
+          },
+          {
+            label: 'Total Patients',
+            data: res.chart.patients,
+            borderColor: 'red',
+            fill: false
+          }
+        ]
+      };
+    });
+
+     this.sub = this.dashboardService.getDashboardData().subscribe(res => {
+      this.data = res;
+      this.updateVisitorValue(); // keep updated
+    }
+    
+  );
+   // Cycle every 5 sec
+    interval(5000).subscribe(() => {
+      this.currentModeIndex = (this.currentModeIndex + 1) % this.visitorModes.length;
+      this.updateVisitorValue();
+    });
+
+    
+  }
+
+  updateVisitorValue() {
+    switch (this.visitorModes[this.currentModeIndex]) {
+      case 'today':
+        this.currentVisitorLabel = 'Today';
+        this.currentVisitorValue = this.data?.todayVisitors || 0;
+        break;
+      case 'monthly':
+        this.currentVisitorLabel = 'Monthly';
+        this.currentVisitorValue = this.data?.monthlyVisitors || 0;
+        break;
+      case 'yearly':
+        this.currentVisitorLabel = 'Yearly';
+        this.currentVisitorValue = this.data?.yearlyVisitors || 0;
+        break;
+      case 'total':
+        this.currentVisitorLabel = 'Total';
+        this.currentVisitorValue = this.data?.totalVisitors || 0;
+        break;
+    }
+>>>>>>> Stashed changes
   }
   
-renderCharts(): void {
-  // Enquiries chart
-  new Chart('enquiriesChart', {
-    type: 'line',
-    data: {
-      labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
-      datasets: [
-        { label: 'Geriatric Enquiries', data: this.dashboardData.geriatricMonthly, borderColor: 'green', fill: false },
-        { label: 'Medical Enquiries', data: this.dashboardData.medicalMonthly, borderColor: 'orange', fill: false },
-        { label: 'Patients', data: this.dashboardData.patientMonthly, borderColor: 'red', fill: false }
-      ]
-    }
-  });
 
-  // Active Users chart
-  new Chart('activeUsersChart', {
-    type: 'line',
-    data: {
-      labels: this.dashboardData.last7Days,
-      datasets: [{ label: 'Active Users', data: this.dashboardData.activeUsers, borderColor: 'blue', fill: false }]
-    }
-  });
-
-  // Page Views chart
-  new Chart('pageViewsChart', {
-    type: 'line',
-    data: {
-      labels: this.dashboardData.last7Days,
-      datasets: [{ label: 'Page Views', data: this.dashboardData.pageViews, borderColor: 'cyan', fill: false }]
-    }
-  });
-
-}
+  ngOnDestroy(): void {
+    if (this.sub) this.sub.unsubscribe();
+  }
 
 }
