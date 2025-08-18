@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chart, ChartConfiguration, ChartData, ChartOptions } from 'chart.js';
 import { AuthService } from 'src/app/services/auth.service';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import {  ChartType } from 'chart.js';
-import { subscribeOn, Subscription } from 'rxjs';
+import { interval, subscribeOn, Subscription } from 'rxjs';
 
 
 @Component({
@@ -12,14 +12,16 @@ import { subscribeOn, Subscription } from 'rxjs';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
-   data: any = {};
+export class DashboardComponent implements OnInit, OnDestroy {
+     data: any = {};
   chartData!: ChartData<'line'>;
   chartOptions: ChartOptions<'line'> = {
     responsive: true,
     plugins: { legend: { position: 'top' } }
   };
-    sub!: Subscription;
+
+  sub!: Subscription;
+  visitorTimerSub!: Subscription;
 
   // Visitors cycle
   visitorModes = ['today', 'monthly', 'yearly', 'total'];
@@ -30,41 +32,18 @@ export class DashboardComponent implements OnInit {
   constructor(private dashboardService: DashboardService) {}
 
   ngOnInit(): void {
-    this.dashboardService.getDashboardData().subscribe(res => {
+    // Subscribe to dashboard data
+    this.sub = this.dashboardService.getDashboardData().subscribe(res => {
       this.data = res;
-      this.chartData = {
-        labels: res.chart.labels,
-        datasets: [
-          {
-            label: 'Geriatric Enquiries',
-            data: res.chart.geriatric,
-            borderColor: 'green',
-            fill: false
-          },
-          {
-            label: 'Medical Enquiries',
-            data: res.chart.medical,
-            borderColor: 'orange',
-            fill: false
-          },
-          {
-            label: 'Total Patients',
-            data: res.chart.patients,
-            borderColor: 'red',
-            fill: false
-          }
-        ]
-      };
+      this.updateVisitorValue();
+      this.updateChartData();
     });
 
-     this.sub = this.dashboardService.getDashboardData().subscribe(res => {
-      this.data = res;
-      this.updateVisitorValue(); // keep updated
-    }
-    
-  );
-
-    
+    // Start visitor rotation every 5 seconds
+    this.visitorTimerSub = interval(5000).subscribe(() => {
+      this.currentModeIndex = (this.currentModeIndex + 1) % this.visitorModes.length;
+      this.updateVisitorValue();
+    });
   }
 
   updateVisitorValue() {
@@ -87,10 +66,35 @@ export class DashboardComponent implements OnInit {
         break;
     }
   }
-  
+
+  updateChartData() {
+    this.chartData = {
+      labels: this.data.chart?.labels || [],
+      datasets: [
+        {
+          label: 'Geriatric Enquiries',
+          data: this.data.chart?.geriatric || [],
+          borderColor: 'green',
+          fill: false
+        },
+        {
+          label: 'Medical Enquiries',
+          data: this.data.chart?.medical || [],
+          borderColor: 'orange',
+          fill: false
+        },
+        {
+          label: 'Total Patients',
+          data: this.data.chart?.patients || [],
+          borderColor: 'red',
+          fill: false
+        }
+      ]
+    };
+  }
 
   ngOnDestroy(): void {
     if (this.sub) this.sub.unsubscribe();
+    if (this.visitorTimerSub) this.visitorTimerSub.unsubscribe();
   }
-
 }

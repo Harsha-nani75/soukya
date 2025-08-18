@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DashboardService {
-  private apiUrl = 'http://localhost:3000/api/dashboard'; // replace with your backend URL
+//  private apiUrl = 'http://localhost:3000/api/dashboard'; // replace with your backend URL
 
   
 
