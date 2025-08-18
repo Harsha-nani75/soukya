@@ -1,0 +1,232 @@
+footer {
+    background: #333333;
+    height: 100%;
+    padding: 10px 0px 10px 0px;
+    clear: both;
+    color: #fff;
+}
+  
+  .footer {
+    background: #2d2d2d;
+  
+    padding: 20px 50px;
+  }
+  
+  .download {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+  }
+  
+  .download h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .download-btn {
+    background: #ff2e2e;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  .about {
+    flex: 1;
+    min-width: 220px;
+    max-width: 280px;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-family: cursive;
+  }
+  .logo span {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+  }
+  
+  .about p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .social-icons a {
+    color: #fff;
+    margin-right: 10px;
+    font-size: 18px;
+  }
+  
+  .quick-links {
+    flex: 1;
+    min-width: 150px;
+  }
+  
+  .quick-links h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .quick-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .quick-links ul li {
+    margin-bottom: 6px;
+  }
+  
+  .quick-links ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .quick-links ul li a:hover {
+    color: #fff;
+  }
+  
+  .contact {
+    flex: 1;
+    min-width: 220px;
+    font-size: 14px;
+  }
+  
+  .contact p {
+    margin: 8px 0;
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid #444;
+    text-align: center;
+    margin-top: 15px;
+    padding-top: 10px;
+    font-size: 14px;
+  }
+  
+  .footer-bottom .brand {
+    color: #1e90ff;
+    font-weight: bold;
+  }
+  a{
+    color: #fff;
+    text-decoration: none !important;
+  }
+  ul {
+    list-style: none;   
+    padding: 0;         
+    margin: 0;          
+  }
+ .left_31{
+  left:-40px;
+ }
+
+ .floating_btn {
+  position: fixed;
+ bottom: 8px;
+ right: 0px;
+ width: 100px;
+ height: 100px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ z-index: 99;
+}
+
+.floating_btn1 {
+  position: fixed;
+ bottom: 80px;
+ right: 0px;
+ width: 100px;
+ height: 100px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ z-index: 99;
+}
+
+@media only screen and (max-width: 480px) {
+ /*#mybutton {*/
+ /*    display: none;*/
+ /*}*/
+ .floating_btn1 {
+     bottom:0px;
+ }
+ .floating_btn {
+     right:0px;
+     bottom:80px !important;
+ }
+ .tb-headings {
+ color: #000;
+ font-size: 16px;
+ font-weight: 500;
+}
+}
+@keyframes pulsing {
+to {
+ box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
+}
+}
+.contact_icon {
+  background-color: #42db87;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  font-size:30px;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translatey(0px);
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 0 0 #42db87;
+  -webkit-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  -moz-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  -ms-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  font-weight: normal;
+  font-family: sans-serif;
+  text-decoration: none !important;
+  transition: all 300ms ease-in-out;
+}
+.contact_iconsh {
+  background-color: #2d6d9a;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  font-size:30px;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translatey(0px);
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 0 0 #42db87;
+  -webkit-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  -moz-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  -ms-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  font-weight: normal;
+  font-family: sans-serif;
+  text-decoration: none !important;
+  transition: all 300ms ease-in-out;
+}
+  
