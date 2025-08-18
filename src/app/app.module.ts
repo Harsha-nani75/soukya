@@ -17,7 +17,6 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,HttpClientModule,NgChartsModule
   ],
-  
   providers: [],
   bootstrap: [AppComponent]
 })
