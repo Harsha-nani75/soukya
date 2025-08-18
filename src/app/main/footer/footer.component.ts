@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -8,6 +8,29 @@ import { Component } from '@angular/core';
 export class FooterComponent {
  url:string = window.location.href;
 title = document.title;
+
+packagesButton = true;
+
+private listenerFn: (() => void) | undefined;
+constructor(private renderer: Renderer2) {}
+
+ngAfterViewInit(): void {
+  this.listenerFn = this.renderer.listen(document, 'shown.bs.tab', (event: any) => {
+    // Remove active_tab from all
+    document.querySelectorAll('#enquiryTabs .nav-link').forEach(btn => {
+      btn.classList.remove('active_tab');
+    });
+
+    // Add to the one just activated
+    event.target.classList.add('active_tab');
+  });
+}
+
+ngOnDestroy(): void {
+  if (this.listenerFn) {
+    this.listenerFn(); // cleanup listener
+  }
+}
 
 onShare(){
     if (navigator.share) {
