@@ -2,9 +2,14 @@
 <header class="main-nav shadow-sm fixed-top">
   <div class="container d-flex align-items-center justify-content-between py-2">
     <!-- Logo -->
-    <a class="nav-logo" routerLink="/">
-      <img src="https://soukhya.health/assets/images/sowkhya-health-white.png" alt="Soukhya Health" class="logo-img" />
-    </a>
+<!-- Logo -->
+<a class="nav-logo" routerLink="/">
+  <img src="https://soukhya.health/assets/images/sowkhya-health-white.png"
+       alt="Soukhya Health" class="logo-img" [class.d-none]="scrolled" />
+  <img src="assets/sowkhya-health.png"
+       alt="Soukhya Health" class="logo-img" [class.d-none]="!scrolled" />
+</a>
+<!-- ...existing code... -->
 
     <!-- Buttons & Contact -->
     <div class="d-flex align-items-center gap-3">
@@ -48,9 +53,9 @@
         <i class="bi bi-telephone-fill me-2"></i>+91-812-111-3711
       </a>
     </div>
-    <div class="hamburger-btn" (click)="toggleMenu()">
-      <i class="bi bi-list"></i>
-    </div>
+<div class="hamburger-btn" (click)="toggleMenu()" [ngClass]="{'scrolled-icon': scrolled}">
+  <i class="bi bi-list"></i>
+</div>
   </div>
 
 <!-- Sidebar Menu -->

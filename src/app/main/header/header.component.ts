@@ -8,13 +8,14 @@ import * as AOS from 'aos';
 export class HeaderComponent {
   menuOpen = false;
   showDropdown = false;
-
+scrolled = false;
   ngOnInit(){
     AOS.init();
   }
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const navbar = document.querySelector('.main-nav');
+      this.scrolled = window.scrollY > 50;
     if (window.scrollY > 50) {
       navbar?.classList.add('scrolled');
     } else {
