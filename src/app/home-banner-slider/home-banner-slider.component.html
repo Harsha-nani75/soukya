@@ -1,45 +1,46 @@
 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner bg_img">
+    <div 
+      class="carousel-item" 
+      *ngFor="let slide of slides; let i = index"
+      [class.active]="activeSlide === slide.id"
+      (click)="setActive(slide.id)"
+    >
+      <img 
+        [src]="slide.image"
+        class="d-block w-100"
+        [alt]="slide.alt"
+        [attr.data-aos]="slide.aosImage.type"
+        [attr.data-aos-duration]="slide.aosImage.duration"
+      >
 
-    <!-- Elder Care Slide -->
-    <div class="carousel-item active" (click)="setActive('elder')">
-      <img src="assets/home/geriatric-care.jpg" class="d-block w-100" alt="elder care">
-      <div class="carousel-caption custom-caption-left">
-        <h5 class="caption-heading fw-semibold fs-6 fs-md-5 fs-lg-4 text-primary">Compassionate Care for Seniors</h5>
-        <p class="caption-text fw-normal fs-5 fs-md-4 fs-lg-3 fs-xl-2">Elderly Care Providing Compassionate Support and Specialized Services.</p>
+      <div 
+        class="carousel-caption custom-caption-left"
+        [attr.data-aos]="slide.aosCaption.type"
+        [attr.data-aos-delay]="slide.aosCaption.delay"
+      >
+        <h5 class="caption-heading fw-semibold fs-6 fs-md-5 fs-lg-4" [ngClass]="slide.headingClass">
+          {{ slide.heading }}
+        </h5>
+        <p class="caption-text fw-normal fs-5 fs-md-4 fs-lg-3 fs-xl-2">
+          {{ slide.text }}
+        </p>
         <a href="#" class="btn caption-btn read_more_br">READ MORE</a>
       </div>
-      <div class="overlay"></div>
-    </div>
 
-    <!-- Medical Tourism Slide -->
-    <div class="carousel-item" (click)="setActive('medical')">
-      <img src="assets/home/medical-tourism.jpg" class="d-block w-100" alt="medical tourism">
-      <div class="carousel-caption custom-caption-left">
-        <h5 class="caption-heading fw-semibold fs-6 fs-md-5 fs-lg-4 text-danger">Medical Tourism</h5>
-        <p class="caption-text fw-normal fs-5 fs-md-4 fs-lg-3 fs-xl-2">Medical Tourism Seeking Treatment Beyond Borders for Better Care.</p>
-        <a href="#" class="btn caption-btn read_more_br">READ MORE</a>
-      </div>
       <div class="overlay"></div>
     </div>
   </div>
 
-  <!-- Right Side Constant Block -->
+  <!-- Right captions -->
   <div class="constant-right">
-    <div class="caption-right" [class.active]="activeSlide === 'medical'">
-      <h6 class="caption-subtitle text-danger">MEDICAL TOURISM</h6>
-      <p class="caption-side-text">
-        Quality Healthcare, Affordable Prices.<br>
-        Explore Treatments with Expert Guidance
-      </p>
-    </div>
-
-    <div class="caption-right" [class.active]="activeSlide === 'elder'">
-      <h6 class="caption-subtitle text-primary">ELDER CARE</h6>
-      <p class="caption-side-text">
-        Specialized Care for Seniors<br>
-        Ensuring Comfort and Quality of Life
-      </p>
+    <div 
+      class="caption-right" 
+      *ngFor="let slide of slides"
+      [class.active]="activeSlide === slide.id"
+    >
+      <h6 class="caption-subtitle" [ngClass]="slide.headingClass">{{ slide.sideTitle }}</h6>
+      <p class="caption-side-text" [innerHTML]="slide.sideText"></p>
     </div>
   </div>
 </div>

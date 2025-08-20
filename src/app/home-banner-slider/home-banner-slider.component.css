@@ -1,4 +1,17 @@
+.banner-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.banner-item {
+  position: relative;
+  min-height: 633px;
+}
+
+
+
 /* Left caption */
+
 .custom-caption-left {
     position: absolute;
     top: 55%;
@@ -74,4 +87,5 @@
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
     transform-origin: 50% 50% 0px;
   }
+  
   

@@ -139,11 +139,48 @@ height: 55px;
 .play_icon{
   width: 80%;
 }
-.testmonials-main{
+/* .testmonials-main{
   width: 100%;
     max-height: 200px;
     overflow: auto;
+} */
+.testimonial-box {
+  background-color: #3156a4;
+  padding: 10px;
+  height: 300px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: hidden;
+  position: relative;
 }
+
+.testmonials-main {
+  height: 230px; /* adjust as needed */
+  overflow-y: auto;
+  padding-right: 8px; /* spacing for scrollbar */
+}
+
+/* Scrollbar style for Chrome, Edge, Safari */
+.testmonials-main::-webkit-scrollbar {
+  width: 6px;
+}
+
+.testmonials-main::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+.testmonials-main::-webkit-scrollbar-thumb {
+  background-color: #00bcd4; /* scrollbar color */
+  border-radius: 10px;
+}
+
+/* Scrollbar style for Firefox */
+.testmonials-main {
+  scrollbar-width: thin;
+  scrollbar-color: #00bcd4 #fff;
+}
+
 .learn_more{
   display: inline-block;
     font-family: var(--base-font);

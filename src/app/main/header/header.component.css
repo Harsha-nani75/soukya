@@ -14,7 +14,9 @@
   .logo img {
     width: 200px;
   }
-  
+  .nav-logo{
+    color: transparent !important;
+  }
   /* Middle buttons */
   .header-links {
     display: flex;
@@ -87,11 +89,13 @@
   /* new css */
 
   .main-nav {
-    background: #fff;
+    background: transparent; /* default */
     position: sticky;
     top: 0;
     z-index: 999;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
+  
   
   .logo-img {
     width: 180px;
@@ -127,25 +131,34 @@
     color: #2d6d9a;
   }
   
-  /* Dropdown hover */
-  .elder-dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 5px;
+  .elder-dropdown .dropdown-menu {
+    display: none;
+    margin-top: 55px;
+    border-radius: 8px;
+    min-width: 100%;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
+  }
+
+  .elder-dropdown .dropdown-menu.show::before {
+    content: "";
+    position: absolute;
+    top: -55px;  
+    left: 0;
+    width: 100%;
+    height: 55px; 
   }
   
-  .dropdown-menu {
-    border-radius: 8px;
-    min-width: 140px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+ .elder-dropdown .dropdown-menu.show {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+  } 
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-  .dropdown-item {
-    font-size: 15px;
-    font-weight: 500;
-    padding: 10px 15px;
-  }
-  .dropdown-item:hover {
-    background-color: #f5f5f5;
-  }
+  
+  
 
   .main-nav {
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -167,5 +180,88 @@
   .main-nav.scrolled .nav-link {
     color: #000; /* black text after scroll */
   }
+
+  
+   /* HAMBURGER MENU BUTTON  */
+   .hamburger-btn {
+    width: 45px;
+    height: 45px;
+    border: 2px solid #fff; /* white border like in screenshot */
+    border-radius: 8px;     /* rounded corners */
+    background: transparent;
+    color: #fff;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger-btn:hover {
+    background: rgba(255, 255, 255, 0.1); /* subtle hover effect */
+  }
+  
+  /* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.4s ease-in-out;
+  z-index: 1500;
+  padding: 20px;
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+/* Close Button */
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  float: right;
+  cursor: pointer;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 40px;
+}
+
+.nav-links li {
+  margin: 15px 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+/* Phone Button */
+.phone-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #e63946;
+  color: #fff !important;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+  
   
   

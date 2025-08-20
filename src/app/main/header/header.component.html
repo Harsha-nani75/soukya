@@ -3,31 +3,40 @@
   <div class="container d-flex align-items-center justify-content-between py-2">
     <!-- Logo -->
     <a class="nav-logo" routerLink="/">
-      <img src="https://soukhya.health/assets/images/sowkhya-health-white.png" 
-           alt="Soukhya Health" class="logo-img" />
+      <img src="https://soukhya.health/assets/images/sowkhya-health-white.png" alt="Soukhya Health" class="logo-img" />
     </a>
 
     <!-- Buttons & Contact -->
     <div class="d-flex align-items-center gap-3">
-      
+
       <!-- Elder Care Dropdown -->
-      <div class="btn-group elder-dropdown">
-        <a routerLink="/elder-care" 
-           class="btn elder-btn dropdown-toggle" 
-           data-bs-toggle="dropdown" aria-expanded="false">
-          Elder Care Services
-        </a>
-        <ul class="dropdown-menu">
-          <li>
-            <a class="dropdown-item" routerLink="/elder-care-hyderabad">
-              <img src="https://soukhya.health/assets/images/home/hyderabad.png" 
-                   alt="Hyderabad" width="20" class="me-2">
-              Hyderabad
-            </a>
-          </li>
-          <!-- Add more cities here if needed -->
-        </ul>
-      </div>
+      <div class="btn-group elder-dropdown"
+     (mouseenter)="showDropdown=true"
+     (mouseleave)="showDropdown=false">
+
+  <!-- Main Button -->
+  <a class="btn elder-btn"
+     [routerLink]="'/eldercare'"
+     (click)="showDropdown = !showDropdown">
+    ELDER CARE SERVICES
+  </a>
+
+  <!-- Dropdown -->
+  <ul class="dropdown-menu"
+      [class.show]="showDropdown"
+      (mouseenter)="showDropdown=true"
+      (mouseleave)="showDropdown=false">
+    <li>
+      <a class="dropdown-item" routerLink="/eldercare">
+        <img src="https://soukhya.health/assets/images/home/hyderabad.png"
+             alt="Hyderabad" width="20" class="me-2">
+        Hyderabad
+      </a>
+    </li>
+  </ul>
+</div>
+
+      
 
       <!-- Medical Tourism Button -->
       <a routerLink="/medical-tourism" class="btn tourism-btn">
@@ -39,29 +48,33 @@
         <i class="bi bi-telephone-fill me-2"></i>+91-812-111-3711
       </a>
     </div>
-
-    <!-- Navbar Toggle for Mobile -->
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon" style="background-color: black;"></span>
-      <!-- <span class="glyphicon glyphicon-menu-hamburger"></span> -->
-    </button>
+    <div class="hamburger-btn" (click)="toggleMenu()">
+      <i class="bi bi-list"></i>
+    </div>
   </div>
 
-  <!-- Navigation Menu -->
-  <nav class="navbar" id="navbarNav">
-    <div class="collapse navbar-collapse justify-content-center" >
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" routerLink="/">Home</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/about-us">Who We Are</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/elder-care">Elder Care</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/elder-care-hyderabad">Elder Care Hyderabad</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/medical-tourism">Medical Tourism</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/blog">Blog</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/download">Downloads</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/testimonials">Testimonials</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/contact-us">Contact Us</a></li>
-      </ul>
-    </div>
-  </nav>
+<!-- Sidebar Menu -->
+<div class="sidebar" [class.active]="menuOpen" data-aos="fade-left" id="menuList">
+  <button class="close-btn" (click)="toggleMenu()">
+    <i class="bi bi-x-lg"></i>
+  </button>
+  <ul class="nav-links">
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/about-us">Who We Are</a></li>
+    <li><a routerLink="/elder-care">Elder Care</a></li>
+    <li><a routerLink="/elder-care-hyderabad">Elder Care Hyderabad</a></li>
+    <li><a routerLink="/medical-tourism">Medical Tourism</a></li>
+    <li><a routerLink="/blog">Blog</a></li>
+    <li><a routerLink="/download">Downloads</a></li>
+    <li><a routerLink="/testimonials">Testimonials</a></li>
+    <li><a routerLink="/contact-us">Contact Us</a></li>
+    <li>
+      <a href="tel:+918121113711" class="phone-btn">
+        <i class="bi bi-telephone-fill"></i> +91-812-111-3711
+      </a>
+    </li>
+  </ul>
+</div>
+
 </header>
 <!-- HEADER END -->
