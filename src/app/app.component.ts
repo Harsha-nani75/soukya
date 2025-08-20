@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   title = 'soukya';
+
+  ngOnInit() {
+    AOS.init();
+  }
 }

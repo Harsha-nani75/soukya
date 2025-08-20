@@ -120,7 +120,7 @@
   .phone-btn {
     font-weight: 600;
     font-size: 16px;
-    color: #000;
+    color: #fff !important;
     text-decoration: none;
   }
   .phone-btn:hover {
@@ -154,7 +154,7 @@
   }
   
   /* On scroll */
-  .main-nav.scrolled {
+  .scrolled {
     background: #fff !important;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
@@ -167,4 +167,5 @@
   .main-nav.scrolled .nav-link {
     color: #000; /* black text after scroll */
   }
+  
   

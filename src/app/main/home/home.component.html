@@ -1,3 +1,501 @@
 <section class="hero-section">
-    <app-home-banner-slider></app-home-banner-slider>
+  <app-home-banner-slider></app-home-banner-slider>
+</section>
+<section class="container pt-5 mt-4">
+  <!-- ABOUT START -->
+  <div class="medical-partner-section mt-4">
+    <div class="row align-items-center">
+
+      <!-- Doctor Illustration -->
+      <div class="col-lg-4 col-md-5 col-sm-12 text-center mb-4 mb-lg-0" data-aos="fade-right" data-aos-duration="1200">
+        <img src="assets/home/fitness1.jpg" alt="Doctor" class="doctor-img img-fluid">
+      </div>
+
+      <!-- Text Content -->
+      <div class="col-lg-8 col-md-7 col-sm-12" data-aos="fade-up" data-aos-duration="1200">
+        <div class="content">
+          <!-- Heading -->
+          <h5 class="section-subtitle">Soukhya.Health</h5>
+          <h2 class="section-title">Your trusted medical partner in India</h2>
+          <p class="section-desc">
+            We offer specialised services in elder care and medical tourism, ensuring personalised care
+            and advanced treatments for your healthcare needs.
+          </p>
+
+          <!-- Services -->
+          <div class="row">
+            <div class="col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="service-box d-flex">
+                <div class="icon"><i class="fas fa-heart"></i></div>
+                <div class="text">
+                  <h6>You are in good hands.</h6>
+                  <p>Empower your parents to age gracefully with India's most trusted senior health care from
+                    <a href="#">Soukhya.Health</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="200">
+              <div class="service-box d-flex">
+                <div class="icon"><i class="fas fa-user-md"></i></div>
+                <div class="text">
+                  <h6>Comprehensive services</h6>
+                  <p>Introducing our compassionate <a href="#">elder care package</a>, designed to ensure seniors'
+                    comfort, dignity, and quality of life.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="300">
+              <div class="service-box d-flex">
+                <div class="icon"><i class="fas fa-plane"></i></div>
+                <div class="text">
+                  <h6>International medical care</h6>
+                  <p><a href="#">Soukhya.Health</a> provides patients with access to high-quality medical care and
+                    treatments overseas.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="400">
+              <div class="service-box d-flex">
+                <div class="icon"><i class="fas fa-stethoscope"></i></div>
+                <div class="text">
+                  <h6>We help to choose</h6>
+                  <p><a href="#">Soukhya.Health</a> helps you choose the best hospitals, doctors, and treatment plans at
+                    affordable costs.</p>
+                </div>
+              </div>
+            </div>
+          </div> <!-- end row -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</section>
+<section>
+  <div class="container aos-init aos-animate" data-aos="fade-up">
+    <div class="row g-0 animate__animated">
+      <div class="col-lg-4 col-sm-6">
+        <div class="tp_gym_panel_aside bg1">
+          <div class="d-flex align-items-start">
+            <div class="flex-shrink-0">
+              <img class="stripe_icon" src="assets/home/quality.png" alt="icon">
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <h4>Trusted expertise</h4>
+              <p>With years of experience in elder care, we are a trusted name in the industry.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-sm-6">
+        <div class="tp_gym_panel_aside bg2">
+          <div class="d-flex align-items-start">
+            <div class="flex-shrink-0">
+              <img class="stripe_icon" src="assets/home/staff.png" alt="icon">
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <h4>Holistic approach</h4>
+              <p>We provide high-quality care at affordable rates, ensuring accessibility for all families.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-sm-12">
+        <div class="tp_gym_panel_aside bg3">
+          <div class="d-flex align-items-start">
+            <div class="flex-shrink-0">
+              <img class="stripe_icon" src="assets/home/certification.png" alt="icon">
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <h4>Affordable solutions</h4>
+              <p>
+                We provide high-quality care at affordable
+                <span class="pack-button" onclick="goToPackages()">rates</span>,
+                ensuring accessibility for all families.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <div class="tp-counter-parallax mt-5 empowercs aos-init aos-animate" data-aos="fade-up">
+    <div class="container">
+      <div class="tp-counter-content animate__animated">
+        <h5 class="overheading">Empowering Lives Through</h5>
+        <h2>Quality Care</h2>
+
+        <!-- Desktop view -->
+        <div class="row d-flex desk" *ngFor="let item of desktopItems" style="align-items:center;">
+          <svg class="col-lg-1" width="20px" height="20px" [innerHTML]="item.icon"></svg>
+          <p class="col-lg-11" [innerHTML]="item.text" style="margin:10px 0 0 !important;"></p>
+        </div>
+
+        <!-- Mobile view -->
+        <div class="mob" *ngFor="let item of mobileItems">
+          <p style="margin:10px 0 0 !important;">
+            <svg width="20px" height="20px" [innerHTML]="item.icon" style="margin-right:7px;"></svg>
+            <span [innerHTML]="item.text"></span>
+          </p>
+        </div>
+
+        <p class="mt-2 journey-text">Our journey of healing and happiness</p>
+
+        <div class="row row_gap">
+          <div class="col-md-3" *ngFor="let counter of counters">
+            <div class="tp1-counter-box">
+              <div class="d-flex align-items-center">
+                <img [src]="counter.icon" width="50" alt="icon">
+                <div class="ms-4">
+                  <div class="d-flex">
+                    <div class="counter" [attr.data-count]="counter.count">{{counter.count}}</div>
+                    <span class="counter">+</span>
+                  </div>
+                  <p class="text-black m-0">{{counter.label}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- Testimonials -->
+<section>
+  <div class="container mt-5 mb-5 animate__animated aos-init aos-animate" data-aos="fade-up">
+    <div class="center-title">
+      <!--<h2>Our Customer Opinion</h2>-->
+      <h2>What Our Customers Say About Us</h2>
+      <p>Hear directly from our customers about their experiences with <strong>Soukhya.Health's</strong> personalised
+        and cost-effective
+        healthcare solutions. Your health and satisfaction are our top priorities!</p>
+    </div>
+
+    <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+    
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col">
+              <div class="card h-100">
+                <div class="mb-4 position-relative">
+                  <img src="assets/home/testimonials/sri_hari.jpg" height="300px" class="card-img-top" alt="...">
+                  <a class="youtube" href="https://www.youtube.com/embed/f8B16fVmxhg" target="_blank">
+                    <figure class="play_icon">
+                                <img src="assets/home/testimonials/play-btn-white.png" style="width:80%" alt="icon">
+                            </figure>
+                        </a>
+                  <div class="person_dummy_icon">
+                    <i class="bi bi-person-circle"></i>
+                  </div>
+                </div>
+                <div class="card-body pt-2">
+                  <h5 class="card-title">Sri Hari</h5>
+                  <p class="card-text text-danger">Hitech City</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <div class="mb-4 position-relative">
+                  <img src="assets/home/testimonials/rahul.jpg" height="300px" class="card-img-top" alt="...">
+                  <a class="youtube" href="https://www.youtube.com/embed/f8B16fVmxhg" target="_blank">
+                    <figure class="play_icon">
+                                <img src="assets/home/testimonials/play-btn-white.png" style="width:80%" alt="icon">
+                            </figure>
+                        </a>
+                  <div class="person_dummy_icon">
+                    <i class="bi bi-person-circle"></i>
+                  </div>
+                </div>
+                <div class="card-body pt-2">
+                  <h5 class="card-title">Rahul</h5>
+                  <p class="card-text text-danger">Visakapatnam</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <div class="mb-4 position-relative">
+                  <div class="" style="background-color: #ba4a49;padding: 10px;height: 300px; border-top-left-radius: 5px;border-top-right-radius: 5px;">
+                    <p><i class="fas fa-quote-left text-white"></i></p>
+                     <div class="testmonials-main">
+                         <p style="color:#FFF;">Amidst my mother's health challenges at 72, including cancer survivor ship and treatment for low sodium levels and neuro problems at KIMS Secunderabad, Soukhya.health emerged as a vital support. Their assistance eased every step of our hospital journey, alleviating the inherent discomfort faced by ordinary citizens. With their guidance and facilitation, navigating the complexities of medical care became manageable, allowing us to focus on her recovery with peace of mind. Soukhya.health's commitment to ensuring comfort and assistance underscores their invaluable role in enhancing healthcare experiences and alleviating the burdens associated with medical treatment, particularly for individuals and families facing significant health concerns.</p>
+                    </div>
+                    <div class="person_dummy_icon">
+                      <i class="bi bi-person-circle"></i>
+                    </div>
+                </div>
+              </div>
+                <div class="card-body">
+                  <h5 class="card-title">Sanjay</h5>
+                  <p class="card-text text-danger">IDF Hyderabad</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <div class="mb-4 position-relative">
+                  <div class="" style="background-color: #3156a4;padding: 10px;height: 300px; border-top-left-radius: 5px;border-top-right-radius: 5px;">
+                    <p><i class="fas fa-quote-left text-white"></i></p>
+                     <div class="testmonials-main">
+                         <p style="color:#FFF;">My friends son an engineering student, recently faced a severe accident resulting in serious head and body injuries while on Ibrahimpatnam road. Unsure of where to turn, we sought Soukhya.health's aid, swiftly transporting him to KIMS Secunderabad. Upon arrival, Soukhya.health coordinated with emergency doctors, ensuring prompt treatment. He underwent successful plastic surgery and returned home within a week, safe and sound. Throughout the ordeal, Soukhya.health offered unwavering support, providing timely guidance and updates, easing our anxiety. Their swift action and coordination with medical professionals were instrumental in his recovery, for which we remain immensely grateful. Soukhya.health's dedication underscores their commitment to facilitating efficient healthcare services, a lifeline for families navigating challenging medical crises.</p>
+                    </div>
+                    <div class="person_dummy_icon">
+                      <i class="bi bi-person-circle"></i>
+                    </div>
+                </div>
+              </div>
+                <div class="card-body">
+                  <h5 class="card-title">P V Rao</h5>
+                  <p class="card-text text-danger">DXC Technologies Hyderabad</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col">
+              <div class="card h-100">
+                <div class="mb-4 position-relative">
+                  <img src="assets/home/testimonials/sri_hari.jpg" height="300px" class="card-img-top" alt="...">
+                  <a class="youtube" href="https://www.youtube.com/embed/f8B16fVmxhg" target="_blank">
+                    <figure class="play_icon">
+                                <img src="assets/home/testimonials/play-btn-white.png" style="width:80%" alt="icon">
+                            </figure>
+                        </a>
+                  <div class="person_dummy_icon">
+                    <i class="bi bi-person-circle"></i>
+                  </div>
+                </div>
+                <div class="card-body pt-2">
+                  <h5 class="card-title">Sri Hari</h5>
+                  <p class="card-text text-danger">Hitech City</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <div class="mb-4 position-relative">
+                  <img src="assets/home/testimonials/rahul.jpg" height="300px" class="card-img-top" alt="...">
+                  <a class="youtube" href="https://www.youtube.com/embed/f8B16fVmxhg" target="_blank">
+                    <figure class="play_icon">
+                                <img src="assets/home/testimonials/play-btn-white.png" style="width:80%" alt="icon">
+                            </figure>
+                        </a>
+                  <div class="person_dummy_icon">
+                    <i class="bi bi-person-circle"></i>
+                  </div>
+                </div>
+                <div class="card-body pt-2">
+                  <h5 class="card-title">Rahul</h5>
+                  <p class="card-text text-danger">Visakapatnam</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <div class="mb-4 position-relative">
+                  <div class="" style="background-color: #ba4a49;padding: 10px;height: 300px; border-top-left-radius: 5px;border-top-right-radius: 5px;">
+                    <p><i class="fas fa-quote-left text-white"></i></p>
+                     <div class="testmonials-main">
+                         <p style="color:#FFF;">Amidst my mother's health challenges at 72, including cancer survivor ship and treatment for low sodium levels and neuro problems at KIMS Secunderabad, Soukhya.health emerged as a vital support. Their assistance eased every step of our hospital journey, alleviating the inherent discomfort faced by ordinary citizens. With their guidance and facilitation, navigating the complexities of medical care became manageable, allowing us to focus on her recovery with peace of mind. Soukhya.health's commitment to ensuring comfort and assistance underscores their invaluable role in enhancing healthcare experiences and alleviating the burdens associated with medical treatment, particularly for individuals and families facing significant health concerns.</p>
+                    </div>
+                    <div class="person_dummy_icon">
+                      <i class="bi bi-person-circle"></i>
+                    </div>
+                </div>
+              </div>
+                <div class="card-body">
+                  <h5 class="card-title">Sanjay</h5>
+                  <p class="card-text text-danger">IDF Hyderabad</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <div class="mb-4 position-relative">
+                  <div class="" style="background-color: #3156a4;padding: 10px;height: 300px; border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                    <p><i class="fas fa-quote-left text-white"></i></p>
+                     <div class="testmonials-main">
+                         <p style="color:#FFF;">My friends son an engineering student, recently faced a severe accident resulting in serious head and body injuries while on Ibrahimpatnam road. Unsure of where to turn, we sought Soukhya.health's aid, swiftly transporting him to KIMS Secunderabad. Upon arrival, Soukhya.health coordinated with emergency doctors, ensuring prompt treatment. He underwent successful plastic surgery and returned home within a week, safe and sound. Throughout the ordeal, Soukhya.health offered unwavering support, providing timely guidance and updates, easing our anxiety. Their swift action and coordination with medical professionals were instrumental in his recovery, for which we remain immensely grateful. Soukhya.health's dedication underscores their commitment to facilitating efficient healthcare services, a lifeline for families navigating challenging medical crises.</p>
+                    </div>
+                    <div class="person_dummy_icon">
+                      <i class="bi bi-person-circle"></i>
+                    </div>
+                </div>
+              </div>
+                <div class="card-body">
+                  <h5 class="card-title">P V Rao</h5>
+                  <p class="card-text text-danger">DXC Technologies Hyderabad</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    
+      <!-- Controls -->
+      <!-- <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button> -->
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-12 text-center mt-4">
+        <a href="https://soukhya.health/testimonials" class="btn btn-default learn_more">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Latest News -->
+<section>
+  <div class="container mt-5 mb-5 animate__animated aos-init aos-animate" data-aos="fade-up">
+    <div class="center-title">
+      <h2>Latest News Blogs</h2>
+      <p>Stay informed with the latest updates and insightful articles on healthcare trends, tips, and success
+        stories from <strong>Soukhya.Health</strong>. Discover how we’re shaping the future of medical care. </p>
+    </div>
+    <div id="teamCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+    
+        <!-- First set of cards -->
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="tp-gym-trainer">
+                <figure class="nb-thumb">
+                  <a href="https://soukhya.health/navigating_the_landscape_of_indian_medical_tourism">
+                    <img src="assets/home/news/navigating.jpg" class="d-block w-100" style="height:236px;" alt="blog">
+                  </a>
+                </figure>
+                <div class="nb-caption-bottom">
+                  <h4><a href="#">Navigating the Landscape of Indian Medical Tourism</a></h4>
+                  <p>India's emergence as a premier destination for medical tourism, particularly in cities like Hyderabad, showcases a diverse landscape for patients seeking top-tier healthcare services.</p>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-md-4">
+              <div class="tp-gym-trainer">
+                <figure class="nb-thumb">
+                  <a href="https://soukhya.health/addressing_common_concerns_and_misconceptions">
+                    <img src="https://soukhya.health/assets/images/blogs/addressing.jpg" class="d-block w-100"
+                      style="height:236px;" alt="blog">
+                  </a>
+                </figure>
+                <div class="nb-caption-bottom">
+                  <h4><a href="#">Addressing Common Concerns and Misconceptions</a></h4>
+                  <p>India's ascent as a top medical tourism destination, especially in cities like Hyderabad, brings with it a range of concerns and misconceptions that can deter potential patients. </p>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-md-4">
+              <div class="tp-gym-trainer">
+                <figure class="nb-thumb">
+                  <a href="https://soukhya.health/transformational_jour_neys_and_outcomes">
+                    <img src="https://soukhya.health/assets/images/blogs/transformational.jpg" class="d-block w-100"
+                      style="height:236px;" alt="blog">
+                  </a>
+                </figure>
+                <div class="nb-caption-bottom">
+                  <h4><a href="#">Transformational journeys and Outcomes</a></h4>
+                  <p>India's emergence as a leading destination for medical tourism marks a transformative journey in global healthcare, providing unparalleled outcomes for patients worldwide.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Repeat carousel-item for more cards... -->
+        <!-- Bootstrap will auto-slide -->
+    
+      </div>
+    
+      <!-- Controls -->
+      <!-- <button class="carousel-control-prev" type="button" data-bs-target="#teamCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#teamCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button> -->
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-12 text-center mt-4">
+        <a href="https://soukhya.health/blog" class="btn btn-default learn_more">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="partners-section py-3" style="background-color:#656565;">
+    <div class="container py-5">
+      <!-- Title -->
+      <div class="center-title text-center mb-4">
+        <h2 class="text-white">Our Integrated Hospital Network</h2>
+        <p class="text-white">
+          At <strong>Soukhya.Health</strong>, we have established a robust network of hospitals
+          renowned for their exceptional medical services and cutting-edge facilities.
+        </p>
+      </div>
+  
+      <!-- Logos Row -->
+      <div class="row justify-content-center text-center g-4">
+        <div class="col-6 col-md-4 col-lg-2">
+          <img src="assets/home/partner/kims.png" class="img-fluid partner-logo" alt="kims">
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <img src="assets/home/partner/yashodha.png" class="img-fluid partner-logo" alt="yashodha">
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <img src="assets/home/partner/kamineni-hospitals.png" class="img-fluid partner-logo" alt="kamineni-hospitals">
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <img src="assets/home/partner/continental.png" class="img-fluid partner-logo" alt="continental">
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <img src="assets/home/partner/virinchi-hospital.png" class="img-fluid partner-logo" alt="virinchi-hospital">
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <img src="assets/home/partner/gemcare-logo.png" class="img-fluid partner-logo" alt="gemcare-logo">
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <img src="assets/home/partner/brinnova-logo-new.png" class="img-fluid partner-logo" alt="brinnova-logo-new">
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <img src="assets/home/partner/praaanaa.png" class="img-fluid partner-logo" alt="praaanaa">
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <img src="assets/home/partner/white-logo.png" class="img-fluid partner-logo" alt="epione">
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </section>
