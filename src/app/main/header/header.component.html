@@ -2,46 +2,39 @@
 <header class="main-nav shadow-sm fixed-top">
   <div class="container d-flex align-items-center justify-content-between py-2">
     <!-- Logo -->
-<!-- Logo -->
-<a class="nav-logo" routerLink="/">
-  <img src="https://soukhya.health/assets/images/sowkhya-health-white.png"
-       alt="Soukhya Health" class="logo-img" [class.d-none]="scrolled" />
-  <img src="assets/sowkhya-health.png"
-       alt="Soukhya Health" class="logo-img" [class.d-none]="!scrolled" />
-</a>
-<!-- ...existing code... -->
+    <!-- Logo -->
+    <a class="nav-logo" routerLink="/">
+      <img src="https://soukhya.health/assets/images/sowkhya-health-white.png" alt="Soukhya Health" class="logo-img"
+        [class.d-none]="scrolled" />
+      <img src="assets/sowkhya-health.png" alt="Soukhya Health" class="logo-img" [class.d-none]="!scrolled" />
+    </a>
+    <!-- ...existing code... -->
 
     <!-- Buttons & Contact -->
     <div class="d-flex align-items-center gap-3">
 
       <!-- Elder Care Dropdown -->
-      <div class="btn-group elder-dropdown"
-     (mouseenter)="showDropdown=true"
-     (mouseleave)="showDropdown=false">
+      <div class="btn-group elder-dropdown" (mouseenter)="showDropdown=true" (mouseleave)="showDropdown=false">
 
-  <!-- Main Button -->
-  <a class="btn elder-btn"
-     [routerLink]="'/eldercare'"
-     (click)="showDropdown = !showDropdown">
-    ELDER CARE SERVICES
-  </a>
+        <!-- Main Button -->
+        <a class="btn elder-btn" [routerLink]="'/eldercare'" (click)="showDropdown = !showDropdown">
+          ELDER CARE SERVICES
+        </a>
 
-  <!-- Dropdown -->
-  <ul class="dropdown-menu"
-      [class.show]="showDropdown"
-      (mouseenter)="showDropdown=true"
-      (mouseleave)="showDropdown=false">
-    <li>
-      <a class="dropdown-item" routerLink="/eldercare">
-        <img src="https://soukhya.health/assets/images/home/hyderabad.png"
-             alt="Hyderabad" width="20" class="me-2">
-        Hyderabad
-      </a>
-    </li>
-  </ul>
-</div>
+        <!-- Dropdown -->
+        <ul class="dropdown-menu" [class.show]="showDropdown" (mouseenter)="showDropdown=true"
+          (mouseleave)="showDropdown=false">
+          <li>
+            <a class="dropdown-item" routerLink="/eldercare">
+              <img src="https://soukhya.health/assets/images/home/hyderabad.png" alt="Hyderabad" width="20"
+                class="me-2">
+              Hyderabad
+            </a>
+          </li>
+        </ul>
+      </div>
 
-      
+
 
       <!-- Medical Tourism Button -->
       <a routerLink="/medical-tourism" class="btn tourism-btn">
@@ -49,37 +42,41 @@
       </a>
 
       <!-- Phone -->
-      <a href="tel:+918121113711" class="phone-btn d-flex align-items-center">
-        <i class="bi bi-telephone-fill me-2"></i>+91-812-111-3711
+      <!-- Use this structure -->
+      <a href="tel:+918121113711" class="phone-btn d-flex align-items-center" [ngClass]="{'scrolled-phone': scrolled}">
+        <span class="phone-icon">
+          <i class="bi bi-telephone-fill"></i>
+        </span>
+        <span class="phone-text">+91-812-111-3711</span>
       </a>
     </div>
-<div class="hamburger-btn" (click)="toggleMenu()" [ngClass]="{'scrolled-icon': scrolled}">
-  <i class="bi bi-list"></i>
-</div>
+    <div class="hamburger-btn" (click)="toggleMenu()" [ngClass]="{'scrolled-icon': scrolled}">
+      <i class="bi bi-list"></i>
+    </div>
   </div>
 
-<!-- Sidebar Menu -->
-<div class="sidebar" [class.active]="menuOpen" data-aos="fade-left" id="menuList">
-  <button class="close-btn" (click)="toggleMenu()">
-    <i class="bi bi-x-lg"></i>
-  </button>
-  <ul class="nav-links">
-    <li><a routerLink="/">Home</a></li>
-    <li><a routerLink="/about-us">Who We Are</a></li>
-    <li><a routerLink="/elder-care">Elder Care</a></li>
-    <li><a routerLink="/elder-care-hyderabad">Elder Care Hyderabad</a></li>
-    <li><a routerLink="/medical-tourism">Medical Tourism</a></li>
-    <li><a routerLink="/blog">Blog</a></li>
-    <li><a routerLink="/download">Downloads</a></li>
-    <li><a routerLink="/testimonials">Testimonials</a></li>
-    <li><a routerLink="/contact-us">Contact Us</a></li>
-    <li>
-      <a href="tel:+918121113711" class="phone-btn">
-        <i class="bi bi-telephone-fill"></i> +91-812-111-3711
-      </a>
-    </li>
-  </ul>
-</div>
+  <!-- Sidebar Menu -->
+  <div class="sidebar" [class.active]="menuOpen" data-aos="fade-left" id="menuList">
+    <button class="close-btn" (click)="toggleMenu()">
+      <i class="bi bi-x-lg"></i>
+    </button>
+    <ul class="nav-links">
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/about-us">Who We Are</a></li>
+      <li><a routerLink="/elder-care">Elder Care</a></li>
+      <li><a routerLink="/elder-care-hyderabad">Elder Care Hyderabad</a></li>
+      <li><a routerLink="/medical-tourism">Medical Tourism</a></li>
+      <li><a routerLink="/blog">Blog</a></li>
+      <li><a routerLink="/download">Downloads</a></li>
+      <li><a routerLink="/testimonials">Testimonials</a></li>
+      <li><a routerLink="/contact-us">Contact Us</a></li>
+      <li>
+        <a href="tel:+918121113711" class="phone-btn">
+          <i class="bi bi-telephone-fill"></i> +91-812-111-3711
+        </a>
+      </li>
+    </ul>
+  </div>
 
 </header>
 <!-- HEADER END -->
