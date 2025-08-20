@@ -1,0 +1,119 @@
+/* medicaltourism.component.css */
+:host {
+	--bg: #f3f6f5;
+	--text: #1f2937;
+	--muted: #6b7280;
+	--primary: #e9653c;
+	--primary-700: #cc4f2a;
+	--brand: #2b92cc;
+	--card: #ffffff;
+	display: block;
+	color: var(--text);
+	background: var(--bg);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+a { color: inherit; text-decoration: none; }
+
+.btn {
+	display: inline-flex; align-items: center; gap: 8px;
+	border-radius: 999px; padding: 10px 16px; border: 1px solid transparent;
+	font-weight: 600; cursor: pointer; transition: .2s ease;
+}
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-700); }
+.btn-ghost { background: transparent; border-color: #d1d5db; color: var(--text); }
+.btn-outline { background: transparent; border-color: var(--primary); color: var(--primary); }
+.btn-outline:hover { background: var(--primary); color: #fff; }
+
+.section-head { text-align: center; margin-bottom: 24px; }
+.section-head h2 { margin: 0 0 8px; font-size: 28px; }
+.section-head p { color: var(--muted); margin: 0; }
+
+/* Hero */
+.mt-hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: center; padding: 24px 0 8px; }
+.mt-hero__content h1 { font-size: 32px; line-height: 1.2; margin: 0 0 10px; }
+.mt-hero__content p { color: var(--muted); margin: 0 0 16px; }
+.mt-hero__cta { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.mt-hero__card { background: linear-gradient(145deg, #fff, #f9fafb); border: 1px solid #e5e7eb; border-radius: 16px; padding: 16px; box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+.mt-hero__card .pill { display: inline-block; background: #eef2ff; color: #3730a3; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+.mt-hero__card .location { margin-top: 10px; display: flex; gap: 8px; align-items: center; color: var(--muted); }
+.mt-hero__card .location .dot { width: 8px; height: 8px; border-radius: 50%; background: #10b981; display: inline-block; }
+.mt-hero__stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+.mt-hero__stats strong { display: block; }
+.hero-video { width: 100%; height: 180px; border-radius: 12px; background: #000; object-fit: cover; }
+
+/* Marquee */
+.mt-marquee { padding: 8px 0 0; }
+.marquee { overflow: hidden; position: relative; }
+.marquee__track { display: flex; gap: 24px; padding: 10px 0; animation: marquee 18s linear infinite; will-change: transform; }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+.marquee__track span { white-space: nowrap; padding: 6px 12px; border-radius: 999px; background: #eef6fb; color: var(--brand); font-weight: 600; }
+
+@keyframes marquee {
+	from { transform: translateX(0); }
+	to { transform: translateX(-50%); }
+}
+
+/* Brands */
+.mt-brands { padding: 8px 0 0; }
+.brands__title { font-weight: 700; margin-bottom: 10px; text-align: center; }
+.brands { overflow: hidden; }
+.brands__track { display: flex; gap: 12px; padding: 10px 0; animation: marquee 28s linear infinite; }
+.brands:hover .brands__track { animation-play-state: paused; }
+.brand-pill { display: inline-flex; align-items: center; padding: 6px 12px; background: #fff; border: 1px solid #e5e7eb; border-radius: 999px; color: var(--text); }
+
+/* Services grid */
+.mt-services { padding: 24px 0; }
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.card { background: var(--card); border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+.card h3 { margin: 0; font-size: 18px; }
+.card p { margin: 0; color: var(--muted); }
+.card .link { align-self: start; color: var(--brand); font-weight: 600; background: transparent; border: none; padding: 0; cursor: pointer; }
+.card:hover { box-shadow: 0 6px 18px rgba(0,0,0,.06); transform: translateY(-1px); transition: .2s ease; }
+
+/* Process */
+.mt-process { padding: 12px 0 24px; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; list-style: none; padding: 0; margin: 0; }
+.steps li { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; }
+.steps h4 { margin: 0 0 6px; }
+
+/* Why choose */
+.mt-why { padding: 12px 0 24px; }
+.why-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; list-style: none; margin: 0; padding: 0; }
+.why-list li { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px; }
+
+/* FAQ */
+.mt-faq { padding: 12px 0 24px; }
+.faq { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.faq-item { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; }
+.faq-q { width: 100%; text-align: left; padding: 12px 14px; border: 0; background: #fff; cursor: pointer; font-weight: 600; }
+.faq-a { padding: 0 14px 12px; color: var(--muted); }
+
+/* Enquiry */
+.mt-enquiry { padding: 12px 0 24px; }
+#enquiryForm .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+#enquiryForm label { display: grid; gap: 6px; }
+#enquiryForm label.full { grid-column: 1 / -1; }
+#enquiryForm input, #enquiryForm select, #enquiryForm textarea {
+	width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid #e5e7eb; background: #fff;
+}
+.phone-row { display: grid; grid-template-columns: 140px 1fr; gap: 8px; }
+.hint { color: var(--muted); }
+.actions { display: flex; gap: 10px; margin-top: 12px; }
+.download { margin-top: 10px; display: flex; align-items: center; gap: 10px; }
+.download h5 { margin: 0; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+	.mt-hero { grid-template-columns: 1fr; }
+	.cards { grid-template-columns: repeat(2, 1fr); }
+	.steps { grid-template-columns: 1fr 1fr; }
+	.faq { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+	.cards { grid-template-columns: 1fr; }
+	.phone-row { grid-template-columns: 1fr; }
+}
