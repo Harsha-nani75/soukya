@@ -1,0 +1,359 @@
+.hero-section {
+    height: 100vh;
+    /* background: url('your-image.jpg') no-repeat center center/cover; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 60px; /* prevents content hiding behind navbar */
+  }
+
+  [data-aos] {
+    opacity: 0; /* hidden by default */
+    transition-property: transform, opacity;
+  }
+  
+  [data-aos].aos-animate {
+    opacity: 1; /* visible when in viewport */
+  }
+  .stripe_icon{
+width: 55px;
+height: 55px;
+  }
+  .tp_gym_panel_aside {
+    padding: 25px 20px;
+    color: #fff;
+    height: 100%;
+  }
+  
+  .tp_gym_panel_aside h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .tp_gym_panel_aside p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  .stripe_icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .bg1 {
+    background-color: #3156a3 !important;
+  }
+  .bg2 {
+    background-color: #0384ce !important;
+  }
+  .bg3 {
+    background-color: #42b3e5 !important;
+  }
+  
+  .pack-button {
+    color: #fff !important;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .tp-counter-parallax {
+    background-image: url("/assets/home/oldpersons.jpg"); /* Angular-safe path */
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0;
+    color: #fff;
+  }
+  
+  .journey-text {
+    font-size: 26px;
+    font-weight: 500;
+    color: #fff;
+    margin: 10px 0 20px;
+  }
+  
+  /* Responsive visibility */
+  .desk {
+    display: flex;
+  }
+  
+  .mob {
+    display: none;
+  }
+  
+  /* Mobile breakpoint */
+  @media (max-width: 768px) {
+    .desk {
+      display: none;
+    }
+    .mob {
+      display: block;
+    }
+  }
+
+  .tp1-counter-box {
+    background-color: #FFFFFF;
+    padding: 10px;
+}
+.counter {
+  font-family: 'Poppins','regular';
+  font-size: 30px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0px;
+}
+@media (max-width: 767px) {
+  .row_gap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* adjust spacing */
+  }
+}
+
+.person_dummy_icon{
+  background-color: #FFF;
+  border-radius: 50%;
+  border: solid 2px #FFFFFF;
+  position: absolute;
+  bottom: -30px;
+  left: 7px;
+  width: 50px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.person_dummy_icon i{
+  font-size: 30px;
+}
+.youtube {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.play_icon{
+  width: 80%;
+}
+/* .testmonials-main{
+  width: 100%;
+    max-height: 200px;
+    overflow: auto;
+} */
+.testimonial-box {
+  background-color: #3156a4;
+  padding: 10px;
+  height: 300px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.testmonials-main {
+  height: 230px; /* adjust as needed */
+  overflow-y: auto;
+  padding-right: 8px; /* spacing for scrollbar */
+}
+
+/* Scrollbar style for Chrome, Edge, Safari */
+.testmonials-main::-webkit-scrollbar {
+  width: 6px;
+}
+
+.testmonials-main::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+.testmonials-main::-webkit-scrollbar-thumb {
+  background-color: #00bcd4; /* scrollbar color */
+  border-radius: 10px;
+}
+
+/* Scrollbar style for Firefox */
+.testmonials-main {
+  scrollbar-width: thin;
+  scrollbar-color: #00bcd4 #fff;
+}
+
+.learn_more{
+  display: inline-block;
+    font-family: var(--base-font);
+    padding: 10px 30px;
+    font-size: 13px;
+    text-transform: uppercase;
+    line-height: 1.3333333;
+    font-weight: 600;
+    color: #FFF;
+    background-color: #e9653c;
+    border: 1px solid #e9653c;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Latest News */
+.tp-gym-trainer {
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.nb-thumb img {
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.nb-caption-bottom {
+  padding: 15px;
+}
+
+.nb-caption-bottom h4 {
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.nb-caption-bottom h4 a {
+  color: #333;
+  text-decoration: none;
+}
+
+.nb-caption-bottom h4 a:hover {
+  color: #007bff;
+}
+
+.nb-caption-bottom p {
+  font-size: 14px;
+  color: #666;
+  margin-top: 8px;
+}
+
+/* Partnerssection */
+.partner-logo {
+  max-height: 80px;
+  padding: 10px;
+  filter: brightness(0) invert(1); /* makes all logos white for uniform look */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.partner-logo:hover {
+  transform: scale(1.1);
+  filter: brightness(1) invert(0); /* show original colors on hover */
+}
+
+  /* About section-2 */
+  /* Section */
+.medical-partner-section {
+  padding: 20px 10px;
+}
+.card-img-top:before{
+  content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.2 !important;
+}
+/* Headings */
+.section-subtitle {
+  color: #fc5c1f;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.section-title {
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.3;
+  margin-bottom: 15px;
+}
+
+.section-desc {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+/* Doctor Image */
+.doctor-img {
+  max-height: 420px;
+  object-fit: contain;
+}
+
+/* Service Box */
+.service-box {
+  display: flex;
+  align-items: flex-start;
+}
+
+.service-box .icon {
+  font-size: 28px;
+  color: #fc2f1d;
+  margin-right: 15px;
+  min-width: 35px;
+  text-align: center;
+}
+
+.service-box h6 {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.service-box p {
+  font-size: 15px;
+  margin: 0;
+}
+
+.service-box a {
+  color: #269bd6;
+  font-weight: 600;
+  text-decoration: none;
+}
+.service-box a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .section-title {
+    font-size: 24px;
+  }
+  .doctor-img {
+    max-height: 320px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 20px;
+    text-align: center;
+  }
+  .section-desc {
+    text-align: center;
+  }
+  .service-box {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .service-box .icon {
+    font-size: 22px;
+    margin-right: 12px;
+  }
+  .content {
+    text-align: center;
+  }
+  .service-box {
+    text-align: left; /* keep icons + text aligned properly */
+  }
+}
+
+ 
+
+  

@@ -9,12 +9,12 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { FooterComponent } from './footer/footer.component';
 import { EldercareComponent } from './eldercare/eldercare.component';
-// import { MedicaltourismComponent } from './medicaltourism/medicaltourism.component';
 import { BlogComponent } from './blog/blog.component';
 import { FormsModule } from '@angular/forms';
 import { MedicalTourismComponent } from './medicaltourism/medical-tourism.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { HeaderComponent } from './header/header.component';
+import { HomeBannerSliderComponent } from '../home-banner-slider/home-banner-slider.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import { HeaderComponent } from './header/header.component';
     MedicalTourismComponent,
     BlogComponent,
     MainLayoutComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeBannerSliderComponent
   ],
   imports: [
     CommonModule,
