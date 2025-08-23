@@ -20,14 +20,12 @@
             "tsConfig": "tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-<<<<<<< HEAD
-              "src/styles.css"
-=======
+
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "node_modules/aos/dist/aos.css"
->>>>>>> 6a2126a8a79bad671f2fa86140feaedebae876cc
+
             ],
             "scripts": ["node_modules/aos/dist/aos.js"]
           },

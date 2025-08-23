@@ -82,74 +82,114 @@ ngOnInit(): void {
       // 1. Patient core details
       this.patientService.getPatientById(this.patientId).subscribe((res: any) => {
         this.patient = {
-          ...res,
-          photo: res.photo
-            ? `http://localhost:4865/${res.photo.replace(/\\/g, '/')}`
-            : '../../../assets/image.png',
-          proofFile: res.proofFile
-            ? res.proofFile.toString().split(',').map((f: string) =>
-                f ? `http://localhost:4865/${f.replace(/\\/g, '/')}` : null
-              ).filter((f: string | null): f is string => f !== null)
-            : [],
-          policyFiles: res.policyFiles
-            ? res.policyFiles.toString().split(',').map((f: string) =>
-                f ? `http://localhost:4865/${f.replace(/\\/g, '/')}` : null
-              ).filter((f: string | null): f is string => f !== null)
-            : []
+          name: res.name || '',
+          lname: res.lname || '',
+          sname: res.sname || '',
+          abb: res.abb || '',
+          abbname: res.abbname || '',
+          gender: res.gender || '',
+          dob: res.dob ? res.dob.substring(0, 10) : '',
+          age: res.age || '',
+          ocupation: res.ocupation || '',
+          phone: res.phone || '',
+          email: res.email || '',
+          rstatus: res.rstatus || '',
+          raddress: res.raddress || '',
+          rcity: res.rcity || '',
+          rstate: res.rstate || '',
+          rzipcode: res.rzipcode || '',
+          paddress: res.paddress || '',
+          pcity: res.pcity || '',
+          pstate: res.pstate || '',
+          pzipcode: res.pzipcode || '',
+          addressTextProof: res.addressTextProof || '',
+          idnum: res.idnum || '',
+          photo: res.photo ? `http://localhost:4865${res.photo}` : '../../../assets/image.png',
+          proofFile: res.proofFile ? [`http://localhost:4865${res.proofFile}`] : [],
+          policyFiles: res.policyFiles ? [`http://localhost:4865${res.policyFiles}`] : []
         };
-        console.log("Patient Loaded:", this.patient);
-      });
 
-      // 2. Caretakers
-      this.patientService.getCareById(this.patientId).subscribe(res => {
-        this.caretakers = res || [];
-        console.log("Caretakers:", this.caretakers);
-      });
+        // Caretakers (string to array, robust parsing)
+        this.caretakers = [];
+        if (res.caretakers) {
+          res.caretakers.split('||').forEach((ct: string) => {
+            const parts = ct.split(' - ');
+            // Format: Name (Relation) - Phone - Email - Address (optional)
+            let name = '', relation = '', phone = '', email = '', address = '';
+            if (parts.length >= 3) {
+              const nameRel = parts[0].split('(');
+              name = nameRel[0]?.trim() || '';
+              relation = nameRel[1] ? nameRel[1].replace(')', '').trim() : '';
+              phone = parts[1]?.trim() || '';
+              email = parts[2]?.trim() || '';
+              address = parts[3]?.trim() || '';
+            }
+            this.caretakers.push({ name, relation, phone, email, address });
+          });
+        }
 
-      // 3. Habits
-      this.patientService.getHabitsById(this.patientId).subscribe(res => {
-        this.habits = res || {
-          tobacco: '',
-          tobaccoYears: 0,
-          smoking: '',
-          smokingYears: 0,
-          alcohol: '',
-          alcoholYears: 0,
-          drugs: '',
-          drugYears: 0
+        // Habits (string to object, robust parsing)
+        this.habits = {};
+        if (res.habits) {
+          res.habits.split('||').forEach((h: string) => {
+            const [codeAnswer, yearsStr] = h.split('-');
+            const [code, answer] = codeAnswer.split(':');
+            if (code && answer) {
+              this.habits[code.trim()] = answer.trim();
+              if (yearsStr) {
+                const yearsMatch = yearsStr.match(/(\d+)/);
+                this.habits[`${code.trim()}Years`] = yearsMatch ? parseInt(yearsMatch[1]) : 0;
+              }
+            }
+          });
+        }
+
+        // Questions (string to object, robust parsing)
+        this.questions = { q1: { answer: '', details: '' }, q2: { answer: '', details: '' }, q3: { answer: '', details: '' } };
+        if (res.questions) {
+          res.questions.split('||').forEach((q: string) => {
+            // Format: q1: yes (details)
+            const codeMatch = q.match(/(q\d):\s*(yes|no)(?:\s*\(([^)]*)\))?/);
+            if (codeMatch) {
+              const code = codeMatch[1];
+              const answer = codeMatch[2];
+              const details = codeMatch[3] || '';
+              this.questions[code] = { answer, details };
+            }
+          });
+        }
+
+        // Insurance details
+        this.insuranceDetails = {
+          insuranceCompany: res.insuranceCompany || '',
+          periodInsurance: res.periodInsurance || '',
+          sumInsured: res.sumInsured || '',
+          policyFiles: res.policyFiles ? [`http://localhost:4865${res.policyFiles}`] : [],
+          declinedCoverage: res.declinedCoverage || '',
+          similarInsurances: res.similarInsurances || '',
+          package: res.package || '',
+          packageDetail: res.packageDetail || '',
+          hospitals: []
         };
-        console.log("Habits:", this.habits);
-      });
 
-      // 4. Questions
-      this.patientService.getQuestionsById(this.patientId).subscribe(res => {
-        this.questions = res || {
-          q1: { answer: '', details: '' },
-          q2: { answer: '', details: '' },
-          q3: { answer: '', details: '' }
-        };
-        console.log("Questions:", this.questions);
-      });
+        // Hospital preferences (string to array, robust parsing)
+        this.insuranceDetails.hospitals = [];
+        if (res.insurance_hospitals) {
+          res.insurance_hospitals.split('||').forEach((h: string) => {
+            const [hospitalName, hospitalAddress] = h.split(' - ');
+            this.insuranceDetails.hospitals.push({
+              hospitalName: hospitalName ? hospitalName.trim() : '',
+              hospitalAddress: hospitalAddress ? hospitalAddress.trim() : ''
+            });
+          });
+        }
 
-      // 5. Insurance Details
-      this.patientService.getInsuranceDetailsById(this.patientId).subscribe(res => {
-        this.insuranceDetails = res || {
-          insuranceCompany: '',
-          periodInsurance: '',
-          sumInsured: '',
-          declinedCoverage: '',
-          similarInsurances: '',
-          hospitals: [],
-          package: '',
-          packageDetail: ''
-        };
-        console.log("Insurance Details:", this.insuranceDetails);
-      });
-
-      // 6. Insurance Hospitals
-      this.patientService.getInsuranceHospitalsById(this.patientId).subscribe(res => {
-        this.insuranceDetails.hospitals = res || [];
-        console.log("Insurance Hospitals:", this.insuranceDetails.hospitals);
+        // Final log for verification
+        console.log('Patient Loaded:', this.patient);
+        console.log('Caretakers:', this.caretakers);
+        console.log('Habits:', this.habits);
+        console.log('Questions:', this.questions);
+        console.log('Insurance Details:', this.insuranceDetails);
       });
     }
   });
