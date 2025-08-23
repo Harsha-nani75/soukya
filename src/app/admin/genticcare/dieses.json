@@ -1,0 +1,155 @@
+{
+  "systems": [
+    {
+      "name": "Eye & Vision",
+      "categories": [
+        {
+          "name": "Eye Disorders",
+          "diseases": [
+            { "name": "Cataract" },
+            { "name": "Glaucoma" },
+            { "name": "Macular Degeneration" },
+            { "name": "Diabetic Retinopathy" },
+            { "name": "Myopia (Nearsightedness)" },
+            { "name": "Hyperopia (Farsightedness)" },
+            { "name": "Astigmatism" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Skeletal & Bones",
+      "categories": [
+        {
+          "name": "Bone Injuries",
+          "diseases": [
+            { "name": "Bone Fracture" },
+            { "name": "Stress Fracture" },
+            { "name": "Dislocation" }
+          ]
+        },
+        {
+          "name": "Bone Diseases",
+          "diseases": [
+            { "name": "Osteoporosis" },
+            { "name": "Osteoarthritis" },
+            { "name": "Rickets" },
+            { "name": "Paget’s Disease" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Endocrine System",
+      "categories": [
+        {
+          "name": "Thyroid Disorders",
+          "diseases": [
+            { "name": "Hypothyroidism" },
+            { "name": "Hyperthyroidism" },
+            { "name": "Goiter" },
+            { "name": "Thyroid Cancer" }
+          ]
+        },
+        {
+          "name": "Diabetes",
+          "diseases": [
+            { "name": "Type 1 Diabetes" },
+            { "name": "Type 2 Diabetes" },
+            { "name": "Gestational Diabetes" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cancer",
+      "categories": [
+        {
+          "name": "Cancer Types",
+          "diseases": [
+            { "name": "Lung Cancer" },
+            { "name": "Breast Cancer" },
+            { "name": "Prostate Cancer" },
+            { "name": "Colon Cancer" },
+            { "name": "Leukemia" },
+            { "name": "Lymphoma" },
+            { "name": "Skin Cancer (Melanoma)" },
+            { "name": "Pancreatic Cancer" },
+            { "name": "Ovarian Cancer" },
+            { "name": "Brain Cancer" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cardiovascular System",
+      "categories": [
+        {
+          "name": "Heart Diseases",
+          "diseases": [
+            { "name": "Coronary Artery Disease" },
+            { "name": "Heart Attack (Myocardial Infarction)" },
+            { "name": "Hypertension (High Blood Pressure)" },
+            { "name": "Stroke" },
+            { "name": "Arrhythmia" },
+            { "name": "Heart Failure" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Respiratory System",
+      "categories": [
+        {
+          "name": "Lung Diseases",
+          "diseases": [
+            { "name": "Asthma" },
+            { "name": "Chronic Obstructive Pulmonary Disease (COPD)" },
+            { "name": "Pneumonia" },
+            { "name": "Tuberculosis" },
+            { "name": "Pulmonary Fibrosis" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Digestive System",
+      "categories": [
+        {
+          "name": "Stomach & Intestine",
+          "diseases": [
+            { "name": "Gastritis" },
+            { "name": "Peptic Ulcer" },
+            { "name": "Irritable Bowel Syndrome (IBS)" },
+            { "name": "Crohn’s Disease" },
+            { "name": "Ulcerative Colitis" }
+          ]
+        },
+        {
+          "name": "Liver & Pancreas",
+          "diseases": [
+            { "name": "Hepatitis" },
+            { "name": "Cirrhosis" },
+            { "name": "Pancreatitis" },
+            { "name": "Liver Cancer" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nervous System",
+      "categories": [
+        {
+          "name": "Brain & Nerve Disorders",
+          "diseases": [
+            { "name": "Alzheimer’s Disease" },
+            { "name": "Parkinson’s Disease" },
+            { "name": "Epilepsy" },
+            { "name": "Multiple Sclerosis" },
+            { "name": "Migraine" }
+          ]
+        }
+      ]
+    }
+  ]
+}

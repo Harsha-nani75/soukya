@@ -3,16 +3,32 @@ import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
 export const roleGuard: CanActivateFn = (route, state) => {
-   const auth = inject(AuthService);
+  //---------local useage--------
+  // const auth = inject(AuthService);
+  // const router = inject(Router);
+
+  // const expectedRole = route.data['role'];
+  // const userRole = auth.getRole();
+
+  // if (userRole === expectedRole) {
+  //   return true;
+  // } else {
+  //   router.navigate(['/']);
+  //   return false;
+  // }
+
+  //-------------API usage-------------
+  const auth = inject(AuthService);
   const router = inject(Router);
 
-  const expectedRole = route.data['role'];
+  const expectedRole = route.data['role'];   // role from route config
+  const token = localStorage.getItem('token'); // check login
   const userRole = auth.getRole();
 
-  if (userRole === expectedRole) {
-    return true;
+  if (token && userRole === expectedRole) {
+    return true;  // ✅ allowed
   } else {
-    router.navigate(['/']);
+    router.navigate(['/login']); // redirect if not logged in or wrong role
     return false;
   }
 };

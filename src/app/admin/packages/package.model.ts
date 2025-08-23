@@ -6,8 +6,8 @@ export interface Package {
   name: string;
   priceMonthly: number | null;
   priceYearly: number | null;
-  description1?: string;
-  description2?: string;
-  createdAt: string; // ISO
-  updatedAt: string; // ISO
+  aboutPackage?: string;
+  termsAndConditions?: string;
+  created_at: string; // ISO
+  updated_at: string; // ISO
 }

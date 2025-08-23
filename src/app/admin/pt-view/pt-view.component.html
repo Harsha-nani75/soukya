@@ -1,4 +1,123 @@
-<div class="container mt-4">
-  <h4>Patient View (ID: {{ patientId }})</h4>
-  <!-- Show full patient details here -->
+<div class="container mt-5" *ngIf="!loading && patient">
+  <button class="btn btn-outline-secondary mb-4" (click)="goBack()">
+    <i class="fa fa-arrow-left me-2"></i> Back
+  </button>
+
+<div class="row g-4">
+  <!-- Card 1: Photo & Basic Info -->
+  <div class="col-md-6">
+    <div class="card shadow-sm p-3 animate__animated animate__fadeInUp">
+      <div class="d-flex align-items-center">
+        <img [src]="patient.photo || '../../../assets/image.png'" alt="Photo" class="me-3 patient-photo">
+        <div>
+          <h5>{{ patient.name }} {{ patient.lname }}</h5>
+          <p class="mb-1"><i class="fa fa-birthday-cake me-2"></i>{{ patient.age }} years</p>
+          <p class="mb-0"><i class="fa fa-map-marker-alt me-2"></i>{{ patient.raddress }}, {{ patient.rcity }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2: Detailed Info -->
+  <div class="col-md-6">
+    <div class="card shadow-sm p-3 animate__animated animate__fadeInUp animate__delay-1s">
+      <table class="table table-borderless mb-0">
+        <tbody>
+          <tr>
+            <th scope="row">Date of Birth</th>
+            <td>{{ patient.dob | date:'mediumDate' }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Occupation</th>
+            <td>{{ patient.ocupation }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Phone</th>
+            <td>{{ patient.phone }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Email</th>
+            <td>{{ patient.email }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Residential Address</th>
+            <td>{{ patient.raddress }}, {{ patient.rcity }}, {{ patient.rstate }} - {{ patient.rzipcode }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Permanent Address</th>
+            <td>{{ patient.paddress }}, {{ patient.pcity }}, {{ patient.pstate }} - {{ patient.pzipcode }}</td>
+          </tr>
+          <tr>
+            <th scope="row">ID Proof</th>
+            <td>
+              <ng-container *ngFor="let f of patient.proofFile">
+                <a [href]="f" target="_blank" class="badge bg-primary mb-1">{{ f.split('/').pop() }}</a>
+              </ng-container>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+    <!-- Card 2: Caretakers -->
+    <div class="col-md-6">
+  <div class="card shadow-sm p-3 animate__animated animate__fadeInUp animate__delay-1s">
+    <h5 class="mb-3"><i class="fa fa-users me-2"></i>Caretakers</h5>
+
+    <div *ngIf="caretakersList.length; else noCaretaker">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let c of caretakersList">
+          <strong>{{ c.name }}</strong><br>
+          <i class="fa fa-phone me-1"></i> {{ c.phone }} <br>
+          <i class="fa fa-envelope me-1"></i> {{ c.email }}
+        </li>
+      </ul>
+    </div>
+
+    <ng-template #noCaretaker>
+      <p class="text-muted">No caretakers added.</p>
+    </ng-template>
+  </div>
+</div>
+
+
+    <!-- Card 3: Insurance -->
+    <div class="col-md-12">
+      <div class="card shadow-sm p-3 animate__animated animate__fadeInUp animate__delay-2s">
+        <h5 class="mb-3"><i class="fa fa-briefcase me-2"></i>Insurance Details</h5>
+        <p><strong>Company:</strong> {{ patient.insuranceCompany }}</p>
+        <p><strong>Sum Insured:</strong> {{ patient.sumInsured }}</p>
+        <p><strong>Policy Files:</strong>
+          <ng-container *ngFor="let f of patient.policyFiles">
+            <a [href]="f" target="_blank" class="badge bg-success me-1 mb-1">{{ f.split('/').pop() }}</a>
+          </ng-container>
+        </p>
+        <p><strong>Hospitals:</strong> {{ patient.insurance_hospitals }}</p>
+        <p><strong>Package:</strong> {{ patient.package }} ({{ patient.packageDetail }})</p>
+      </div>
+    </div>
+
+    <!-- Card 4: Habits & Questions -->
+    <div class="col-md-12">
+      <div class="card shadow-sm p-3 animate__animated animate__fadeInUp animate__delay-3s">
+        <h5 class="mb-3"><i class="fa fa-heartbeat me-2"></i>Habits & Questions</h5>
+        <p><strong>Habits:</strong> {{ patient.habits }}</p>
+        <p><strong>Questions:</strong> {{ patient.questions }}</p>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Loading Spinner -->
+<div *ngIf="loading" class="d-flex justify-content-center align-items-center" style="height: 300px;">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<!-- Error Alert -->
+<div *ngIf="error" class="alert alert-danger mt-4 animate__animated animate__shakeX">
+  <i class="fa fa-exclamation-triangle me-2"></i>{{ error }}
 </div>

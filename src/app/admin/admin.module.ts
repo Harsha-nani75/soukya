@@ -18,6 +18,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgChartsModule } from 'ng2-charts';
 import { PtViewComponent } from './pt-view/pt-view.component';
+import { PtListComponent } from './pt-list/pt-list.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { PtViewComponent } from './pt-view/pt-view.component';
     BrochersComponent,
     BlogsComponent,
     LayoutComponent,
-    PtViewComponent
+    PtViewComponent,
+    PtListComponent
   ],
   imports: [
     CommonModule,

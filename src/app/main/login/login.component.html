@@ -1,29 +1,181 @@
-<div class="login-container">
+<!--<div class="login-container">
   <div class="login-left"></div>
-
   <div class="login-right"></div>
 
   <div class="login_card_wrapper d-flex flex-column gap-4">
     <img src="assets/sowkhya-health.png" alt="Soukhya" class="logo" />
-    <div class="login-card">
-      <h3 class="mb-4 text-center">Welcome to Soukhya</h3>
 
-      <form (ngSubmit)="onLogin()" #loginForm="ngForm" novalidate class="d-flex flex-column gap-4">
+    <div class="login-card">
+      <h3 class="mb-4 text-center">
+        {{ currentCard === 'login' ? 'Welcome to Soukhya' 
+          : (currentCard === 'register' ? 'Create Account' 
+          : (currentCard === 'forgot-password' ? 'Forgot Password' 
+          : (currentCard === 'reset-password' ? 'Reset Password' 
+          : 'Verify OTP'))) }}
+      </h3>
+    -->
+      <!-- LOGIN CARD -->
+      <!--<form *ngIf="currentCard === 'login'" (ngSubmit)="onLogin()" #loginForm="ngForm" novalidate class="d-flex flex-column gap-4">
         <div>
           <input type="text" class="form-control" placeholder="Your Email" [(ngModel)]="email" name="email" required />
           <i class="bi bi-envelope input-icon"></i>
         </div>
         <div>
-          <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password"
-            required />
+          <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password" required />
           <i class="bi bi-lock input-icon"></i>
         </div>
-        <label><input type="checkbox">&nbsp; &nbsp; Remember me</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="rememberMe" [(ngModel)]="remember" name="remember" />
+          <label class="form-check-label" for="rememberMe">Remember me</label>
+        </div>
         <button class="btn btn-primary w-100" type="submit">Login</button>
-         <p style="margin-top:10px; font-size:14px;">
-        Need to find <br><a href="#">Forgot Your Password?</a>
-      </p>
+        <p style="margin-top:10px; font-size:14px;">
+          Need to find <span><a (click)="switchCard('register')" style="cursor: pointer;">Register</a></span>
+          <br>
+          <a style="cursor: pointer;" (click)="switchCard('forgot-password')">Forgot Your Password?</a>
+        </p>
         <p class="text-danger mt-3" *ngIf="errorMessage">{{ errorMessage }}</p>
+      </form>
+    -->
+      <!-- REGISTER CARD -->
+      <!-- <form *ngIf="currentCard === 'register'" (ngSubmit)="onRegister()" #registerForm="ngForm" class="d-flex flex-column gap-3">
+        <input type="text" class="form-control" placeholder="Full Name" [(ngModel)]="registerData.name" name="name" required />
+        <input type="email" class="form-control" placeholder="Email" [(ngModel)]="registerData.email" name="regEmail" required />
+        <input type="text" class="form-control" placeholder="Phone Number" [(ngModel)]="registerData.phone" name="phone" required />
+        <input type="password" class="form-control" placeholder="Password" [(ngModel)]="registerData.password" name="regPassword" required />
+        <button class="btn btn-primary w-100" type="submit">Register</button>
+        <p class="text-center mt-2">
+          Already have an account? 
+          <a style="cursor: pointer;" (click)="switchCard('login')">Login</a>
+        </p>
+      </form> -->
+
+      <!-- REGISTER OTP CARD -->
+      <!-- <form *ngIf="currentCard === 'otp' && !forgot.email" (ngSubmit)="verifyRegisterOtp()" class="d-flex flex-column gap-3">
+        <p class="text-center">Enter the OTP sent to your email</p>
+        <input type="text" class="form-control text-center" maxlength="6" [(ngModel)]="enteredOtp" name="regOtp" required />
+        <button class="btn btn-success w-100" type="submit">Verify OTP</button>
+      </form> -->
+
+      <!-- FORGOT PASSWORD -->
+      <!-- <form *ngIf="currentCard === 'forgot-password'" (ngSubmit)="onForgot()" #forgotForm="ngForm" class="d-flex flex-column gap-3">
+        <input type="email" class="form-control" placeholder="Email" [(ngModel)]="forgot.email" name="forEmail" required />
+        <button class="btn btn-primary w-100" type="submit">Send OTP</button>
+        <p class="text-center mt-2">
+          Already have an account? 
+          <a style="cursor: pointer;" (click)="switchCard('login')">Login</a>
+        </p>
+      </form> -->
+
+      <!-- FORGOT PASSWORD OTP -->
+      <!-- <form *ngIf="currentCard === 'otp' && forgot.email" (ngSubmit)="verifyForgotOtp()" class="d-flex flex-column gap-3">
+        <input type="text" class="form-control text-center" placeholder="Enter OTP" maxlength="6" [(ngModel)]="otp" name="forgotOtp" required />
+
+        <button class="btn btn-success w-100" type="submit">Verify OTP</button>
+
+        <button class="btn btn-link" type="button" (click)="resendOtp()" [disabled]="resendDisabled">
+          Resend OTP <span *ngIf="resendDisabled">({{timeLeft}}s)</span>
+        </button>
+      </form> -->
+
+      <!-- RESET PASSWORD -->
+      <!-- <form *ngIf="currentCard === 'reset-password'" (ngSubmit)="resetPassword()" class="d-flex flex-column gap-3">
+        <input type="password" class="form-control" placeholder="Enter New Password" [(ngModel)]="newPassword" name="newPassword" required />
+        <button class="btn btn-primary w-100" type="submit">Reset Password</button>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+<div class="login-container">
+  <div class="login-left"></div>
+  <div class="login-right"></div>
+
+  <div class="login_card_wrapper d-flex flex-column gap-4">
+    <img src="assets/sowkhya-health.png" alt="Soukhya" class="logo" />
+
+    <div class="login-card">
+      <h3 class="mb-4 text-center">
+        {{ currentCard === 'login' ? 'Welcome to Soukhya' 
+          : (currentCard === 'register' ? 'Create Account' 
+          : (currentCard === 'forgot-password' ? 'Forgot Password' 
+          : (currentCard === 'reset-password' ? 'Reset Password' 
+          : 'Verify OTP'))) }}
+      </h3>
+
+      <!-- LOGIN CARD -->
+      <form *ngIf="currentCard === 'login'" (ngSubmit)="onLogin()" #loginForm="ngForm" novalidate class="d-flex flex-column gap-4">
+        <div>
+          <input type="text" class="form-control" placeholder="Your Email" [(ngModel)]="email" name="email" required />
+          <i class="bi bi-envelope input-icon"></i>
+        </div>
+        <div>
+          <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password" required />
+          <i class="bi bi-lock input-icon"></i>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="rememberMe" [(ngModel)]="remember" name="remember" />
+          <label class="form-check-label" for="rememberMe">Remember me</label>
+        </div>
+        <button class="btn btn-primary w-100" type="submit">Login</button>
+        <p style="margin-top:10px; font-size:14px;">
+          Need to find <span><a (click)="switchCard('register')" style="cursor: pointer;">Register</a></span>
+          <br>
+          <a style="cursor: pointer;" (click)="switchCard('forgot-password')">Forgot Your Password?</a>
+        </p>
+        <p class="text-danger mt-3" *ngIf="errorMessage">{{ errorMessage }}</p>
+      </form>
+
+      <!-- REGISTER CARD -->
+      <form *ngIf="currentCard === 'register'" (ngSubmit)="onRegister()" #registerForm="ngForm" class="d-flex flex-column gap-3">
+        <input type="text" class="form-control" placeholder="Full Name" [(ngModel)]="registerData.name" name="name" required />
+        <input type="email" class="form-control" placeholder="Email" [(ngModel)]="registerData.email" name="regEmail" required />
+        <input type="text" class="form-control" placeholder="Phone Number" [(ngModel)]="registerData.phnum" name="phone" required />
+        <input type="password" class="form-control" placeholder="Password" [(ngModel)]="registerData.password" name="regPassword" required />
+        <button class="btn btn-primary w-100" type="submit">Register</button>
+        <p class="text-center mt-2">
+          Already have an account? 
+          <a style="cursor: pointer;" (click)="switchCard('login')">Login</a>
+        </p>
+      </form>
+
+      <!-- REGISTER OTP CARD -->
+      <form *ngIf="currentCard === 'otp' && !forgot.email" (ngSubmit)="verifyRegisterOtp()" class="d-flex flex-column gap-3">
+        <p class="text-center">Enter the OTP sent to your email</p>
+        <input type="text" class="form-control text-center" maxlength="6" [(ngModel)]="enteredOtp" name="regOtp" required />
+        
+        <button class="btn btn-success w-100" type="submit">Verify OTP</button>
+
+        <button class="btn btn-link" type="button" (click)="resendOtp()" [disabled]="resendDisabled">
+          Resend OTP <span *ngIf="resendDisabled">({{timeLeft}}s)</span>
+        </button>
+      </form>
+
+      <!-- FORGOT PASSWORD -->
+      <form *ngIf="currentCard === 'forgot-password'" (ngSubmit)="onForgot()" #forgotForm="ngForm" class="d-flex flex-column gap-3">
+        <input type="email" class="form-control" placeholder="Email" [(ngModel)]="forgot.email" name="forEmail" required />
+        <button class="btn btn-primary w-100" type="submit">Send OTP</button>
+        <p class="text-center mt-2">
+          Already have an account? 
+          <a style="cursor: pointer;" (click)="switchCard('login')">Login</a>
+        </p>
+      </form>
+
+      <!-- FORGOT PASSWORD OTP -->
+      <form *ngIf="currentCard === 'otp' && forgot.email" (ngSubmit)="verifyForgotOtp()" class="d-flex flex-column gap-3">
+        <input type="text" class="form-control text-center" placeholder="Enter OTP" maxlength="6" [(ngModel)]="otp" name="forgotOtp" required />
+
+        <button class="btn btn-success w-100" type="submit">Verify OTP</button>
+
+        <button class="btn btn-link" type="button" (click)="resendForgotOtp()" [disabled]="resendDisabled">
+          Resend OTP <span *ngIf="resendDisabled">({{timeLeft}}s)</span>
+        </button>
+      </form>
+
+      <!-- RESET PASSWORD -->
+      <form *ngIf="currentCard === 'reset-password'" (ngSubmit)="resetPassword()" class="d-flex flex-column gap-3">
+        <input type="password" class="form-control" placeholder="Enter New Password" [(ngModel)]="newPassword" name="newPassword" required />
+        <button class="btn btn-primary w-100" type="submit">Reset Password</button>
       </form>
     </div>
   </div>

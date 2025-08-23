@@ -1,8 +1,8 @@
-<div class="container mt-4">
-  <h3 class="mb-3 text-primary">General Enquiry</h3>
+<!-- <div class="container mt-4">
+  <h3 class="mb-3 text-primary">General Enquiry</h3> -->
 
   <!-- Controls -->
-  <div class="d-flex justify-content-between mb-2">
+  <!-- <div class="d-flex justify-content-between mb-2">
     <div>
       <label for="entries">Show</label>
       <select id="entries" class="form-select d-inline w-auto ms-2" [(ngModel)]="entriesPerPage" (change)="updatePagination()">
@@ -14,10 +14,10 @@
       <label for="search">Search:</label>
       <input id="search" type="text" class="form-control d-inline w-auto ms-2" [(ngModel)]="searchText" (input)="filterData()">
     </div>
-  </div>
+  </div> -->
 
   <!-- Table -->
-  <table class="table table-bordered table-striped">
+  <!-- <table class="table table-bordered table-striped">
     <thead class="table-light">
       <tr>
         <th>S.No</th>
@@ -34,6 +34,72 @@
         <td>{{ entry.mobile }}</td>
         <td>{{ entry.email }}</td>
         <td>{{ entry.message }}</td>
+      </tr>
+    </tbody>
+  </table> -->
+
+  <!-- Footer -->
+  <!-- <div class="d-flex justify-content-between align-items-center">
+    <div>
+      Showing {{ startEntry + 1 }} to {{ endEntry }} of {{ filteredData.length }} entries
+    </div>
+    <div>
+      <button class="btn btn-outline-primary btn-sm me-2"
+              [disabled]="currentPage === 1"
+              (click)="prevPage()">Previous</button>
+      <button class="btn btn-outline-primary btn-sm"
+              [disabled]="endEntry >= filteredData.length"
+              (click)="nextPage()">Next</button>
+    </div>
+  </div>
+</div> -->
+
+
+
+<div class="container mt-4">
+  <h3 class="mb-3 text-primary">General Enquiries</h3>
+
+  <!-- Controls -->
+  <div class="d-flex justify-content-between mb-2">
+    <div>
+      <label for="entries">Show</label>
+      <select id="entries" class="form-select d-inline w-auto ms-2"
+              [(ngModel)]="entriesPerPage" (change)="updatePagination()">
+        <option *ngFor="let option of [10,20,30,40,50]" [value]="option">{{ option }}</option>
+      </select> entries
+    </div>
+
+    <div>
+      <label for="search">Search:</label>
+      <input id="search" type="text" class="form-control d-inline w-auto ms-2"
+             [(ngModel)]="searchText" (input)="filterData()">
+    </div>
+  </div>
+
+  <!-- Table -->
+  <table class="table table-bordered table-striped">
+    <thead class="table-light">
+      <tr>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Message</th>
+        <th>Service Type</th>
+        <th>Created Date</th>
+        <th>Resolved</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of paginatedData; let i = index">
+        <td>{{ (currentPage - 1) * entriesPerPage + i + 1 }}</td>
+        <td>{{ entry.name }}</td>
+        <td>{{ entry.phoneNo }}</td>
+        <td>{{ entry.email }}</td>
+        <td>{{ entry.message }}</td>
+        <td>{{ entry.serviceType }}</td>
+        <td>{{ entry.createdDate | date:'short' }}</td>
+        <td>{{ entry.resolved ? 'Yes' : 'No' }}</td>
       </tr>
     </tbody>
   </table>

@@ -10,6 +10,7 @@ import { BlogsComponent } from './blogs/blogs.component';
 import { LayoutComponent } from './layout/layout.component';
 import { PackagesComponent } from './packages/packages.component';
 import { PtViewComponent } from './pt-view/pt-view.component';
+import { PtListComponent } from './pt-list/pt-list.component';
 
 const routes: Routes = [
     {
@@ -21,7 +22,9 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'medicaltourism', component: MedicaltourismComponent },
+      { path: 'ptlist', component: PtListComponent },
       { path: 'gentic', component: GenticcareComponent },
+      { path: 'gentic/:id', component: GenticcareComponent },
       { path: 'ptview/:id', component: PtViewComponent },
       { path: 'packages', component: PackagesComponent },
       { path: 'generalenq', component: GenralenquiryComponent },

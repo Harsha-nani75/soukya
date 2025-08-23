@@ -1,0 +1,70 @@
+/* Card Styling */
+.card {
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Patient Photo */
+.patient-photo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  /* border-radius: 50%; */
+  border: 2px solid #ddd;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.patient-photo:hover {
+  transform: scale(1.15);
+  border-color: #007bff;
+}
+
+/* Table inside card */
+.table-borderless th {
+  width: 40%;
+  color: #555;
+  font-weight: 600;
+}
+
+.table-borderless td {
+  color: #333;
+}
+
+/* Animations */
+.animate__animated {
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.animate__fadeInUp {
+  animation-name: fadeInUp;
+  animation-duration: 0.8s;
+}
+
+.animate__delay-1s {
+  animation-delay: 0.3s;
+}
+
+/* Fade In Up Keyframes */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 15px;
+  }
+}

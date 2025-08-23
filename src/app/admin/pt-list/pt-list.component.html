@@ -1,0 +1,31 @@
+ <div class="container mt-4">
+  <h5>Patients List</h5>
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>S.No</th>
+        <th>Photo</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of patients; let i = index">
+       <td data-label="S.No">{{ i + 1 }}</td>
+<td data-label="Photo">
+  <img [src]="p.photo || '../../../assets/image.png'" alt="Photo" width="40" height="40" class="rounded-circle">
+</td>
+<td data-label="Name">{{ p.name }}</td>
+<td data-label="Phone">{{ p.phone }}</td>
+<td data-label="Email">{{ p.email }}</td>
+<td data-label="Actions">
+  <i class="fa fa-eye text-primary me-2" style="cursor:pointer" (click)="onView(p.id)"></i>
+  <i class="fa fa-edit text-success me-2" style="cursor:pointer" (click)="onEdit(p)"></i>
+  <i class="fa fa-trash text-danger" style="cursor:pointer" (click)="onDelete(p.id)"></i>
+</td>
+</tr>
+    </tbody>
+  </table>
+</div> 
