@@ -12,6 +12,13 @@ export interface Enquiry {
   serviceType: 'elder care' | 'medical tourism';
   treatmentIssue?: string | null;
 }
+
+interface ContactForm {
+  fullName: string;
+  phone: string;
+  message: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -27,4 +34,8 @@ export class EnquiryService {
   createEnquiry(enquiry: Enquiry): Observable<any> {
     return this.http.post(`${this.apiUrl}/enquiry/enquiries`, enquiry);
   }
+  sendContactEmail(formData: ContactForm): Observable<any> {
+    return this.http.post(`${this.apiUrl}/enquiry/send-contact-email`, formData);
+  }
+  
 }
