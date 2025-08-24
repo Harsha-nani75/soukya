@@ -154,68 +154,78 @@
   </ul>
     <!-- Elder Care Form -->
     <div class="tab-pane fade show active" id="elder" role="tabpanel">
-      <form>
-        <div class="mb-3">
-          <label class="form-label">Full Name</label>
-          <input type="text" class="form-control" placeholder="Full Name">
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Email Address</label>
-          <input type="email" class="form-control" placeholder="Email">
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Phone Number</label>
-          <input type="text" class="form-control" placeholder="Phone Number">
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Address</label>
-          <textarea class="form-control" placeholder="Address"></textarea>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Message</label>
-          <textarea class="form-control" placeholder="Message"></textarea>
-        </div>
-        <div class="mb-3">
-          <!-- Google reCAPTCHA placeholder -->
-          <div class="g-recaptcha" data-sitekey="6LdrPPIpAAAAAPI5q1Is-gvR3Uzvg25FBAkWW5vb"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-zatcf3m2wazh" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdrPPIpAAAAAPI5q1Is-gvR3Uzvg25FBAkWW5vb&amp;co=aHR0cHM6Ly9zb3VraHlhLmhlYWx0aDo0NDM.&amp;hl=en&amp;v=_mscDd1KHr60EWWbt2I_ULP0&amp;size=normal&amp;anchor-ms=20000&amp;execute-ms=15000&amp;cb=yzickbgpjgwq"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div>
-        </div>
-        <button type="submit" class="btn active_tab w-100">Submit</button>
-      </form>
-    </div>
+    <form #elderForm="ngForm" (ngSubmit)="onSubmit(elderForm, 'elder care')">
+  <div class="mb-3">
+    <label class="form-label">Full Name</label>
+    <input type="text" class="form-control" name="name" ngModel required placeholder="Full Name">
+  </div>
 
+  <div class="mb-3">
+    <label class="form-label">Email Address</label>
+    <input type="email" class="form-control" name="email" ngModel required placeholder="Email">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Phone Number</label>
+    <input type="text" class="form-control" name="phoneNo" ngModel required placeholder="Phone Number">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Address</label>
+    <textarea class="form-control" name="address" ngModel placeholder="Address"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Message</label>
+    <textarea class="form-control" name="message" ngModel placeholder="Message"></textarea>
+  </div>
+
+  <button type="submit" class="btn active_tab w-100">Submit</button>
+</form>
+
+
+    </div>
+  <!-- Google reCAPTCHA placeholder -->
+
+        
     <!-- Medical Tourism Form -->
     <div class="tab-pane fade" id="medical" role="tabpanel">
-      <form>
-        <div class="mb-3">
-          <label class="form-label">Full Name</label>
-          <input type="text" class="form-control" placeholder="Full Name">
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Email Address</label>
-          <input type="email" class="form-control" placeholder="Email">
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Phone Number</label>
-          <div class="input-group">
-            <select class="form-select" style="max-width: 80px;">
-              <option>+91</option>
-              <option>+1</option>
-              <option>+44</option>
-            </select>
-            <input type="text" class="form-control" placeholder="Phone Number">
-          </div>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Treatment Selection</label>
-          <input type="text" class="form-control" placeholder="Add Health Issues">
-        </div>
-        <div class="mb-3">
-            <!-- Google reCAPTCHA placeholder -->
-            <div class="g-recaptcha" data-sitekey="6LdrPPIpAAAAAPI5q1Is-gvR3Uzvg25FBAkWW5vb"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-zatcf3m2wazh" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdrPPIpAAAAAPI5q1Is-gvR3Uzvg25FBAkWW5vb&amp;co=aHR0cHM6Ly9zb3VraHlhLmhlYWx0aDo0NDM.&amp;hl=en&amp;v=_mscDd1KHr60EWWbt2I_ULP0&amp;size=normal&amp;anchor-ms=20000&amp;execute-ms=15000&amp;cb=yzickbgpjgwq"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div>
-          </div>
-        <button type="submit" class="btn active_tab w-100">Submit</button>
-      </form>
+     <form #medicalForm="ngForm" (ngSubmit)="onSubmit(medicalForm, 'medical tourism')">
+  <div class="mb-3">
+    <label class="form-label">Full Name</label>
+    <input type="text" class="form-control" name="name" ngModel required placeholder="Full Name">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Email Address</label>
+    <input type="email" class="form-control" name="email" ngModel required placeholder="Email">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Phone Number</label>
+    <div class="input-group">
+      <select class="form-select" name="countryCode" ngModel style="max-width: 80px;">
+        <option value="+91">+91</option>
+        <option value="+1">+1</option>
+        <option value="+44">+44</option>
+      </select>
+      <input type="text" class="form-control" name="phoneNo" ngModel required placeholder="Phone Number">
     </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Treatment Selection</label>
+    <input type="text" class="form-control" name="treatmentIssue" ngModel required placeholder="Add Health Issues">
+  </div>
+
+  <div class="mb-3">
+    <!-- Google reCAPTCHA placeholder -->
+    <!-- <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div> -->
+  </div>
+
+  <button type="submit" class="btn active_tab w-100">Submit</button>
+</form>
+</div>
 
   </div>
             

@@ -46,6 +46,7 @@
         <div class="col-md-6 mb-2">
           <div class="input-group">
             <select class="form-select abb-select" [(ngModel)]="patient.abb" name="abb">
+              <option value="" disabled selected>Select Relation</option>
               <option value="s/o">S/O</option>
               <option value="w/o">W/O</option>
               <option value="h/o">H/O</option>
@@ -57,6 +58,7 @@
 
         <div class="col-md-6 mb-2">
           <select class="form-select" [(ngModel)]="patient.gender" name="gender">
+            <option value="" disabled selected>Select Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
@@ -93,10 +95,11 @@
   <div class="row g-3">
     <div class="col-12">
       <select class="form-select" [(ngModel)]="patient.rstatus" name="rstatus">
-        <option value="India Resident">India Resident</option>
-        <option value="NRI">NRI</option>
-        <option value="PIO">PIO</option>
-        <option value="Foriegn National">Foriegn National</option>
+  <option value="" disabled selected>Select Residency Status</option>
+  <option value="India Resident">India Resident</option>
+  <option value="NRI">NRI</option>
+  <option value="PIO">PIO</option>
+  <option value="Foriegn National">Foriegn National</option>
       </select>
     </div>
 
@@ -129,10 +132,11 @@
 
     <div class="col-12">
       <select class="form-select" [(ngModel)]="patient.addressTextProof" name="addressTextProof">
-        <option value="Aadhar">Copy of Aadhar card</option>
-        <option value="Voter ID">Voter ID</option>
-        <option value="Passport">Passport</option>
-        <option value="Other">Any other Govt Notified document</option>
+  <option value="" disabled selected>Select Address Proof</option>
+  <option value="Aadhar">Copy of Aadhar card</option>
+  <option value="Voter ID">Voter ID</option>
+  <option value="Passport">Passport</option>
+  <option value="Other">Any other Govt Notified document</option>
       </select>
     </div>
 
@@ -165,7 +169,7 @@
             </div>
             <div class="col-sm-6 mb-2">
               <select class="form-select" [(ngModel)]="ct.relation" [name]="'relation' + i">
-                <option value="">-- Select Relation --</option>
+                <option value="" disabled selected>Select Relation</option>
                 <option value="Son">Son</option>
                 <option value="Daughter">Daughter</option>
                 <option value="Mother">Mother</option>
@@ -446,7 +450,7 @@
       <div class="col-sm-6">
         <label class="form-label">Declined Insurance Coverage?</label>
         <select class="form-control" [(ngModel)]="insuranceDetails.declinedCoverage" name="declinedCoverage">
-          <option value="">Select an option</option>
+          <option value="" disabled selected>Select an option</option>
           <option value="yes">Yes</option>
           <option value="no">No</option>
         </select>
@@ -489,7 +493,7 @@
       <div class="col-sm-6">
         <label class="form-label">Select Package</label>
         <select class="form-control" [(ngModel)]="insuranceDetails.package" name="package">
-          <option value="" disabled>Select Package</option>
+          <option value="" disabled selected>Select Package</option>
           <option value="integral">INTEGRAL</option>
           <option value="prime">PRIME</option>
           <option value="elite">ELITE</option>
@@ -499,7 +503,7 @@
       <div class="col-sm-6">
         <label class="form-label">Package Details</label>
         <select class="form-control" [(ngModel)]="insuranceDetails.packageDetail" name="packageDetail">
-          <option value="" disabled>Please select an option</option>
+          <option value="" disabled selected>Please select an option</option>
           <option *ngFor="let option of packageDetails[insuranceDetails.package]" [value]="option">
             {{ option }}
           </option>

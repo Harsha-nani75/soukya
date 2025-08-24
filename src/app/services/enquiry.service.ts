@@ -3,6 +3,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from './environment';
 
+export interface Enquiry {
+  name: string;
+  email: string;
+  phoneNo: string;
+  address?: string;
+  message?: string;
+  serviceType: 'elder care' | 'medical tourism';
+  treatmentIssue?: string | null;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -13,5 +22,9 @@ export class EnquiryService {
 
   getEnquires(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/enquiry`);
+  }
+  
+  createEnquiry(enquiry: Enquiry): Observable<any> {
+    return this.http.post(`${this.apiUrl}/enquiry/enquiries`, enquiry);
   }
 }

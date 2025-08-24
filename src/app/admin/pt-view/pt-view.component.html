@@ -1,123 +1,344 @@
-<div class="container mt-5" *ngIf="!loading && patient">
-  <button class="btn btn-outline-secondary mb-4" (click)="goBack()">
-    <i class="fa fa-arrow-left me-2"></i> Back
-  </button>
-
-<div class="row g-4">
-  <!-- Card 1: Photo & Basic Info -->
-  <div class="col-md-6">
-    <div class="card shadow-sm p-3 animate__animated animate__fadeInUp">
-      <div class="d-flex align-items-center">
-        <img [src]="patient.photo || '../../../assets/image.png'" alt="Photo" class="me-3 patient-photo">
-        <div>
-          <h5>{{ patient.name }} {{ patient.lname }}</h5>
-          <p class="mb-1"><i class="fa fa-birthday-cake me-2"></i>{{ patient.age }} years</p>
-          <p class="mb-0"><i class="fa fa-map-marker-alt me-2"></i>{{ patient.raddress }}, {{ patient.rcity }}</p>
+<!-- Main Container -->
+<div class="container-fluid mt-4" *ngIf="!loading">
+  
+  <!-- Header Section with Navigation and Edit Options -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+          <button class="btn btn-outline-secondary me-3" (click)="goBack()">
+            <i class="fa fa-arrow-left me-2"></i> Back to Patient List
+          </button>
+          <h2 class="mb-0">
+            <i class="fa fa-user-circle me-2 text-primary"></i>
+            Patient Details
+          </h2>
+        </div>
+        
+        <!-- Edit Options Dropdown - Only show if patient exists -->
+        <div class="edit-button-wrapper" *ngIf="patient" (mouseleave)="closeDropdown()">
+          <button class="btn btn-primary" (mouseenter)="openDropdown()">
+            <i class="fa fa-edit me-2"></i>Edit Options
+          </button>
+          <ul class="edit-options dropdown-menu show" *ngIf="showDropdown">
+            <li class="dropdown-item" (click)="editPersonalDetails()">
+              <i class="fa fa-user me-2"></i>Edit Personal Details
+            </li>
+            <li class="dropdown-item" (click)="editPhoto()">
+              <i class="fa fa-camera me-2"></i>Edit Photo
+            </li>
+            <li class="dropdown-item" (click)="editCaretakers()">
+              <i class="fa fa-users me-2"></i>Edit Caretakers
+            </li>
+            <li class="dropdown-item" (click)="editHabits()">
+              <i class="fa fa-heartbeat me-2"></i>Edit Habits
+            </li>
+            <li class="dropdown-item" (click)="editInsurance()">
+              <i class="fa fa-briefcase me-2"></i>Edit Insurance
+            </li>
+            <li class="dropdown-item" (click)="editQuestions()">
+              <i class="fa fa-question-circle me-2"></i>Edit Questions
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Card 2: Detailed Info -->
-  <div class="col-md-6">
-    <div class="card shadow-sm p-3 animate__animated animate__fadeInUp animate__delay-1s">
-      <table class="table table-borderless mb-0">
-        <tbody>
-          <tr>
-            <th scope="row">Date of Birth</th>
-            <td>{{ patient.dob | date:'mediumDate' }}</td>
-          </tr>
-          <tr>
-            <th scope="row">Occupation</th>
-            <td>{{ patient.ocupation }}</td>
-          </tr>
-          <tr>
-            <th scope="row">Phone</th>
-            <td>{{ patient.phone }}</td>
-          </tr>
-          <tr>
-            <th scope="row">Email</th>
-            <td>{{ patient.email }}</td>
-          </tr>
-          <tr>
-            <th scope="row">Residential Address</th>
-            <td>{{ patient.raddress }}, {{ patient.rcity }}, {{ patient.rstate }} - {{ patient.rzipcode }}</td>
-          </tr>
-          <tr>
-            <th scope="row">Permanent Address</th>
-            <td>{{ patient.paddress }}, {{ patient.pcity }}, {{ patient.pstate }} - {{ patient.pzipcode }}</td>
-          </tr>
-          <tr>
-            <th scope="row">ID Proof</th>
-            <td>
+  <!-- Patient Not Found Message -->
+  <div class="row" *ngIf="!patient && !loading">
+    <div class="col-12">
+      <div class="card border-danger">
+        <div class="card-body text-center py-5">
+          <i class="fa fa-exclamation-triangle text-danger" style="font-size: 4rem;"></i>
+          <h3 class="mt-3 text-danger">Patient Not Found</h3>
+          <p class="text-muted">The patient with ID {{ patientId }} could not be found in our records.</p>
+          <button class="btn btn-primary" (click)="goBack()">
+            <i class="fa fa-arrow-left me-2"></i>Back to Patient List
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Patient Data Cards - Only show if patient exists -->
+  <div class="row g-4" *ngIf="patient">
+    
+    <!-- Card 1: Patient Photo & Basic Info -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card shadow-sm h-100 animate__animated animate__fadeInUp">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0"><i class="fa fa-user me-2"></i>Basic Information</h5>
+        </div>
+        <div class="card-body text-center">
+          <div class="position-relative mb-3">
+            <img [src]="patient.photo || '../../../assets/image.png'" 
+                 alt="Patient Photo" 
+                 class="patient-photo rounded-circle shadow"
+                 style="width: 150px; height: 150px; object-fit: cover;">
+            <div class="position-absolute bottom-0 end-0">
+              <button class="btn btn-sm btn-outline-primary rounded-circle" (click)="editPhoto()">
+                <i class="fa fa-camera"></i>
+              </button>
+            </div>
+          </div>
+          <h4 class="mb-2">{{ patient.name }} {{ patient.lname }}</h4>
+          <p class="text-muted mb-2">
+            <i class="fa fa-birthday-cake me-2"></i>{{ patient.age }} years old
+          </p>
+          <p class="text-muted mb-2">
+            <i class="fa fa-venus-mars me-2"></i>{{ patient.gender }}
+          </p>
+          <p class="text-muted mb-0">
+            <i class="fa fa-briefcase me-2"></i>{{ patient.ocupation || 'Not specified' }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Contact Information -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card shadow-sm h-100 animate__animated animate__fadeInUp animate__delay-1s">
+        <div class="card-header bg-info text-white">
+          <h5 class="mb-0"><i class="fa fa-address-book me-2"></i>Contact Information</h5>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <h6><i class="fa fa-phone me-2 text-primary"></i>Phone</h6>
+            <p class="mb-0">{{ patient.phone || 'Not provided' }}</p>
+          </div>
+          <div class="mb-3">
+            <h6><i class="fa fa-envelope me-2 text-primary"></i>Email</h6>
+            <p class="mb-0">{{ patient.email || 'Not provided' }}</p>
+          </div>
+          <div class="mb-3">
+            <h6><i class="fa fa-calendar me-2 text-primary"></i>Date of Birth</h6>
+            <p class="mb-0">{{ patient.dob ? (patient.dob | date:'mediumDate') : 'Not provided' }}</p>
+          </div>
+          <div>
+            <h6><i class="fa fa-id-card me-2 text-primary"></i>ID Number</h6>
+            <p class="mb-0">{{ patient.idnum || 'Not provided' }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Address Information -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card shadow-sm h-100 animate__animated animate__fadeInUp animate__delay-2s">
+        <div class="card-header bg-success text-white">
+          <h5 class="mb-0"><i class="fa fa-map-marker-alt me-2"></i>Address Information</h5>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <h6><i class="fa fa-home me-2 text-success"></i>Residential Address</h6>
+            <p class="mb-0 small">
+              {{ patient.raddress || 'Not provided' }}, {{ patient.rcity || '' }}<br>
+              {{ patient.rstate || '' }} - {{ patient.rzipcode || '' }}
+            </p>
+          </div>
+          <div class="mb-3">
+            <h6><i class="fa fa-building me-2 text-success"></i>Permanent Address</h6>
+            <p class="mb-0 small">
+              {{ patient.paddress || 'Not provided' }}, {{ patient.pcity || '' }}<br>
+              {{ patient.pstate || '' }} - {{ patient.pzipcode || '' }}
+            </p>
+          </div>
+          <div>
+            <h6><i class="fa fa-file-text me-2 text-success"></i>ID Proof</h6>
+            <div *ngIf="patient.proofFile && patient.proofFile.length; else noProof">
               <ng-container *ngFor="let f of patient.proofFile">
-                <a [href]="f" target="_blank" class="badge bg-primary mb-1">{{ f.split('/').pop() }}</a>
+                <a [href]="f" target="_blank" class="badge bg-primary me-1 mb-1">
+                  {{ f.split('/').pop() }}
+                </a>
               </ng-container>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-    <!-- Card 2: Caretakers -->
-    <div class="col-md-6">
-  <div class="card shadow-sm p-3 animate__animated animate__fadeInUp animate__delay-1s">
-    <h5 class="mb-3"><i class="fa fa-users me-2"></i>Caretakers</h5>
-
-    <div *ngIf="caretakersList.length; else noCaretaker">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item" *ngFor="let c of caretakersList">
-          <strong>{{ c.name }}</strong><br>
-          <i class="fa fa-phone me-1"></i> {{ c.phone }} <br>
-          <i class="fa fa-envelope me-1"></i> {{ c.email }}
-        </li>
-      </ul>
-    </div>
-
-    <ng-template #noCaretaker>
-      <p class="text-muted">No caretakers added.</p>
-    </ng-template>
-  </div>
-</div>
-
-
-    <!-- Card 3: Insurance -->
-    <div class="col-md-12">
-      <div class="card shadow-sm p-3 animate__animated animate__fadeInUp animate__delay-2s">
-        <h5 class="mb-3"><i class="fa fa-briefcase me-2"></i>Insurance Details</h5>
-        <p><strong>Company:</strong> {{ patient.insuranceCompany }}</p>
-        <p><strong>Sum Insured:</strong> {{ patient.sumInsured }}</p>
-        <p><strong>Policy Files:</strong>
-          <ng-container *ngFor="let f of patient.policyFiles">
-            <a [href]="f" target="_blank" class="badge bg-success me-1 mb-1">{{ f.split('/').pop() }}</a>
-          </ng-container>
-        </p>
-        <p><strong>Hospitals:</strong> {{ patient.insurance_hospitals }}</p>
-        <p><strong>Package:</strong> {{ patient.package }} ({{ patient.packageDetail }})</p>
+            </div>
+            <ng-template #noProof>
+              <p class="mb-0 text-muted small">No proof files uploaded</p>
+            </ng-template>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Card 4: Habits & Questions -->
-    <div class="col-md-12">
-      <div class="card shadow-sm p-3 animate__animated animate__fadeInUp animate__delay-3s">
-        <h5 class="mb-3"><i class="fa fa-heartbeat me-2"></i>Habits & Questions</h5>
-        <p><strong>Habits:</strong> {{ patient.habits }}</p>
-        <p><strong>Questions:</strong> {{ patient.questions }}</p>
+    <!-- Card 4: Caretakers -->
+    <div class="col-lg-6 col-md-6">
+      <div class="card shadow-sm h-100 animate__animated animate__fadeInUp animate__delay-3s">
+        <div class="card-header bg-warning text-dark">
+          <h5 class="mb-0"><i class="fa fa-users me-2"></i>Caretakers</h5>
+        </div>
+        <div class="card-body">
+          <div *ngIf="caretakersList.length; else noCaretaker">
+            <div class="row">
+              <div class="col-12" *ngFor="let c of caretakersList; let i = index">
+                <div class="caretaker-item p-3 border rounded mb-2" [class.bg-light]="i % 2 === 0">
+                  <div class="d-flex justify-content-between align-items-start">
+                    <div class="flex-grow-1">
+                      <h6 class="mb-1">
+                        {{ c.name }}
+                        <span *ngIf="c.relation" class="badge bg-secondary ms-2">{{ c.relation }}</span>
+                      </h6>
+                      <p class="mb-1 small">
+                        <i class="fa fa-phone me-1 text-primary"></i> {{ c.phone }}
+                      </p>
+                      <p class="mb-1 small" *ngIf="c.email">
+                        <i class="fa fa-envelope me-1 text-primary"></i> {{ c.email }}
+                      </p>
+                      <p class="mb-0 small" *ngIf="c.address">
+                        <i class="fa fa-map-marker-alt me-1 text-primary"></i> {{ c.address }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-template #noCaretaker>
+            <div class="text-center py-4">
+              <i class="fa fa-users text-muted" style="font-size: 3rem;"></i>
+              <p class="text-muted mt-2">No caretakers added</p>
+            </div>
+          </ng-template>
+        </div>
       </div>
     </div>
-  </div>
 
+    <!-- Card 5: Insurance Details -->
+    <div class="col-lg-6 col-md-6">
+      <div class="card shadow-sm h-100 animate__animated animate__fadeInUp animate__delay-4s">
+        <div class="card-header bg-info text-white">
+          <h5 class="mb-0"><i class="fa fa-briefcase me-2"></i>Insurance Details</h5>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <h6><i class="fa fa-building me-2 text-info"></i>Insurance Company</h6>
+            <p class="mb-0">{{ patient.insuranceCompany || 'Not specified' }}</p>
+          </div>
+          <div class="mb-3">
+            <h6><i class="fa fa-money-bill me-2 text-info"></i>Sum Insured</h6>
+            <p class="mb-0">{{ patient.sumInsured || 'Not specified' }}</p>
+          </div>
+          <div class="mb-3">
+            <h6><i class="fa fa-file-text me-2 text-info"></i>Policy Files</h6>
+            <div *ngIf="patient.policyFiles && patient.policyFiles.length; else noPolicy">
+              <ng-container *ngFor="let f of patient.policyFiles">
+                <a [href]="f" target="_blank" class="badge bg-success me-1 mb-1">
+                  {{ f.split('/').pop() }}
+                </a>
+              </ng-container>
+            </div>
+            <ng-template #noPolicy>
+              <p class="mb-0 text-muted small">No policy files uploaded</p>
+            </ng-template>
+          </div>
+          <div class="mb-3">
+            <h6><i class="fa fa-hospital me-2 text-info"></i>Preferred Hospitals</h6>
+            <p class="mb-0">{{ patient.insurance_hospitals || 'Not specified' }}</p>
+          </div>
+          <div>
+            <h6><i class="fa fa-box me-2 text-info"></i>Package</h6>
+            <p class="mb-0">
+              {{ patient.package || 'Not selected' }}
+              <span *ngIf="patient.packageDetail" class="text-muted">({{ patient.packageDetail }})</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6: Habits -->
+    <div class="col-lg-6 col-md-6">
+      <div class="card shadow-sm h-100 animate__animated animate__fadeInUp animate__delay-5s">
+        <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
+          <h5 class="mb-0"><i class="fa fa-heartbeat me-2"></i>Habits</h5>
+          <button type="button" class="btn btn-sm btn-outline-light" (click)="refreshHabitsData()" title="Refresh habits data">
+            <i class="fa fa-refresh"></i>
+          </button>
+        </div>
+        <div class="card-body">
+          <div *ngIf="patient.habits && getHabitsArray().length > 0; else noHabits">
+            <div class="row">
+              <div class="col-6 mb-3" *ngFor="let habit of getHabitsArray()">
+                <div class="habit-item p-2 border rounded text-center">
+                  <img [src]="getHabitIcon(habit.name)" alt="{{ habit.name }}" class="habit-icon mb-2" style="width: 30px; height: 30px;">
+                  <h6 class="mb-1">{{ habit.name }}</h6>
+                  <span class="badge" [class.bg-success]="habit.value === 'yes'" [class.bg-danger]="habit.value === 'no'">
+                    {{ habit.value === 'yes' ? 'Yes' : 'No' }}
+                  </span>
+                  <p class="mb-0 small" *ngIf="habit.years && habit.value === 'yes'">{{ habit.years }} years</p>
+                  <ul>
+  <li *ngFor="let h of parsedHabits">
+    {{ h.code }}: {{ h.answer }} <span *ngIf="h.years">({{ h.years }} years)</span>
+  </li>
+</ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-template #noHabits>
+            <div class="text-center py-4">
+              <i class="fa fa-heartbeat text-muted" style="font-size: 3rem;"></i>
+              <p class="text-muted mt-2">No habits information available</p>
+              <small class="text-muted">Click "Edit Habits" to add habit information</small>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 7: Questions -->
+    <div class="col-lg-6 col-md-6">
+      <div class="card shadow-sm h-100 animate__animated animate__fadeInUp animate__delay-6s">
+        <div class="card-header bg-secondary text-white">
+          <h5 class="mb-0"><i class="fa fa-question-circle me-2"></i>Health Questions</h5>
+        </div>
+        <div class="card-body">
+          <div *ngIf="patient.questions; else noQuestions">
+            <div class="row">
+              <div class="col-12 mb-3" *ngFor="let question of getQuestionsArray(); let i = index">
+                <div class="question-item p-3 border rounded">
+                  <h6 class="mb-2">Question {{ i + 1 }}</h6>
+                  <p class="mb-2 small">{{ question.text }}</p>
+                  <span class="badge" [class.bg-success]="question.answer === 'yes'" [class.bg-danger]="question.answer === 'no'">
+                    {{ question.answer === 'yes' ? 'Yes' : 'No' }}
+                  </span>
+                  <p class="mb-0 mt-2 small" *ngIf="question.details">
+                    <strong>Details:</strong> {{ question.details }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-template #noQuestions>
+            <div class="text-center py-4">
+              <i class="fa fa-question-circle text-muted" style="font-size: 3rem;"></i>
+              <p class="text-muted mt-2">No questions answered</p>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <!-- Loading Spinner -->
-<div *ngIf="loading" class="d-flex justify-content-center align-items-center" style="height: 300px;">
-  <div class="spinner-border text-primary" role="status">
-    <span class="visually-hidden">Loading...</span>
+<div *ngIf="loading" class="d-flex justify-content-center align-items-center" style="height: 60vh;">
+  <div class="text-center">
+    <div class="spinner-border text-primary mb-3" role="status" style="width: 3rem; height: 3rem;">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <h5 class="text-muted">Loading patient information...</h5>
   </div>
 </div>
 
 <!-- Error Alert -->
-<div *ngIf="error" class="alert alert-danger mt-4 animate__animated animate__shakeX">
-  <i class="fa fa-exclamation-triangle me-2"></i>{{ error }}
+<div *ngIf="error" class="container mt-4">
+  <div class="alert alert-danger animate__animated animate__shakeX">
+    <i class="fa fa-exclamation-triangle me-2"></i>
+    <strong>Error:</strong> {{ error }}
+    <button class="btn btn-outline-danger btn-sm ms-3" (click)="goBack()">
+      <i class="fa fa-arrow-left me-1"></i>Back to Patient List
+    </button>
+  </div>
 </div>

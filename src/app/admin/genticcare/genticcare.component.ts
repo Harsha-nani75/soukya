@@ -203,8 +203,8 @@ ngOnInit(): void {
         this.patient = {
           ...res,
           photo: res.photo
-            ? `http://localhost:4865/${res.photo.replace(/\\/g, '/')}`
-            : '../../../assets/image.png',
+            = `http://localhost:4865/${res.photo.replace(/\\/g, '/')}`
+            ,
           proofFile: res.proofFile
             ? res.proofFile
                 .toString()
@@ -275,17 +275,17 @@ ngOnInit(): void {
     });
   }
 
-onFileSelected(event: any): void {
-  const file = event.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.previewUrl = reader.result; // Show preview
-    };
-    reader.readAsDataURL(file);
+// onFileSelected(event: any): void {
+//   const file = event.target.files[0];
+//   if (file) {
+//     const reader = new FileReader();
+//     reader.onload = () => {
+//       this.previewUrl = reader.result; // Show preview
+//     };
+//     reader.readAsDataURL(file);
 
-  }
-}
+//   }
+// }
 
 
   onAddressFileSelected(event: any) {
@@ -330,12 +330,10 @@ addCaretaker(): void {
 removeCaretaker(index: number): void {
   this.caretakers.splice(index, 1);
 }
-
-// 📌 Submit
 onSubmit() {
   const formData = new FormData();
 
-  // JSON.stringify objects/arrays
+  // Append JSON data
   formData.append('patient', JSON.stringify(this.patient));
   formData.append('careTaker', JSON.stringify(this.caretakers || []));
   formData.append('habits', JSON.stringify(this.habits || []));
@@ -343,51 +341,109 @@ onSubmit() {
   formData.append('insurance', JSON.stringify(this.insuranceDetails || {}));
   formData.append('insuranceHospitals', JSON.stringify(this.insuranceDetails?.hospitals || []));
 
-  // Files
+  // --- PHOTO (array of paths) ---
   if (this.selectedPhoto) {
+    // If new photo is chosen, upload it
     formData.append('photo', this.selectedPhoto);
+    // Send existing photo paths as array (for backend to update/delete as needed)
+    if (this.isEditMode && Array.isArray(this.patient.photo)) {
+      formData.append('photoPaths', JSON.stringify(this.patient.photo));
+    } else if (this.isEditMode && typeof this.patient.photo === 'string' && this.patient.photo) {
+      formData.append('photoPaths', JSON.stringify([this.patient.photo]));
+    }
+  } else if (this.isEditMode && this.patient?.photo) {
+    // If no new photo, send only the array of photo paths
+    if (Array.isArray(this.patient.photo)) {
+      formData.append('photoPaths', JSON.stringify(this.patient.photo));
+    } else if (typeof this.patient.photo === 'string' && this.patient.photo) {
+      formData.append('photoPaths', JSON.stringify([this.patient.photo]));
+    }
+  } else {
+    // For new patient with no photo, fallback to default
+    formData.append('photo', new File([], 'default.png'));
+  }
+
+  // --- PROOF FILE (array of paths) ---
+  if (this.isEditMode && this.patient?.proofFile) {
+    // Always send array of existing proof file paths
+    if (Array.isArray(this.patient.proofFile)) {
+      formData.append('proofFilePaths', JSON.stringify(this.patient.proofFile));
+    } else if (typeof this.patient.proofFile === 'string' && this.patient.proofFile) {
+      formData.append('proofFilePaths', JSON.stringify([this.patient.proofFile]));
+    }
   }
   if (this.addressFile) {
+    // Add new proof file
     formData.append('proofFile', this.addressFile);
+  }
+
+  // --- POLICY FILES (array of paths) ---
+  if (this.isEditMode && this.insuranceDetails?.policyFiles?.length > 0) {
+    formData.append('policyFilePaths', JSON.stringify(this.insuranceDetails.policyFiles));
   }
   if (this.policyFiles.length > 0) {
     this.policyFiles.forEach((file) => {
-      formData.append('policyFiles', file); // multiple files, same key
+      formData.append('policyFiles', file);
     });
   }
 
-  // ✅ Print all formData content to console
-//   console.log("🚀 Sending FormData:");
-// formData.forEach((value, key) => {
-//   console.log(key, value);
-// });
-
-
+  // --- Submit (Create / Update) ---
   if (this.isEditMode && this.patientId) {
     this.patientService.updatePatient(this.patientId, formData).subscribe({
       next: () => {
-        alert('Patient updated successfully');
-        this.router.navigate(['/patients']);
+        Swal.fire({
+          icon: 'success',
+          title: 'Updated!',
+          text: 'Patient details have been updated successfully.',
+          showConfirmButton: false,
+          timer: 2000
+        });
       },
-      error: (err) => console.error(err)
+      error: (err) => console.error("Update Error:", err)
     });
   } else {
     this.patientService.addPatient(formData).subscribe({
       next: () => {
-Swal.fire({
-      icon: 'success',
-      title: 'Saved!',
-      text: 'Patient details have been saved successfully.',
-      showConfirmButton: false,
-      timer: 2000
-    })
-            this.router.navigate(['/admin/gentic']);
+        Swal.fire({
+          icon: 'success',
+          title: 'Saved!',
+          text: 'Patient details have been saved successfully.',
+          showConfirmButton: false,
+          timer: 2000
+        });
+        console.log("Form submitted successfully", this.patient);
+        this.resetForm();
       },
       error: (err) => console.error("Submit Error:", err)
     });
   }
+}
+onFileSelected(event: any): void {
+  const file = event.target.files[0];
+  if (file) {
+    this.selectedPhoto = file; // <-- This line is required!
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.previewUrl = reader.result; // Show preview
+    };
+    reader.readAsDataURL(file);
+  }
+}
+resetForm() {
+  this.patient = {
+    name: '', lname: '', sname: '', abb: '', abbname: '', gender: '', dob: '', age: '', ocupation: '', phone: '', email: '', rstatus: '', raddress: '', rcity: '', rstate: '', rzipcode: '', paddress: '', pcity: '', pstate: '', pzipcode: '', addressTextProof: '', idnum: '', photo: '', proofFile: [], policyFiles: []
+  };
+  this.caretakers = [];
+  this.habits = { tobacco: '', tobaccoYears: 0, smoking: '', smokingYears: 0, alcohol: '', alcoholYears: 0, drugs: '', drugYears: 0 };
+  this.questions = { q1: { answer: '', details: '' }, q2: { answer: '', details: '' }, q3: { answer: '', details: '' } };
+  this.insuranceDetails = { insuranceCompany: '', periodInsurance: '', sumInsured: '', policyFiles: [], declinedCoverage: '', similarInsurances: '', package: '', packageDetail: '', hospitals: [] };
+  this.previewUrl = null;
+  this.selectedPhoto = null;
+  this.addressFile = null;
+  this.policyFiles = [];
+}
 
   
 }
 
-}
+

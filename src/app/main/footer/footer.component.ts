@@ -1,4 +1,7 @@
 import { Component, Renderer2 } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Enquiry, EnquiryService } from 'src/app/services/enquiry.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-footer',
@@ -9,10 +12,16 @@ export class FooterComponent {
  url:string = window.location.href;
 title = document.title;
 
-packagesButton = true;
+packagesButton = true;captchaToken: string | null = null;
+
+onCaptchaResolved(token: string) {
+  this.captchaToken = token;
+  console.log("Captcha resolved:", token);
+}
+
 
 private listenerFn: (() => void) | undefined;
-constructor(private renderer: Renderer2) {}
+constructor(private renderer: Renderer2,private enquiryService:EnquiryService) {}
 
 ngAfterViewInit(): void {
   this.listenerFn = this.renderer.listen(document, 'shown.bs.tab', (event: any) => {
@@ -30,7 +39,44 @@ ngOnDestroy(): void {
   if (this.listenerFn) {
     this.listenerFn(); // cleanup listener
   }
+
+
 }
+
+onSubmit(form: NgForm, serviceType: 'elder care' | 'medical tourism'): void {
+   
+    if (form.invalid) return;
+
+    const formValue: Enquiry = form.value;
+
+    // 🔹 Attach service type
+    formValue.serviceType = serviceType;
+
+    // 🔹 Handle Elder Care logic
+    if (serviceType === 'elder care') {
+      formValue.treatmentIssue = null;
+    }
+    //console.log (formValue)
+    this.enquiryService.createEnquiry(formValue).subscribe({
+      next: () => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Enquiry Submitted',
+          text: `Your ${serviceType} enquiry has been submitted successfully ✅`
+        });
+        form.resetForm();
+      },
+      error: () => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Submission Failed',
+          text: 'Something went wrong. Please try again ❌'
+        });
+      }
+    });
+  }
+
+
 
 onShare(){
     if (navigator.share) {

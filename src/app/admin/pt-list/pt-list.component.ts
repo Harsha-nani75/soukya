@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PatientService } from 'src/app/services/patient.service';
 
+import Swal from 'sweetalert2';
+
 
 
 interface Patient {
@@ -57,16 +59,32 @@ fetchPatients(): void {
 this.router.navigate(['/admin/gentic',patient.id]); // navigate to edit page
   }
 
-  onDelete(patientId: number): void {
-    if (confirm('Are you sure you want to delete this patient?')) {
+
+onDelete(patientId: number): void {
+  Swal.fire({
+    title: 'Are you sure?',
+    text: 'This action will permanently delete the patient and related data.',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#6c757d',
+    confirmButtonText: 'Yes, delete it!',
+    cancelButtonText: 'Cancel'
+  }).then((result) => {
+    if (result.isConfirmed) {
       this.patientService.deletePatient(patientId).subscribe({
         next: () => {
-          alert('Patient deleted successfully');
+          Swal.fire('Deleted!', 'Patient deleted successfully.', 'success');
           this.patients = this.patients.filter(p => p.id !== patientId);
         },
-        error: (err) => console.error('Delete error:', err)
+        error: (err) => {
+          console.error('Delete error:', err);
+          Swal.fire('Error!', 'Failed to delete patient.', 'error');
+        }
       });
     }
-  }
+  });
+}
+
 
 }
