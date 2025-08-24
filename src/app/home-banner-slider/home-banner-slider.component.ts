@@ -65,7 +65,9 @@ export class HomeBannerSliderComponent implements AfterViewInit {
       duration: 1000,
       once: false, // animate every time it comes into view
     })
+    this.onHomeRightSideContent()
   }
+
 
   refreshAOS() {
     setTimeout(() => AOS.refresh(), 100); // refresh AOS after slide transition
@@ -74,7 +76,21 @@ export class HomeBannerSliderComponent implements AfterViewInit {
   // setActive(slide: 'elder' | 'medical') {
   //   this.activeSlide = slide;
   // }
+
   setActive(id: string) {
     this.activeSlide = id;
+  }
+  onHomeRightSideContent(){
+    const carousel = document.getElementById('carouselExample');
+    if (carousel) {
+      carousel.addEventListener('slid.bs.carousel', () => {
+        const activeItem = carousel.querySelector('.carousel-item.active');
+        if (activeItem?.textContent?.includes('Compassionate Care')) {
+          this.activeSlide = 'elder';
+        } else {
+          this.activeSlide = 'medical';
+        }
+      });
+    }
   }
 }

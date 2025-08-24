@@ -1,0 +1,266 @@
+/*mobile sticky css end*/
+        /*tooltip css start */
+        /* .pos_rel {
+            position: relative;
+          }
+          
+          .tooltiptext {
+            position: absolute;
+            z-index: 1;
+            background: #2292b5;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0);
+            border-radius: 5px;
+            left: 3%;
+            width: 94%;
+            padding: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out;
+          }
+          
+          .tooltiptext.show {
+            opacity: 1;
+            visibility: visible;
+          }
+          
+          .tooltiptext::after {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            left: 44%;
+            border-width: 15px;
+            border-style: solid;
+            border-color: transparent transparent #2292b5 transparent;
+          }
+          .pdpk:hover .tooltiptext {
+            opacity: 1;
+            visibility: visible;
+          } */
+                    
+
+        /*tooltip css end*/
+
+
+
+        /* Header packages */
+        /* Card container */
+        .pos_rel {
+            position: relative;
+          }
+.pricing-table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+/* Card container */
+.pricing-table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Header */
+  .table-header {
+    padding: 20px;
+    color: #fff;
+  }
+  
+  .package-title {
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+  
+  /* Price */
+  .price_div {
+    margin-bottom: 15px;
+  }
+  
+  .original-price .strike {
+    text-decoration: line-through;
+    color: #ffdddd;
+    font-size: 20px;
+  }
+  
+  .current-price span {
+    font-size: 36px;
+    font-weight: 700;
+  }
+  
+  .per-month {
+    font-size: 14px;
+    color: #fff;
+  }
+  
+  .yearly-price {
+    font-size: 14px;
+    color: #fff;
+  }
+  
+  /* Buy Now Button */
+  .btn-buy {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 25px;
+    border-radius: 34px;
+    background-color: #fff;
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  /* Body Features */
+  .name-card-body {
+    background-color: #f8f8f8;
+    padding: 20px;
+  }
+  
+  .pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .feature-item {
+    position: relative;
+    margin-bottom: 15px;
+  }
+  
+  .feature-title {
+    font-weight: 500;
+    font-size: 16px;
+  }
+  
+  /* Tooltip */
+  .feature-item {
+    position: relative; /* already set by .pos_rel */
+    z-index: 1; /* parent stacking context */
+}
+  .tooltiptext {
+    position: absolute;
+    z-index: 1;
+    background: #2292b5;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0);
+    border-radius: 5px;
+    left: 3%;
+    width: 94%;
+    padding: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .tooltiptext.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 44%;
+    border-width: 15px;
+    border-style: solid;
+    border-color: transparent transparent #2292b5 transparent;
+  }
+  
+  /* Strike-through for features */
+  .text_strike {
+    text-decoration: line-through;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .table-header {
+      padding: 15px;
+    }
+    .package-title {
+      font-size: 24px;
+    }
+    .current-price span {
+      font-size: 28px;
+    }
+  }
+  
+  /* header packages end */
+
+
+
+
+
+ /*stcky hide start*/
+ /* .price_div,
+ .price_div1,
+ .price_div2,
+ .price_div3,
+ .price_div4,
+ .price_div5 {
+     display: block;
+     padding-top: 15px !important;
+ }
+
+ .price_Div,
+ .price_Div1,
+ .price_Div2,
+ .price_Div3,
+ .price_Div4,
+ .price_Div5 {
+     display: block;
+     padding-top: 15px !important;
+ }
+
+ .pay-per {
+     font-size: 18px !important;
+     color: #000 !important;
+     border: 1px solid #d1cfcf;
+     height: 100px;
+     align-items: center;
+     padding: 0px !important;
+     display: flex;
+     justify-content: center;
+ }
+
+ .name-card-headers {
+     padding: 3rem 0 0rem !important;
+     background: #e9663c;
+ }
+
+ .name-card-headers1 {
+     padding: 3rem 0 0rem !important;
+     background: #e9663c;
+ }
+
+ #mybutton {
+     display: none;
+ }
+
+ #packgesbutton {
+     position: fixed;
+     top: 50%;
+     transform: rotate(-90deg);
+     z-index: 99;
+     right: -76px;
+ }
+
+ .pb_hide {
+     display: none;
+ }
+
+ .desk_pb_hide {
+     display: none;
+ } */
+
+ 
+ /*sticky hide end*/
+
+ /* CSS to hide Razorpay logo */
+ 
+

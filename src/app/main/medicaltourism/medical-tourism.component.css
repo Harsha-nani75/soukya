@@ -117,3 +117,233 @@ a { color: inherit; text-decoration: none; }
 	.cards { grid-template-columns: 1fr; }
 	.phone-row { grid-template-columns: 1fr; }
 }
+.hero_img{
+	background-image: url("/assets/medical-tourism/medical_tourism_banner_img.jpg");
+    height: 450px !important;
+	/* background-color: var(--dark-color); */
+    /* height: 510px; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.hero_img:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.3 !important;
+}
+
+.marquee-horizontal {
+	display: flex;
+	overflow: hidden;
+	width: 100%;
+	height: 60px;
+	background-color: #e9653c;
+	align-items: center;
+	position: relative;
+  }
+  
+  .track-horizontal-alt {
+	display: flex;
+	align-items: center;
+	white-space: nowrap;
+	animation: marquee-horizontal 15s linear infinite;
+  }
+  
+  .marquee-horizontal:hover .track-horizontal-alt {
+	animation-play-state: paused;
+  }
+  
+  @keyframes marquee-horizontal {
+	0% {
+	  transform: translateX(0);
+	}
+	100% {
+	  transform: translateX(-50%);
+	}
+  }
+  
+  .marquee-text {
+	margin-right: 5vw;
+	flex: 0 0 auto;
+	color: #ffffff;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: clamp(14px, 2vw, 20px);
+  }
+	
+
+  .brandsCarousel {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	padding: 20px 0;
+	max-width: 960px;
+	max-height: 100px;
+	margin: auto;
+  }
+  
+  .brandsCarousel::before,
+  .brandsCarousel::after {
+	content: "";
+	width: 100px;
+	height: 100px;
+	background: linear-gradient(to right, rgba(243, 246, 245, 1) 0%, rgba(243, 246, 245, 0) 100%);
+	position: absolute;
+	top: 0;
+	z-index: 2;
+  }
+  
+  .brandsCarousel::before {
+	left: 0;
+  }
+  
+  .brandsCarousel::after {
+	right: 0;
+	transform: rotateZ(180deg);
+  }
+  
+  .carouselTrack {
+	display: flex;
+	width: fit-content;
+	animation: scroll 40s linear infinite;
+	will-change: transform;
+  }
+  
+  @keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-200px * 28)); }
+  }
+  
+  .brandLogo {
+	flex: 0 0 auto;
+	margin: 0 15px;
+	width: 180px;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+  }
+  
+  .brandLogo img {
+	object-fit: contain;
+	max-height: 100%;
+	max-width: 100%;
+	transition: transform 0.3s ease;
+  }
+  
+  /* ✅ Responsive */
+  @media (max-width: 768px) {
+	.brandLogo {
+	  width: 120px;
+	  height: 70px;
+	  margin: 0 10px;
+	}
+  }
+  
+  @media (max-width: 480px) {
+	.brandLogo {
+	  width: 90px;
+	  height: 60px;
+	  margin: 0 8px;
+	}
+  }
+  
+  /* advanced_medical_treatment */
+  .advanced_medical_treatment{
+	background-color: rgb(243 246 245);
+    padding-top: 30px;
+    padding-bottom: 100px;
+  }
+  .advanced_medical_treatment h2{
+	font-family:'Poppins','regular';
+	font-size: 39px;
+    line-height: 42px;
+    font-weight: 600;
+    color: #000;
+  }
+  .advanced_medical_treatment p{
+	font-family: 'Montserrat', sans-serif;
+    margin: 0 0 15px;
+    font-size: 18px;
+    color: #000;
+  }
+
+  /* Vedio section */
+  .elder-care-section {
+    background-color: #f9f9f9;
+  }
+
+  .sticky-video {
+    position: sticky;
+    top: 20px; /* Adjust as per header height */
+  }
+
+  .cardiac_care{
+	width: 85px;
+    height: 85px;
+    border: 2px solid #FFF;
+    border-radius: 50%;
+	display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		padding: 5px;
+  }
+  .br_black{
+	border: 2px solid #000 !important;
+  }
+  .rheumatology_img{
+	width: 75%;
+  }
+  /* .service-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  } */
+
+  /* .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+  } */
+
+  .service-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #3156a4;
+  }
+
+  .service-text {
+    font-size: 0.95rem;
+    color: #555;
+  }
+  .fw_300{
+font-weight: 300;
+  }
+  .learn_more_btn_white{
+	background-color: transparent;
+    border: 1.5px solid #FFF;
+    color: #FFF;
+    font-size: 13px;
+    padding: 7px 30px;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }
+
+  .learn_more_btn_black{
+	background-color: transparent;
+    border: 1.5px solid #808080;
+    color: #808080;
+    font-size: 13px;
+    padding: 7px 30px;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }
