@@ -20,7 +20,7 @@ export class HomeBannerSliderComponent implements AfterViewInit {
       headingClass: 'text-primary',
       sideTitle: 'ELDER CARE',
       sideText: 'Specialized Care for Seniors<br>Ensuring Comfort and Quality of Life',
-      aosImage: { type: 'fade-down', duration: 1200 },
+      aosImage: { type: 'fade-down', duration: 1000 },
       aosCaption: { type: 'fade-right', delay: 500 }
     },
     {
@@ -32,34 +32,16 @@ export class HomeBannerSliderComponent implements AfterViewInit {
       headingClass: 'text-danger',
       sideTitle: 'MEDICAL TOURISM',
       sideText: 'Quality Healthcare, Affordable Prices.<br>Explore Treatments with Expert Guidance',
-      aosImage: { type: 'fade-up', duration: 1200 },
+      aosImage: { type: 'fade-up', duration: 1000 },
       aosCaption: { type: 'fade-left', delay: 500 }
     }
   ];
 
   ngOnit(){
-    this.intervalId = setInterval(() => {
-      this.current = (this.current + 1) % this.slides.length;
-    }, 4000);
-
-    const carousel = document.getElementById('carouselExample');
-    if (carousel) {
-      carousel.addEventListener('slid.bs.carousel', () => {
-        const activeItem = carousel.querySelector('.carousel-item.active');
-        if (activeItem?.textContent?.includes('Compassionate Care')) {
-          this.activeSlide = 'elder';
-        } else {
-          this.activeSlide = 'medical';
-        }
-      });
-    }
+   
   }
 
-  ngOnDestroy() {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
-    }
-  }
+ 
   ngAfterViewInit(): void {
     AOS.init({
       duration: 1000,
