@@ -6,6 +6,9 @@
     justify-content: center;
     text-align: center;
     padding-top: 60px; /* prevents content hiding behind navbar */
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
   }
 
   [data-aos] {
@@ -249,6 +252,8 @@ height: 55px;
   /* Section */
 .medical-partner-section {
   padding: 20px 10px;
+  position: relative;
+  z-index: 5;
 }
 .card-img-top:before{
   content: '';
