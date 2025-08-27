@@ -16,6 +16,31 @@
 .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
 a { color: inherit; text-decoration: none; }
 
+/* How do we assist you section - Image size control */
+.services-ws-left img,
+.services-ws-left + div img,
+.col-lg-6 img {
+	max-width: 100%;
+	height: auto;
+	width: 100%;
+	object-fit: contain;
+}
+
+/* Specific image size control for the assistance section */
+.updown1 img,
+.updown2 img {
+	max-width: 400px;
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+}
+
+/* Ensure images don't exceed container */
+.col-lg-6 img {
+	max-width: 100%;
+	height: auto;
+}
+
 .btn {
 	display: inline-flex; align-items: center; gap: 8px;
 	border-radius: 999px; padding: 10px 16px; border: 1px solid transparent;

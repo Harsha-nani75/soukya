@@ -32,7 +32,7 @@ export class EldercareComponent implements AfterViewInit {
   currentContentId: string | null = null;
   services: any[] = [];
   chunkedServices: any[][] = [];
-
+  currentPackage: 'couple' | 'individual' = 'couple';
   payPerUseHeading: string | null = null;
   private lastScrollTop = 0; // store previous scroll position
 
@@ -44,18 +44,29 @@ export class EldercareComponent implements AfterViewInit {
     {
       id: 'comfort-care',
       name: 'Comfort Care',
-      original_price:4750,
-      price: 3800,
-      yearlyPrice: 90000,
+      couple_pckage:{
+        original_price: 4750,
+        price: 3800,
+        yearlyPrice: 90000,
+        modalId: 'myModal13',
+      },
+      individual_pckage:{
+        original_price: 6250,
+        price: 5000,
+        yearlyPrice: 50000,
+        modalId: 'myModal13',
+      },
       backgroundColor: '#2d6d99',
-      modalId: 'myModal13',
       features: [
         {
           id: 'monthly-visits',
-          title: 'Monthly doctor home visits',
+          title: 'Doctor Home Visits',
+          badge:'Once in 3 months',
           description:
             'Regular monthly home visits by a MD General Physician for your comprehensive check-ups to ensure your health is monitored proactively.',
-          hasTooltip: true
+          hasTooltip: true,
+          isStrikethrough:false
+
         },
         {
           id: 'health-focus',
@@ -63,7 +74,8 @@ export class EldercareComponent implements AfterViewInit {
           badge: 'Once a Month',
           description:
             'Embrace proactive wellness with our monthly / bimonthly vital monitoring service.',
-          hasTooltip: true
+          hasTooltip: true,
+          isStrikethrough:false
         },
         {
           id: 'emergency-assistance',
@@ -71,20 +83,22 @@ export class EldercareComponent implements AfterViewInit {
           badge: 'Pay per Use',
           description:
             'Receive prompt medical aid from our emergency doctor-on-call service.',
-          hasTooltip: true
+          hasTooltip: true,
+          isStrikethrough:false
         },
         {
           id: 'doctor-appointment',
           title: 'Arranging doctor/hospital appointment',
           description:
             'Facilitate appointments with new or your old doctors and hospitals based on your needs and preferences. Reducing waiting time.',
-          hasTooltip: true
+          hasTooltip: true,
+          isStrikethrough:false
         },
         {
           id: 'medication-followup',
           title: 'Medication Follow-up and Reminders',
           description: '',
-          isStrikeThrough: true
+          isStrikethrough:true
         },
         {
           id: 'vision-care',
@@ -132,7 +146,7 @@ export class EldercareComponent implements AfterViewInit {
           id: 'real-time-updates',
           title: 'Real-time updates',
           description: '',
-          isStrikeThrough: true
+          isStrikethrough: true
         },
         {
           id: 'insurance-management',
@@ -163,7 +177,8 @@ export class EldercareComponent implements AfterViewInit {
         {
           id: 'travellers-immunizations',
           title: 'Travellers health immunizations',
-          description: ''
+          description: '',
+          isStrikethrough: true
         },
         {
           id: 'second-opinion',
@@ -346,18 +361,29 @@ export class EldercareComponent implements AfterViewInit {
     {
       id: 'premium-care',
       name: 'Premium Care',
-      original_price:7000,
-      price: 5600,
-      yearlyPrice: 120000,
+      couple_pckage:{
+        original_price: 7000,
+        price: 5600,
+        yearlyPrice: 120000,
+        modalId: 'myModal23',
+      },
+      individual_pckage:{
+        original_price: 8333,
+        price: 6666,
+        yearlyPrice: 60000,
+        modalId: '',
+      },
       backgroundColor: '#e9663c',
-      modalId: 'myModal23',
       features: [
         {
           id: 'monthly-visits',
-          title: 'Monthly doctor home visits',
+          title: 'Doctor Home Visits',
+          badge:'Once in 2 months',
           description:
             'Regular monthly home visits by a MD General Physician for your comprehensive check-ups to ensure your health is monitored proactively.',
-          hasTooltip: true
+          hasTooltip: true,
+          isStrikethrough:false
+
         },
         {
           id: 'health-focus',
@@ -387,7 +413,8 @@ export class EldercareComponent implements AfterViewInit {
           id: 'medication-followup',
           title: 'Medication Follow-up and Reminders',
           description: '',
-          hasTooltip: false
+          hasTooltip: false,
+          isStrikethrough:true
         },
         {
           id: 'vision-care',
@@ -616,7 +643,8 @@ export class EldercareComponent implements AfterViewInit {
           id: 'nutrigenomix',
           title: 'Nutrigenomix Evaluation',
           description: '',
-          hasTooltip: true
+          hasTooltip: true,
+          isStrikethrough: true
         },
         {
           id: 'physiotherapy',
@@ -671,23 +699,34 @@ export class EldercareComponent implements AfterViewInit {
     {
       id: 'golden-care',
       name: 'Golden Care',
-      original_price:8000,
-      price: 6400,
-      yearlyPrice: 120000,
+      couple_pckage:{
+        original_price: 8000,
+        price: 6400,
+        yearlyPrice: 120000,
+        modalId: 'myModal64',
+      },
+      individual_pckage:{
+        original_price: 10450,
+        price: 8360,
+        yearlyPrice: 80000,
+        modalId: '',
+      },
       backgroundColor: '#2d6d99',
-      modalId: 'myModal64',
       features: [
         {
           id: 'monthly-visits',
-          title: 'Monthly doctor home visits',
+          title: 'Doctor Home Visits',
+          badge:'Once in a month',
           description:
             'Regular monthly home visits by a MD General Physician for your comprehensive check-ups to ensure your health is monitored proactively.',
-          hasTooltip: true
+          hasTooltip: true,
+          isStrikethrough:false
+
         },
         {
           id: 'health-focus',
           title: 'Focus on health',
-          badge: 'Once a Month',
+          badge: 'Bi Monthly',
           description:
             'Embrace proactive wellness with our monthly / bimonthly vital monitoring service.',
           hasTooltip: true
@@ -695,7 +734,7 @@ export class EldercareComponent implements AfterViewInit {
         {
           id: 'emergency-assistance',
           title: 'On-Demand emergency medical assistance',
-          badge: '1 time',
+          badge: '3 times',
           description:
             'Receive prompt medical aid from our emergency doctor-on-call service.',
           hasTooltip: true
@@ -1043,6 +1082,7 @@ export class EldercareComponent implements AfterViewInit {
     
     return `content-${packageId}-${featureId}`;
   }
+ 
   // @HostListener('window:scroll', [])
   // onWindowScroll() {
   //   const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
