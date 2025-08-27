@@ -1,6 +1,287 @@
-/* .sticky-top {
-  top:86px !important
-} */
+/* ===== SOUKHYA.HEALTH EXACT SCROLL BEHAVIOR ===== */
+
+/* Card container with relative positioning */
+.name-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sticky header behavior */
+.sticky-top {
+  position: sticky;
+  top: 85px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* When card is scrolled to top */
+.name-card.scrolled-to-top .sticky-top {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Adjust table header when price div is hidden */
+.name-card.scrolled-to-top .table-header {
+  padding-bottom: 20px;
+}
+
+/* Price div slide animation */
+.price_div {
+  transition: transform 0.4s ease, opacity 0.4s ease, height 0.4s ease, margin 0.4s ease, padding 0.4s ease, visibility 0.4s ease;
+  transform: translateY(0);
+  opacity: 1;
+  height: auto;
+  margin: auto;
+  padding: auto;
+  visibility: visible;
+}
+
+/* Hide price div when scrolled to top */
+.name-card.scrolled-to-top .price_div {
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Ensure title and button remain visible */
+.name-card.scrolled-to-top .table-header h4,
+.name-card.scrolled-to-top .table-header .buy_now {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===== SOUKHYA.HEALTH STYLE ELDERCARE CARDS ===== */
+
+.eldercare-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.eldercare-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Header */
+.card-header {
+  padding: 30px 25px 25px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.card-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  color: #fff;
+  line-height: 1.2;
+}
+
+/* Price Section */
+.price-section {
+  margin: 25px 0;
+  transition: all 0.3s ease;
+}
+
+/* Price div enhanced transitions */
+.price_div {
+  transition: all 0.4s ease;
+  will-change: transform, opacity;
+}
+
+.price-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.original-price {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.current-price {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.price-description {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 10px 0 0 0;
+  font-weight: 400;
+}
+
+/* Buy Now Button */
+.buy-now-btn {
+  background: #fff;
+  color: #333;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.buy-now-btn:hover {
+  background: #f8f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Features */
+.card-features {
+  background: #f8f9fa;
+  padding: 0;
+}
+
+.features-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.feature-item {
+  padding: 20px 25px;
+  border-bottom: 1px solid #e9ecef;
+  transition: background-color 0.3s ease;
+}
+
+.feature-item:last-child {
+  border-bottom: none;
+}
+
+.feature-item:nth-child(odd) {
+  background: #fff;
+}
+
+.feature-item:nth-child(even) {
+  background: #f8f9fa;
+}
+
+.feature-content {
+  position: relative;
+}
+
+.feature-title {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+  line-height: 1.5;
+  display: block;
+}
+
+.feature-badge {
+  background: #2d6d99;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+/* Pay-per-use Header */
+.pay-per-use-header {
+  background: #2d6d99;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 8px;
+  margin: 0 25px;
+}
+
+/* Tooltip Styles */
+.feature-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #2d6d99;
+  color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.feature-tooltip.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.feature-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #2d6d99;
+}
+
+/* Strikethrough text */
+.strikethrough {
+  text-decoration: line-through;
+  color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .eldercare-card {
+    margin-bottom: 20px;
+  }
+  
+  .card-header {
+    padding: 25px 20px 20px;
+  }
+  
+  .card-title {
+    font-size: 24px;
+  }
+  
+  .current-price {
+    font-size: 32px;
+  }
+  
+  .feature-item {
+    padding: 15px 20px;
+  }
+  
+  .feature-title {
+    font-size: 15px;
+  }
+}
 
 .abs-cont {
   position: relative;
@@ -37,6 +318,28 @@
 .table-header {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  transition: padding 0.3s ease, all 0.3s ease, position 0.3s ease, top 0.3s ease, z-index 0.3s ease;
+}
+
+/* Ensure title and button remain visible when sticky */
+.table-header[style*="position: sticky"] {
+  background: inherit !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure title and button are always visible and properly styled */
+.table-header h4,
+.table-header .buy_now {
+  position: relative;
+  z-index: 1001;
+}
+
+/* Enhanced sticky behavior for better visibility */
+.table-header[style*="position: sticky"] h4,
+.table-header[style*="position: sticky"] .buy_now {
+  color: inherit !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 .sticky-wrapper {
     position: sticky;
@@ -56,11 +359,9 @@
     bottom: 0;
 }
 .price_div {
-  transition: opacity 0.3s ease;
-}
-.price_div.hidden {
-  opacity: 0;
-  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, height 0.3s ease, margin 0.3s ease, padding 0.3s ease;
+  opacity: 1;
+  visibility: visible;
 }
 /* SERVICES */
 .carousel-item {
@@ -297,6 +598,9 @@
      display: block;
      /* Default state is visible */
      padding-top: 15px !important;
+     transition: opacity 0.3s ease, visibility 0.3s ease, height 0.3s ease, margin 0.3s ease, padding 0.3s ease;
+     opacity: 1;
+     visibility: visible;
  }
 
  .price_Div,
@@ -306,9 +610,11 @@
  .price_Div4,
  .price_Div5 {
      display: block;
-     transition: all 0.3s ease-in-out;
+     transition: all 0.3s ease-in-out, opacity 0.3s ease, visibility 0.3s ease, height 0.3s ease, margin 0.3s ease, padding 0.3s ease;
      /* Default state is visible */
      padding-top: 15px !important;
+     opacity: 1;
+     visibility: visible;
  }
  .name-card-header1.active .price_Div3 {
   display: block; /* show when parent has "active" */
@@ -383,6 +689,9 @@
   /* Price */
   .price_div {
     margin-bottom: 15px;
+    transition: opacity 0.3s ease, visibility 0.3s ease, height 0.3s ease, margin 0.3s ease, padding 0.3s ease;
+    opacity: 1;
+    visibility: visible;
   }
   
   .original-price .strike {
@@ -761,12 +1070,67 @@
     transform: translateZ(0); /* Creates a new stacking context */
 }
 
+/* Price div hidden state for smooth transitions */
+.price_div[style*="opacity: 0"],
+.price_div1[style*="opacity: 0"],
+.price_div2[style*="opacity: 0"],
+.price_div3[style*="opacity: 0"],
+.price_div4[style*="opacity: 0"],
+.price_div5[style*="opacity: 0"] {
+    pointer-events: none;
+    transform: translateY(-5px);
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Ensure price divs have proper positioning for smooth transitions */
+.price_div,
+.price_div1,
+.price_div2,
+.price_div3,
+.price_div4,
+.price_div5 {
+    will-change: opacity, visibility, transform, height, margin, padding;
+    backface-visibility: hidden;
+}
+
+
+
 /* Mobile responsive adjustments */
 @media (max-width: 768px) {
     .package-header {
         position: sticky;
         top: 0;
         z-index: 100;
+    }
+    
+    /* Ensure smooth transitions on mobile for price divs */
+    .price_div,
+    .price_div1,
+    .price_div2,
+    .price_div3,
+    .price_div4,
+    .price_div5 {
+        transition: opacity 0.2s ease, visibility 0.2s ease, height 0.2s ease, margin 0.2s ease, padding 0.2s ease;
+    }
+    
+    /* Mobile scroll behavior */
+    .name-card.scrolled-to-top .price_div {
+        transform: translateY(100%);
+        opacity: 0;
+        visibility: hidden;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    
+    .sticky-top {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 1000 !important;
     }
 }
 

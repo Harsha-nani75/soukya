@@ -1053,13 +1053,18 @@ export class EldercareComponent implements AfterViewInit {
       once: false,     // whether animation should happen only once
     });
 
-    
-    // Grab header and price divs after DOM is rendered
-    // this.header = this.el.nativeElement.querySelector('.name-card-header1');
-    // this.priceDivs = this.el.nativeElement.querySelectorAll(
-    //   '.price_Div, .price_Div1, .price_Div2, .price_Div3, .price_Div4, .price_Div5'
-    // );
+    // Initialize scroll behavior after view is ready
+    // setTimeout(() => {
+    //   this.initializeScrollBehavior();
+    // }, 100);
   }
+
+  // private initializeScrollBehavior(): void {
+  //   // Ensure price divs are properly initialized
+  //   if (this.priceDivs && this.priceDivs.length > 0) {
+  //     console.log('Price divs initialized:', this.priceDivs.length);
+  //   }
+  // }
   private chunkArray(arr: any[], size: number): any[][] {
     const result = [];
     for (let i = 0; i < arr.length; i += size) {
@@ -1083,19 +1088,22 @@ export class EldercareComponent implements AfterViewInit {
     return `content-${packageId}-${featureId}`;
   }
  
-  // @HostListener('window:scroll', [])
-  // onWindowScroll() {
-  //   const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (!this.priceDivs) return;
 
-  //   if (!this.priceDivs) return;
-
-  //   if (currentScroll > this.lastScrollTop) {
-  //     this.priceDivs.forEach(div => div.nativeElement.style.display = 'none');
-     
-  //   } else {
-  //     this.priceDivs.forEach(div => div.nativeElement.style.display = 'block');
-  //   }
-
-  //   this.lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-  // }
+    this.priceDivs.forEach((priceDiv: ElementRef) => {
+      const card = priceDiv.nativeElement.closest('.name-card');
+      if (card) {
+        const cardTop = card.getBoundingClientRect().top;
+        
+        // Add/remove scroll class based on card position
+        if (cardTop <= 0) {
+          card.classList.add('scrolled-to-top');
+        } else {
+          card.classList.remove('scrolled-to-top');
+        }
+      }
+    });
+  }
 }
