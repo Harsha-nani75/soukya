@@ -35,7 +35,11 @@ export class EldercareComponent implements AfterViewInit {
   currentPackage: 'couple' | 'individual' = 'couple';
   payPerUseHeading: string | null = null;
   private lastScrollTop = 0; // store previous scroll position
-  isCardScrolled: boolean = false;
+  // store scroll states dynamically
+scrolledState: { [key: string]: boolean } = {
+  couple: false,
+  individual: false
+};
 
 // Get all price divs
 @ViewChildren('priceDiv') priceDivs!: QueryList<ElementRef>;
@@ -1059,7 +1063,9 @@ export class EldercareComponent implements AfterViewInit {
     //   this.initializeScrollBehavior();
     // }, 100);
   }
-
+  ngOnChanges() {
+    setTimeout(() => this.onWindowScroll(), 100); 
+  }
   // private initializeScrollBehavior(): void {
   //   // Ensure price divs are properly initialized
   //   if (this.priceDivs && this.priceDivs.length > 0) {
@@ -1089,21 +1095,26 @@ export class EldercareComponent implements AfterViewInit {
     return `content-${packageId}-${featureId}`;
   }
  
-@HostListener('window:scroll', [])
+  @HostListener('window:scroll', [])
 onWindowScroll() {
   if (!this.priceDivs) return;
 
   this.priceDivs.forEach((priceDiv: ElementRef, index: number) => {
     const card = priceDiv.nativeElement.closest('.name-card');
-    if (card) {
+    const parentTab = priceDiv.nativeElement.closest('.tab-pane');
+
+    if (card && parentTab) {
       const cardTop = card.getBoundingClientRect().top;
 
+      // detect which tab (by its id or class)
+      const tabKey = parentTab.id.includes('couple') ? 'couple' : 'individual';
+
       if (cardTop <= 0) {
+        this.scrolledState[tabKey] = true;
         card.classList.add('scrolled-to-top');
-        if (index === 1) this.isCardScrolled = true;  // only for i==1
       } else {
+        this.scrolledState[tabKey] = false;
         card.classList.remove('scrolled-to-top');
-        if (index === 1) this.isCardScrolled = false;
       }
     }
   });

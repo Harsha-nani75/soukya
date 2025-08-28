@@ -1123,13 +1123,11 @@
                 <div class="row">
                   <div class="col-lg-4 col-md-4 col-sm-12 mar_g"
                        *ngFor="let package of eldercarePackages; let i = index">
-                    <!-- your existing package card code -->
                     <div class="name-card pricing-table price-tb1" [ngStyle]="{'margin': i === 1 ? '-46px 0px' : '0px'}">
-                            
                         <!-- HEADER -->
                         <div class="sticky-top" [ngClass]="{'name-card-headers': i === 1,}">
                             <div class="table-header"
-                                [ngStyle]="{'background': package.backgroundColor, 'padding-top': (i === 1 && !isCardScrolled) ? '4.12rem' : ''}">
+                                [ngStyle]="{'background': package.backgroundColor, 'padding-top': (i === 1 && !scrolledState['couple']) ? '4.12rem' : ''}">
                                 <h4 class="m-0 text-white" style="font-weight: 700 !important;font-size: 30px !important;">
                                     {{ package.name }}
                                 </h4>
@@ -1156,11 +1154,9 @@
                                 </a>
                             </div>
                         </div>
-                    
                         <!-- FEATURES -->
-                        <div class="name-card-body bg_colors" [ngStyle]="{
-       'padding-top': (i === 1 && isCardScrolled) ? '2.9rem' : ''
-     }">
+                        <div class="name-card-body bg_colors"
+     [ngStyle]="{'padding-top': (i === 1 && scrolledState['couple']) ? '2.9rem' : ''}">
                             <ul class="pricing-features sticky-wrapper">
                                 <li class="white" *ngFor="let feature of package.features"
                                     [ngClass]="{'pos_rel': feature.hasTooltip, 'bg_blue':feature.id == 'pay-per-use-heading'}">
@@ -1209,13 +1205,11 @@
                 <div class="row">
                   <div class="col-lg-4 col-md-4 col-sm-12 mar_g"
                        *ngFor="let package of eldercarePackages; let i = index">
-                    <!-- your existing package card code -->
                     <div class="name-card pricing-table price-tb1" [ngStyle]="{'margin': i === 1 ? '-46px 0px' : '0px'}">
-                            
                         <!-- HEADER -->
                         <div class="sticky-top" [ngClass]="{'name-card-headers': i === 1,}">
-                            <div class="table-header"
-                                [ngStyle]="{'background': package.backgroundColor, 'padding-top': i ==1?'4.12rem':''}">
+                           <div class="table-header"
+                                [ngStyle]="{'background': package.backgroundColor, 'padding-top': (i === 1 && !scrolledState['individual']) ? '4.12rem' : ''}">
                                 <h4 class="m-0 text-white" style="font-weight: 700 !important;font-size: 30px !important;">
                                     {{ package.name }}
                                 </h4>
@@ -1244,7 +1238,8 @@
                         </div>
                     
                         <!-- FEATURES -->
-                        <div class="name-card-body bg_colors">
+                        <div class="name-card-body bg_colors"
+     [ngStyle]="{'padding-top': (i === 1 && scrolledState['individual']) ? '2.9rem' : ''}">
                             <ul class="pricing-features sticky-wrapper">
                                 <li class="white" *ngFor="let feature of package.features"
                                     [ngClass]="{'pos_rel': feature.hasTooltip, 'bg_blue':feature.id == 'pay-per-use-heading'}">
