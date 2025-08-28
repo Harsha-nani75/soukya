@@ -35,6 +35,7 @@ export class EldercareComponent implements AfterViewInit {
   currentPackage: 'couple' | 'individual' = 'couple';
   payPerUseHeading: string | null = null;
   private lastScrollTop = 0; // store previous scroll position
+  isCardScrolled: boolean = false;
 
 // Get all price divs
 @ViewChildren('priceDiv') priceDivs!: QueryList<ElementRef>;
@@ -1088,22 +1089,24 @@ export class EldercareComponent implements AfterViewInit {
     return `content-${packageId}-${featureId}`;
   }
  
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    if (!this.priceDivs) return;
+@HostListener('window:scroll', [])
+onWindowScroll() {
+  if (!this.priceDivs) return;
 
-    this.priceDivs.forEach((priceDiv: ElementRef) => {
-      const card = priceDiv.nativeElement.closest('.name-card');
-      if (card) {
-        const cardTop = card.getBoundingClientRect().top;
-        
-        // Add/remove scroll class based on card position
-        if (cardTop <= 0) {
-          card.classList.add('scrolled-to-top');
-        } else {
-          card.classList.remove('scrolled-to-top');
-        }
+  this.priceDivs.forEach((priceDiv: ElementRef, index: number) => {
+    const card = priceDiv.nativeElement.closest('.name-card');
+    if (card) {
+      const cardTop = card.getBoundingClientRect().top;
+
+      if (cardTop <= 0) {
+        card.classList.add('scrolled-to-top');
+        if (index === 1) this.isCardScrolled = true;  // only for i==1
+      } else {
+        card.classList.remove('scrolled-to-top');
+        if (index === 1) this.isCardScrolled = false;
       }
-    });
-  }
+    }
+  });
+}
+
 }

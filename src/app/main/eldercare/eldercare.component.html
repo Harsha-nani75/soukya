@@ -1129,7 +1129,7 @@
                         <!-- HEADER -->
                         <div class="sticky-top" [ngClass]="{'name-card-headers': i === 1,}">
                             <div class="table-header"
-                                [ngStyle]="{'background': package.backgroundColor, 'padding-top': i ==1?'4.12rem':''}">
+                                [ngStyle]="{'background': package.backgroundColor, 'padding-top': (i === 1 && !isCardScrolled) ? '4.12rem' : ''}">
                                 <h4 class="m-0 text-white" style="font-weight: 700 !important;font-size: 30px !important;">
                                     {{ package.name }}
                                 </h4>
@@ -1158,7 +1158,9 @@
                         </div>
                     
                         <!-- FEATURES -->
-                        <div class="name-card-body bg_colors">
+                        <div class="name-card-body bg_colors" [ngStyle]="{
+       'padding-top': (i === 1 && isCardScrolled) ? '2.9rem' : ''
+     }">
                             <ul class="pricing-features sticky-wrapper">
                                 <li class="white" *ngFor="let feature of package.features"
                                     [ngClass]="{'pos_rel': feature.hasTooltip, 'bg_blue':feature.id == 'pay-per-use-heading'}">
