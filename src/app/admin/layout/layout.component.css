@@ -1,10 +1,63 @@
+/* Layout Component - Responsive Design System */
+
+/* Base Layout */
+.layout {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1060;
+  background: #163c60;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  display: none;
+}
+
+.mobile-menu-toggle:hover {
+  background: #1d4f7a;
+  transform: scale(1.05);
+}
+
+.mobile-menu-toggle i {
+  font-size: 18px;
+}
+
+/* Mobile Overlay */
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1040;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.mobile-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
 
 /* Top Navbar */
 app-navbar {
   position: sticky;
   top: 0;
   width: 100%;
-  height: 70px; /* increased height */
+  height: 70px;
   background-color: #ffffff;
   border-bottom: 1px solid #ddd;
   z-index: 1000;
@@ -14,8 +67,7 @@ app-navbar {
 /* Layout Container */
 .layout-container {
   display: flex;
-  height: calc(100vh - 70px); /* full height minus navbar */
-  /* border: 2px solid red; optional border for debugging */
+  height: calc(100vh - 70px);
   overflow: hidden;
 }
 
@@ -24,7 +76,7 @@ app-sidebar {
   width: 290px;
   background-color: #0d3b66;
   height: calc(100vh - 70px);
-  margin-top: 70px; /* push sidebar below navbar */
+  margin-top: 70px;
   position: fixed;
   padding-top: 95px;
   top: 0;
@@ -33,22 +85,203 @@ app-sidebar {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-/* Sidebar Logo (Assuming it's an img inside the sidebar) */
-app-sidebar img {
-  width: 100%; /* match sidebar width */
-  height: auto;
-  object-fit: contain;
-  margin-bottom: 10px;
+  transition: transform 0.3s ease;
 }
 
 /* Main content */
 .main-content {
-  margin-left: 290px; /* leave space for sidebar */
+  margin-left: 290px;
   flex: 1;
   padding: 20px;
   overflow-y: auto;
   background-color: #f9f9f9;
   height: calc(100vh - 70px);
+  transition: margin-left 0.3s ease;
+}
+
+/* Responsive Breakpoints */
+
+/* Large Desktop (1200px and up) */
+@media (min-width: 1200px) {
+  app-sidebar {
+    width: 320px;
+  }
+  
+  .main-content {
+    margin-left: 320px;
+    padding: 30px;
+  }
+}
+
+/* Desktop (1024px to 1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  app-sidebar {
+    width: 280px;
+  }
+  
+  .main-content {
+    margin-left: 280px;
+    padding: 25px;
+  }
+}
+
+/* Tablet (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  app-sidebar {
+    width: 260px;
+    transform: translateX(0);
+  }
+  
+  .main-content {
+    margin-left: 260px;
+    padding: 20px;
+  }
+  
+  /* Show mobile menu toggle on tablet */
+  .mobile-menu-toggle {
+    display: block;
+  }
+  
+  /* Sidebar slides in from left on tablet */
+  app-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  
+  app-sidebar:not(.mobile-open) {
+    transform: translateX(-100%);
+  }
+  
+  .main-content.mobile-pushed {
+    margin-left: 0;
+  }
+}
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+  /* Show mobile menu toggle */
+  .mobile-menu-toggle {
+    display: block;
+  }
+  
+  /* Sidebar full screen on mobile */
+  app-sidebar {
+    width: 100%;
+    transform: translateX(-100%);
+    padding-top: 70px;
+    margin-top: 0;
+  }
+  
+  app-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  
+  /* Main content full width on mobile */
+  .main-content {
+    margin-left: 0;
+    padding: 15px;
+    width: 100%;
+  }
+  
+  .main-content.mobile-pushed {
+    margin-left: 0;
+  }
+  
+  /* Prevent horizontal scroll on mobile */
+  .layout-container {
+    overflow-x: hidden;
+  }
+}
+
+/* Small Mobile (up to 480px) */
+@media (max-width: 480px) {
+  .mobile-menu-toggle {
+    top: 10px;
+    left: 10px;
+    padding: 10px 12px;
+  }
+  
+  .main-content {
+    padding: 10px;
+  }
+  
+  app-navbar {
+    height: 60px;
+  }
+  
+  .layout-container {
+    height: calc(100vh - 60px);
+  }
+  
+  app-sidebar {
+    height: calc(100vh - 60px);
+  }
+}
+
+/* Extra Small Mobile (up to 360px) */
+@media (max-width: 360px) {
+  .main-content {
+    padding: 8px;
+  }
+  
+  .mobile-menu-toggle {
+    padding: 8px 10px;
+  }
+  
+  .mobile-menu-toggle i {
+    font-size: 16px;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-width: 767px) and (orientation: landscape) {
+  app-sidebar {
+    padding-top: 60px;
+  }
+  
+  .mobile-menu-toggle {
+    top: 10px;
+    left: 10px;
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .mobile-menu-toggle {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .mobile-menu-toggle,
+  .mobile-overlay,
+  app-sidebar {
+    display: none !important;
+  }
+  
+  .main-content {
+    margin-left: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .layout-container {
+    height: auto !important;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu-toggle,
+  app-sidebar,
+  .main-content,
+  .mobile-overlay {
+    transition: none !important;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .mobile-overlay {
+    background: rgba(0, 0, 0, 0.7);
+  }
 }

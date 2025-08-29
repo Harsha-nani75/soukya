@@ -53,9 +53,17 @@ tbody tr:hover {
 /* Image styling */
 tbody img {
   object-fit: cover;
-  
   border: 2px solid #ddd;
   transition: transform 0.3s ease, border-color 0.3s ease;
+  background-color: #f8f9fa;
+}
+
+/* Image loading state */
+tbody img:not([src]), 
+tbody img[src=""],
+tbody img[src="assets/images/image.png"] {
+  background-color: #e9ecef;
+  border: 2px dashed #6c757d;
 }
 
 /* Image hover effect */
@@ -85,6 +93,41 @@ tbody i.fa-edit:hover {
 
 tbody i.fa-trash:hover {
   color: #dc3545; /* Bootstrap danger */
+}
+
+/* Debug column styling */
+tbody td:nth-child(6) small {
+  font-size: 10px;
+  word-break: break-all;
+  max-width: 150px;
+  display: block;
+}
+
+/* Debug Info Styling */
+.alert-info {
+  background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+  border: 1px solid #bee5eb;
+  border-radius: 12px;
+}
+
+.alert-info .row {
+  margin: 0;
+}
+
+.alert-info .col-md-4 {
+  padding: 0 10px;
+}
+
+/* Loading Spinner Styling */
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Image Error State */
+tbody img[src*="image.png"] {
+  opacity: 0.7;
+  filter: grayscale(50%);
 }
 
 /* Responsive table */

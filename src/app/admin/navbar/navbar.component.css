@@ -1,28 +1,34 @@
-/* Navbar Wrapper */
+/* Navbar Wrapper - Responsive Design */
 .custom-navbar {
-  position: sticky;       /* sticky navbar on top */
+  position: sticky;
   top: 0;
-  z-index: 1050;          /* higher than sidebar */
-  background-color: #ffffff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  z-index: 1050;
+  background-color: #163C60;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   padding: 0;
-  height: 70px;           /* increased height */
+  height: 70px;
   display: flex;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
 /* Left Blue Logo Section */
 .logo-section {
-  background-color: #163c60;
+  background-color: #163C60;
   padding: 0 20px;
-  height: 70px;           /* same height as navbar */
+  height: 70px;
   display: flex;
+  /* padding:100px; */
   align-items: center;
+  padding-top: 15px;
+  transition: all 0.3s ease;
 }
 
 .logo-img {
-  width: 250px;           /* sidebar width */
+  width: 240px;
   height: auto;
+  padding-top: 15px;
+  transition: all 0.3s ease;
 }
 
 /* User Profile Section */
@@ -31,26 +37,183 @@
   object-fit: cover;
   width: 40px;
   height: 40px;
+  transition: all 0.3s ease;
 }
 
 /* Welcome Text */
 .user-name {
   font-weight: 600;
-  color: #007bff;          /* Blue like in screenshot */
+  color: #ffffff;
   text-decoration: none;
   font-size: 14px;
   margin-left: 8px;
+  padding-top: 20px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  text-transform: capitalize;
 }
 
 .user-name:hover {
   text-decoration: underline;
+  color: #e0e0e0;
+}
+
+.user-name span {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* User Profile Dropdown Styles */
+.user-profile-dropdown {
+  position: relative;
+}
+
+.user-profile-dropdown .btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.user-profile-dropdown .btn:hover {
+  color: #e0e0e0;
+  transform: translateY(-1px);
+}
+
+.user-profile-dropdown .btn:focus {
+  box-shadow: none;
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Dropdown Menu */
+.user-profile-dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: auto;
+  margin-top: 8px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  background: #163c60;
+  min-width: 220px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.user-profile-dropdown .dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Dropdown Header */
+.user-profile-dropdown .dropdown-header {
+  background: linear-gradient(135deg, #1d4f7a 0%, #163c60 100%);
+  border-radius: 8px 8px 0 0;
+  padding: 16px;
+  border-bottom: 1px solid #0f2a45;
+}
+
+.user-profile-dropdown .dropdown-header .profile-image {
+  width: 32px;
+  height: 32px;
+  /* border: 2px solid #ffffff; */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.user-profile-dropdown .dropdown-header .fw-bold {
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.user-profile-dropdown .dropdown-header .text-muted {
+  font-size: 12px;
+  color: #ffffff !important;
+}
+
+.user-profile-dropdown .dropdown-header .badge {
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+/* Ensure email text is always white */
+.user-profile-dropdown .dropdown-header small.text-muted {
+  color: #ffffff !important;
+}
+
+/* Dropdown Items */
+.user-profile-dropdown .dropdown-item {
+  padding: 12px 16px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  background: none;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.user-profile-dropdown .dropdown-item:hover {
+  background-color: #1d4f7a;
+  color: #ffffff;
+  transform: translateX(5px);
+}
+
+.user-profile-dropdown .dropdown-item:active {
+  background-color: #0f2a45;
+  color: #ffffff;
+}
+
+.user-profile-dropdown .dropdown-item.text-danger:hover {
+  background-color: #fff5f5;
+  color: #dc3545;
+}
+
+.user-profile-dropdown .dropdown-item i {
+  width: 16px;
+  margin-right: 12px;
+  text-align: center;
+}
+
+/* Dropdown Dividers */
+.user-profile-dropdown .dropdown-divider {
+  margin: 0;
+  border-color: #0f2a45;
+}
+
+/* Chevron Icon Animation */
+.user-profile-dropdown .fa-chevron-down,
+.user-profile-dropdown .fa-chevron-up {
+  transition: transform 0.3s ease;
+  margin-top: 15px;
+}
+
+.user-profile-dropdown .fa-chevron-up {
+  transform: rotate(180deg);
 }
 
 /* Right Icons */
 .icon-menu {
-  color: #333;
+  color: #ffffff;
   font-size: 18px;
   padding: 0 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.icon-menu:hover {
+  color: #e0e0e0;
+  transform: scale(1.1);
 }
 
 /* Container tweaks */
@@ -60,4 +223,424 @@
   align-items: center;
   padding: 0 15px;
   width: 100%;
+  transition: all 0.3s ease;
+}
+
+/* Responsive Breakpoints */
+
+/* Large Desktop (1200px and up) */
+@media (min-width: 1200px) {
+  .custom-navbar {
+    height: 75px;
+  }
+  
+  .logo-section {
+    height: 75px;
+    padding: 0 25px;
+    padding-top: 18px;
+  }
+  
+  .logo-img {
+    width: 280px;
+  }
+  
+  .user-name {
+    font-size: 16px;
+    padding-top: 25px;
+  }
+  
+  .profile-image {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* Desktop (1024px to 1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .custom-navbar {
+    height: 70px;
+  }
+  
+  .logo-section {
+    height: 70px;
+    padding: 0 20px;
+  }
+  
+  .logo-img {
+    width: 240px;
+  }
+  
+  .user-name {
+    font-size: 14px;
+  }
+}
+
+/* Tablet (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .custom-navbar {
+    height: 65px;
+  }
+  
+  .logo-section {
+    height: 65px;
+    padding: 0 15px;
+    padding-top: 12px;
+  }
+  
+  .logo-img {
+    width: 200px;
+  }
+  
+  .user-name {
+    font-size: 13px;
+    margin-left: 6px;
+    padding-top: 18px;
+  }
+  
+  .profile-image {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .icon-menu {
+    font-size: 16px;
+    padding: 0 8px;
+  }
+  
+  .container-fluid {
+    padding: 0 10px;
+  }
+  
+  /* Adjust dropdown for tablet */
+  .user-profile-dropdown .dropdown-menu {
+    min-width: 200px;
+    right: -10px;
+  }
+}
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+  .custom-navbar {
+    height: 60px;
+    padding: 0 10px;
+  }
+  
+  .logo-section {
+    height: 60px;
+    padding: 0 10px;
+    padding-top: 10px;
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .logo-img {
+    width: 180px;
+  }
+  
+  .navbar-right {
+    margin-right: 0 !important;
+  }
+  
+  .user-name {
+    font-size: 12px;
+    margin-left: 5px;
+    padding-top: 15px;
+  }
+  
+  .profile-image {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .icon-menu {
+    font-size: 14px;
+    padding: 0 5px;
+  }
+  
+  .container-fluid {
+    padding: 0 5px;
+  }
+  
+  /* Stack elements vertically on very small screens */
+  .navbar-right .nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  /* Mobile dropdown adjustments */
+  .user-profile-dropdown .dropdown-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    border-radius: 0;
+    min-width: 100%;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+  
+  .user-profile-dropdown .dropdown-menu.show {
+    transform: translateY(0);
+  }
+}
+
+/* Small Mobile (up to 480px) */
+@media (max-width: 480px) {
+  .custom-navbar {
+    height: 55px;
+  }
+  
+  .logo-section {
+    height: 55px;
+    padding: 0 8px;
+    padding-top: 8px;
+  }
+  
+  .logo-img {
+    width: 150px;
+  }
+  
+  .user-name {
+    font-size: 11px;
+    margin-left: 3px;
+    padding-top: 12px;
+  }
+  
+  .profile-image {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .icon-menu {
+    font-size: 12px;
+    padding: 0 3px;
+  }
+  
+  .container-fluid {
+    padding: 0 3px;
+  }
+  
+  /* Adjust dropdown for small mobile */
+  .user-profile-dropdown .dropdown-menu {
+    top: 55px;
+    max-height: calc(100vh - 55px);
+  }
+}
+
+/* Extra Small Mobile (up to 360px) */
+@media (max-width: 360px) {
+  .custom-navbar {
+    height: 50px;
+  }
+  
+  .logo-section {
+    height: 50px;
+    padding: 0 5px;
+    padding-top: 6px;
+  }
+  
+  .logo-img {
+    width: 120px;
+  }
+  
+  .user-name {
+    font-size: 10px;
+    margin-left: 2px;
+    padding-top: 10px;
+  }
+  
+  .profile-image {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .icon-menu {
+    font-size: 11px;
+    padding: 0 2px;
+  }
+  
+  .container-fluid {
+    padding: 0 2px;
+  }
+  
+  /* Adjust dropdown for extra small mobile */
+  .user-profile-dropdown .dropdown-menu {
+    top: 50px;
+    max-height: calc(100vh - 50px);
+  }
+}
+
+/* Landscape Mobile */
+@media (max-width: 767px) and (orientation: landscape) {
+  .custom-navbar {
+    height: 50px;
+  }
+  
+  .logo-section {
+    height: 50px;
+    padding-top: 8px;
+  }
+  
+  .logo-img {
+    width: 140px;
+  }
+  
+  .user-name {
+    font-size: 11px;
+    padding-top: 15px;
+  }
+  
+  .profile-image {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .user-profile-dropdown .dropdown-menu {
+    top: 50px;
+    max-height: calc(100vh - 50px);
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .custom-navbar {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .logo-img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .custom-navbar {
+    position: static !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid #000 !important;
+    background-color: #163C60 !important;
+  }
+  
+  .logo-section {
+    background-color: transparent !important;
+    color: #000 !important;
+  }
+  
+  .user-name {
+    color: #000 !important;
+  }
+  
+  .user-profile-dropdown .dropdown-menu {
+    display: none !important;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .custom-navbar,
+  .logo-section,
+  .logo-img,
+  .user-name,
+  .profile-image,
+  .icon-menu,
+  .container-fluid,
+  .user-profile-dropdown .dropdown-menu {
+    transition: none !important;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .custom-navbar {
+    background-color: #163C60;
+    border-bottom-color: #333;
+  }
+  
+  .user-name {
+    color: #ffffff;
+  }
+  
+  .user-name span {
+    color: #ffffff;
+  }
+  
+  .icon-menu {
+    color: #ffffff;
+  }
+  
+  .icon-menu:hover {
+    color: #e0e0e0;
+  }
+  
+  /* Dark mode dropdown */
+  .user-profile-dropdown .dropdown-menu {
+    background-color: #163c60;
+    border: 1px solid #0f2a45;
+  }
+  
+  .user-profile-dropdown .dropdown-header {
+    background: linear-gradient(135deg, #1d4f7a 0%, #163c60 100%);
+    border-bottom-color: #0f2a45;
+  }
+  
+  .user-profile-dropdown .dropdown-header .fw-bold {
+    color: #ffffff;
+  }
+  
+  .user-profile-dropdown .dropdown-item {
+    color: #e0e0e0;
+  }
+  
+  .user-profile-dropdown .dropdown-item:hover {
+    background-color: #3a3a3a;
+    color: #ffffff;
+  }
+}
+
+/* Focus States for Accessibility */
+.logo-section:focus-within,
+.user-name:focus,
+.icon-menu:focus,
+.user-profile-dropdown .btn:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Hover Effects */
+@media (hover: hover) {
+  .logo-section:hover {
+    background-color: #163C60;
+  }
+  
+  .profile-image:hover {
+    transform: scale(1.1);
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .custom-navbar {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .icon-menu {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .user-profile-dropdown .btn {
+    min-height: 44px;
+    min-width: 44px;
+    margin-top: 15px;
+  }
+  
+  .user-profile-dropdown .dropdown-item {
+    min-height: 44px;
+  }
 }

@@ -12,7 +12,7 @@
       <div class="text-center">
         <div class="d-flex justify-content-center my-3">
           <img 
-            [src]="previewUrl || patient.photo || '../../../assets/image.png'" 
+            [src]="previewUrl || patient.photo || '../../../assets/images/image.png'" 
             alt="Patient Photo" 
             class="patient-photo"
             (click)="fileInput.click()"
@@ -33,31 +33,44 @@
     <!-- Right side: Input fields -->
     <div class="col-md-8">
       <div class="row">
-        <div class="col-md-4 mb-2">
-          <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="patient.name" name="name" required>
+        <div class="col-md-4 mb-3">
+          <label class="form-label fw-bold">
+            First Name <span class="text-danger">*</span>
+          </label>
+          <input type="text" class="form-control form-control-lg" placeholder="Enter First Name" [(ngModel)]="patient.name" name="name" required>
         </div>
-        <div class="col-md-4 mb-2">
-          <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]="patient.lname" name="lname">
+        <div class="col-md-4 mb-3">
+          <label class="form-label fw-bold">
+            Last Name <span class="text-danger">*</span>
+          </label>
+          <input type="text" class="form-control form-control-lg" placeholder="Enter Last Name" [(ngModel)]="patient.lname" name="lname" required>
         </div>
-        <div class="col-md-4 mb-2">
-          <input type="text" class="form-control" placeholder="Surname" [(ngModel)]="patient.sname" name="sname">
+        <div class="col-md-4 mb-3">
+          <label class="form-label fw-bold">Surname</label>
+          <input type="text" class="form-control form-control-lg" placeholder="Enter Surname" [(ngModel)]="patient.sname" name="sname">
         </div>
 
-        <div class="col-md-6 mb-2">
-          <div class="input-group">
-            <select class="form-select abb-select" [(ngModel)]="patient.abb" name="abb">
+        <div class="col-md-6 mb-3">
+          <label class="form-label fw-bold">
+            Relation <span class="text-danger">*</span>
+          </label>
+          <div class="input-group input-group-lg">
+            <select class="form-select" [(ngModel)]="patient.abb" name="abb" required>
               <option value="" disabled selected>Select Relation</option>
-              <option value="s/o">S/O</option>
-              <option value="w/o">W/O</option>
-              <option value="h/o">H/O</option>
-              <option value="d/o">D/O</option>
+              <option value="s/o">S/O (Son of)</option>
+              <option value="w/o">W/O (Wife of)</option>
+              <option value="h/o">H/O (Husband of)</option>
+              <option value="d/o">D/O (Daughter of)</option>
             </select>
             <input type="text" class="form-control" placeholder="Relative Name" [(ngModel)]="patient.abbname" name="abbname">
           </div>
         </div>
 
-        <div class="col-md-6 mb-2">
-          <select class="form-select" [(ngModel)]="patient.gender" name="gender">
+        <div class="col-md-6 mb-3">
+          <label class="form-label fw-bold">
+            Gender <span class="text-danger">*</span>
+          </label>
+          <select class="form-select form-select-lg" [(ngModel)]="patient.gender" name="gender" required>
             <option value="" disabled selected>Select Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
@@ -65,21 +78,30 @@
           </select>
         </div>
 
-        <div class="col-md-4 mb-2">
-          <input type="date" class="form-control" [(ngModel)]="patient.dob" name="dob" (change)="calculateAge()">
+        <div class="col-md-4 mb-3">
+          <label class="form-label fw-bold">
+            Date of Birth <span class="text-danger">*</span>
+          </label>
+          <input type="date" class="form-control form-control-lg" [(ngModel)]="patient.dob" name="dob" (change)="calculateAge()" required>
         </div>
-        <div class="col-md-4 mb-2">
-          <input type="text" class="form-control" placeholder="Age" [(ngModel)]="patient.age" name="age" readonly>
+        <div class="col-md-4 mb-3">
+          <label class="form-label fw-bold">Age</label>
+          <input type="text" class="form-control form-control-lg" placeholder="Age will be calculated" [(ngModel)]="patient.age" name="age" readonly>
         </div>
-        <div class="col-md-4 mb-2">
-          <input type="text" class="form-control" placeholder="Occupation" [(ngModel)]="patient.ocupation" name="ocupation">
+        <div class="col-md-4 mb-3">
+          <label class="form-label fw-bold">Occupation</label>
+          <input type="text" class="form-control form-control-lg" placeholder="Enter Occupation" [(ngModel)]="patient.ocupation" name="ocupation">
         </div>
 
-        <div class="col-md-6 mb-2">
-          <input type="text" class="form-control" placeholder="Phone Number" [(ngModel)]="patient.phone" name="phone">
+        <div class="col-md-6 mb-3">
+          <label class="form-label fw-bold">
+            Phone Number <span class="text-danger">*</span>
+          </label>
+          <input type="text" class="form-control form-control-lg" placeholder="Enter Phone Number" [(ngModel)]="patient.phone" name="phone" required>
         </div>
-        <div class="col-md-6 mb-2">
-          <input type="email" class="form-control" placeholder="Email" [(ngModel)]="patient.email" name="email">
+        <div class="col-md-6 mb-3">
+          <label class="form-label fw-bold">Email</label>
+          <input type="email" class="form-control form-control-lg" placeholder="Enter Email Address" [(ngModel)]="patient.email" name="email">
         </div>
       </div>
     </div>
@@ -93,11 +115,14 @@
   <h5 class="mb-3"><i class="fas fa-map-marker-alt text-primary me-2"></i> Address Details</h5>
 
   <div class="row g-3">
-    <div class="col-12">
-      <select class="form-select" [(ngModel)]="patient.rstatus" name="rstatus">
-  <option value="" disabled selected>Select Residency Status</option>
-  <option value="India Resident">India Resident</option>
-  <option value="NRI">NRI</option>
+    <div class="col-12 mb-3">
+      <label class="form-label fw-bold">
+        Residency Status <span class="text-danger">*</span>
+      </label>
+      <select class="form-select form-select-lg" [(ngModel)]="patient.rstatus" name="rstatus" required>
+        <option value="" disabled selected>Select Residency Status</option>
+        <option value="India Resident">India Resident</option>
+        <option value="NRI">NRI</option>
   <option value="PIO">PIO</option>
   <option value="Foriegn National">Foriegn National</option>
       </select>
@@ -204,314 +229,583 @@
         <!-- ========================= -->
         <!-- Habits -->
         <!-- ========================= -->
-<div class="card shadow-sm p-4 mb-4 habits-card animate__animated animate__fadeInUp">
-  <div class="row clearfix">
-    <div class="headers">
-      <h4 class="headings"><i class="fas fa-heartbeat text-danger me-2"></i> Patient Habits</h4>
-    </div>
-  </div>
+        <div class="card shadow-sm p-4 mb-4 habits-card animate__animated animate__fadeInUp">
+          <div class="row clearfix">
+            <div class="headers">
+              <h4 class="headings">
+                <i class="fas fa-heartbeat text-danger me-2"></i> 
+                Patient Habits
+                <span class="text-danger">*</span>
+              </h4>
+              <p class="text-muted">Please indicate if the patient has any of these habits</p>
+            </div>
+          </div>
 
-  <div class="row mt-3 g-3">
+          <!-- Age-based duration info -->
+          <div class="alert alert-info mb-3" *ngIf="patient.age">
+            <div class="d-flex align-items-center">
+              <i class="fas fa-info-circle me-2"></i>
+              <div>
+                <strong>Age-based Duration Limits:</strong> 
+                Patient age: <span class="badge bg-primary">{{ patient.age }} years</span> | 
+                Maximum habit duration: <span class="badge bg-success">{{ maxHabitDuration }} years</span>
+                <small class="d-block text-muted mt-1">(Calculated as: Age - 10 years, minimum 1 year)</small>
+              </div>
+            </div>
+          </div>
 
-    <!-- Habit Card Template -->
-    <div class="col-lg-3 col-md-6">
-      <div class="habit-card text-center p-3">
-        <div class="habit-icon">
-          <img src="../../../assets/tobacco.png" alt="Tobacco">
+          <div class="row mt-4 g-4">
+            <!-- Tobacco -->
+            <div class="col-lg-6 col-md-6">
+              <div class="habit-card border rounded-3 p-4 h-100 shadow-sm">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="habit-icon me-3">
+                    <i class="fas fa-smoking text-danger fa-2x"></i>
+                  </div>
+                  <div>
+                    <h6 class="habit-title mb-1 fw-bold">Tobacco Use</h6>
+                    <small class="text-muted">Does the patient use tobacco products?</small>
+                  </div>
+                </div>
+
+                <div class="btn-group w-100 mb-3" role="group">
+                  <input type="radio" class="btn-check" name="tobacco" id="tobacco-yes" [(ngModel)]="habits.tobacco" value="yes">
+                  <label class="btn btn-outline-success" for="tobacco-yes">
+                    <i class="fas fa-check me-2"></i>Yes
+                  </label>
+                  
+                  <input type="radio" class="btn-check" name="tobacco" id="tobacco-no" [(ngModel)]="habits.tobacco" value="no">
+                  <label class="btn btn-outline-danger" for="tobacco-no">
+                    <i class="fas fa-times me-2"></i>No
+                  </label>
+                </div>
+
+                <!-- Show only if Yes -->
+                <div class="mt-3" *ngIf="habits.tobacco === 'yes'">
+                  <label class="form-label fw-bold">Duration of Use</label>
+                  <div class="d-flex align-items-center">
+                    <input [(ngModel)]="habits.tobaccoYears" name="tobaccoYears" 
+                           class="form-range flex-grow-1 me-3" type="range" 
+                           min="1" [max]="maxHabitDuration"
+                           (input)="onHabitYearsChange('tobaccoYears')">
+                    <span class="badge bg-primary fs-6">{{ habits.tobaccoYears }} years</span>
+                  </div>
+                  <small class="text-muted">Max: {{ maxHabitDuration }} years (based on age: {{ patient.age || 'N/A' }})</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Smoking -->
+            <div class="col-lg-6 col-md-6">
+              <div class="habit-card border rounded-3 p-4 h-100 shadow-sm">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="habit-icon me-3">
+                    <i class="fas fa-smoking-ban text-warning fa-2x"></i>
+                  </div>
+                  <div>
+                    <h6 class="habit-title mb-1 fw-bold">Smoking</h6>
+                    <small class="text-muted">Does the patient smoke cigarettes?</small>
+                  </div>
+                </div>
+
+                <div class="btn-group w-100 mb-3" role="group">
+                  <input type="radio" class="btn-check" name="smoking" id="smoking-yes" [(ngModel)]="habits.smoking" value="yes">
+                  <label class="btn btn-outline-success" for="smoking-yes">
+                    <i class="fas fa-check me-2"></i>Yes
+                  </label>
+                  
+                  <input type="radio" class="btn-check" name="smoking" id="smoking-no" [(ngModel)]="habits.smoking" value="no">
+                  <label class="btn btn-outline-danger" for="smoking-no">
+                    <i class="fas fa-times me-2"></i>No
+                  </label>
+                </div>
+
+                <div class="mt-3" *ngIf="habits.smoking === 'yes'">
+                  <label class="form-label fw-bold">Duration of Smoking</label>
+                  <div class="d-flex align-items-center">
+                    <input [(ngModel)]="habits.smokingYears" name="smokingYears" 
+                           class="form-range flex-grow-1 me-3" type="range" 
+                           min="1" [max]="maxHabitDuration"
+                           (input)="onHabitYearsChange('smokingYears')">
+                    <span class="badge bg-primary fs-6">{{ habits.smokingYears }} years</span>
+                  </div>
+                  <small class="text-muted">Max: {{ maxHabitDuration }} years (based on age: {{ patient.age || 'N/A' }})</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Alcohol -->
+            <div class="col-lg-6 col-md-6">
+              <div class="habit-card border rounded-3 p-4 h-100 shadow-sm">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="habit-icon me-3">
+                    <i class="fas fa-wine-bottle text-info fa-2x"></i>
+                  </div>
+                  <div>
+                    <h6 class="habit-title mb-1 fw-bold">Alcohol Consumption</h6>
+                    <small class="text-muted">Does the patient consume alcohol?</small>
+                  </div>
+                </div>
+
+                <div class="btn-group w-100 mb-3" role="group">
+                  <input type="radio" class="btn-check" name="alcohol" id="alcohol-yes" [(ngModel)]="habits.alcohol" value="yes">
+                  <label class="btn btn-outline-success" for="alcohol-yes">
+                    <i class="fas fa-check me-2"></i>Yes
+                  </label>
+                  
+                  <input type="radio" class="btn-check" name="alcohol" id="alcohol-no" [(ngModel)]="habits.alcohol" value="no">
+                  <label class="btn btn-outline-danger" for="alcohol-no">
+                    <i class="fas fa-times me-2"></i>No
+                  </label>
+                </div>
+
+                <div class="mt-3" *ngIf="habits.alcohol === 'yes'">
+                  <label class="form-label fw-bold">Duration of Consumption</label>
+                  <div class="d-flex align-items-center">
+                    <input [(ngModel)]="habits.alcoholYears" name="alcoholYears" 
+                           class="form-range flex-grow-1 me-3" type="range" 
+                           min="1" [max]="maxHabitDuration"
+                           (input)="onHabitYearsChange('alcoholYears')">
+                    <span class="badge bg-primary fs-6">{{ habits.alcoholYears }} years</span>
+                  </div>
+                  <small class="text-muted">Max: {{ maxHabitDuration }} years (based on age: {{ patient.age || 'N/A' }})</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Drugs -->
+            <div class="col-lg-6 col-md-6">
+              <div class="habit-card border rounded-3 p-4 h-100 shadow-sm">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="habit-icon me-3">
+                    <i class="fas fa-pills text-secondary fa-2x"></i>
+                  </div>
+                  <div>
+                    <h6 class="habit-title mb-1 fw-bold">Drug Use</h6>
+                    <small class="text-muted">Does the patient use recreational drugs?</small>
+                  </div>
+                </div>
+
+                <div class="btn-group w-100 mb-3" role="group">
+                  <input type="radio" class="btn-check" name="drugs" id="drugs-yes" [(ngModel)]="habits.drugs" value="yes">
+                  <label class="btn btn-outline-success" for="drugs-yes">
+                    <i class="fas fa-check me-2"></i>Yes
+                  </label>
+                  
+                  <input type="radio" class="btn-check" name="drugs" id="drugs-no" [(ngModel)]="habits.drugs" value="no">
+                  <label class="btn btn-outline-danger" for="drugs-no">
+                    <i class="fas fa-times me-2"></i>No
+                  </label>
+                </div>
+
+                <div class="mt-3" *ngIf="habits.drugs === 'yes'">
+                  <label class="form-label fw-bold">Duration of Use</label>
+                  <div class="d-flex align-items-center">
+                    <input [(ngModel)]="habits.drugYears" name="drugYears" 
+                           class="form-range flex-grow-1 me-3" type="range" 
+                           min="1" [max]="maxHabitDuration"
+                           (input)="onHabitYearsChange('drugYears')">
+                    <span class="badge bg-primary fs-6">{{ habits.drugYears }} years</span>
+                  </div>
+                  <small class="text-muted">Max: {{ maxHabitDuration }} years (based on age: {{ patient.age || 'N/A' }})</small>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <h6 class="habit-title">Tobacco?</h6>
-
-        <div class="btn-container my-2">
-          <label class="switch btn-color-mode-switch">
-            <input type="radio" name="tobacco" [(ngModel)]="habits.tobacco" value="yes">
-            <span class="btn-color-mode-switch-inner yes">Yes</span>
-          </label>
-          <label class="switch btn-color-mode-switch">
-            <input type="radio" name="tobacco" [(ngModel)]="habits.tobacco" value="no">
-            <span class="btn-color-mode-switch-inner no">No</span>
-          </label>
-        </div>
-
-        <!-- Show only if Yes -->
-        <div class="mt-2" *ngIf="habits.tobacco === 'yes'">
-          <p class="mb-1">For How Many Years</p>
-          <input [(ngModel)]="habits.tobaccoYears" name="tobaccoYears" class="form-range" type="range" min="1" max="50">
-          <p class="mt-1"><strong>{{ habits.tobaccoYears }} years</strong></p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Smoking -->
-    <div class="col-lg-3 col-md-6">
-      <div class="habit-card text-center p-3">
-        <div class="habit-icon">
-          <img src="../../../assets/cigarette.png" alt="Smoking">
-        </div>
-        <h6 class="habit-title">Smoking Habit?</h6>
-
-        <div class="btn-container my-2">
-          <label class="switch btn-color-mode-switch">
-            <input type="radio" name="smoking" [(ngModel)]="habits.smoking" value="yes">
-            <span class="btn-color-mode-switch-inner yes">Yes</span>
-          </label>
-          <label class="switch btn-color-mode-switch">
-            <input type="radio" name="smoking" [(ngModel)]="habits.smoking" value="no">
-            <span class="btn-color-mode-switch-inner no">No</span>
-          </label>
-        </div>
-
-        <div class="mt-2" *ngIf="habits.smoking === 'yes'">
-          <p class="mb-1">For How Many Years</p>
-          <input [(ngModel)]="habits.smokingYears" name="smokingYears" class="form-range" type="range" min="1" max="50">
-          <p class="mt-1"><strong>{{ habits.smokingYears }} years</strong></p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Alcohol -->
-    <div class="col-lg-3 col-md-6">
-      <div class="habit-card text-center p-3">
-        <div class="habit-icon">
-          <img src="../../../assets/beer.png" alt="Alcohol">
-        </div>
-        <h6 class="habit-title">Alcohol Habit?</h6>
-
-        <div class="btn-container my-2">
-          <label class="switch btn-color-mode-switch">
-            <input type="radio" name="alcohol" [(ngModel)]="habits.alcohol" value="yes">
-            <span class="btn-color-mode-switch-inner yes">Yes</span>
-          </label>
-          <label class="switch btn-color-mode-switch">
-            <input type="radio" name="alcohol" [(ngModel)]="habits.alcohol" value="no">
-            <span class="btn-color-mode-switch-inner no">No</span>
-          </label>
-        </div>
-
-        <div class="mt-2" *ngIf="habits.alcohol === 'yes'">
-          <p class="mb-1">For How Many Years</p>
-          <input [(ngModel)]="habits.alcoholYears" name="alcoholYears" class="form-range" type="range" min="1" max="50">
-          <p class="mt-1"><strong>{{ habits.alcoholYears }} years</strong></p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Drugs -->
-    <div class="col-lg-3 col-md-6">
-      <div class="habit-card text-center p-3">
-        <div class="habit-icon">
-          <img src="../../../assets/capsule.png" alt="Drugs">
-        </div>
-        <h6 class="habit-title">Drug Use?</h6>
-
-        <div class="btn-container my-2">
-          <label class="switch btn-color-mode-switch">
-            <input type="radio" name="drugs" [(ngModel)]="habits.drugs" value="yes">
-            <span class="btn-color-mode-switch-inner yes">Yes</span>
-          </label>
-          <label class="switch btn-color-mode-switch">
-            <input type="radio" name="drugs" [(ngModel)]="habits.drugs" value="no">
-            <span class="btn-color-mode-switch-inner no">No</span>
-          </label>
-        </div>
-
-        <div class="mt-2" *ngIf="habits.drugs === 'yes'">
-          <p class="mb-1">For How Many Years</p>
-          <input [(ngModel)]="habits.drugYears" name="drugYears" class="form-range" type="range" min="1" max="50">
-          <p class="mt-1"><strong>{{ habits.drugYears }} years</strong></p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
 <hr>
-<div class="row mt-1">
-  <!-- Question 1 -->
-  <div class="card col-lg-4">
-    <div class="row tp">
-      <div>
-        <p>
-          Is the person proposed in good health free from physical and mental disease or infirmity?
-          If not, give details.
-        </p>
-        <div class="btn-container">
-          <label class="switch btn-color-mode-switch brd">
-            <input type="radio" name="q1_answer" [(ngModel)]="questions.q1.answer" value="yes">
-            <span class="btn-color-mode-switch-inner yes">Yes</span>
-          </label>
-          <label class="switch btn-color-mode-switch brd1">
-            <input type="radio" name="q1_answer" [(ngModel)]="questions.q1.answer" value="no">
-            <span class="btn-color-mode-switch-inner no">No</span>
-          </label>
-        </div>
-      </div>
+        <!-- ========================= -->
+        <!-- Questions -->
+        <!-- ========================= -->
+        <div class="card shadow-sm p-4 mb-4 questions-card animate__animated animate__fadeInUp">
+          <div class="row clearfix">
+            <div class="headers">
+              <h4 class="headings">
+                <i class="fas fa-question-circle text-info me-2"></i> 
+                Health Assessment Questions
+                <span class="text-danger">*</span>
+              </h4>
+              <p class="text-muted">Please answer these health-related questions accurately</p>
+            </div>
+          </div>
 
-      <!-- Show textarea only if Yes -->
-      <div class="mt-2" *ngIf="questions.q1.answer === 'yes'" style="width: 100%;">
-        <div class="form-group">
-          <label for="q1Details">Add More Details About health issue</label>
-          <textarea id="q1Details" class="form-control" [(ngModel)]="questions.q1.details" 
-                    name="q1_details" rows="3"></textarea>
-        </div>
-      </div>
-    </div>
-  </div>
+          <div class="row mt-4 g-4">
+            <!-- Question 1 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="question-card border rounded-3 p-4 h-100 shadow-sm">
+                <div class="d-flex align-items-start mb-3">
+                  <div class="question-icon me-3">
+                    <i class="fas fa-heartbeat text-success fa-2x"></i>
+                  </div>
+                  <div>
+                    <h6 class="question-title mb-2 fw-bold">General Health Status</h6>
+                    <p class="text-muted small mb-3">
+                      Is the person proposed in good health free from physical and mental disease or infirmity?
+                    </p>
+                  </div>
+                </div>
 
-  <!-- Question 2 -->
-  <div class="card col-lg-4">
-    <div class="row tp">
-      <div>
-        <p>
-          Has the person proposed consulted / diagnosed / taken treatment / been admitted for any illness / injury?
-        </p>
-        <div class="btn-container">
-          <label class="switch btn-color-mode-switch brd">
-            <input type="radio" name="q2_answer" [(ngModel)]="questions.q2.answer" value="yes">
-            <span class="btn-color-mode-switch-inner yes">Yes</span>
-          </label>
-          <label class="switch btn-color-mode-switch brd1">
-            <input type="radio" name="q2_answer" [(ngModel)]="questions.q2.answer" value="no">
-            <span class="btn-color-mode-switch-inner no">No</span>
-          </label>
-        </div>
-      </div>
+                <div class="btn-group w-100 mb-3" role="group">
+                  <input type="radio" class="btn-check" name="q1_answer" id="q1-yes" [(ngModel)]="questions.q1.answer" value="yes">
+                  <label class="btn btn-outline-success" for="q1-yes">
+                    <i class="fas fa-check me-2"></i>Yes
+                  </label>
+                  
+                  <input type="radio" class="btn-check" name="q1_answer" id="q1-no" [(ngModel)]="questions.q1.answer" value="no">
+                  <label class="btn btn-outline-danger" for="q1-no">
+                    <i class="fas fa-times me-2"></i>No
+                  </label>
+                </div>
 
-      <div class="mt-2" *ngIf="questions.q2.answer === 'yes'" style="width: 100%;">
-        <div class="form-group">
-          <label for="q2Details">Add More Details About health issue</label>
-          <textarea id="q2Details" class="form-control" [(ngModel)]="questions.q2.details" 
-                    name="q2_details" rows="3"></textarea>
-        </div>
-      </div>
-    </div>
-  </div>
+                <!-- Show textarea only if Yes -->
+                <div class="mt-3" *ngIf="questions.q1.answer === 'yes'">
+                  <label class="form-label fw-bold">Please provide details about the health issue:</label>
+                  <textarea id="q1Details" class="form-control" [(ngModel)]="questions.q1.details" 
+                           name="q1_details" rows="3" 
+                           placeholder="Describe the health condition, symptoms, or any relevant details..."></textarea>
+                </div>
+              </div>
+            </div>
 
-  <!-- Question 3 -->
-  <div class="card col-lg-4">
-    <div class="row tp">
-      <div>
-        <p>Does the person proposed have any complications during / following birth?</p>
-        <div class="btn-container" style="margin-top: 20px;">
-          <label class="switch btn-color-mode-switch brd">
-            <input type="radio" name="q3_answer" [(ngModel)]="questions.q3.answer" value="yes">
-            <span class="btn-color-mode-switch-inner yes">Yes</span>
-          </label>
-          <label class="switch btn-color-mode-switch brd1">
-            <input type="radio" name="q3_answer" [(ngModel)]="questions.q3.answer" value="no">
-            <span class="btn-color-mode-switch-inner no">No</span>
-          </label>
-        </div>
-      </div>
+            <!-- Question 2 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="question-card border rounded-3 p-4 h-100 shadow-sm">
+                <div class="d-flex align-items-start mb-3">
+                  <div class="question-icon me-3">
+                    <i class="fas fa-stethoscope text-primary fa-2x"></i>
+                  </div>
+                  <div>
+                    <h6 class="question-title mb-2 fw-bold">Medical History</h6>
+                    <p class="text-muted small mb-3">
+                      Has the person proposed consulted/diagnosed/taken treatment/been admitted for any illness/injury?
+                    </p>
+                  </div>
+                </div>
 
-      <div class="mt-2" *ngIf="questions.q3.answer === 'yes'" style="width: 100%;">
-        <div class="form-group">
-          <label for="q3Details">Add More Details</label>
-          <textarea id="q3Details" class="form-control" [(ngModel)]="questions.q3.details" 
-                    name="q3_details" rows="3"></textarea>
+                <div class="btn-group w-100 mb-3" role="group">
+                  <input type="radio" class="btn-check" name="q2_answer" id="q2-yes" [(ngModel)]="questions.q2.answer" value="yes">
+                  <label class="btn btn-outline-success" for="q2-yes">
+                    <i class="fas fa-check me-2"></i>Yes
+                  </label>
+                  
+                  <input type="radio" class="btn-check" name="q2_answer" id="q2-no" [(ngModel)]="questions.q2.answer" value="no">
+                  <label class="btn btn-outline-danger" for="q2-no">
+                    <i class="fas fa-times me-2"></i>No
+                  </label>
+                </div>
+
+                <div class="mt-3" *ngIf="questions.q2.answer === 'yes'">
+                  <label class="form-label fw-bold">Please provide details about the medical condition:</label>
+                  <textarea id="q2Details" class="form-control" [(ngModel)]="questions.q2.details" 
+                           name="q2_details" rows="3" 
+                           placeholder="Describe the illness, treatment, hospitalization, or any relevant details..."></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="question-card border rounded-3 p-4 h-100 shadow-sm">
+                <div class="d-flex align-items-start mb-3">
+                  <div class="question-icon me-3">
+                    <i class="fas fa-baby text-warning fa-2x"></i>
+                  </div>
+                  <div>
+                    <h6 class="question-title mb-2 fw-bold">Birth Complications</h6>
+                    <p class="text-muted small mb-3">
+                      Does the person proposed have any complications during/following birth?
+                    </p>
+                  </div>
+                </div>
+
+                <div class="btn-group w-100 mb-3" role="group">
+                  <input type="radio" class="btn-check" name="q3_answer" id="q3-yes" [(ngModel)]="questions.q3.answer" value="yes">
+                  <label class="btn btn-outline-success" for="q3-yes">
+                    <i class="fas fa-check me-2"></i>Yes
+                  </label>
+                  
+                  <input type="radio" class="btn-check" name="q3_answer" id="q3-no" [(ngModel)]="questions.q3.answer" value="no">
+                  <label class="btn btn-outline-danger" for="q3-no">
+                    <i class="fas fa-times me-2"></i>No
+                  </label>
+                </div>
+
+                <div class="mt-3" *ngIf="questions.q3.answer === 'yes'">
+                  <label class="form-label fw-bold">Please provide details about the birth complications:</label>
+                  <textarea id="q3Details" class="form-control" [(ngModel)]="questions.q3.details" 
+                           name="q3_details" rows="3" 
+                           placeholder="Describe the complications, medical interventions, or any relevant details..."></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
     <hr>
 
 
-    <!-- Insurance Company -->
-   <div class="card insurance-card">
-  <div class="card-header">
-    <h5>Insurance Details</h5>
-  </div>
-  <div class="card-body">
-    <!-- Row 1 -->
-    <div class="row mb-3">
-      <div class="col-sm-4">
-        <input type="text" class="form-control"
-          [(ngModel)]="insuranceDetails.insuranceCompany" name="insuranceCompany"
-          placeholder="Name of Insurance Company">
-      </div>
-      <div class="col-sm-4">
-        <input type="text" class="form-control"
-          [(ngModel)]="insuranceDetails.periodInsurance" name="periodInsurance"
-          placeholder="Period of Insurance">
-      </div>
-      <div class="col-sm-4">
-        <input type="text" class="form-control"
-          [(ngModel)]="insuranceDetails.sumInsured" name="sumInsured"
-          placeholder="Sum Insured">
-      </div>
-    </div>
+        <!-- ========================= -->
+        <!-- Insurance Details -->
+        <!-- ========================= -->
+        <div class="card shadow-sm p-4 mb-4 insurance-card animate__animated animate__fadeInUp">
+          <div class="row clearfix">
+            <div class="headers">
+              <h4 class="headings">
+                <i class="fas fa-briefcase text-warning me-2"></i> 
+                Insurance Details
+              </h4>
+              <p class="text-muted">Please provide comprehensive insurance information</p>
+            </div>
+          </div>
 
-    <!-- Policy Files -->
-    <div class="row mb-3">
-      <div class="col-sm-6">
-        <label class="form-label">Attach policy document copy</label>
-        <input type="file" class="form-control" multiple (change)="onFileChange($event)">
-      </div>
-      <div class="col-sm-6">
-        <label class="form-label">Declined Insurance Coverage?</label>
-        <select class="form-control" [(ngModel)]="insuranceDetails.declinedCoverage" name="declinedCoverage">
-          <option value="" disabled selected>Select an option</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-      </div>
-    </div>
+          <div class="card-body">
+            <!-- Row 1: Basic Insurance Info -->
+            <div class="row mb-4">
+              <div class="col-md-4 mb-3">
+                <label class="form-label fw-bold">
+                  Insurance Company <span class="text-danger">*</span>
+                </label>
+                <input type="text" class="form-control form-control-lg"
+                  [(ngModel)]="insuranceDetails.insuranceCompany" name="insuranceCompany"
+                  placeholder="e.g., LIC, ICICI, HDFC">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label class="form-label fw-bold">
+                  Period of Insurance <span class="text-danger">*</span>
+                </label>
+                <input type="text" class="form-control form-control-lg"
+                  [(ngModel)]="insuranceDetails.periodInsurance" name="periodInsurance"
+                  placeholder="e.g., 2020-2025">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label class="form-label fw-bold">
+                  Sum Insured <span class="text-danger">*</span>
+                </label>
+                <input type="text" class="form-control form-control-lg"
+                  [(ngModel)]="insuranceDetails.sumInsured" name="sumInsured"
+                  placeholder="e.g., 500000">
+              </div>
+            </div>
 
-    <!-- Similar Insurance -->
-    <div class="mb-3">
-      <label class="form-label">Other similar insurance/s taken</label>
-      <input type="text" class="form-control"
-        [(ngModel)]="insuranceDetails.similarInsurances" name="similarInsurances"
-        placeholder="Enter details of similar insurance/s">
-    </div>
+            <!-- Row 2: Policy Files and Coverage -->
+            <div class="row mb-4">
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-bold">
+                  <i class="fas fa-file-upload me-2"></i>Policy Documents
+                </label>
+                <input type="file" class="form-control form-control-lg" multiple (change)="onFileChange($event)"
+                       accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                <small class="text-muted">Upload policy documents (PDF, DOC, images)</small>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-bold">
+                  Declined Insurance Coverage?
+                </label>
+                <select class="form-select form-select-lg" [(ngModel)]="insuranceDetails.declinedCoverage" name="declinedCoverage">
+                  <option value="no">No</option>
+                  <option value="yes">Yes</option>
+                </select>
+              </div>
+            </div>
 
-    <!-- Hospital Preferences -->
-    <div class="mb-3">
-      <label class="form-label">Hospital Preferences</label>
-      <div *ngFor="let hospital of insuranceDetails.hospitals; let i = index" class="row mb-2">
-        <div class="col-sm-5">
-          <input type="text" class="form-control"
-            [(ngModel)]="hospital.hospitalName" name="hospitalName{{i}}"
-            placeholder="Hospital Name">
+            <!-- Row 3: Similar Insurance -->
+            <div class="mb-4">
+              <label class="form-label fw-bold">
+                <i class="fas fa-shield-alt me-2"></i>Other Similar Insurance Policies
+              </label>
+              <input type="text" class="form-control form-control-lg"
+                [(ngModel)]="insuranceDetails.similarInsurances" name="similarInsurances"
+                placeholder="e.g., LIC, HDFC, Star Health">
+              <small class="text-muted">List any other insurance policies you currently have</small>
+            </div>
+
+            <!-- Row 4: Hospital Preferences -->
+            <div class="mb-4">
+              <label class="form-label fw-bold">
+                <i class="fas fa-hospital me-2"></i>Preferred Hospitals (Max 5)
+              </label>
+              <div *ngFor="let hospital of insuranceDetails.hospitals; let i = index" class="row mb-3 g-2">
+                <div class="col-md-5">
+                  <input type="text" class="form-control"
+                    [(ngModel)]="hospital.hospitalName" name="hospitalName{{i}}"
+                    placeholder="Hospital Name">
+                </div>
+                <div class="col-md-5">
+                  <input type="text" class="form-control"
+                    [(ngModel)]="hospital.hospitalAddress" name="hospitalAddress{{i}}"
+                    placeholder="Hospital Address">
+                </div>
+                <div class="col-md-2 d-flex gap-2">
+                  <button type="button" class="btn btn-success btn-sm"
+                    (click)="addHospital()"
+                    [disabled]="insuranceDetails.hospitals.length >= 5">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                  <button *ngIf="i > 0" type="button" class="btn btn-danger btn-sm" (click)="removeHospital(i)">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 5: Package Selection -->
+            <div class="row mb-4">
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-bold">
+                  <i class="fas fa-crown me-2"></i>Insurance Package
+                </label>
+                <select class="form-select form-select-lg" [(ngModel)]="insuranceDetails.package" name="package">
+                  <option value="integral">INTEGRAL</option>
+                  <option value="prime">PRIME</option>
+                  <option value="elite">ELITE</option>
+                </select>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-bold">
+                  <i class="fas fa-info-circle me-2"></i>Package Details
+                </label>
+                <select class="form-select form-select-lg" [(ngModel)]="insuranceDetails.packageDetail" name="packageDetail">
+                  <option value="">Select Package First</option>
+                  <option *ngFor="let option of packageDetails[insuranceDetails.package]" [value]="option">
+                    {{ option }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-sm-5">
-          <input type="text" class="form-control"
-            [(ngModel)]="hospital.hospitalAddress" name="hospitalAddress{{i}}"
-            placeholder="Hospital Address">
-        </div>
-        <div class="col-sm-2 d-flex">
-          <button type="button" class="btn btn-success me-2"
-            (click)="addHospital()"
-            [disabled]="insuranceDetails.hospitals.length >= 5">+</button>
-          <button *ngIf="i > 0" type="button" class="btn btn-danger" (click)="removeHospital(i)">-</button>
-        </div>
-      </div>
-    </div>
 
-    <!-- Package -->
-    <div class="row mb-3">
-      <div class="col-sm-6">
-        <label class="form-label">Select Package</label>
-        <select class="form-control" [(ngModel)]="insuranceDetails.package" name="package">
-          <option value="" disabled selected>Select Package</option>
-          <option value="integral">INTEGRAL</option>
-          <option value="prime">PRIME</option>
-          <option value="elite">ELITE</option>
-        </select>
-      </div>
+        <!-- Disease Selection Section -->
+        <div class="card shadow-sm p-4 mb-4 animate__animated animate__fadeInUp disease-selection-section">
+          <div class="row">
+            <div class="col-12">
+              <h4 class="mb-3">
+                <i class="fas fa-heartbeat text-danger me-2"></i>
+                Disease Selection
+                <span class="text-muted small">(Select diseases and provide descriptions)</span>
+              </h4>
+            </div>
+          </div>
 
-      <div class="col-sm-6">
-        <label class="form-label">Package Details</label>
-        <select class="form-control" [(ngModel)]="insuranceDetails.packageDetail" name="packageDetail">
-          <option value="" disabled selected>Please select an option</option>
-          <option *ngFor="let option of packageDetails[insuranceDetails.package]" [value]="option">
-            {{ option }}
-          </option>
-        </select>
-      </div>
-    </div>
-  </div>
-</div>
+          <!-- Disease Selection Form -->
+          <div class="row g-3 mb-4 disease-form-row">
+            <div class="col-md-4">
+              <label class="form-label fw-bold">
+                <i class="fas fa-list me-2"></i>Disease Category
+                <span class="text-danger">*</span>
+              </label>
+              <select class="form-select form-select-lg" 
+                      [(ngModel)]="selectedCategory" 
+                      name="diseaseCategory"
+                      (change)="onCategoryChange()"
+                      required>
+                <option value="" disabled selected>Select Category</option>
+                <option *ngFor="let category of categories" [value]="category">
+                  {{ category }}
+                </option>
+              </select>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label fw-bold">
+                <i class="fas fa-disease me-2"></i>Disease
+                <span class="text-danger">*</span>
+              </label>
+              <select class="form-select form-select-lg" 
+                      [(ngModel)]="selectedDisease" 
+                      name="selectedDisease"
+                      (change)="onDiseaseChange()"
+                      [disabled]="!selectedCategory"
+                      required>
+                <option value="" disabled selected>Select Disease</option>
+                <option *ngFor="let disease of getDiseasesByCategory()" [value]="disease.disease_name">
+                  {{ disease.disease_name }}
+                </option>
+              </select>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label fw-bold">
+                <i class="fas fa-plus me-2"></i>Action
+              </label>
+              <button type="button" 
+                      class="btn btn-success btn-lg w-100 disease-action-btn" 
+                      (click)="addDisease()"
+                      [disabled]="!selectedDisease || !selectedCategory">
+                <i class="fas fa-plus me-2"></i>Add Disease
+              </button>
+            </div>
+          </div>
+
+          <!-- Disease Description -->
+          <div class="row mb-4" *ngIf="selectedDisease">
+            <div class="col-12">
+              <label class="form-label fw-bold">
+                <i class="fas fa-info-circle me-2"></i>Disease Description
+                <button type="button" class="btn btn-outline-secondary btn-sm ms-2" (click)="clearDescription()">
+                  <i class="fas fa-edit"></i> Edit
+                </button>
+              </label>
+              <textarea class="form-control form-control-lg disease-description" 
+                        [(ngModel)]="diseaseDescription" 
+                        name="diseaseDescription"
+                        rows="3" 
+                        placeholder="Enter disease description here..."></textarea>
+              <small class="text-muted">You can edit this description to add your own notes or observations about the disease.</small>
+            </div>
+          </div>
+
+          <!-- Selected Diseases List -->
+          <div class="row" *ngIf="selectedDiseases.length > 0">
+            <div class="col-12">
+              <label class="form-label fw-bold">
+                <i class="fas fa-check-circle text-success me-2"></i>Selected Diseases
+                <span class="badge bg-success ms-2">{{ selectedDiseases.length }}</span>
+              </label>
+              
+              <div class="table-responsive">
+                <table class="table table-hover border rounded disease-table">
+                  <thead class="table-light">
+                    <tr>
+                      <th>Code</th>
+                      <th>Category</th>
+                      <th>Disease</th>
+                      <th>System</th>
+                      <th>Description</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let disease of selectedDiseases; let i = index">
+                      <td>
+                        <span class="badge bg-secondary">{{ disease.code }}</span>
+                      </td>
+                      <td>
+                        <span class="badge bg-primary">{{ disease.category }}</span>
+                      </td>
+                      <td>
+                        <strong>{{ disease.disease }}</strong>
+                      </td>
+                      <td>
+                        <small class="text-muted">{{ disease.system_name }}</small>
+                      </td>
+                      <td>
+                        <small class="text-muted">{{ disease.description || 'No description' }}</small>
+                      </td>
+                      <td>
+                        <button type="button" 
+                                class="btn btn-danger btn-sm disease-remove-btn" 
+                                (click)="removeDisease(i)">
+                          <i class="fas fa-trash me-1"></i>Remove
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!-- Submit -->
         <button type="submit" class="btn btn-primary mt-3">
