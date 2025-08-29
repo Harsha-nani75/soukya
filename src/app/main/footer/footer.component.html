@@ -30,7 +30,7 @@
                     <div class="footer-col ft11">
                         <figure>
                             <a href="index.html">
-                                <img src="assets/sowkhya-health-white.png" style="width: 150px;"
+                                <img src="assets/images/soukhya-health-white.png" style="width: 150px;"
                                     alt="Soukhya Health Logo">
                             </a>
                         </figure>
@@ -154,33 +154,99 @@
   </ul>
     <!-- Elder Care Form -->
     <div class="tab-pane fade show active" id="elder" role="tabpanel">
-    <form #elderForm="ngForm" (ngSubmit)="onSubmit(elderForm, 'elder care')">
+    <form #elderForm="ngForm" (ngSubmit)="onSubmit(elderForm, 'elder care')" novalidate>
   <div class="mb-3">
-    <label class="form-label">Full Name</label>
-    <input type="text" class="form-control" name="name" ngModel required placeholder="Full Name">
+    <label class="form-label">Full Name <span class="text-danger">*</span></label>
+    <input 
+      type="text" 
+      class="form-control" 
+      name="name" 
+      ngModel 
+      required 
+      minlength="2"
+      maxlength="50"
+      placeholder="Enter your full name"
+      [class.is-invalid]="elderForm.controls['name']?.invalid && elderForm.controls['name']?.touched">
+    <div class="invalid-feedback" *ngIf="elderForm.controls['name']?.invalid && elderForm.controls['name']?.touched">
+      <span *ngIf="elderForm.controls['name']?.errors?.['required']">Full name is required</span>
+      <span *ngIf="elderForm.controls['name']?.errors?.['minlength']">Name must be at least 2 characters</span>
+    </div>
   </div>
 
   <div class="mb-3">
-    <label class="form-label">Email Address</label>
-    <input type="email" class="form-control" name="email" ngModel required placeholder="Email">
+    <label class="form-label">Email Address <span class="text-danger">*</span></label>
+    <input 
+      type="email" 
+      class="form-control" 
+      name="email" 
+      ngModel 
+      required 
+      email
+      placeholder="Enter your email address"
+      [class.is-invalid]="elderForm.controls['email']?.invalid && elderForm.controls['email']?.touched">
+    <div class="invalid-feedback" *ngIf="elderForm.controls['email']?.invalid && elderForm.controls['email']?.touched">
+      <span *ngIf="elderForm.controls['email']?.errors?.['required']">Email is required</span>
+      <span *ngIf="elderForm.controls['email']?.errors?.['email']">Please enter a valid email</span>
+    </div>
   </div>
 
   <div class="mb-3">
-    <label class="form-label">Phone Number</label>
-    <input type="text" class="form-control" name="phoneNo" ngModel required placeholder="Phone Number">
+    <label class="form-label">Phone Number <span class="text-danger">*</span></label>
+    <input 
+      type="tel" 
+      class="form-control" 
+      name="phoneNo" 
+      ngModel 
+      required 
+      minlength="10"
+      maxlength="15"
+      pattern="[0-9]+"
+      placeholder="Enter your phone number"
+      [class.is-invalid]="elderForm.controls['phoneNo']?.invalid && elderForm.controls['phoneNo']?.touched">
+    <div class="invalid-feedback" *ngIf="elderForm.controls['phoneNo']?.invalid && elderForm.controls['phoneNo']?.touched">
+      <span *ngIf="elderForm.controls['phoneNo']?.errors?.['required']">Phone number is required</span>
+      <span *ngIf="elderForm.controls['phoneNo']?.errors?.['minlength']">Phone number must be at least 10 digits</span>
+      <span *ngIf="elderForm.controls['phoneNo']?.errors?.['pattern']">Please enter only numbers</span>
+    </div>
   </div>
 
   <div class="mb-3">
-    <label class="form-label">Address</label>
-    <textarea class="form-control" name="address" ngModel placeholder="Address"></textarea>
+    <label class="form-label">Address <span class="text-danger">*</span></label>
+    <textarea 
+      class="form-control" 
+      name="address" 
+      ngModel 
+      required
+      minlength="10"
+      maxlength="200"
+      rows="3"
+      placeholder="Enter your complete address"
+      [class.is-invalid]="elderForm.controls['address']?.invalid && elderForm.controls['address']?.touched"></textarea>
+    <div class="invalid-feedback" *ngIf="elderForm.controls['address']?.invalid && elderForm.controls['address']?.touched">
+      <span *ngIf="elderForm.controls['address']?.errors?.['required']">Address is required</span>
+      <span *ngIf="elderForm.controls['address']?.errors?.['minlength']">Address must be at least 10 characters</span>
+    </div>
   </div>
 
   <div class="mb-3">
     <label class="form-label">Message</label>
-    <textarea class="form-control" name="message" ngModel placeholder="Message"></textarea>
+    <textarea 
+      class="form-control" 
+      name="message" 
+      ngModel 
+      maxlength="500"
+      rows="3"
+      placeholder="Any additional information (optional)"></textarea>
+    <small class="form-text text-muted">Maximum 500 characters</small>
   </div>
 
-  <button type="submit" class="btn active_tab w-100">Submit</button>
+  <button 
+    type="submit" 
+    class="btn active_tab w-100"
+    [disabled]="elderForm.invalid || isSubmitting">
+    <span *ngIf="!isSubmitting">Submit Enquiry</span>
+    <span *ngIf="isSubmitting">Submitting...</span>
+  </button>
 </form>
 
 
@@ -190,32 +256,89 @@
         
     <!-- Medical Tourism Form -->
     <div class="tab-pane fade" id="medical" role="tabpanel">
-     <form #medicalForm="ngForm" (ngSubmit)="onSubmit(medicalForm, 'medical tourism')">
+     <form #medicalForm="ngForm" (ngSubmit)="onSubmit(medicalForm, 'medical tourism')" novalidate>
   <div class="mb-3">
-    <label class="form-label">Full Name</label>
-    <input type="text" class="form-control" name="name" ngModel required placeholder="Full Name">
+    <label class="form-label">Full Name <span class="text-danger">*</span></label>
+    <input 
+      type="text" 
+      class="form-control" 
+      name="name" 
+      ngModel 
+      required 
+      minlength="2"
+      maxlength="50"
+      placeholder="Enter your full name"
+      [class.is-invalid]="medicalForm.controls['name']?.invalid && medicalForm.controls['name']?.touched">
+    <div class="invalid-feedback" *ngIf="medicalForm.controls['name']?.invalid && medicalForm.controls['name']?.touched">
+      <span *ngIf="medicalForm.controls['name']?.errors?.['required']">Full name is required</span>
+      <span *ngIf="medicalForm.controls['name']?.errors?.['minlength']">Name must be at least 2 characters</span>
+    </div>
   </div>
 
   <div class="mb-3">
-    <label class="form-label">Email Address</label>
-    <input type="email" class="form-control" name="email" ngModel required placeholder="Email">
+    <label class="form-label">Email Address <span class="text-danger">*</span></label>
+    <input 
+      type="email" 
+      class="form-control" 
+      name="email" 
+      ngModel 
+      required 
+      email
+      placeholder="Enter your email address"
+      [class.is-invalid]="medicalForm.controls['email']?.invalid && medicalForm.controls['email']?.touched">
+    <div class="invalid-feedback" *ngIf="medicalForm.controls['email']?.invalid && medicalForm.controls['email']?.touched">
+      <span *ngIf="medicalForm.controls['email']?.errors?.['required']">Email is required</span>
+      <span *ngIf="medicalForm.controls['email']?.errors?.['email']">Please enter a valid email</span>
+    </div>
   </div>
 
   <div class="mb-3">
-    <label class="form-label">Phone Number</label>
+    <label class="form-label">Phone Number <span class="text-danger">*</span></label>
     <div class="input-group">
       <select class="form-select" name="countryCode" ngModel style="max-width: 80px;">
         <option value="+91">+91</option>
         <option value="+1">+1</option>
         <option value="+44">+44</option>
+        <option value="+61">+61</option>
+        <option value="+86">+86</option>
+        <option value="+971">+971</option>
       </select>
-      <input type="text" class="form-control" name="phoneNo" ngModel required placeholder="Phone Number">
+      <input 
+        type="tel" 
+        class="form-control" 
+        name="phoneNo" 
+        ngModel 
+        required 
+        minlength="10"
+        maxlength="15"
+        pattern="[0-9]+"
+        placeholder="Enter your phone number"
+        [class.is-invalid]="medicalForm.controls['phoneNo']?.invalid && medicalForm.controls['phoneNo']?.touched">
+    </div>
+    <div class="invalid-feedback" *ngIf="medicalForm.controls['phoneNo']?.invalid && medicalForm.controls['phoneNo']?.touched">
+      <span *ngIf="medicalForm.controls['phoneNo']?.errors?.['required']">Phone number is required</span>
+      <span *ngIf="medicalForm.controls['phoneNo']?.errors?.['minlength']">Phone number must be at least 10 digits</span>
+      <span *ngIf="medicalForm.controls['phoneNo']?.errors?.['pattern']">Please enter only numbers</span>
     </div>
   </div>
 
   <div class="mb-3">
-    <label class="form-label">Treatment Selection</label>
-    <input type="text" class="form-control" name="treatmentIssue" ngModel required placeholder="Add Health Issues">
+    <label class="form-label">Treatment/Health Issue <span class="text-danger">*</span></label>
+    <textarea 
+      class="form-control" 
+      name="treatmentIssue" 
+      ngModel 
+      required
+      minlength="5"
+      maxlength="300"
+      rows="3"
+      placeholder="Describe your treatment needs or health issues"
+      [class.is-invalid]="medicalForm.controls['treatmentIssue']?.invalid && medicalForm.controls['treatmentIssue']?.touched"></textarea>
+    <div class="invalid-feedback" *ngIf="medicalForm.controls['treatmentIssue']?.invalid && medicalForm.controls['treatmentIssue']?.touched">
+      <span *ngIf="medicalForm.controls['treatmentIssue']?.errors?.['required']">Treatment description is required</span>
+      <span *ngIf="medicalForm.controls['treatmentIssue']?.errors?.['minlength']">Description must be at least 5 characters</span>
+    </div>
+    <small class="form-text text-muted">Please provide details about your treatment requirements</small>
   </div>
 
   <div class="mb-3">
@@ -223,7 +346,13 @@
     <!-- <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div> -->
   </div>
 
-  <button type="submit" class="btn active_tab w-100">Submit</button>
+  <button 
+    type="submit" 
+    class="btn active_tab w-100"
+    [disabled]="medicalForm.invalid || isSubmitting">
+    <span *ngIf="!isSubmitting">Submit Medical Tourism Enquiry</span>
+    <span *ngIf="isSubmitting">Submitting...</span>
+  </button>
 </form>
 </div>
 

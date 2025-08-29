@@ -1,6 +1,43 @@
  <div class="container mt-4">
   <h5>Patients List</h5>
-  <table class="table table-bordered table-striped">
+  
+  <!-- Loading Indicator -->
+  <div *ngIf="loading" class="text-center py-4">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-2">Loading patients...</p>
+  </div>
+  
+  <!-- Debug Info (Development Only) -->
+  <!-- <div class="alert alert-info mb-3" *ngIf="!loading && patients.length > 0">
+    <h6 class="mb-2"><i class="fa fa-info-circle me-2"></i>Debug Information</h6>
+    <div class="row">
+      <div class="col-md-4">
+        <strong>Total Patients:</strong> {{ totalPatients }}
+      </div>
+      <div class="col-md-4">
+        <strong>Patients with Photos:</strong> {{ patientsWithPhotos }}
+      </div>
+      <div class="col-md-4">
+        <strong>Using New File Structure:</strong> {{ patientsWithNewFileStructure }}
+      </div>
+    </div>
+    <div class="mt-2">
+      <small class="text-muted">Check browser console for detailed photo URL information</small>
+      <div class="mt-2">
+        <button class="btn btn-sm btn-outline-primary me-2" (click)="testBackendConnection()">
+          <i class="fa fa-wifi me-1"></i>Test Backend Connection
+        </button>
+        <button class="btn btn-sm btn-outline-secondary" (click)="refreshPatients()">
+          <i class="fa fa-refresh me-1"></i>Refresh Data
+        </button>
+      </div>
+    </div>
+  </div>
+   -->
+  <!-- Patients Table -->
+  <table *ngIf="!loading && patients.length > 0" class="table table-bordered table-striped">
     <thead class="table-dark">
       <tr>
         <th>S.No</th>
@@ -15,7 +52,13 @@
       <tr *ngFor="let p of patients; let i = index">
        <td data-label="S.No">{{ i + 1 }}</td>
 <td data-label="Photo">
-  <img [src]="p.photo || '../../../assets/image.png'" alt="Photo" width="40" height="40" class="rounded-circle">
+  <img [src]="getSafePhotoUrl(p)" 
+       [alt]="p.name + ' photo'" 
+       width="40" 
+       height="40" 
+       class="rounded-circle"
+       (error)="onImageError($event, p)"
+       (load)="onImageLoad($event, p)">
 </td>
 <td data-label="Name">{{ p.name }}</td>
 <td data-label="Phone">{{ p.phone }}</td>
@@ -26,6 +69,14 @@
   <i class="fa fa-trash text-danger" style="cursor:pointer" (click)="onDelete(p.id)"></i>
 </td>
 </tr>
-    </tbody>
-  </table>
-</div> 
+          </tbody>
+    </table>
+    
+    <!-- No Patients Message -->
+    <div *ngIf="!loading && patients.length === 0" class="text-center py-4">
+      <div class="alert alert-info">
+        <i class="fa fa-info-circle me-2"></i>
+        No patients found.
+      </div>
+    </div>
+  </div> 

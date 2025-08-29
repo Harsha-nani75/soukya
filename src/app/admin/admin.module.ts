@@ -39,7 +39,7 @@ import { PtListComponent } from './pt-list/pt-list.component';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    HttpClientModule,NgxPaginationModule,FormsModule,NgChartsModule,ReactiveFormsModule
+    HttpClientModule,NgxPaginationModule,FormsModule,NgChartsModule,ReactiveFormsModule,CommonModule
   ]
 })
 export class AdminModule { }

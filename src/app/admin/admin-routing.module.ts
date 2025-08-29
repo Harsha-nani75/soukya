@@ -12,6 +12,7 @@ import { PackagesComponent } from './packages/packages.component';
 import { PtViewComponent } from './pt-view/pt-view.component';
 import { PtListComponent } from './pt-list/pt-list.component';
 
+
 const routes: Routes = [
     {
     path: '',
@@ -25,10 +26,11 @@ const routes: Routes = [
       { path: 'ptlist', component: PtListComponent },
       { path: 'gentic', component: GenticcareComponent },
       { path: 'gentic/:id', component: GenticcareComponent },
+      
       { path: 'ptview/:id', component: PtViewComponent },
       { path: 'packages', component: PackagesComponent },
       { path: 'generalenq', component: GenralenquiryComponent },
-      { path: 'blog', component: BlogsComponent }
+      { path: 'aEmployees', component: BlogsComponent }
     ]
   },
   { path: '**', redirectTo: 'dashboard' }

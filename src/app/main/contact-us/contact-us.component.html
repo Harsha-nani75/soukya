@@ -21,18 +21,73 @@
         <h2 class="form-title">Reach Us</h2>
 
         <!-- Template-driven form -->
-        <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+        <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
           <div class="form-row">
-            <input type="text" name="fullName" [(ngModel)]="formData.fullName"
-                   placeholder="Full Name" class="form-control" required>
-            <input type="text" name="phone" [(ngModel)]="formData.phone"
-                   placeholder="Phone Number" class="form-control" required>
+            <div class="form-group mb-3">
+              <label class="form-label">Full Name <span class="text-danger">*</span></label>
+              <input 
+                type="text" 
+                name="fullName" 
+                [(ngModel)]="formData.fullName"
+                placeholder="Enter your full name" 
+                class="form-control" 
+                required
+                minlength="2"
+                maxlength="50"
+                [class.is-invalid]="contactForm.controls['fullName']?.invalid && contactForm.controls['fullName']?.touched">
+              <div class="invalid-feedback" *ngIf="contactForm.controls['fullName']?.invalid && contactForm.controls['fullName']?.touched">
+                <span *ngIf="contactForm.controls['fullName']?.errors?.['required']">Full name is required</span>
+                <span *ngIf="contactForm.controls['fullName']?.errors?.['minlength']">Name must be at least 2 characters</span>
+              </div>
+            </div>
+            
+            <div class="form-group mb-3">
+              <label class="form-label">Phone Number <span class="text-danger">*</span></label>
+              <input 
+                type="tel" 
+                name="phone" 
+                [(ngModel)]="formData.phone"
+                placeholder="Enter your phone number" 
+                class="form-control" 
+                required
+                minlength="10"
+                maxlength="15"
+                pattern="[0-9]+"
+                [class.is-invalid]="contactForm.controls['phone']?.invalid && contactForm.controls['phone']?.touched">
+              <div class="invalid-feedback" *ngIf="contactForm.controls['phone']?.invalid && contactForm.controls['phone']?.touched">
+                <span *ngIf="contactForm.controls['phone']?.errors?.['required']">Phone number is required</span>
+                <span *ngIf="contactForm.controls['phone']?.errors?.['minlength']">Phone number must be at least 10 digits</span>
+                <span *ngIf="contactForm.controls['phone']?.errors?.['pattern']">Please enter only numbers</span>
+              </div>
+            </div>
           </div>
 
-          <textarea name="message" [(ngModel)]="formData.message"
-                    placeholder="Your Message" class="form-control message-box" rows="3" required></textarea>
+          <div class="form-group mb-3">
+            <label class="form-label">Message <span class="text-danger">*</span></label>
+            <textarea 
+              name="message" 
+              [(ngModel)]="formData.message"
+              placeholder="Enter your message" 
+              class="form-control message-box" 
+              rows="3" 
+              required
+              minlength="5"
+              maxlength="500"
+              [class.is-invalid]="contactForm.controls['message']?.invalid && contactForm.controls['message']?.touched"></textarea>
+            <div class="invalid-feedback" *ngIf="contactForm.controls['message']?.invalid && contactForm.controls['message']?.touched">
+              <span *ngIf="contactForm.controls['message']?.errors?.['required']">Message is required</span>
+              <span *ngIf="contactForm.controls['message']?.errors?.['minlength']">Message must be at least 5 characters</span>
+            </div>
+            <small class="form-text text-muted">Maximum 500 characters</small>
+          </div>
 
-          <button type="submit" class="submit-btn" [disabled]="!contactForm.valid">Submit</button>
+          <button 
+            type="submit" 
+            class="submit-btn" 
+            [disabled]="contactForm.invalid || isSubmitting">
+            <span *ngIf="!isSubmitting">Send Message</span>
+            <span *ngIf="isSubmitting">Sending...</span>
+          </button>
         </form>
       </div>
     </div>

@@ -1,98 +1,9 @@
-<!--<div class="login-container">
-  <div class="login-left"></div>
-  <div class="login-right"></div>
-
-  <div class="login_card_wrapper d-flex flex-column gap-4">
-    <img src="assets/sowkhya-health.png" alt="Soukhya" class="logo" />
-
-    <div class="login-card">
-      <h3 class="mb-4 text-center">
-        {{ currentCard === 'login' ? 'Welcome to Soukhya' 
-          : (currentCard === 'register' ? 'Create Account' 
-          : (currentCard === 'forgot-password' ? 'Forgot Password' 
-          : (currentCard === 'reset-password' ? 'Reset Password' 
-          : 'Verify OTP'))) }}
-      </h3>
-    -->
-      <!-- LOGIN CARD -->
-      <!--<form *ngIf="currentCard === 'login'" (ngSubmit)="onLogin()" #loginForm="ngForm" novalidate class="d-flex flex-column gap-4">
-        <div>
-          <input type="text" class="form-control" placeholder="Your Email" [(ngModel)]="email" name="email" required />
-          <i class="bi bi-envelope input-icon"></i>
-        </div>
-        <div>
-          <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password" required />
-          <i class="bi bi-lock input-icon"></i>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="rememberMe" [(ngModel)]="remember" name="remember" />
-          <label class="form-check-label" for="rememberMe">Remember me</label>
-        </div>
-        <button class="btn btn-primary w-100" type="submit">Login</button>
-        <p style="margin-top:10px; font-size:14px;">
-          Need to find <span><a (click)="switchCard('register')" style="cursor: pointer;">Register</a></span>
-          <br>
-          <a style="cursor: pointer;" (click)="switchCard('forgot-password')">Forgot Your Password?</a>
-        </p>
-        <p class="text-danger mt-3" *ngIf="errorMessage">{{ errorMessage }}</p>
-      </form>
-    -->
-      <!-- REGISTER CARD -->
-      <!-- <form *ngIf="currentCard === 'register'" (ngSubmit)="onRegister()" #registerForm="ngForm" class="d-flex flex-column gap-3">
-        <input type="text" class="form-control" placeholder="Full Name" [(ngModel)]="registerData.name" name="name" required />
-        <input type="email" class="form-control" placeholder="Email" [(ngModel)]="registerData.email" name="regEmail" required />
-        <input type="text" class="form-control" placeholder="Phone Number" [(ngModel)]="registerData.phone" name="phone" required />
-        <input type="password" class="form-control" placeholder="Password" [(ngModel)]="registerData.password" name="regPassword" required />
-        <button class="btn btn-primary w-100" type="submit">Register</button>
-        <p class="text-center mt-2">
-          Already have an account? 
-          <a style="cursor: pointer;" (click)="switchCard('login')">Login</a>
-        </p>
-      </form> -->
-
-      <!-- REGISTER OTP CARD -->
-      <!-- <form *ngIf="currentCard === 'otp' && !forgot.email" (ngSubmit)="verifyRegisterOtp()" class="d-flex flex-column gap-3">
-        <p class="text-center">Enter the OTP sent to your email</p>
-        <input type="text" class="form-control text-center" maxlength="6" [(ngModel)]="enteredOtp" name="regOtp" required />
-        <button class="btn btn-success w-100" type="submit">Verify OTP</button>
-      </form> -->
-
-      <!-- FORGOT PASSWORD -->
-      <!-- <form *ngIf="currentCard === 'forgot-password'" (ngSubmit)="onForgot()" #forgotForm="ngForm" class="d-flex flex-column gap-3">
-        <input type="email" class="form-control" placeholder="Email" [(ngModel)]="forgot.email" name="forEmail" required />
-        <button class="btn btn-primary w-100" type="submit">Send OTP</button>
-        <p class="text-center mt-2">
-          Already have an account? 
-          <a style="cursor: pointer;" (click)="switchCard('login')">Login</a>
-        </p>
-      </form> -->
-
-      <!-- FORGOT PASSWORD OTP -->
-      <!-- <form *ngIf="currentCard === 'otp' && forgot.email" (ngSubmit)="verifyForgotOtp()" class="d-flex flex-column gap-3">
-        <input type="text" class="form-control text-center" placeholder="Enter OTP" maxlength="6" [(ngModel)]="otp" name="forgotOtp" required />
-
-        <button class="btn btn-success w-100" type="submit">Verify OTP</button>
-
-        <button class="btn btn-link" type="button" (click)="resendOtp()" [disabled]="resendDisabled">
-          Resend OTP <span *ngIf="resendDisabled">({{timeLeft}}s)</span>
-        </button>
-      </form> -->
-
-      <!-- RESET PASSWORD -->
-      <!-- <form *ngIf="currentCard === 'reset-password'" (ngSubmit)="resetPassword()" class="d-flex flex-column gap-3">
-        <input type="password" class="form-control" placeholder="Enter New Password" [(ngModel)]="newPassword" name="newPassword" required />
-        <button class="btn btn-primary w-100" type="submit">Reset Password</button>
-      </form>
-    </div>
-  </div>
-</div> -->
-
 <div class="login-container">
   <div class="login-left"></div>
   <div class="login-right"></div>
 
   <div class="login_card_wrapper d-flex flex-column gap-4">
-    <img src="assets/sowkhya-health.png" alt="Soukhya" class="logo" />
+    <img src="assets/images/sowkhya-health.png" alt="Soukhya" class="logo" />
 
     <div class="login-card">
       <h3 class="mb-4 text-center">
@@ -105,19 +16,57 @@
 
       <!-- LOGIN CARD -->
       <form *ngIf="currentCard === 'login'" (ngSubmit)="onLogin()" #loginForm="ngForm" novalidate class="d-flex flex-column gap-4">
-        <div>
-          <input type="text" class="form-control" placeholder="Your Email" [(ngModel)]="email" name="email" required />
-          <i class="bi bi-envelope input-icon"></i>
+        <div class="form-group">
+          <div class="input-wrapper">
+            <input 
+              type="email" 
+              class="form-control" 
+              placeholder="Your Email" 
+              [(ngModel)]="email" 
+              name="email" 
+              required 
+              (blur)="validateLoginEmail()"
+              [class.is-valid]="email && isValidEmail(email)"
+              [class.is-invalid]="email && !isValidEmail(email)"
+            />
+            <i class="bi bi-envelope input-icon"></i>
+          </div>
+          <div class="invalid-feedback" *ngIf="email && !isValidEmail(email)">
+            Please enter a valid email address
+          </div>
         </div>
-        <div>
-          <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password" required />
-          <i class="bi bi-lock input-icon"></i>
+
+        <div class="form-group">
+          <div class="input-wrapper">
+            <input 
+              type="password" 
+              class="form-control" 
+              placeholder="Password" 
+              [(ngModel)]="password" 
+              name="password" 
+              required 
+              [class.is-valid]="password && password.length > 0"
+              [class.is-invalid]="password && password.length === 0"
+            />
+            <i class="bi bi-lock input-icon"></i>
+          </div>
+          <div class="invalid-feedback" *ngIf="password && password.length === 0">
+            Password is required
+          </div>
         </div>
+
         <div class="form-check">
           <input class="form-check-input" type="checkbox" id="rememberMe" [(ngModel)]="remember" name="remember" />
           <label class="form-check-label" for="rememberMe">Remember me</label>
         </div>
-        <button class="btn btn-primary w-100" type="submit">Login</button>
+
+        <button class="btn btn-primary w-100" type="submit" [disabled]="!email || !password || !isValidEmail(email)">
+          <span *ngIf="!isLoading">Login</span>
+          <span *ngIf="isLoading">
+            <i class="fas fa-spinner fa-spin me-2"></i>Logging in...
+          </span>
+        </button>
+
         <p style="margin-top:10px; font-size:14px;">
           Need to find <span><a (click)="switchCard('register')" style="cursor: pointer;">Register</a></span>
           <br>
@@ -128,11 +77,88 @@
 
       <!-- REGISTER CARD -->
       <form *ngIf="currentCard === 'register'" (ngSubmit)="onRegister()" #registerForm="ngForm" class="d-flex flex-column gap-3">
-        <input type="text" class="form-control" placeholder="Full Name" [(ngModel)]="registerData.name" name="name" required />
-        <input type="email" class="form-control" placeholder="Email" [(ngModel)]="registerData.email" name="regEmail" required />
-        <input type="text" class="form-control" placeholder="Phone Number" [(ngModel)]="registerData.phnum" name="phone" required />
-        <input type="password" class="form-control" placeholder="Password" [(ngModel)]="registerData.password" name="regPassword" required />
-        <button class="btn btn-primary w-100" type="submit">Register</button>
+        <div class="form-group">
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Full Name" 
+            [(ngModel)]="registerData.name" 
+            name="name" 
+            required 
+            (blur)="validateRegisterName()"
+            [class.is-valid]="registerData.name && isValidName(registerData.name)"
+            [class.is-invalid]="registerData.name && !isValidName(registerData.name)"
+          />
+          <div class="invalid-feedback" *ngIf="registerData.name && !isValidName(registerData.name)">
+            Please enter a valid name (letters and spaces only)
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input 
+            type="email" 
+            class="form-control" 
+            placeholder="Email" 
+            [(ngModel)]="registerData.email" 
+            name="regEmail" 
+            required 
+            (blur)="validateRegisterEmail()"
+            [class.is-valid]="registerData.email && isValidEmail(registerData.email)"
+            [class.is-invalid]="registerData.email && !isValidEmail(registerData.email)"
+          />
+          <div class="invalid-feedback" *ngIf="registerData.email && !isValidEmail(registerData.email)">
+            Please enter a valid email address
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input 
+            type="tel" 
+            class="form-control" 
+            placeholder="Phone Number (e.g., +919876543210 or 9876543210)" 
+            [(ngModel)]="registerData.phnum" 
+            name="phone" 
+            required 
+            (blur)="validateRegisterPhone()"
+            [class.is-valid]="registerData.phnum && isValidPhone(registerData.phnum)"
+            [class.is-invalid]="registerData.phnum && !isValidPhone(registerData.phnum)"
+          />
+          <div class="invalid-feedback" *ngIf="registerData.phnum && !isValidPhone(registerData.phnum)">
+            Please enter a valid 10-digit phone number (can start with +91)
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input 
+            type="password" 
+            class="form-control" 
+            placeholder="Password (minimum 6 characters)" 
+            [(ngModel)]="registerData.password" 
+            name="regPassword" 
+            required 
+            (blur)="validateRegisterPassword()"
+            [class.is-valid]="registerData.password && isValidPassword(registerData.password)"
+            [class.is-invalid]="registerData.password && !isValidPassword(registerData.password)"
+          />
+          <div class="invalid-feedback" *ngIf="registerData.password && !isValidPassword(registerData.password)">
+            Password must be at least 6 characters long
+          </div>
+          <div class="valid-feedback" *ngIf="registerData.password && isValidPassword(registerData.password)">
+            Password meets requirements
+          </div>
+        </div>
+
+        <button 
+          class="btn btn-primary w-100" 
+          type="submit" 
+          [disabled]="!isRegisterFormValid()"
+        >
+          <span *ngIf="!isLoading">Register</span>
+          <span *ngIf="isLoading">
+            <i class="fas fa-spinner fa-spin me-2"></i>Creating Account...
+          </span>
+        </button>
+
         <p class="text-center mt-2">
           Already have an account? 
           <a style="cursor: pointer;" (click)="switchCard('login')">Login</a>
@@ -141,20 +167,90 @@
 
       <!-- REGISTER OTP CARD -->
       <form *ngIf="currentCard === 'otp' && !forgot.email" (ngSubmit)="verifyRegisterOtp()" class="d-flex flex-column gap-3">
-        <p class="text-center">Enter the OTP sent to your email</p>
-        <input type="text" class="form-control text-center" maxlength="6" [(ngModel)]="enteredOtp" name="regOtp" required />
-        
-        <button class="btn btn-success w-100" type="submit">Verify OTP</button>
+        <div class="text-center mb-3">
+          <i class="fas fa-envelope-open-text text-primary" style="font-size: 3rem;"></i>
+          <h5 class="mt-2">Check Your Email</h5>
+          <p class="text-muted">We've sent a 6-digit verification code to:</p>
+          <p class="fw-bold text-primary">{{ registerData.email }}</p>
+        </div>
 
-        <button class="btn btn-link" type="button" (click)="resendOtp()" [disabled]="resendDisabled">
-          Resend OTP <span *ngIf="resendDisabled">({{timeLeft}}s)</span>
+        <div class="form-group">
+          <input 
+            type="text" 
+            class="form-control text-center" 
+            maxlength="6" 
+            placeholder="Enter 6-digit OTP" 
+            [(ngModel)]="enteredOtp" 
+            name="regOtp" 
+            required 
+            [class.is-valid]="enteredOtp && enteredOtp.length === 6"
+            [class.is-invalid]="enteredOtp && enteredOtp.length !== 6"
+          />
+          <div class="invalid-feedback" *ngIf="enteredOtp && enteredOtp.length !== 6">
+            OTP must be exactly 6 digits
+          </div>
+        </div>
+        
+        <button 
+          class="btn btn-success w-100" 
+          type="submit"
+          [disabled]="!enteredOtp || enteredOtp.length !== 6"
+        >
+          <span *ngIf="!isLoading">Verify OTP</span>
+          <span *ngIf="isLoading">
+            <i class="fas fa-spinner fa-spin me-2"></i>Verifying...
+          </span>
         </button>
+
+        <div class="text-center">
+          <button 
+            class="btn btn-link" 
+            type="button" 
+            (click)="resendOtp()" 
+            [disabled]="resendDisabled"
+          >
+            <span *ngIf="!resendDisabled">Resend OTP</span>
+            <span *ngIf="resendDisabled">Resend OTP ({{timeLeft}}s)</span>
+          </button>
+        </div>
       </form>
 
       <!-- FORGOT PASSWORD -->
       <form *ngIf="currentCard === 'forgot-password'" (ngSubmit)="onForgot()" #forgotForm="ngForm" class="d-flex flex-column gap-3">
-        <input type="email" class="form-control" placeholder="Email" [(ngModel)]="forgot.email" name="forEmail" required />
-        <button class="btn btn-primary w-100" type="submit">Send OTP</button>
+        <div class="text-center mb-3">
+          <i class="fas fa-key text-warning" style="font-size: 3rem;"></i>
+          <h5 class="mt-2">Forgot Your Password?</h5>
+          <p class="text-muted">Enter your email address and we'll send you a reset link</p>
+        </div>
+
+        <div class="form-group">
+          <input 
+            type="email" 
+            class="form-control" 
+            placeholder="Email" 
+            [(ngModel)]="forgot.email" 
+            name="forEmail" 
+            required 
+            (blur)="validateForgotEmail()"
+            [class.is-valid]="forgot.email && isValidEmail(forgot.email)"
+            [class.is-invalid]="forgot.email && !isValidEmail(forgot.email)"
+          />
+          <div class="invalid-feedback" *ngIf="forgot.email && !isValidEmail(forgot.email)">
+            Please enter a valid email address
+          </div>
+        </div>
+
+        <button 
+          class="btn btn-primary w-100" 
+          type="submit"
+          [disabled]="!forgot.email || !isValidEmail(forgot.email)"
+        >
+          <span *ngIf="!isLoading">Send OTP</span>
+          <span *ngIf="isLoading">
+            <i class="fas fa-spinner fa-spin me-2"></i>Sending OTP...
+          </span>
+        </button>
+
         <p class="text-center mt-2">
           Already have an account? 
           <a style="cursor: pointer;" (click)="switchCard('login')">Login</a>
@@ -163,19 +259,92 @@
 
       <!-- FORGOT PASSWORD OTP -->
       <form *ngIf="currentCard === 'otp' && forgot.email" (ngSubmit)="verifyForgotOtp()" class="d-flex flex-column gap-3">
-        <input type="text" class="form-control text-center" placeholder="Enter OTP" maxlength="6" [(ngModel)]="otp" name="forgotOtp" required />
+        <div class="text-center mb-3">
+          <i class="fas fa-envelope-open-text text-warning" style="font-size: 3rem;"></i>
+          <h5 class="mt-2">Check Your Email</h5>
+          <p class="text-muted">We've sent a 6-digit verification code to:</p>
+          <p class="fw-bold text-warning">{{ forgot.email }}</p>
+        </div>
 
-        <button class="btn btn-success w-100" type="submit">Verify OTP</button>
+        <div class="form-group">
+          <input 
+            type="text" 
+            class="form-control text-center" 
+            placeholder="Enter 6-digit OTP" 
+            maxlength="6" 
+            [(ngModel)]="otp" 
+            name="forgotOtp" 
+            required 
+            [class.is-valid]="otp && otp.length === 6"
+            [class.is-invalid]="otp && otp.length !== 6"
+          />
+          <div class="invalid-feedback" *ngIf="otp && otp.length !== 6">
+            OTP must be exactly 6 digits
+          </div>
+        </div>
 
-        <button class="btn btn-link" type="button" (click)="resendForgotOtp()" [disabled]="resendDisabled">
-          Resend OTP <span *ngIf="resendDisabled">({{timeLeft}}s)</span>
+        <button 
+          class="btn btn-success w-100" 
+          type="submit"
+          [disabled]="!otp || otp.length !== 6"
+        >
+          <span *ngIf="!isLoading">Verify OTP</span>
+          <span *ngIf="isLoading">
+            <i class="fas fa-spinner fa-spin me-2"></i>Verifying...
+          </span>
         </button>
+
+        <div class="text-center">
+          <button 
+            class="btn btn-link" 
+            type="button" 
+            (click)="resendForgotOtp()" 
+            [disabled]="resendDisabled"
+          >
+            <span *ngIf="!resendDisabled">Resend OTP</span>
+            <span *ngIf="resendDisabled">Resend OTP ({{timeLeft}}s)</span>
+          </button>
+        </div>
       </form>
 
       <!-- RESET PASSWORD -->
       <form *ngIf="currentCard === 'reset-password'" (ngSubmit)="resetPassword()" class="d-flex flex-column gap-3">
-        <input type="password" class="form-control" placeholder="Enter New Password" [(ngModel)]="newPassword" name="newPassword" required />
-        <button class="btn btn-primary w-100" type="submit">Reset Password</button>
+        <div class="text-center mb-3">
+          <i class="fas fa-lock text-success" style="font-size: 3rem;"></i>
+          <h5 class="mt-2">Create New Password</h5>
+          <p class="text-muted">Enter your new password below</p>
+        </div>
+
+        <div class="form-group">
+          <input 
+            type="password" 
+            class="form-control" 
+            placeholder="Enter New Password (minimum 6 characters)" 
+            [(ngModel)]="newPassword" 
+            name="newPassword" 
+            required 
+            (blur)="validateNewPassword()"
+            [class.is-valid]="newPassword && isValidPassword(newPassword)"
+            [class.is-invalid]="newPassword && !isValidPassword(newPassword)"
+          />
+          <div class="invalid-feedback" *ngIf="newPassword && !isValidPassword(newPassword)">
+            Password must be at least 6 characters long
+          </div>
+          <div class="valid-feedback" *ngIf="newPassword && isValidPassword(newPassword)">
+            Password meets requirements
+          </div>
+        </div>
+
+        <button 
+          class="btn btn-primary w-100" 
+          type="submit"
+          [disabled]="!newPassword || !isValidPassword(newPassword)"
+        >
+          <span *ngIf="!isLoading">Reset Password</span>
+          <span *ngIf="isLoading">
+            <i class="fas fa-spinner fa-spin me-2"></i>Resetting Password...
+          </span>
+        </button>
       </form>
     </div>
   </div>

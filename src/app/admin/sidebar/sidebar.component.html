@@ -1,4 +1,9 @@
 <div id="left-sidebar" class="sidebar" style="background-color:#163c60">
+  <!-- Mobile Close Button -->
+  <div class="mobile-close-btn d-lg-none" (click)="onCloseMobileMenu()">
+    <i class="fa fa-times"></i>
+  </div>
+  
   <div class="sidebar-scroll">
     <div class="tab-content p-l-0 p-r-0" style="padding-top:40px">
       <div class="tab-pane active" id="menu">
@@ -30,7 +35,7 @@
               <ul>
                 <li><a routerLink="/admin/ptlist">Patient List</a></li>
                 <li><a routerLink="/admin/gentic">Add Patient</a></li>
-                <li><a routerLink="/admin/ptview/1">View Patient</a></li>
+                <!-- <li><a routerLink="/admin/ptview/1">View Patient</a></li> -->
               </ul>
             </li>
 
@@ -58,14 +63,20 @@
             </li>
 
             <!-- Packages -->
-            <li [class.open]="activeMenu === 'packages'">
-              <a href="javascript:void(0);" class="has-arrow" (click)="toggleMenu('packages')">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <span>Packages</span>
+            <!-- <li [class.open]="activeMenu === 'packages'">
+              <a routerLink="/admin/packages" routerLinkActive="active" >
+                              <i class="fa fa-star" aria-hidden="true"></i>
+                <span>Packages</span
               </a>
-              <ul>
-                <li><a routerLink="/admin/packages">Add Packages</a></li>
-              </ul>
+              <!-- <ul>
+                <li><a >Add Packages</a></li>
+              </ul> -->
+            <!-- </li> --> 
+            <li>
+              <a routerLink="/admin/packages" routerLinkActive="active">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <span>Add Packages</span>
+              </a>
             </li>
 
             <!-- Brochures -->
@@ -96,23 +107,16 @@
             <li [class.open]="activeMenu === 'blogs'">
               <a href="javascript:void(0);" class="has-arrow" (click)="toggleMenu('blogs')">
                 <i class="fa fa-medkit" aria-hidden="true"></i>
-                <span>Blogs</span>
+                <span>Employess</span>
               </a>
               <ul>
-                <li><a routerLink="/admin/blogs/add-category">Add Category</a></li>
-                <li><a routerLink="/admin/blogs/add-tags">Add Tags</a></li>
-                <li><a routerLink="/admin/blogs/add">Add Blogs</a></li>
-                <li><a routerLink="/admin/blogs/view">View Blogs</a></li>
-              </ul>
+                <li><a routerLink="/admin/aEmployees">Add Employess</a></li>
+                <li><a routerLink="/admin/blogs/add-tags">List Employess</a></li>
+                </ul>
             </li>
 
             <!-- Logout -->
-            <li>
-              <a (click)="logout()" style="cursor:pointer">
-                <i class="icon-login"></i>
-                <span>Logout</span>
-              </a>
-            </li>
+           
 
           </ul>
         </nav>

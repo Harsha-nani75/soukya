@@ -26,7 +26,7 @@
   width: 100%;
   height: 100%;
   z-index: -2;
-  background: url('/assets/auth_bg.jpg');
+  background: url('/assets/images/auth_bg.jpg');
   background-size: cover;
 }
 

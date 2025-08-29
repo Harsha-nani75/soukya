@@ -1,3 +1,5 @@
+/* Sidebar Component - Responsive Design System */
+
 /* Sidebar Base */
 .sidebar {
   position: fixed;
@@ -10,15 +12,22 @@
   overflow-y: auto;
   transition: all 0.3s ease;
   z-index: 1000;
+  padding-top: 90px;
+  padding-left: 33px;
 }
 
 /* Scrollbar style */
 .sidebar::-webkit-scrollbar {
   width: 6px;
 }
+
 .sidebar::-webkit-scrollbar-thumb {
   background: #0f2a44;
   border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #163c60;
 }
 
 /* Sidebar nav */
@@ -35,6 +44,7 @@
 
 .sidebar-nav li {
   position: relative;
+  margin-bottom: 2px;
 }
 
 .sidebar-nav a {
@@ -46,6 +56,8 @@
   font-size: 15px;
   font-weight: 500;
   transition: all 0.2s ease;
+  border-radius: 8px;
+  margin: 0 10px;
 }
 
 .sidebar-nav a i {
@@ -60,6 +72,8 @@
 .sidebar-nav a.active {
   background: #1d4f7a;
   color: #fff;
+  transform: translateX(5px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Submenu */
@@ -79,24 +93,411 @@
 .sidebar-nav ul ul {
   background: #1b466d;
   display: none;
+  margin: 5px 10px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .sidebar-nav li.open > ul {
   display: block;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .sidebar-nav ul ul li a {
   padding-left: 45px;
   font-size: 14px;
   color: #cfd8e3;
+  margin: 0;
+  border-radius: 0;
 }
 
 .sidebar-nav ul ul li a:hover {
   background: #215785;
   color: #fff;
+  transform: translateX(3px);
 }
-.sidebar {
-    
+
+/* Responsive Breakpoints */
+
+/* Large Desktop (1200px and up) */
+@media (min-width: 1200px) {
+  .sidebar {
+    width: 330px;
+    padding-top: 95px;
+    padding-left: 40px;
+  }
+  
+  .sidebar-nav a {
+    padding: 15px 25px;
+    font-size: 16px;
+  }
+  
+  .sidebar-nav a i {
+    font-size: 18px;
+    margin-right: 15px;
+  }
+  
+  .sidebar-nav ul ul li a {
+    padding-left: 50px;
+    font-size: 15px;
+  }
+}
+
+/* Desktop (1024px to 1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .sidebar {
+    width: 260px;
     padding-top: 90px;
-    padding-left: 33px;
+    padding-left: 30px;
+  }
+  
+  .sidebar-nav a {
+    padding: 13px 22px;
+    font-size: 15px;
+  }
+}
+
+/* Tablet (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .sidebar {
+    width: 240px;
+    padding-top: 85px;
+    padding-left: 25px;
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.mobile-open {
+    transform: translateX(0);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .sidebar-nav a {
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+  
+  .sidebar-nav a i {
+    font-size: 15px;
+    margin-right: 10px;
+  }
+  
+  .sidebar-nav ul ul li a {
+    padding-left: 40px;
+    font-size: 13px;
+  }
+}
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+  .sidebar {
+    width: 100%;
+    padding-top: 70px;
+    padding-left: 20px;
+    transform: translateX(-100%);
+    background: linear-gradient(135deg, #163c60 0%, #0d3b66 100%);
+  }
+  
+  .sidebar.mobile-open {
+    transform: translateX(0);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .sidebar-nav a {
+    padding: 15px 20px;
+    font-size: 16px;
+    margin: 0 5px 3px 5px;
+    border-radius: 10px;
+  }
+  
+  .sidebar-nav a i {
+    font-size: 18px;
+    margin-right: 15px;
+  }
+  
+  .sidebar-nav ul ul {
+    margin: 3px 5px;
+    border-radius: 10px;
+  }
+  
+  .sidebar-nav ul ul li a {
+    padding-left: 50px;
+    font-size: 15px;
+    margin: 0;
+    border-radius: 0;
+  }
+  
+  /* Mobile menu close button */
+  .sidebar::before {
+    content: "×";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  
+  .sidebar::before:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+}
+
+/* Small Mobile (up to 480px) */
+@media (max-width: 480px) {
+  .sidebar {
+    padding-top: 60px;
+    padding-left: 15px;
+  }
+  
+  .sidebar-nav a {
+    padding: 12px 15px;
+    font-size: 15px;
+    margin: 0 3px 2px 3px;
+  }
+  
+  .sidebar-nav a i {
+    font-size: 16px;
+    margin-right: 12px;
+  }
+  
+  .sidebar-nav ul ul li a {
+    padding-left: 45px;
+    font-size: 14px;
+  }
+  
+  .mobile-close-btn {
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+}
+
+/* Extra Small Mobile (up to 360px) */
+@media (max-width: 360px) {
+  .sidebar {
+    padding-top: 55px;
+    padding-left: 10px;
+  }
+  
+  .sidebar-nav a {
+    padding: 10px 12px;
+    font-size: 14px;
+    margin: 0 2px 1px 2px;
+  }
+  
+  .sidebar-nav a i {
+    font-size: 15px;
+    margin-right: 10px;
+  }
+  
+  .sidebar-nav ul ul li a {
+    padding-left: 40px;
+    font-size: 13px;
+  }
+  
+  .mobile-close-btn {
+    top: 12px;
+    right: 12px;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-width: 767px) and (orientation: landscape) {
+  .sidebar {
+    padding-top: 60px;
+    padding-left: 20px;
+  }
+  
+  .sidebar-nav a {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+  
+  .sidebar-nav a i {
+    font-size: 15px;
+    margin-right: 10px;
+  }
+  
+  .sidebar-nav ul ul li a {
+    padding-left: 40px;
+    font-size: 13px;
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .sidebar {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .sidebar {
+    display: none !important;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .sidebar-nav a,
+  .sidebar-nav .has-arrow::after,
+  .sidebar-nav ul ul {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .sidebar {
+    background-color: #0a1a2a;
+  }
+  
+  .sidebar-nav a:hover,
+  .sidebar-nav a.active {
+    background: #1a3a5a;
+  }
+  
+  .sidebar-nav ul ul {
+    background: #152a3a;
+  }
+  
+  .sidebar-nav ul ul li a:hover {
+    background: #2a4a6a;
+  }
+}
+
+/* Focus States for Accessibility */
+.sidebar-nav a:focus {
+  outline: 2px solid #4da6ff;
+  outline-offset: 2px;
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .sidebar-nav a {
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .sidebar-nav .has-arrow::after {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Hover Effects (only on devices that support hover) */
+@media (hover: hover) {
+  .sidebar-nav a:hover {
+    transform: translateX(5px);
+  }
+  
+  .sidebar-nav ul ul li a:hover {
+    transform: translateX(3px);
+  }
+}
+
+/* Sidebar Animation Classes */
+.sidebar.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+.sidebar.slide-out {
+  animation: slideOut 0.3s ease-in;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+/* Mobile Close Button */
+.mobile-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+  transition: all 0.3s ease;
+  color: #fff;
+  font-size: 20px;
+}
+
+.mobile-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* Sidebar Header for Mobile */
+@media (max-width: 767px) {
+  .sidebar::after {
+    content: "Soukhya Health";
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Remove the pseudo-element close button since we have a real one */
+  .sidebar::before {
+    display: none;
+  }
 }

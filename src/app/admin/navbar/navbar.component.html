@@ -4,7 +4,7 @@
     <!-- Left Logo Section -->
     <div class="navbar-brand d-flex align-items-center logo-section">
       <a routerLink="/">
-        <img src="../../../assets/soukhya-health-white.png" 
+        <img src="../../../assets/images/soukhya-health-white.png" 
              alt="Soukhya Logo" 
              class="logo-img">
       </a>
@@ -14,14 +14,65 @@
     <div class="navbar-right d-flex align-items-center me-4">
       <ul class="nav navbar-nav align-items-center mb-0">
         <li class="d-flex align-items-center me-3">
-          <img src="https://soukhya.health/admin/assets/new/images/sm/avatar3.jpg"
-               class="profile-image rounded-circle"
-               alt="profile-image"
-               width="40"
-               height="40">
-          <a href="#" class="user-name ms-2">
-            Welcome to <span>Soukhya</span>
-          </a>
+          <div class="user-profile-dropdown position-relative">
+            <!-- User Profile Button -->
+            <button class="btn btn-link text-white text-decoration-none d-flex align-items-center p-0" 
+                    (click)="toggleDropdown()"
+                    type="button">
+              <img src="../../../assets/images/image.png"
+                   class="profile-image rounded-circle me-2"
+                   alt="profile-image"
+                   width="40"
+                   height="40">
+              <span class="user-name me-2">
+                {{ userName || 'Welcome to Soukhya' }}
+              </span>
+              <i class="fas fa-chevron-down" 
+                 [class.fa-chevron-up]="isDropdownOpen"
+                 style="font-size: 12px;"></i>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <div class="dropdown-menu show" 
+                 [class.show]="isDropdownOpen"
+                 style="min-width: 200px; right: 0; left: auto;">
+              
+              <!-- User Info Header -->
+              <div class="dropdown-header bg-light py-2 px-3 border-bottom">
+                <div class="d-flex align-items-center">
+                  <img src="../../../assets/images/image.png"
+                       class="profile-image rounded-circle me-2"
+                       alt="profile-image"
+                       width="32"
+                       height="32">
+                  <div>
+                    <div class="fw-bold text-white">{{ userName }}</div>
+                    <small class="text-muted text-white">{{ userEmail }}</small>
+                    <div class="badge bg-primary mt-1">{{ userRole }}</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Dropdown Items -->
+              <div class="dropdown-divider"></div>
+              
+              <a class="dropdown-item py-2 px-3" 
+                 href="#" 
+                 (click)="goToProfile()">
+                <i class="fas fa-user me-2 text-primary"></i>
+                My Profile
+              </a>
+              
+              <div class="dropdown-divider"></div>
+              
+              <a class="dropdown-item py-2 px-3 text-danger" 
+                 href="#" 
+                 (click)="logout()">
+                <i class="fas fa-sign-out-alt me-2"></i>
+                Logout
+              </a>
+            </div>
+          </div>
         </li>
         <li>
           <a href="#" class="icon-menu">
