@@ -5,11 +5,11 @@ export const environment = {
   // apiUrl: 'http://localhost:4865/api'
 //  apiUrl:'https://soukhya-backend-1.onrender.com/api'
   //apiUrl: 'http://localhost:4870/api',
-  backendUrl: 'http://localhost:4870',
+  backendUrl: 'https://soukhya-backend-1.onrender.com',
 
-  apiUrl: 'http://localhost:4870/api'
+  //apiUrl: 'http://localhost:4870/api'
 
   // apiUrl: 'http://localhost:4865/api'
-  // apiUrl:'https://soukhya-backend-1.onrender.com/api'
+   apiUrl:'https://soukhya-backend-1.onrender.com/api'
 
 };
