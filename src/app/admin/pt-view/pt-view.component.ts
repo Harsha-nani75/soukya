@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PatientService } from 'src/app/services/patient.service';
 import { DiseaseService } from 'src/app/services/disease.service';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/app/services/environment';
 
 @Component({
   selector: 'app-pt-view',
@@ -26,7 +25,6 @@ export class PtViewComponent implements OnInit {
   questions: any = {};
   questionsArray: any[] = [];
   insurance: any = null;
-  backendUrl = environment.backendUrl;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -54,7 +52,7 @@ export class PtViewComponent implements OnInit {
     this.patientService.getCareById(id)
       .subscribe({
         next: (res: any) => {
-          // console.log('✅ Patient data fetched successfully:', res);
+          console.log('✅ Patient data fetched successfully:', res);
   
           // Ensure Angular detects change
           setTimeout(() => {
@@ -81,22 +79,22 @@ export class PtViewComponent implements OnInit {
   private processFilesStructure(): void {
     if (!this.patient) return;
 
-    // console.log('🔄 Processing files structure:', this.patient.files);
+    console.log('🔄 Processing files structure:', this.patient.files);
 
     // Handle photo from files object (new structure: {id, file_path})
     if (this.patient.files?.photo && this.patient.files.photo.file_path) {
       const photoPath = this.patient.files.photo.file_path.replace(/\\/g, '/');
-      this.patient.photo = `http://this.backendUrl/${photoPath}`;
-        //console.log('📸 Photo processed:', this.patient.photo);
+      this.patient.photo = `http://localhost:4870/${photoPath}`;
+      console.log('📸 Photo processed:', this.patient.photo);
     }
 
     // Handle proof files from files object (new structure: [{id, file_path}])
     if (this.patient.files?.proof && Array.isArray(this.patient.files.proof)) {
       this.patient.proofFile = this.patient.files.proof.map((f: any) => {
         const path = f.file_path.replace(/\\/g, '/');
-        return `http://this.backendUrl/${path}`;
+        return `http://localhost:4870/${path}`;
       });
-      //console.log('📄 Proof files processed:', this.patient.proofFile);
+      console.log('📄 Proof files processed:', this.patient.proofFile);
     }
 
     // Handle policy files from files object (new structure: [{id, file_path}])
@@ -107,35 +105,35 @@ export class PtViewComponent implements OnInit {
       }
       this.patient.insurance.policyFiles = this.patient.files.policy.map((f: any) => {
         const path = f.file_path.replace(/\\/g, '/');
-        return `http://this.backendUrl/${path}`;
+        return `http://localhost:4870/${path}`;
       });
-      //console.log('📋 Policy files processed:', this.patient.insurance.policyFiles);
+      console.log('📋 Policy files processed:', this.patient.insurance.policyFiles);
     }
 
     // Fallback to old structure if files object doesn't exist
     if (!this.patient.files) {
       // Fix photo path (old structure)
       if (this.patient.photo) {
-              const path = this.patient.photo.replace(/\\/g, '/');
-              this.patient.photo = `http://this.backendUrl/${path}`;
-            }
-            
+        const path = this.patient.photo.replace(/\\/g, '/');
+        this.patient.photo = `http://localhost:4870/${path}`;
+      }
+      
       // Fix proof files (old structure)
       if (this.patient.proofFile) {
-              if (typeof this.patient.proofFile === 'string') {
-                this.patient.proofFile = [this.patient.proofFile.replace(/\\/g, '/')];
-              } else {
-                this.patient.proofFile = this.patient.proofFile.map((f: string) => f.replace(/\\/g, '/'));
-              }
-            }
-  
+        if (typeof this.patient.proofFile === 'string') {
+          this.patient.proofFile = [this.patient.proofFile.replace(/\\/g, '/')];
+        } else {
+          this.patient.proofFile = this.patient.proofFile.map((f: string) => f.replace(/\\/g, '/'));
+        }
+      }
+
       // Fix insurance policy files (old structure)
       if (this.patient.insurance?.policyFiles) {
         if (typeof this.patient.insurance.policyFiles === 'string') {
-              this.patient.insurance.policyFiles = this.patient.insurance.policyFiles
-                .split(',')
-                .map((f: string) => f.replace(/\\/g, '/'));
-            }
+          this.patient.insurance.policyFiles = this.patient.insurance.policyFiles
+            .split(',')
+            .map((f: string) => f.replace(/\\/g, '/'));
+        }
       }
     }
   }
@@ -314,18 +312,18 @@ setQuestionsArray() {
   // //   });
   // // }
     // ---------- Helper Getters ----------
-   get photoArray(): string[] {
-     if (!this.patient?.photo) return [];
-     return Array.isArray(this.patient.photo) ? this.patient.photo : [this.patient.photo];
-   }
- 
-   get proofFileArray(): string[] {
+  get photoArray(): string[] {
+    if (!this.patient?.photo) return [];
+    return Array.isArray(this.patient.photo) ? this.patient.photo : [this.patient.photo];
+  }
+
+  get proofFileArray(): string[] {
     // Check both old and new structure
     const proofFiles = this.patient?.proofFile || this.patient?.files?.proof || [];
     return Array.isArray(proofFiles) ? proofFiles : [proofFiles];
-   }
- 
-   get policyFilesArray(): string[] {
+  }
+
+  get policyFilesArray(): string[] {
     // Check both old and new structure
     const policyFiles = this.patient?.insurance?.policyFiles || this.patient?.files?.policy || [];
     return Array.isArray(policyFiles) ? policyFiles : [policyFiles];
@@ -340,7 +338,7 @@ setQuestionsArray() {
       proof: this.patient.files?.proof || this.patient.proofFile,
       policy: this.patient.files?.policy || this.patient.insurance?.policyFiles
     };
-   }
+  }
  
   //  getHabitsArray(): Array<{ name: string; value: string; years: number | null }> {
   //    if (!this.patient?.habits) return [];
@@ -815,22 +813,22 @@ setQuestionsArray() {
     }
 
   // Edit Photo Method
-    editPhoto() {
-      if (!this.patientId) {
-        Swal.fire('Error', 'Patient ID not found', 'error');
-        return;
-      }
-      
-      this.closeDropdown();
-  
+  editPhoto() {
+    if (!this.patientId) {
+      Swal.fire('Error', 'Patient ID not found', 'error');
+      return;
+    }
+    
+    this.closeDropdown();
+    
     // Show current photo if exists
     const currentPhoto = this.patient?.photo || this.patient?.files?.photo;
     const currentPhotoUrl = currentPhoto ? currentPhoto : null;
     
-      Swal.fire({
-        title: 'Update Patient Photo',
-        html: `
-          <div class="text-center">
+    Swal.fire({
+      title: 'Update Patient Photo',
+      html: `
+        <div class="text-center">
           ${currentPhotoUrl ? `
             <div class="mb-3">
               <label class="form-label fw-bold">Current Photo:</label>
@@ -847,12 +845,12 @@ setQuestionsArray() {
             <input type="file" id="photo-input" accept="image/*" class="form-control">
             <small class="text-muted">Supported formats: JPG, JPEG, PNG. Max size: 5MB</small>
           </div>
-            <div id="photo-preview" class="mt-3"></div>
-          </div>
-        `,
-        showCancelButton: true,
-        confirmButtonText: 'Upload Photo',
-        cancelButtonText: 'Cancel',
+          <div id="photo-preview" class="mt-3"></div>
+        </div>
+      `,
+      showCancelButton: true,
+      confirmButtonText: 'Upload Photo',
+      cancelButtonText: 'Cancel',
       focusConfirm: false,
       didOpen: () => {
         const fileInput = document.getElementById('photo-input') as HTMLInputElement;
@@ -912,13 +910,13 @@ setQuestionsArray() {
           });
         }
       },
-        preConfirm: () => {
-          const fileInput = document.getElementById('photo-input') as HTMLInputElement;
-          const file = fileInput?.files?.[0];
-          if (!file) {
-            Swal.showValidationMessage('Please select a photo');
-            return false;
-          }
+      preConfirm: () => {
+        const fileInput = document.getElementById('photo-input') as HTMLInputElement;
+        const file = fileInput?.files?.[0];
+        if (!file) {
+          Swal.showValidationMessage('Please select a photo');
+          return false;
+        }
         
         // Check file size
         if (file.size > 5 * 1024 * 1024) {
@@ -926,13 +924,13 @@ setQuestionsArray() {
           return false;
         }
         
-          return file;
-        }
-      }).then((result) => {
-        if (result.isConfirmed) {
-          const file = result.value;
-          const formData = new FormData();
-          formData.append('photo', file);
+        return file;
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const file = result.value;
+        const formData = new FormData();
+        formData.append('photo', file);
         
         // Show loading
         Swal.fire({
@@ -941,21 +939,21 @@ setQuestionsArray() {
           allowOutsideClick: false,
           didOpen: () => Swal.showLoading()
         });
-        
-          this.patientService.updatePhoto(this.patientId!, formData).subscribe({
-            next: (res: any) => {
-              console.log('Photo updated successfully:', res);
-              Swal.fire('Success', 'Photo updated successfully', 'success');
-              this.fetchPatient(this.patientId!);
-            },
-            error: (err: any) => {
-              console.error('Failed to update photo:', err);
+      
+        this.patientService.updatePhoto(this.patientId!, formData).subscribe({
+          next: (res: any) => {
+            console.log('Photo updated successfully:', res);
+            Swal.fire('Success', 'Photo updated successfully', 'success');
+            this.fetchPatient(this.patientId!);
+          },
+          error: (err: any) => {
+            console.error('Failed to update photo:', err);
             Swal.fire('Error', 'Failed to update photo. Please try again.', 'error');
-            }
-          });
-        }
-      });
-    }
+          }
+        });
+      }
+    });
+  }
 
   //   // Edit Habits Method
     editHabits() {
@@ -1982,13 +1980,13 @@ setQuestionsArray() {
                     </div>
                   </div>
                   <div class="col-md-4 text-end">
-                    <button type="button" class="btn btn-info btn-sm me-2 view-file" data-file="http://this.backendUrl/${file.file_path.replace(/\\/g, '/')}">
+                    <button type="button" class="btn btn-info btn-sm me-2 view-file" data-file="http://localhost:4870/${file.file_path.replace(/\\/g, '/')}">
                       <i class="fas fa-eye"></i> View
                     </button>
-                    <a href="http://this.backendUrl/${file.file_path.replace(/\\/g, '/')}" class="btn btn-success btn-sm me-2" download>
+                    <a href="http://localhost:4870/${file.file_path.replace(/\\/g, '/')}" class="btn btn-success btn-sm me-2" download>
                       <i class="fas fa-download"></i> Download
                     </a>
-                    <button type="button" class="btn btn-danger btn-sm remove-proof-file" data-file-id="${file.id}" data-file-path="http://this.backendUrl/${file.file_path.replace(/\\/g, '/')}">
+                    <button type="button" class="btn btn-danger btn-sm remove-proof-file" data-file-id="${file.id}" data-file-path="http://localhost:4870/${file.file_path.replace(/\\/g, '/')}">
                       <i class="fas fa-trash"></i>
                     </button>
                   </div>
@@ -2133,25 +2131,25 @@ setQuestionsArray() {
                       const fileName = res.deletedFile?.original_name || 'File';
                       Swal.fire('Success', `${fileName} deleted successfully`, 'success');
                       
-                                             // Remove the file item from UI
-                       const fileItem = removeButton?.closest('.file-item');
-                       if (fileItem) {
-                         fileItem.remove();
-                         
-                         // Update badge count
-                         const badge = document.querySelector('.badge.bg-primary');
-                         if (badge) {
-                           const currentCount = document.querySelectorAll('#current-proof-files .file-item').length;
-                           badge.textContent = currentCount.toString();
-                         }
-                         
-                         // Update the current count display
-                         const currentCountBadge = document.querySelector('.badge.bg-info');
-                         if (currentCountBadge) {
-                           const updatedCount = document.querySelectorAll('#current-proof-files .file-item').length;
-                           currentCountBadge.textContent = `Current: ${updatedCount}/5`;
-                         }
-                       }
+                      // Remove the file item from UI
+                      const fileItem = removeButton?.closest('.file-item');
+                      if (fileItem) {
+                        fileItem.remove();
+                        
+                        // Update badge count
+                        const badge = document.querySelector('.badge.bg-primary');
+                        if (badge) {
+                          const currentCount = document.querySelectorAll('#current-proof-files .file-item').length;
+                          badge.textContent = currentCount.toString();
+                        }
+                        
+                        // Update the current count display
+                        const currentCountBadge = document.querySelector('.badge.bg-info');
+                        if (currentCountBadge) {
+                          const updatedCount = document.querySelectorAll('#current-proof-files .file-item').length;
+                          currentCountBadge.textContent = `Current: ${updatedCount}/5`;
+                        }
+                      }
                     },
                     error: (err: any) => {
                       console.error('❌ Failed to delete file:', err);
@@ -2193,11 +2191,11 @@ setQuestionsArray() {
                     fileItem.remove();
                     
                     // Update badge count
-              const badge = document.querySelector('.badge.bg-primary');
-              if (badge) {
-                const currentCount = document.querySelectorAll('#current-proof-files .file-item').length;
-                badge.textContent = currentCount.toString();
-              }
+                    const badge = document.querySelector('.badge.bg-primary');
+                    if (badge) {
+                      const currentCount = document.querySelectorAll('#current-proof-files .file-item').length;
+                      badge.textContent = currentCount.toString();
+                    }
                     
                     // Update the current count display
                     const currentCountBadge = document.querySelector('.badge.bg-info');
@@ -2271,14 +2269,14 @@ setQuestionsArray() {
           //   console.log(pair[0], pair[1]);
           // }
           console.log(formData.getAll('files'),newFiles);  // will list all appended files
-  
+
           Swal.fire({
             title: 'Uploading Files...',
             text: 'Please wait while we upload your files',
             allowOutsideClick: false,
             didOpen: () => Swal.showLoading()
           });
-  
+        
           this.patientService.uploadIndividualFiles(
             this.patientId!.toString(),
             newFiles,         // <-- pass File[] directly
@@ -2308,14 +2306,14 @@ setQuestionsArray() {
       try {
         // Check if the URL already has the server prefix
         let fullUrl = filePath;
-        if (!filePath.startsWith('http://this.backendUrl/')) {
+        if (!filePath.startsWith('http://localhost:4870/')) {
           // Remove any existing server prefix and add the correct one
           const cleanPath = filePath.replace(/^https?:\/\/[^\/]+\//, '');
-          fullUrl = `http://this.backendUrl/${cleanPath}`;
+          fullUrl = `http://localhost:4870/${cleanPath}`;
         }
         
         console.log('Opening file:', fullUrl);
-      window.open(fullUrl, '_blank');
+        window.open(fullUrl, '_blank');
       } catch (error) {
         console.error('Error opening file:', error);
         Swal.fire('Error', 'Failed to open file. Please try downloading it instead.', 'error');
@@ -2329,10 +2327,10 @@ setQuestionsArray() {
       try {
         // Check if the URL already has the server prefix
         let fullUrl = filePath;
-        if (!filePath.startsWith('http://this.backendUrl/')) {
+        if (!filePath.startsWith('http://localhost:4870/')) {
           // Remove any existing server prefix and add the correct one
           const cleanPath = filePath.replace(/^https?:\/\/[^\/]+\//, '');
-          fullUrl = `http://this.backendUrl/${cleanPath}`;
+          fullUrl = `http://localhost:4870/${cleanPath}`;
         }
         
         // Create a temporary link element for download
@@ -2346,7 +2344,7 @@ setQuestionsArray() {
         link.click();
         document.body.removeChild(link);
         
-        // console.log('Downloading file:', fullUrl);
+        console.log('Downloading file:', fullUrl);
       } catch (error) {
         console.error('Error downloading file:', error);
         Swal.fire('Error', 'Failed to download file. Please try again.', 'error');
@@ -2382,13 +2380,13 @@ setQuestionsArray() {
                     </div>
                   </div>
                   <div class="col-md-4 text-end">
-                    <button type="button" class="btn btn-info btn-sm me-2 view-policy-file" data-file="http://this.backendUrl/${file.file_path.replace(/\\/g, '/')}">
+                    <button type="button" class="btn btn-info btn-sm me-2 view-policy-file" data-file="http://localhost:4870/${file.file_path.replace(/\\/g, '/')}">
                       <i class="fas fa-eye"></i> View
                     </button>
-                    <a href="http://this.backendUrl/${file.file_path.replace(/\\/g, '/')}" class="btn btn-success btn-sm me-2" download>
+                    <a href="http://localhost:4870/${file.file_path.replace(/\\/g, '/')}" class="btn btn-success btn-sm me-2" download>
                       <i class="fas fa-download"></i> Download
                     </a>
-                    <button type="button" class="btn btn-danger btn-sm remove-policy-file" data-file-id="${file.id}" data-file-path="http://this.backendUrl/${file.file_path.replace(/\\/g, '/')}">
+                    <button type="button" class="btn btn-danger btn-sm remove-policy-file" data-file-id="${file.id}" data-file-path="http://localhost:4870/${file.file_path.replace(/\\/g, '/')}">
                       <i class="fas fa-trash"></i>
                     </button>
                   </div>
@@ -2513,7 +2511,7 @@ setQuestionsArray() {
             const filePath = removeButton?.getAttribute('data-file-path');
             const index = parseInt(removeButton?.getAttribute('data-index') || '0');
             
-            // console.log('🗑️ Policy file delete button clicked:', { fileId, filePath, removeButton });
+            console.log('🗑️ Policy file delete button clicked:', { fileId, filePath, removeButton });
             
             if (fileId && fileId !== '') {
               // We have a file ID, use the deleteFile method
@@ -2541,7 +2539,7 @@ setQuestionsArray() {
                   // Delete using file ID
                   this.patientService.deleteFile(parseInt(fileId)).subscribe({
                     next: (res: any) => {
-                      // console.log('✅ Policy file deleted successfully:', res);
+                      console.log('✅ Policy file deleted successfully:', res);
                       
                       // Remove the file item from UI
                       const fileItem = removeButton?.closest('.file-item');
@@ -2628,14 +2626,14 @@ setQuestionsArray() {
               });
             } else {
               // Fallback to old behavior if no file path
-            const fileItem = document.querySelector(`#current-policy-files .file-item[data-index="${index}"]`);
-            if (fileItem) {
-              fileItem.remove();
-              // Update badge count
-              const badge = document.querySelector('.badge.bg-warning');
-              if (badge) {
-                const currentCount = document.querySelectorAll('#current-policy-files .file-item').length;
-                badge.textContent = currentCount.toString();
+              const fileItem = document.querySelector(`#current-policy-files .file-item[data-index="${index}"]`);
+              if (fileItem) {
+                fileItem.remove();
+                // Update badge count
+                const badge = document.querySelector('.badge.bg-warning');
+                if (badge) {
+                  const currentCount = document.querySelectorAll('#current-policy-files .file-item').length;
+                  badge.textContent = currentCount.toString();
                 }
               }
             }
@@ -2688,11 +2686,11 @@ setQuestionsArray() {
         // formData.append('remainingFiles', JSON.stringify(remainingFiles));
         
         // Log what's being sent to backend
-        // // console.log('📤 Sending policy files to backend:', {
-        //   newFilesCount: newFiles ? newFiles.length : 0,
-        //   newFileNames: newFiles ? Array.from(newFiles).map(f => f.name) : [],
-        //   note: 'Only new files are being sent, existing files are not included'
-        // });
+        console.log('📤 Sending policy files to backend:', {
+          newFilesCount: newFiles ? newFiles.length : 0,
+          newFileNames: newFiles ? Array.from(newFiles).map(f => f.name) : [],
+          note: 'Only new files are being sent, existing files are not included'
+        });
         
         return formData;
       }
@@ -2709,7 +2707,7 @@ setQuestionsArray() {
         
         this.patientService.updatePolicyFiles(this.patientId!, formData).subscribe({
           next: (res: any) => {
-            // console.log('Policy files uploaded successfully:', res);
+            console.log('Policy files uploaded successfully:', res);
             Swal.fire('Success', 'Policy files updated successfully', 'success');
             
             // Refresh patient data to show updated files

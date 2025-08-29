@@ -96,6 +96,7 @@ fetchPatients(): void {
       });
       
       this.loading = false;
+<<<<<<< HEAD
       // console.log('Patients fetched successfully:', this.patients);
       
       // Debug: Log file structure for first few patients
@@ -119,6 +120,31 @@ fetchPatients(): void {
       //   withNewFileStructure: this.patientsWithNewFileStructure,
       //   backendUrl: 'http://localhost:4870'
       // });
+=======
+      console.log('Patients fetched successfully:', this.patients);
+      
+      // Debug: Log file structure for first few patients
+      this.patients.slice(0, 3).forEach((patient, index) => {
+        console.log(`Patient ${index + 1} (${patient.name}):`, {
+          id: patient.id,
+          name: patient.name,
+          hasFiles: !!patient.files,
+          filesPhoto: patient.files?.photo,
+          filesPhotoPath: patient.files?.photo?.file_path,
+          oldPhoto: patient.photo,
+          finalPhotoUrl: patient.photo,
+          safePhotoUrl: this.getSafePhotoUrl(patient)
+        });
+      });
+      
+      // Log summary
+      console.log('📊 Patient Data Summary:', {
+        total: this.totalPatients,
+        withPhotos: this.patientsWithPhotos,
+        withNewFileStructure: this.patientsWithNewFileStructure,
+        backendUrl: 'http://localhost:4870'
+      });
+>>>>>>> 7cd5578009b029ccc43391f2a831cbd85affb772
     },
     error: (err) => {
       console.error('Error fetching patients:', err);
@@ -155,13 +181,18 @@ this.router.navigate(['/admin/gentic',patient.id]); // navigate to edit page
 
   // Handle image loading errors
   onImageError(event: any, patient: Patient): void {
+<<<<<<< HEAD
     // console.log(`Image failed to load for patient ${patient.name}:`, event.target.src);
+=======
+    console.log(`Image failed to load for patient ${patient.name}:`, event.target.src);
+>>>>>>> 7cd5578009b029ccc43391f2a831cbd85affb772
     
     // Set fallback image
     event.target.src = '../../../assets/images/image.png';
     event.target.alt = `${patient.name} - Default profile image`;
     
     // Log the error for debugging
+<<<<<<< HEAD
     // console.warn(`Patient ${patient.name} (ID: ${patient.id}) photo failed to load:`, {
     //   originalSrc: event.target.src,
     //   patientData: {
@@ -171,21 +202,44 @@ this.router.navigate(['/admin/gentic',patient.id]); // navigate to edit page
     //     oldPhoto: patient.photo
     //   }
     // });
+=======
+    console.warn(`Patient ${patient.name} (ID: ${patient.id}) photo failed to load:`, {
+      originalSrc: event.target.src,
+      patientData: {
+        hasFiles: !!patient.files,
+        filesPhoto: patient.files?.photo,
+        filesPhotoPath: patient.files?.photo?.file_path,
+        oldPhoto: patient.photo
+      }
+    });
+>>>>>>> 7cd5578009b029ccc43391f2a831cbd85affb772
   }
 
   // Handle successful image loading
   onImageLoad(event: any, patient: Patient): void {
+<<<<<<< HEAD
     // console.log(`Image loaded successfully for patient ${patient.name}:`, event.target.src);
+=======
+    console.log(`Image loaded successfully for patient ${patient.name}:`, event.target.src);
+>>>>>>> 7cd5578009b029ccc43391f2a831cbd85affb772
   }
 
   // Test backend connection
   testBackendConnection(): void {
+<<<<<<< HEAD
     // console.log('Testing backend connection...');
+=======
+    console.log('Testing backend connection...');
+>>>>>>> 7cd5578009b029ccc43391f2a831cbd85affb772
     
     fetch('http://localhost:4870/health')
       .then(response => {
         if (response.ok) {
+<<<<<<< HEAD
           // console.log('✅ Backend is accessible');
+=======
+          console.log('✅ Backend is accessible');
+>>>>>>> 7cd5578009b029ccc43391f2a831cbd85affb772
           Swal.fire('Success', 'Backend connection is working!', 'success');
         } else {
           console.warn('⚠️ Backend responded with status:', response.status);
