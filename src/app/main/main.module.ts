@@ -15,7 +15,7 @@ import { MedicalTourismComponent } from './medicaltourism/medical-tourism.compon
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeBannerSliderComponent } from '../home-banner-slider/home-banner-slider.component';
-import { RecaptchaModule } from 'ng-recaptcha';
+//import { RecaptchaModule } from 'ng-recaptcha';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { TestimonialsHomeComponent } from './testimonials-home/testimonials-home.component';
 
@@ -39,7 +39,8 @@ import { TestimonialsHomeComponent } from './testimonials-home/testimonials-home
   ],
   imports: [
     CommonModule,
-    MainRoutingModule,FormsModule,RecaptchaModule
+    MainRoutingModule,FormsModule
+    //,RecaptchaModule
   ]
 })
 export class MainModule { }
