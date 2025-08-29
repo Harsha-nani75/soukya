@@ -1,0 +1,506 @@
+/* ===== ABOUT US PAGE STYLES - MATCHING SOUKHYA.HEALTH ===== */
+
+/* Page Hero Section */
+.pages-hero {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.pages-hero-diagonal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.pages-title-center {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.pages-title-center h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.pages-title-center p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+/* Breadcrumb Navigation */
+.left-page-nav .breadcrumb {
+    position: relative;
+    padding: 3px 20px;
+    border-radius: 7px;
+    justify-content: center;
+}
+.breadcrumb:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.3 !important;
+    border-radius: 10px;
+    z-index: -1;
+}
+li a{
+    text-decoration: none !important;
+}
+
+/* About Section */
+.smart-heading {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 25px;
+  line-height: 1.3;
+}
+
+.smart-heading + p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Mission & Vision Icons */
+.ab-cont {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.ab-cont img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mission & Vision Content */
+.ab-cont + div h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.ab-cont + div p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #666;
+  margin-bottom: 0;
+}
+
+/* About Video Section */
+.about-sec {
+  text-align: center;
+}
+
+.about-video {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.popup-youtube {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.pulse {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: pulse 2s infinite;
+}
+
+.pulse i {
+  color: #333;
+  font-size: 24px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.about-sec img {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Leadership Team Section */
+.img-prhover {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.img-prhover:hover {
+  transform: translateY(-5px);
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Ensure proper spacing and alignment for team member cards */
+.col-lg-3.col-md-6.col-sm-12 {
+  margin-bottom: 30px;
+  text-align: center;
+  padding: 0 15px;
+}
+
+/* Center the image containers */
+.img-prhover {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pr-mains {
+  border-radius: 50% !important; /* Make images perfectly circular */
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  width: 237px !important;
+  height: 237px !important;
+  object-fit: cover;
+  border: 5px solid #FFF !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Override inline styles to ensure circular images */
+img[style*="height: 237px"][style*="width: 237px"] {
+  border-radius: 50% !important;
+  border: 5px solid #FFF !important;
+  object-fit: cover !important;
+  width: 237px !important;
+  height: 237px !important;
+}
+
+/* Force circular shape for all team member images */
+img.img-prhover.pr-mains {
+  border-radius: 50% !important;
+  border: 5px solid #FFF !important;
+  object-fit: cover !important;
+  width: 237px !important;
+  height: 237px !important;
+}
+
+.img-prhover:hover .pr-mains {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Team Member Names */
+.img-prhover + p:first-of-type {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+  text-align: center;
+  margin-top: 15px;
+  text-transform: none !important;
+}
+
+.img-prhover + p:last-of-type {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 0;
+  text-align: center;
+  text-transform: none !important;
+}
+
+/* Remove any text-transform from inline styles */
+p[style*="text-transform: math-auto"] {
+  text-transform: none !important;
+}
+
+/* Team Member Card Spacing */
+.col-lg-3.col-md-6.col-sm-12 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Leadership Team Container */
+.leadership-team-container {
+  background-color: #f2f2f2 !important;
+  padding: 80px 0px !important;
+}
+
+.leadership-team-container h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Ensure the background is applied to the div with inline styles */
+div[style*="background-color: #f2f2f2"] {
+  background-color: #f2f2f2 !important;
+  padding: 80px 0px !important;
+}
+
+/* Leadership team section styling */
+div[style*="background-color: #f2f2f2"] .container {
+  background-color: #f2f2f2 !important;
+}
+
+/* Ensure proper spacing for the leadership team title */
+div[style*="background-color: #f2f2f2"] h2 {
+  font-size: 36px !important;
+  font-weight: 700 !important;
+  color: #333 !important;
+  margin-bottom: 40px !important;
+  text-align: center !important;
+}
+
+/* Values Section */
+.bg-gray {
+  background-color: #FFF !important;
+}
+
+.transparency-section {
+  background-color: #FFF;
+  padding: 90px 0px;
+}
+
+/* Ensure the transparency section has white background */
+div[style*="background:#FFF"] {
+  background-color: #FFF !important;
+  padding: 90px 0px !important;
+}
+
+/* Transparency section heading styling */
+div[style*="background:#FFF"] h2 {
+  font-size: 32px !important;
+  font-weight: 600 !important;
+  color: #333 !important;
+  text-align: center !important;
+  margin-bottom: 50px !important;
+  line-height: 1.4 !important;
+}
+
+.transparency-section h2 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin-bottom: 50px;
+  line-height: 1.4;
+}
+
+.media-object-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.moc-thumbnail {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.moc-thumbnail img {
+  width: 80px !important;
+  height: 80px !important;
+  object-fit: contain;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  padding: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.moc-caption h4 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: start;
+}
+
+.prcc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #666;
+  text-align: start;
+  margin-bottom: 0;
+}
+
+/* Core values section specific styling */
+.mt-3.media-object-card {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Ensure proper grid layout for core values */
+.row .col-lg-6.col-sm-6 {
+  margin-bottom: 20px;
+}
+
+/* Icon styling for core values */
+.moc-thumbnail img[src*="meet.png"],
+.moc-thumbnail img[src*="badge.png"],
+.moc-thumbnail img[src*="hearthbeat.png"],
+.moc-thumbnail img[src*="bulb.png"] {
+  width: 80px !important;
+  height: 80px !important;
+  object-fit: contain !important;
+  border-radius: 50% !important;
+  background-color: #f8f9fa !important;
+  padding: 15px !important;
+}
+
+/* Statistics Section */
+.counter-box {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.hrs {
+  background: #fff;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.counter {
+  font-size: 48px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.counter-statistics h6 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.counter-statistics p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+/* Video Modal */
+.login-modal {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.video-container {
+  position: relative;
+  background: #000;
+}
+
+.btn-close {
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.video-ab {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pages-title-center h1 {
+    font-size: 36px;
+  }
+  
+  .pages-title-center p {
+    font-size: 16px;
+  }
+  
+  .smart-heading {
+    font-size: 28px;
+  }
+  
+  .counter {
+    font-size: 36px;
+  }
+  
+  .media-object-card {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .col-lg-3 {
+    margin-bottom: 30px;
+  }
+  
+  .leadership-team-container h2 {
+    font-size: 28px;
+  }
+  
+  .transparency-section h2 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 576px) {
+  .pages-title-center h1 {
+    font-size: 28px;
+  }
+  
+  .smart-heading {
+    font-size: 24px;
+  }
+  
+  .counter {
+    font-size: 32px;
+  }
+}

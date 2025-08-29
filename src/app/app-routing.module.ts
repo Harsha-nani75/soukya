@@ -22,7 +22,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{
+    anchorScrolling: 'enabled',   // allows scrolling to fragment
+    scrollOffset: [0, -480],        // optional: offset for sticky header
+    scrollPositionRestoration: 'enabled' // restores scroll on back
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,18 +1,1465 @@
 <section>
     <div class="pages-hero" style="background-image: url(assets/eldercare/banner-gc-sr.jpg);height:430px !important;">
         <div class="pages-hero-diagonal" style="background-image: none !important;"></div>
-        <div class="container">
-        <div class="pages-title-center">
-        <h1>Elder Care Services
-        Geriatric Services</h1>
-        <p>Enhancing elderly life quality with customized support and care.</p>
+        <div class="container custom-caption-left">
+            <div class="pages-title-center">
+                <h1>Elder Care &amp; home care services</h1>
+                <p>Enhancing elderly life quality with customized support and care.</p>
+            </div>
+            <div class="left-page-nav">
+                <ul class="breadcrumb d-flex gap-2">
+                    <li><a class="fst text-decoration-none" href="home">Home</a></li>
+                    <li class="current">Elder care</li>
+                </ul>
+            </div>
         </div>
-        <div class="left-page-nav">
-        <ul class="breadcrumb">
-        <li><a class="fst" href="home">Home</a></li>
-        <li class="current">Elder care</li>
-        </ul>
-        </div>
-        </div>
-        </div>
+    </div>
 </section>
+<section>
+    <div class="" style="background-color:#ecefec;padding:50px 0px 110px 0px">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-6 spacing-lg">
+                    <figure class="why-us-right abs-cont" data-aos="fade-left">
+                      <img alt="Gym Image" src="https://soukhya.health/assets/images/commons/home-niches/gym/ab-gc.jpg" style="width: 90%;">
+                  
+                      <!-- Badge 1 -->
+                      <div class="image-badge imgs-gc" data-aos="zoom-in" data-aos-delay="200">
+                        <figure class="ib-icon" style="background: #2d6d9a; padding: 74px;"></figure>
+                      </div>
+                  
+                      <!-- Badge 2 -->
+                      <div class="image-badge imgs-gc1" data-aos="zoom-in" data-aos-delay="400" style="background: gray; padding: 74px;">
+                        <figure class="ib-icon"></figure>
+                      </div>
+                    </figure>
+                  </div>
+                  
+                  
+                <div class="col-lg-6">
+                    <div class="about-us-left mt-3">
+                        <!--<h5 class="overheadline">Overview of our service</h5>-->
+                        <h2 class="about-headline">Elder Care Services <br>Geriatric Services</h2>
+                        <p class="mt-2">As our loved ones age, their need for dedicated care and attention increases. In
+                            a bustling city like Hyderabad, ensuring that our elders receive the best possible care can
+                            be challenging.
+                            <strong style="color: #269bd6 !important;">Soukhya.Health</strong> is committed to providing
+                            exceptional elder care services that cater to the diverse needs of senior citizens. With a
+                            presence in prominent areas such as:
+                        </p>
+                            <ul class="city-listss">
+                                <li class="ls1">Banjara Hills</li>
+                                <li class="ls1">Jubilee Hills</li>
+                                <li class="ls1">Gachibowli</li>
+                                <li class="ls1">Kondapur</li>
+                                <li class="ls2">Kokapet</li>
+                                <li class="ls2">Nallagandla</li>
+                                <li class="ls2">Sainikpuri</li>
+                                <li class="ls2">Kollur</li>
+                                </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="" style="background-color: #FFF;padding:100px 0px 87px 0px">
+        <div class="container">
+            <div class="row d-flex justify-content-center mb-4">
+                <div class="col-lg-10">
+                    <div class="text-center">
+                        <h2>Key Features of <strong style="color: #2774c3">Soukhya.Health</strong><br> Elder Care
+                            Services</h2>
+                        <p><strong>Soukhya.Health</strong> elder care services enhance senior's quality of life and
+                            provide peace of mind for families through customized healthcare and compassionate support.
+                            Our services help the elderly to age gracefully while maintaining their independence.</p>
+                    </div>
+                </div>
+            </div>
+          <!-- testimonial-carousel.component.html -->
+          <div class="row ">
+            <div class="col-12">
+              <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div *ngFor="let group of chunkedServices; let i = index"
+                       class="carousel-item"
+                       [class.active]="i === 0">
+          
+                    <div class="row g-4 justify-content-center py-3">
+                      <div class="col-12 col-sm-6 col-lg-4" *ngFor="let service of group">
+                        <div class="tp-services-card-alt-4 text-center p-4 h-100">
+                          <div class="d-flex justify-content-center">
+                            <img [src]="service.img" alt="{{service.title}}" style="width:70px;">
+                          </div>
+                          <div class="tp-services-caption-alt-4 mt-3">
+                            <h3>{{ service.title }}</h3>
+                            <p>{{ service.desc }}</p>
+                          </div>
+                          <div class="bottom-line"></div>
+                        </div>
+                      </div>
+                    </div>
+          
+                  </div>
+                </div>
+          
+                <!-- Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+          
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                  <button *ngFor="let group of chunkedServices; let i = index"
+                          type="button"
+                          data-bs-target="#servicesCarousel"
+                          [attr.data-bs-slide-to]="i"
+                          [class.active]="i === 0"></button>
+                </div>
+          
+              </div>
+            </div>
+          </div>
+          
+          
+          
+  
+        </div>
+    </div>
+</section>
+<section>
+    <div class="" style="background-color: #473c59;padding:100px 0px 130px 0px">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="about-us-left mt-3">
+                        <h3 class="overheadline mb-3" style="color: #FC2F1D;text-transform: uppercase;">
+                            Elder Care </h3>
+                        <!--<h2 class="about-headline" style="color: #FFF;font-size:38px !important;">Bringing Hope and Happiness to the Elderly with Compassion and Care</h2>-->
+                        <h2 class="about-headline hinc" style="color: #FFF;">Let Us Take The Burden.</h2>
+                        <!--<p class="mt-3" style="color: #FFF;">Elder care services offer personalized support and guidance for senior citizens who are living independently, These services cater to the unique healthcare needs of elderly individuals, ensuring their well-being and quality of life.</p>-->
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="feature-boxs">
+                        <div class="main-absc text-start">
+                            <div class="feature-icon">
+                                <div class="svg-gc">
+                                    <!--<img src="images/commons/home-niches/gym/sr.png"  alt="">-->
+                                    <svg class="imgab svg-main" fill="#ea3762"
+                                        style="width: 45px;height: 43px;margin-left: 10px;margin-top: 5px;"
+                                        version="1.1" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M264,288c-30.928,0 -56,25.072 -56,56l0,38.25c0,8.837 7.163,16 16,16c8.837,0 16,-7.163 16,-16l0,-38.25c0,-13.255 10.745,-24 24,-24c13.255,0 24,10.745 24,24l0,152c0,8.837 7.163,16 16,16c8.837,0 16,-7.163 16,-16l0,-152c0,-30.928 -25.072,-56 -56,-56Zm-133.257,-175.437c12.189,0.75 20.568,6.001 25.139,15.752l44.827,83.406l79.784,9.066c14.116,1.604 24.259,14.347 22.655,28.463c-1.607,14.142 -14.394,24.291 -28.532,22.646l-93.616,-10.896c-4,-0.5 -10.596,-2.633 -15.262,-6.384c-4.666,-3.751 -9.284,-8.392 -13.855,-13.924c-4.571,-5.532 -8.38,-10.455 -11.427,-14.768c-3.047,-4.313 -6.809,-9.939 -11.284,-16.878c-4.476,-6.938 -7.57,-11.626 -9.284,-14.064l-31.424,82.138l11.998,69.76c1.714,7.689 2.571,12.94 2.571,15.753c0,2.813 -0.762,7.782 -2.285,14.909l-25.425,109.423c-4.19,16.69 -17.617,25.035 -40.28,25.035c-9.522,-0.188 -17.188,-4.219 -22.996,-12.096c-5.809,-7.876 -7.856,-16.69 -6.142,-26.441l21.425,-114.206l-17.712,-75.668c-8.379,-18.753 -11.284,-37.881 -8.713,-57.384c2.571,-19.503 9.666,-38.349 21.283,-56.54c24.187,-37.506 51.421,-56.727 81.702,-57.665c13.331,0 22.282,0.188 26.853,0.563Zm109.257,-56.563c0,30.928 -25.072,56 -56,56c-30.928,0 -56,-25.072 -56,-56c0,-30.928 25.072,-56 56,-56c30.928,0 56,25.072 56,56Z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="feature-detailss">
+                                <h4>Personalized Senior Care Support</h4>
+                                <p>Our elder care services program guides elders living independently and their distant
+                                    families, ensuring care.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="feature-boxs">
+                        <div class="main-absc text-start">
+                            <div class="feature-icon">
+                                <div class="svg-gc">
+                                    <!--<img src="images/commons/home-niches/gym/sr.png"  alt="">-->
+                                    <svg class="imgab svg-main" fill="#ea3762"
+                                        style="width: 45px;height: 43px;margin-left: 10px;margin-top: 5px;"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M22 22L2 22" stroke="#ea3762" stroke-linecap="round"
+                                            stroke-width="1.5"></path>
+                                        <path
+                                            d="M2 11L6.06296 7.74968M22 11L13.8741 4.49931C12.7784 3.62279 11.2216 3.62279 10.1259 4.49931L9.34398 5.12486"
+                                            stroke="#ea3762" stroke-linecap="round" stroke-width="1.5"></path>
+                                        <path
+                                            d="M15.5 5.5V3.5C15.5 3.22386 15.7239 3 16 3H18.5C18.7761 3 19 3.22386 19 3.5V8.5"
+                                            stroke="#ea3762" stroke-linecap="round" stroke-width="1.5"></path>
+                                        <path d="M4 22V9.5" stroke="#ea3762" stroke-linecap="round" stroke-width="1.5">
+                                        </path>
+                                        <path d="M20 9.5V13.5M20 22V17.5" stroke="#ea3762" stroke-linecap="round"
+                                            stroke-width="1.5"></path>
+                                        <path
+                                            d="M15 22V17C15 15.5858 15 14.8787 14.5607 14.4393C14.1213 14 13.4142 14 12 14C10.5858 14 9.87868 14 9.43934 14.4393M9 22V17"
+                                            stroke="#ea3762" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="1.5"></path>
+                                        <path
+                                            d="M14 9.5C14 10.6046 13.1046 11.5 12 11.5C10.8954 11.5 10 10.6046 10 9.5C10 8.39543 10.8954 7.5 12 7.5C13.1046 7.5 14 8.39543 14 9.5Z"
+                                            stroke="#ea3762" stroke-width="1.5"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="feature-detailss">
+                                <h4>Monthly Doctor Home Visit for Check-Ups </h4>
+                                <p>Ensure your well-being with direct home doctor visits and fortnightly medical
+                                    check-ups for preventive care.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="feature-boxs one">
+                        <div class="main-absc text-start">
+                            <div class="feature-icon">
+                                <div class="svg-gc">
+                                    <!--<img src="images/commons/home-niches/gym/sr.png"  alt="">-->
+                                    <svg fill="none" height="43px"
+                                        style="width: 45px;height: 43px;margin-left: 10px;margin-top: 5px;"
+                                        viewBox="0 0 24 24" width="45px" xmlns="http://www.w3.org/2000/svg">
+                                        <path clip-rule="evenodd"
+                                            d="M7 1C6.44772 1 6 1.44772 6 2V3H5C3.34315 3 2 4.34315 2 6V20C2 21.6569 3.34315 23 5 23H13.101C12.5151 22.4259 12.0297 21.7496 11.6736 21H5C4.44772 21 4 20.5523 4 20V11H20V11.2899C20.7224 11.5049 21.396 11.8334 22 12.2547V6C22 4.34315 20.6569 3 19 3H18V2C18 1.44772 17.5523 1 17 1C16.4477 1 16 1.44772 16 2V3H8V2C8 1.44772 7.55228 1 7 1ZM16 6V5H8V6C8 6.55228 7.55228 7 7 7C6.44772 7 6 6.55228 6 6V5H5C4.44772 5 4 5.44772 4 6V9H20V6C20 5.44772 19.5523 5 19 5H18V6C18 6.55228 17.5523 7 17 7C16.4477 7 16 6.55228 16 6Z"
+                                            fill="#ea3762" fill-rule="evenodd"></path>
+                                        <path
+                                            d="M15.2929 17.7071C15.6834 17.3166 16.3166 17.3166 16.7071 17.7071L17.3483 18.3482L19.2473 16.4491C19.6379 16.0586 20.271 16.0586 20.6616 16.4491C21.0521 16.8397 21.0521 17.4728 20.6616 17.8634L18.1213 20.4036C18.0349 20.49 17.9367 20.5573 17.8318 20.6054C17.4488 20.8294 16.9488 20.7772 16.6203 20.4487L15.2929 19.1213C14.9024 18.7308 14.9024 18.0976 15.2929 17.7071Z"
+                                            fill="#ea3762"></path>
+                                        <path clip-rule="evenodd"
+                                            d="M24 18C24 21.3137 21.3137 24 18 24C14.6863 24 12 21.3137 12 18C12 14.6863 14.6863 12 18 12C21.3137 12 24 14.6863 24 18ZM13.9819 18C13.9819 20.2191 15.7809 22.0181 18 22.0181C20.2191 22.0181 22.0181 20.2191 22.0181 18C22.0181 15.7809 20.2191 13.9819 18 13.9819C15.7809 13.9819 13.9819 15.7809 13.9819 18Z"
+                                            fill="#ea3762" fill-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="feature-detailss">
+                                <h4>Annual Medical<br> Check-Ups</h4>
+                                <p>
+                                    We keep track of your parents medical records and remind them of their annual
+                                    check-ups, ensuring that preventive care remains a priority.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="feature-boxs one">
+                        <div class="main-absc text-start">
+                            <div class="feature-icon">
+                                <div class="svg-gc">
+                                    <!--<img src="images/commons/home-niches/gym/sr.png"  alt="">-->
+                                    <svg class="imgab svg-main" fill="none"
+                                        style="width: 45px;height: 43px;margin-top: 5px;margin-left:10px;"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M22 22L2 22" stroke="#ea3762" stroke-linecap="round"
+                                            stroke-width="1.5"></path>
+                                        <path
+                                            d="M2 11L6.06296 7.74968M22 11L13.8741 4.49931C12.7784 3.62279 11.2216 3.62279 10.1259 4.49931L9.34398 5.12486"
+                                            stroke="#ea3762" stroke-linecap="round" stroke-width="1.5"></path>
+                                        <path
+                                            d="M15.5 5.5V3.5C15.5 3.22386 15.7239 3 16 3H18.5C18.7761 3 19 3.22386 19 3.5V8.5"
+                                            stroke="#ea3762" stroke-linecap="round" stroke-width="1.5"></path>
+                                        <path d="M4 22V9.5" stroke="#ea3762" stroke-linecap="round" stroke-width="1.5">
+                                        </path>
+                                        <path d="M20 9.5V13.5M20 22V17.5" stroke="#ea3762" stroke-linecap="round"
+                                            stroke-width="1.5"></path>
+                                        <path
+                                            d="M15 22V17C15 15.5858 15 14.8787 14.5607 14.4393C14.1213 14 13.4142 14 12 14C10.5858 14 9.87868 14 9.43934 14.4393M9 22V17"
+                                            stroke="#ea3762" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="1.5"></path>
+                                        <path
+                                            d="M14 9.5C14 10.6046 13.1046 11.5 12 11.5C10.8954 11.5 10 10.6046 10 9.5C10 8.39543 10.8954 7.5 12 7.5C13.1046 7.5 14 8.39543 14 9.5Z"
+                                            stroke="#ea3762" stroke-width="1.5"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="feature-detailss">
+                                <h4>Arranging Home <br> Visits</h4>
+                                <p>
+                                    We offer home visits for seniors, ensuring they receive care comfortably at home.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="feature-boxs one">
+                        <div class="main-absc text-start">
+                            <div class="feature-icon">
+                                <div class="svg-gc">
+                                    <!--<img src="images/commons/home-niches/gym/sr.png"  alt="">-->
+                                    <svg fill="none" style="width: 45px;height:43px;margin-top:6px;margin-left:10px;"
+                                        viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                        <path clip-rule="evenodd"
+                                            d="M24 23.1333C27.854 23.1333 31 19.9854 31 16.0667C31 12.148 27.854 9 24 9C20.146 9 17 12.148 17 16.0667C17 19.9854 20.146 23.1333 24 23.1333ZM33 16.0667C33 21.076 28.9725 25.1333 24 25.1333C19.0275 25.1333 15 21.076 15 16.0667C15 11.0573 19.0275 7 24 7C28.9725 7 33 11.0573 33 16.0667Z"
+                                            fill="#ea3762" fill-rule="evenodd"></path>
+                                        <path clip-rule="evenodd"
+                                            d="M18.1254 28.9539C17.8971 28.4861 17.3814 28.2333 16.8786 28.3569C11.4745 29.6849 6 32.3928 6 36.4664V42.9997H42V36.4664C42 32.3928 36.5255 29.6849 31.1214 28.3569C30.6186 28.2333 30.1029 28.4861 29.8746 28.9539L25.8105 31.9539C24.9218 31.9541 24.4693 31.9541 24.0248 31.954C23.5637 31.954 23.1112 31.954 22.1893 31.9542L18.1254 28.9539ZM31.2205 30.4463L26.4689 33.9538L25.8109 33.9539C24.9163 33.9541 24.4661 33.9541 24.024 33.954C23.5658 33.954 23.1163 33.954 22.1898 33.9542L21.5312 33.9543L16.7795 30.4463C14.4077 31.0751 12.1639 31.9602 10.5162 33.0501C8.69262 34.2564 8 35.4252 8 36.4664V40.9997H40V36.4664C40 35.4252 39.3074 34.2564 37.4838 33.0501C35.8361 31.9602 33.5924 31.0751 31.2205 30.4463Z"
+                                            fill="#ea3762" fill-rule="evenodd"></path>
+                                        <path clip-rule="evenodd" d="M33 32H31V35H28V37H31V40H33V37H36V35H33V32Z"
+                                            fill="#ea3762" fill-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="feature-detailss">
+                                <h4>Care Coordinators</h4>
+                                <p> <strong>Soukhya.Health</strong> brings healthcare closer with dedicated city-wide
+                                    coordinators offering seamless, personalized support, including scheduling,
+                                    treatment planning, and follow-up care.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="about-us-left mt-3">
+                        <!--<h5 class="overheadline">Elder Care </h5>-->
+                        <h2 class="about-headline hinc" style="color: #FFF;">Let Us Handle All Your Appointments.</h2>
+                        <!--<p class="mt-3" style="color: #FFF;">Elder care services offer personalized support and guidance for senior citizens who are living independently, These services cater to the unique healthcare needs of elderly individuals, ensuring their well-being and quality of life.</p>-->
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="feature-boxs">
+                        <div class="main-absc text-start two">
+                            <div class="feature-icon">
+                                <div class="svg-gc">
+                                    <!--<img src="images/commons/home-niches/gym/sr.png"  alt="">-->
+                                    <svg class="icon line-color" data-name="Line Color" fill="#ea3762" id="hospital-3"
+                                        style="width: 45px;height: 43px;margin-left: 10px;margin-top: 5px;"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12,11V7m2,2H10m0,12h4V15H10Z" id="secondary"
+                                            style="fill:#ea3762; stroke:#ea3762; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;">
+                                        </path>
+                                        <path
+                                            d="M6,21H18V4a1,1,0,0,0-1-1H7A1,1,0,0,0,6,4Zm0,0H18V4a1,1,0,0,0-1-1H7A1,1,0,0,0,6,4ZM4,21H20"
+                                            id="primary"
+                                            style="fill: none; stroke:#ea3762; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="feature-detailss">
+                                <h4>Hospitalization <br>Process</h4>
+                                <p><strong>Soukhya.Health</strong> guides you through hospitalization with reliable
+                                    information on specialists, hospitals, and treatments.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="feature-boxs">
+                        <div class="main-absc text-start two">
+                            <div class="feature-icon">
+                                <div class="svg-gc">
+                                    <!--<img src="images/commons/home-niches/gym/sr.png"  alt="">-->
+                                    <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                                    <svg class="imgab svg-main" fill="#ea3762" id="svg5"
+                                        style="width: 45px;height: 43px;margin-left: 10px;margin-top: 5px;"
+                                        version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:svg="http://www.w3.org/2000/svg">
+                                        <defs id="defs2"></defs>
+                                        <g id="layer1" transform="translate(36,-196)">
+                                            <path
+                                                d="m -31,199.00586 c -1.644701,0 -3,1.3553 -3,3 v 21 c 0,1.6447 1.355299,3 3,3 h 22 c 1.6447011,0 3,-1.3553 3,-3 v -21 c 0,-1.6447 -1.3552989,-3 -3,-3 z m 0,2 h 22 c 0.5712967,0 1,0.4287 1,1 v 21 c 0,0.5713 -0.4287033,1 -1,1 h -22 c -0.571297,0 -1,-0.4287 -1,-1 v -21 c 0,-0.5713 0.428703,-1 1,-1 z"
+                                                id="rect25665"
+                                                style="color:#ea3762;fill:#ea3762;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none">
+                                            </path>
+                                            <path
+                                                d="m -33,206.00586 a 1,1 0 0 0 -1,1 1,1 0 0 0 1,1 h 26 a 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 z"
+                                                id="path25667"
+                                                style="color:#ea3762;fill:#ea3762;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none">
+                                            </path>
+                                            <path
+                                                d="m -29,197.00586 a 1,1 0 0 0 -1,1 v 5 a 1,1 0 0 0 1,1 1,1 0 0 0 1,-1 v -5 a 1,1 0 0 0 -1,-1 z"
+                                                id="path25669"
+                                                style="color:#ea3762;fill:#ea3762;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none">
+                                            </path>
+                                            <path
+                                                d="m -20,197.00586 a 1,1 0 0 0 -1,1 v 5 a 1,1 0 0 0 1,1 1,1 0 0 0 1,-1 v -5 a 1,1 0 0 0 -1,-1 z"
+                                                id="path25671"
+                                                style="color:#ea3762;fill:#ea3762;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none">
+                                            </path>
+                                            <path
+                                                d="m -11,197.00586 a 1,1 0 0 0 -1,1 v 5 a 1,1 0 0 0 1,1 1,1 0 0 0 1,-1 v -5 a 1,1 0 0 0 -1,-1 z"
+                                                id="path25673"
+                                                style="color:#ea3762;fill:#ea3762;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none">
+                                            </path>
+                                            <path
+                                                d="m -14,210.00586 c -1.090702,0 -2,0.9093 -2,2 v 2 c 0,1.0907 0.909298,2 2,2 h 2 c 1.090702,0 2,-0.9093 2,-2 v -2 c 0,-1.0907 -0.909298,-2 -2,-2 z m 0,2 h 2 v 2 h -2 z"
+                                                id="rect25677"
+                                                style="color:#ea3762;fill:#ea3762;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none">
+                                            </path>
+                                            <path
+                                                d="m -21,217.00586 c -1.090702,0 -2,0.9093 -2,2 v 2 c 0,1.0907 0.909298,2 2,2 h 2 c 1.090702,0 2,-0.9093 2,-2 v -2 c 0,-1.0907 -0.909298,-2 -2,-2 z m 0,2 h 2 v 2 h -2 z"
+                                                id="rect25679"
+                                                style="color:#ea3762;fill:#ea3762;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none">
+                                            </path>
+                                            <path
+                                                d="m -28,217.00586 c -1.090702,0 -2,0.9093 -2,2 v 2 c 0,1.0907 0.909298,2 2,2 h 2 c 1.090702,0 2,-0.9093 2,-2 v -2 c 0,-1.0907 -0.909298,-2 -2,-2 z m 0,2 h 2 v 2 h -2 z"
+                                                id="rect25681"
+                                                style="color:#ea3762;fill:#ea3762;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none">
+                                            </path>
+                                            <path
+                                                d="m -14,217.00586 c -1.090702,0 -2,0.9093 -2,2 v 2 c 0,1.0907 0.909298,2 2,2 h 2 c 1.090702,0 2,-0.9093 2,-2 v -2 c 0,-1.0907 -0.909298,-2 -2,-2 z m 0,2 h 2 v 2 h -2 z"
+                                                id="rect25683"
+                                                style="color:#ea3762;fill:#ea3762;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none">
+                                            </path>
+                                            <path
+                                                d="m -25.585937,210.5918 a 1,1 0 0 0 -0.707032,0.29297 l -2.828125,2.82812 a 1,1 0 0 0 0,1.41406 1,1 0 0 0 1.414063,0 l 2.828125,-2.82812 a 1,1 0 0 0 0,-1.41406 1,1 0 0 0 -0.707031,-0.29297 z"
+                                                id="path25685"
+                                                style="color:#ea3762;fill:#ea3762;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none">
+                                            </path>
+                                            <path
+                                                d="m -28.414062,210.5918 a 1,1 0 0 0 -0.707032,0.29297 1,1 0 0 0 0,1.41406 l 2.828125,2.82812 a 1,1 0 0 0 1.414063,0 1,1 0 0 0 0,-1.41406 l -2.828125,-2.82812 a 1,1 0 0 0 -0.707031,-0.29297 z"
+                                                id="path25687"
+                                                style="color:#ea3762;fill:#ea3762;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none">
+                                            </path>
+                                            <path
+                                                d="m -19,210.5918 a 1,1 0 0 0 -0.707031,0.29297 l -2.828125,2.82812 a 1,1 0 0 0 0,1.41406 1,1 0 0 0 1.414062,0 l 2.828125,-2.82812 a 1,1 0 0 0 0,-1.41406 A 1,1 0 0 0 -19,210.5918 Z"
+                                                id="path25689"
+                                                style="color:#ea3762;fill:#ea3762;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none">
+                                            </path>
+                                            <path
+                                                d="m -21.828125,210.5918 a 1,1 0 0 0 -0.707031,0.29297 1,1 0 0 0 0,1.41406 l 2.828125,2.82812 a 1,1 0 0 0 1.414062,0 1,1 0 0 0 0,-1.41406 l -2.828125,-2.82812 a 1,1 0 0 0 -0.707031,-0.29297 z"
+                                                id="path25691"
+                                                style="color:#ea3762;fill:#ea3762;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="feature-detailss">
+                                <h4>Fixing Doctor<br> Appointments</h4>
+                                <p>
+                                    We find the right healthcare providers for your health, arranging appointments to
+                                    save you time and energy.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="feature-boxs two">
+                        <div class="main-absc text-start">
+                            <div class="feature-icon">
+                                <div class="svg-gc">
+                                    <!--<img src="images/commons/home-niches/gym/sr.png"  alt="">-->
+                                    <svg fill="#ea3762" id="Capa_1"
+                                        style="width:45px;height: 43px;margin-top:7px;margin-left:10px;" version="1.1"
+                                        viewBox="0 0 201.324 201.324" xml:space="preserve"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <circle cx="95.596" cy="10.083" r="10.083"></circle>
+                                        <circle cx="149.018" cy="10.083" r="10.083"></circle>
+                                        <path d="M179.06,19.254c-5.123-8.873-14.298-14.17-24.544-14.17v10c6.631,0,12.568,3.428,15.884,9.17
+                                        c3.316,5.743,3.316,12.599,0.001,18.342l-32.122,55.636c-3.315,5.742-9.253,9.17-15.884,9.171c-6.631,0-12.569-3.428-15.885-9.171
+                                        L74.389,42.595c-3.315-5.742-3.315-12.599,0-18.341s9.254-9.171,15.885-9.171v-10c-10.246,0-19.422,5.297-24.545,14.171
+                                        s-5.123,19.468,0,28.341l32.121,55.636c4.272,7.399,11.366,12.299,19.545,13.727v26.832c0,26.211-15.473,47.535-34.492,47.535
+                                        c-19.019,0-34.491-21.324-34.491-47.535v-31.948C59.802,109.52,68.4,99.424,68.4,87.356c0-13.779-11.21-24.989-24.989-24.989
+                                        s-24.989,11.21-24.989,24.989c0,12.067,8.598,22.163,19.989,24.486v31.948c0,31.725,19.959,57.535,44.492,57.535
+                                        c24.532,0,44.491-25.81,44.491-57.535v-26.832c8.178-1.428,15.273-6.328,19.544-13.727l32.122-55.636
+                                        C184.184,38.722,184.184,28.127,179.06,19.254z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="feature-detailss">
+                                <h4>Providing Second<br> Opinions</h4>
+                                <p>
+                                    We provide second opinions for informed surgical decisions, ensuring confidence for
+                                    you and your parents.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="feature-boxs two">
+                        <div class="main-absc text-start">
+                            <div class="feature-icon">
+                                <div class="svg-gc">
+                                    <!--<img src="images/commons/home-niches/gym/sr.png"  alt="">-->
+                                    <svg style="width: 45px;height: 43px;margin-top:7px;margin-left:10px;"
+                                        viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <style>
+                                                .cls-1 {
+                                                    fill: none;
+                                                    stroke: #ea3762;
+                                                    stroke-linejoin: round;
+                                                    stroke-width: 2px;
+                                                }
+                                            </style>
+                                        </defs>
+                                        <title></title>
+                                        <g data-name="Layer 10" id="Layer_10">
+                                            <path class="cls-1" d="M50,36A22,22,0,0,1,6,36"></path>
+                                            <path class="cls-1" d="M54,36A26,26,0,0,1,2,36Z"></path>
+                                            <circle class="cls-1" cx="13" cy="41" r="1"></circle>
+                                            <circle class="cls-1" cx="21" cy="51" r="1"></circle>
+                                            <circle class="cls-1" cx="28" cy="41" r="1"></circle>
+                                            <circle class="cls-1" cx="35" cy="51" r="1"></circle>
+                                            <circle class="cls-1" cx="43" cy="41" r="1"></circle>
+                                            <path class="cls-1" d="M28.75,36A17,17,0,1,1,52,46.5"></path>
+                                            <path class="cls-1" d="M45,14V10.24A10.25,10.25,0,0,1,48,3h0"></path>
+                                            <path class="cls-1"
+                                                d="M43,4h0a6.84,6.84,0,0,1,2,4.83V10H43.83A6.84,6.84,0,0,1,39,8h0a6.84,6.84,0,0,1-2-4.83V2h1.17A6.84,6.84,0,0,1,43,4Z">
+                                            </path>
+                                            <path class="cls-1" d="M45,18A13,13,0,0,1,58,31"></path>
+                                            <circle class="cls-1" cx="15" cy="15" r="13"></circle>
+                                            <circle class="cls-1" cx="15" cy="15" r="9"></circle>
+                                            <line class="cls-1" x1="15" x2="15" y1="6" y2="24"></line>
+                                            <line class="cls-1" x1="6" x2="24" y1="15" y2="15"></line>
+                                            <line class="cls-1" x1="9" x2="21" y1="21" y2="9"></line>
+                                            <line class="cls-1" x1="9" x2="21" y1="9" y2="21"></line>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="feature-detailss">
+                                <h4>Diet Chart Plan <br>by Dietician </h4>
+                                <p>
+                                    Prioritize health with a customized diet plan using nutrigenomics.
+                                </p>
+                                <ul style="list-style-type: lower-alpha;margin-left: 23px;">
+                                    <li class="listgc">Personalised nutrition</li>
+                                    <li class="listgc">Functional foods</li>
+                                    <li class="listgc">Precision medicine.</li>
+                                    <!--<li class="listgc">Disease risk assessment</li>-->
+                                </ul>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="feature-boxs two">
+                        <div class="main-absc text-start">
+                            <div class="feature-icon">
+                                <div class="svg-gc">
+                                    <!--<img src="images/commons/home-niches/gym/sr.png"  alt="">-->
+                                    <svg baseProfile="tiny" class="imgab svg-main" fill="#ea3762" id="Layer_1"
+                                        style="width: 45px;height: 43px;margin-left: 10px;margin-top: 5px;"
+                                        version="1.2" viewBox="0 0 256 256" xml:space="preserve"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <path
+                                            d="M9.7,9.8C9.3,9,9.6,8,10.4,7.6l12.2-6.7c0.8-0.5,1.8-0.1,2.3,0.7l4.9,8.9c18.5-5.6,39,2.4,48.6,20L54.8,43.4
+                                        c3.9,7.2,1.3,16.1-5.9,20.1c-7.2,3.9-16.2,1.3-20.1-5.9L5.1,70.5c-9.6-17.6-5.2-39.2,9.5-51.7L9.7,9.8z M176.4,253.2H256v-82.4
+                                        h-79.6V253.2z M167.3,171.4H103c-11.2,0-20.3,9.1-20.3,20.3c0,11.2,9.1,20.3,20.3,20.3h64.3V171.4z M28.6,253.2h138.6v-32.9H36.9
+                                        c-4.6,0-8.2,3.7-8.2,8.2V253.2z M78.1,187.5c0-13.6-11-24.5-24.6-24.5c-13.6,0-24.6,11-24.6,24.5C29,201,40,212,53.5,212
+                                        C67.1,212,78.1,201,78.1,187.5 M212.3,118.7l-13.8-39.4c-2.7-7.4-7.8-13.2-22.3-13.2h-63.8C97.9,66.2,92.7,72,90,79.4l-13.8,39.4
+                                        c-1,2.5-1.6,8.3,4.1,12.1l32.5,21.4c4.7,3.1,11.1,1.8,14.3-2.9c3.1-4.7,1.8-11.1-2.9-14.3l-15.6-10.3l-10.2-6.7l7.3-20h10l-5.9,16.2
+                                        l19.6,12.9c4.4,2.9,7.4,7.3,8.5,12.5c1.1,5.2,0,10.4-2.9,14.8c-1.2,1.8-2.6,3.3-4.2,4.5h27.1c-1.6-1.3-3-2.8-4.2-4.5
+                                        c-2.9-4.4-3.9-9.7-2.9-14.8c1.1-5.2,4.1-9.6,8.5-12.5l19.6-12.9L172.9,98h10l7.3,20l-10.2,6.7l-15.6,10.3c-4.7,3.1-6.1,9.5-2.9,14.3
+                                        c3.1,4.7,9.5,6.1,14.3,2.9l32.5-21.4C213.9,127,213.3,121.3,212.3,118.7 M150.6,27.6c-1.5,3.3-4.9,5.7-8.8,5.7
+                                        c-3.9,0-7.3-2.3-8.8-5.7h-17.8c-0.3,1.6-0.5,3.2-0.5,4.8c0,15,12.2,27.2,27.2,27.2c15,0,27.2-12.2,27.2-27.2c0-1.7-0.2-3.3-0.5-4.8
+                                        H150.6z M132.4,21.2c1.1-4.2,4.9-7.4,9.4-7.4c4.5,0,8.4,3.1,9.4,7.4h15.4c-4.3-9.4-13.7-16-24.7-16c-11,0-20.4,6.5-24.7,16H132.4z"
+                                            id="XMLID_1_"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="feature-detailss">
+                                <h4>Surgery Planning</h4>
+                                <p>
+                                    We provide assistance in planning surgeries, ensuring a smooth and stress-free
+                                    process for you and your parents.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="feature-boxs two">
+                        <div class="main-absc text-start">
+                            <div class="feature-icon">
+                                <div class="svg-gc">
+                                    <!--<img src="images/commons/home-niches/gym/sr.png"  alt="">-->
+                                    <svg class="imgab svg-main" fill="#ea3762"
+                                        style="width: 45px;height: 43px;margin-left: 10px;margin-top: 5px;"
+                                        viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                        <g data-name="Layer 2" id="Layer_2">
+                                            <g data-name="invisible box" id="invisible_box">
+                                                <rect fill="none" height="48" width="48"></rect>
+                                            </g>
+                                            <g data-name="icons Q2" id="icons_Q2">
+                                                <g>
+                                                    <circle cx="21" cy="19" r="4"></circle>
+                                                    <path
+                                                        d="M21.5,5A14,14,0,0,0,7,19a2,2,0,0,0,4,0,9.9,9.9,0,0,1,3.1-7.2A9.7,9.7,0,0,1,21.4,9,10.2,10.2,0,0,1,31,18.6a9.9,9.9,0,0,1-6.4,9.7A9.1,9.1,0,0,0,19,36.7,4.2,4.2,0,0,1,15.1,41a4.4,4.4,0,0,1-2.9-1.1A4,4,0,0,1,11,37a2,2,0,0,0-4,0,8,8,0,0,0,2.4,5.7A7.9,7.9,0,0,0,15,45h.2A8.2,8.2,0,0,0,23,36.7a4.8,4.8,0,0,1,3.1-4.6A14.2,14.2,0,0,0,35,18.5,14.1,14.1,0,0,0,21.5,5Z">
+                                                    </path>
+                                                    <path
+                                                        d="M36.4,3.6a1.9,1.9,0,0,0-2.8,0,1.9,1.9,0,0,0,0,2.8,17.4,17.4,0,0,1,0,25.2,1.9,1.9,0,0,0,0,2.8,1.9,1.9,0,0,0,2.8,0,21.3,21.3,0,0,0,0-30.8Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="feature-detailss">
+                                <h4>Arranging Speech &amp; Hearing Aid</h4>
+                                <p>
+                                    Communication is essential for maintaining quality of life. We ensure that your
+                                    parents have access to the necessary aids.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="feature-boxs two">
+                        <div class="main-absc text-start">
+                            <div class="feature-icon">
+                                <div class="svg-gc">
+                                    <!--<img src="images/commons/home-niches/gym/sr.png"  alt="">-->
+                                    <svg class="imgab svg-main" fill="#ea3762" height="800px" id="Capa_1"
+                                        style="width: 45px;height: 43px;margin-left: 10px;margin-top: 5px;"
+                                        version="1.1" viewBox="0 0 403.647 403.647" width="800px" xml:space="preserve"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g>
+                                            <g>
+                                                <path
+                                                    d="M124.149,306.024c9.399,13.524,17.334,19.823,24.969,19.823c2.879,0,9.97-1.094,13.638-11.241
+                                                c3.023-8.362,5.729-17.91,8.592-28.019c6.969-24.6,16.515-58.291,29.998-58.291h0.957c5.804,0,11.184,5.359,16.446,16.385
+                                                c5.529,11.578,9.77,27.111,13.87,42.135c2.742,10.044,5.332,19.531,8.265,27.757c3.599,10.101,10.627,11.194,13.486,11.196
+                                                c7.606,0,15.537-6.395,24.954-20.122c7.482-10.905,15.357-25.708,22.777-42.808c16.646-38.359,26.584-77.285,26.584-104.125
+                                                c0-19.684-6.971-38.33-19.631-52.505c-13.352-14.946-31.728-23.178-51.744-23.178c-15.719,0-32.351,9.175-44.498,15.876
+                                                c-3.248,1.793-9.15,5.05-10.985,5.578c-1.851-0.534-7.712-3.777-10.94-5.564c-12.121-6.706-28.719-15.89-44.549-15.89
+                                                c-20.017,0-38.393,8.232-51.743,23.178c-12.661,14.175-19.634,32.822-19.634,52.505c0,27.63,9.888,66.849,26.451,104.91
+                                                C108.791,280.576,116.653,295.237,124.149,306.024z M146.338,97.6c9.202,0,21.379,4.246,32.571,11.358
+                                                c1.614,1.026,3.964,2.833,6.237,4.581c0.918,0.705,1.822,1.4,2.667,2.036c2.756,2.064,6.479,4.762,10.846,7.33
+                                                c2.31,1.365,4.414,2.576,6.778,3.579c9.515,4.04,19.603,6.087,29.981,6.087c10.612,0,15.996-1.187,18.013-1.667
+                                                c3.782-0.902,12.638-3.308,12.465-4.616c-0.153-1.155-9.903-0.581-13.196-0.866c-3.82-0.332-15.516-1.051-29.567-4.772
+                                                c-4.219-1.118-9.933-3.373-10.19-4.619c-0.195-0.941,3.885-3.556,6.989-5.46c10.873-6.671,25.408-12.97,37.378-12.97
+                                                c35.56,0,56.81,31.074,56.81,61.116c0,24.573-9.726,62.249-25.38,98.327c-6.959,16.034-14.567,30.37-21.427,40.365
+                                                c-6.63,9.663-10.519,13.98-12.212,13.458c-0.32-0.099-0.744-0.554-0.919-1.046c-2.734-7.67-4.826-17.008-7.51-26.84
+                                                c-4.271-15.641-8.686-31.812-14.777-44.574c-7.928-16.604-17.608-24.675-29.592-24.675h-0.957
+                                                c-11.576,0-21.045,8.008-28.948,24.481c-6.066,12.643-10.638,28.781-15.079,44.455c-2.786,9.836-4.879,19.043-7.72,26.902
+                                                c-0.203,0.561-0.771,1.307-1.126,1.421c-1.676,0.536-5.612-3.569-12.361-13.278c-6.862-9.875-14.441-24.045-21.342-39.899
+                                                c-15.569-35.777-25.241-73.748-25.241-99.097C89.528,128.673,110.778,97.6,146.338,97.6z">
+                                                </path>
+                                                <path
+                                                    d="M397.808,142.451c0,0-11.247,3.112-14.979,4.207c-1.688,0.495-1.813-0.472-1.813-0.472
+                                                c-8.279-36.051-26.914-68.029-54.498-93.572C292.13,20.772,247.367,3.236,200.473,3.236c-46.972,0-91.79,17.587-126.199,49.521
+                                                C40.052,84.518,19.179,127.55,15.5,173.929c-0.437,5.506,3.672,10.323,9.178,10.76c0.269,0.021,0.537,0.032,0.802,0.032
+                                                c5.164,0,9.542-3.973,9.958-9.209c6.774-85.388,79.267-152.275,165.036-152.275c77.828,0,144.605,54.257,161.324,128.329
+                                                c0,0,0.354,0.88-0.401,1.112c-5.027,1.548-20.255,5.688-20.255,5.688c-4.48,1.258-5.213,4.715-1.628,7.681l38.234,31.643
+                                                c3.586,2.966,7.76,1.794,9.275-2.605l16.172-46.92C404.712,143.764,402.288,141.194,397.808,142.451z">
+                                                </path>
+                                                <path
+                                                    d="M379.694,218.959c-5.513-0.44-10.322,3.672-10.76,9.178c-6.774,85.389-79.267,152.274-165.035,152.274
+                                                c-77.855,0-144.633-54.208-161.321-128.317c0,0-0.23-1.024,0.54-1.246c5.72-1.647,19.389-5.444,19.389-5.444
+                                                c4.481-1.258,5.213-4.715,1.628-7.683L25.9,206.08c-3.585-2.967-7.758-1.795-9.275,2.604l-16.173,46.92
+                                                c-1.517,4.397,0.909,6.969,5.388,5.711c0,0,10.842-3.06,16.504-4.634c0.689-0.192,0.99,1.078,0.99,1.078
+                                                c8.269,36.082,26.917,67.713,54.521,93.274c34.388,31.841,79.15,49.377,126.043,49.377c46.972,0,91.79-17.586,126.198-49.52
+                                                c34.223-31.761,55.095-74.793,58.773-121.173C389.309,224.213,385.199,219.396,379.694,218.959z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="feature-detailss">
+                                <h4>Dental Services, Diagnostic Services, and Vision Care</h4>
+                                <p>
+                                    We offer a range of specialized services to meet the diverse healthcare needs of
+                                    seniors.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="two" style="display: flex;align-items: center;justify-content: center;">
+                        <img alt="" class="text-center"
+                            src="https://soukhya.health/assets/images/home/geriatric-main.png" style="width: 76%;">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="about-us-left mt-3">
+                        <!--<h5 class="overheadline">Elder Care </h5>-->
+                        <h2 class="about-headline hinc" style="color: #FFF;">Let Us Take Care Of Everything You Need.
+                        </h2>
+                        <!--<p class="mt-3" style="color: #FFF;">Elder care services offer personalized support and guidance for senior citizens who are living independently, These services cater to the unique healthcare needs of elderly individuals, ensuring their well-being and quality of life.</p>-->
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="feature-boxs three-one">
+                        <div class="main-absc text-start">
+                            <div class="feature-icon">
+                                <div class="svg-gc">
+                                    <!--<img src="images/commons/home-niches/gym/sr.png"  alt="">-->
+                                    <svg class="imgab svg-main" fill="#ea3762" id="svg5"
+                                        style="width: 45px;height: 43px;margin-left: 10px;margin-top: 5px;"
+                                        version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:svg="http://www.w3.org/2000/svg">
+                                        <defs id="defs2"></defs>
+                                        <g id="layer1" transform="translate(36.000001,-436)">
+                                            <path
+                                                d="m -28,456.01367 a 1,1 0 0 0 -1,1 1,1 0 0 0 1,1 h 8 a 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 z"
+                                                id="path453669"
+                                                style="color:#ea3762;fill:#ea3762;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none">
+                                            </path>
+                                            <path
+                                                d="m -26,453.01367 a 1,1 0 0 0 -1,1 1,1 0 0 0 1,1 h 6 a 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 z"
+                                                id="path453653"
+                                                style="color:#ea3762;fill:#ea3762;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none">
+                                            </path>
+                                            <path
+                                                d="m -23,450.01367 a 1,1 0 0 0 -1,1 1,1 0 0 0 1,1 h 3 a 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 z"
+                                                id="path453635"
+                                                style="color:#ea3762;fill:#ea3762;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none">
+                                            </path>
+                                            <path
+                                                d="m -29,443.01367 a 1,1 0 0 0 -1,1 v 1 h -1 a 1,1 0 0 0 -1,1 1,1 0 0 0 1,1 h 1 v 1 a 1,1 0 0 0 1,1 1,1 0 0 0 1,-1 v -1 h 1 a 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 h -1 v -1 a 1,1 0 0 0 -1,-1 z"
+                                                id="path453629"
+                                                style="color:#ea3762;fill:#ea3762;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none">
+                                            </path>
+                                            <path
+                                                d="m -29,440.01367 c -3.301857,0 -6.000001,2.69815 -6,6 -10e-7,1.76801 0.774349,3.36262 2,4.46289 v 11.53711 a 1.0001,1.0001 0 0 0 1,1 h 2.173828 c 0.415693,1.16039 1.530816,2 2.826172,2 1.295356,0 2.410479,-0.83961 2.826172,-2 H -17 h 2.173828 c 0.415693,1.16039 1.530816,2 2.826172,2 1.295356,0 2.4104792,-0.83961 2.8261719,-2 H -6 a 1.0001,1.0001 0 0 0 1,-1 v -7 a 1.0001,1.0001 0 0 0 -0.21875,-0.625 l -4,-5 A 1.0001,1.0001 0 0 0 -10,449.01367 h -6 v -2 a 1.0001,1.0001 0 0 0 -1,-1 h -6 c 1e-6,-3.30185 -2.698143,-6 -6,-6 z m 0,2 c 2.220979,0 4,1.77902 4,4 0,2.22098 -1.779021,4 -4,4 -0.84757,0 -1.630859,-0.25926 -2.275391,-0.70312 a 1,1 0 0 0 -0.267578,-0.20117 C -32.434453,448.37778 -33,447.26595 -33,446.01367 c 0,-2.22098 1.779021,-4 4,-4 z m 5.654297,6 H -18 v 13 h -6.173828 c -0.415693,-1.16039 -1.530816,-2 -2.826172,-2 -1.295356,0 -2.410479,0.83961 -2.826172,2 H -31 v -9.3457 c 0.626269,0.22297 1.29935,0.3457 2,0.3457 2.601207,0 4.826496,-1.67494 5.654297,-4 z m 7.345703,3 h 2 v 5 a 1.0001,1.0001 0 0 0 1,1 h 6 v 4 h -2.1738281 c -0.4156927,-1.16039 -1.5308159,-2 -2.8261719,-2 -1.295356,0 -2.410479,0.83961 -2.826172,2 H -16 Z m 4,0 h 1.519531 l 3.199219,4 H -12 Z m -15,10 c 0.564128,0 1,0.43587 1,1 0,0.56413 -0.435872,1 -1,1 -0.564128,0 -1,-0.43587 -1,-1 0,-0.56413 0.435872,-1 1,-1 z m 15,0 c 0.564128,0 1,0.43587 1,1 0,0.56413 -0.435872,1 -1,1 -0.564128,0 -1,-0.43587 -1,-1 0,-0.56413 0.435872,-1 1,-1 z"
+                                                id="path453611"
+                                                style="color:#ea3762;fill:#ea3762;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.1;-inkscape-stroke:none">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="feature-detailss">
+                                <h4>Delivery of Medicines</h4>
+                                <p>
+                                    Convenient home delivery of medicines, ensuring seniors have easy access to
+                                    necessary medical supplies.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="feature-boxs three-one">
+                        <div class="main-absc text-start">
+                            <div class="feature-icon">
+                                <div class="svg-gc">
+                                    <!--<img src="images/commons/home-niches/gym/sr.png"  alt="">-->
+                                    <svg class="imgab svg-main" fill="#ea3762" style=" width: 60px;height: 53px;"
+                                        viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M29,34.21a.33.33,0,0,1-.25.16H27.55a.32.32,0,0,1-.28-.16.31.31,0,0,1,0-.32l8.81-16.14a.37.37,0,0,1,.26-.16h1.31a.33.33,0,0,1,.16.43h0Z">
+                                        </path>
+                                        <path
+                                            d="M37.88,28.35a1.77,1.77,0,1,1-1.76,1.76,1.76,1.76,0,0,1,1.76-1.76m0-2.35A4.12,4.12,0,1,0,42,30.11,4.11,4.11,0,0,0,37.88,26Z">
+                                        </path>
+                                        <path
+                                            d="M49.11,23.69l-1.9-2.27a4.05,4.05,0,0,1-1-2.35l-.21-2.94a3.72,3.72,0,0,0-3.41-3.46l-2.54-.21a5.42,5.42,0,0,1-3.05-1.29L35.13,9.52a3.73,3.73,0,0,0-4.86,0l-2.09,1.76a4.76,4.76,0,0,1-2.76,1.12l-2.71.19A3.72,3.72,0,0,0,19.24,16L19,18.42a5.38,5.38,0,0,1-1.14,2.85v3.66L19.51,23a7.65,7.65,0,0,0,1.87-4.42l.2-2.45a1.38,1.38,0,0,1,1.3-1.26l2.7-.19A7.11,7.11,0,0,0,29.7,13l2.08-1.76a1.37,1.37,0,0,1,.89-.33,1.41,1.41,0,0,1,.93.36L35.52,13a7.63,7.63,0,0,0,4.39,1.85l2.53.21A1.36,1.36,0,0,1,43.7,16.3l.21,2.94a6.43,6.43,0,0,0,1.5,3.69l1.91,2.29a1.38,1.38,0,0,1,0,1.81l-1.56,1.78a8.18,8.18,0,0,0-2,4.69l-.22,2.37a1.37,1.37,0,0,1-1.29,1.26l-2.88.2a6.6,6.6,0,0,0-3.8,1.54l-2.22,1.85a1.39,1.39,0,0,1-.9.33,1.42,1.42,0,0,1-.92-.35L29.61,39a7.64,7.64,0,0,0-4.39-1.86L22.67,37a1.36,1.36,0,0,1-1.24-1.16l-1.78,1.78a3.72,3.72,0,0,0,2.83,1.73l2.54.22a5.36,5.36,0,0,1,3,1.29L30,42.48a3.76,3.76,0,0,0,2.46.92,3.72,3.72,0,0,0,2.41-.88l2.22-1.85a4.26,4.26,0,0,1,2.46-1l2.88-.21a3.73,3.73,0,0,0,3.47-3.41l.21-2.35a5.91,5.91,0,0,1,1.43-3.36l1.55-1.77A3.74,3.74,0,0,0,49.11,23.69Z">
+                                        </path>
+                                        <path
+                                            d="M11.43,12.13V31.64a.59.59,0,0,1-1,.41L4.79,26.41a.85.85,0,0,0-1.23,0L2.26,27.7a.86.86,0,0,0,0,1.24L12.61,39.22a.84.84,0,0,0,1.23,0L24.13,28.94a.86.86,0,0,0,0-1.24l-1.24-1.23a.85.85,0,0,0-1.23,0L16,32.11A.63.63,0,0,1,15,31.7V12.19a.85.85,0,0,0-.82-.88H12.37A.91.91,0,0,0,11.43,12.13Z">
+                                        </path>
+                                        <path
+                                            d="M27.3,20.12a1.77,1.77,0,1,1-1.76,1.77,1.76,1.76,0,0,1,1.76-1.77m0-2.35a4.12,4.12,0,1,0,4.12,4.12,4.11,4.11,0,0,0-4.12-4.12Z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="feature-detailss">
+                                <h4>Discounts on Diagnostics, Pharmacies, and Healthcare Sectors</h4>
+                                <p>
+                                    Partner with diagnostic centers, pharmacies, and healthcare to ensure that you
+                                    receive medical supplies at reduced costs.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="feature-boxs three-two">
+                        <div class="main-absc text-start">
+                            <div class="feature-icon">
+                                <div class="svg-gc">
+                                    <!--<img src="images/commons/home-niches/gym/sr.png"  alt="">-->
+                                    <svg class="imgab svg-main" fill="#ea3762" id="Capa_1"
+                                        style="width: 45px;height: 43px;margin-left: 10px;margin-top: 5px;"
+                                        version="1.1" viewBox="0 0 49.442 49.442" xml:space="preserve"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g>
+                                            <g>
+                                                <path
+                                                    d="M25.323,2.811c6.39,0,12.095,2.969,15.824,7.592l-2.448,1.73l7.704,2.63l-0.801-7.505l-2.157,1.523
+                                                C39.202,3.437,32.66,0,25.323,0c-3.613,0-7.035,0.834-10.085,2.316l0.898,2.696C18.898,3.608,22.018,2.811,25.323,2.811z">
+                                                </path>
+                                                <path
+                                                    d="M45.499,28.365c-0.707,3.018-2.108,5.917-4.238,8.441c-4.121,4.886-10.067,7.332-16.007,7.203l0.258-2.988l-6.978,4.193
+                                                l6.252,4.228l0.228-2.632c6.818,0.201,13.666-2.584,18.396-8.19c2.33-2.763,3.897-5.915,4.731-9.203L45.499,28.365z">
+                                                </path>
+                                                <path d="M5.632,31.42c-2.427-5.91-1.848-12.315,1.014-17.522l2.529,1.61L8.682,7.381l-6.638,3.59l2.229,1.418
+                                                c-3.331,5.953-4.027,13.313-1.24,20.099c1.371,3.345,3.442,6.191,5.972,8.451l2.153-1.856C8.809,37.062,6.886,34.477,5.632,31.42z
+                                                "></path>
+                                                <path
+                                                    d="M25.325,38.596l0.363-0.031c0.018,0,0.033,0.002,0.05,0.002c4.957,0,9.357-2.415,12.091-6.129
+                                                c0.478-0.649,0.901-1.34,1.271-2.062c0.829-1.619,1.374-3.408,1.563-5.302c0.05-0.491,0.075-0.989,0.075-1.493
+                                                c0-0.076-0.005-0.152-0.006-0.229c-0.021-1.376-0.229-2.708-0.6-3.972c-0.137-0.467-0.295-0.923-0.475-1.37
+                                                c-0.365-0.906-0.815-1.77-1.344-2.579c-0.239-0.367-0.494-0.723-0.764-1.066c-0.739-0.943-1.588-1.795-2.527-2.538
+                                                c-0.322-0.254-0.653-0.497-0.995-0.725c-2.377-1.582-5.229-2.506-8.292-2.506c-2.712,0-5.255,0.727-7.453,1.989
+                                                c-0.361,0.208-0.713,0.429-1.055,0.664c-0.965,0.667-1.85,1.443-2.634,2.313c-0.303,0.335-0.591,0.684-0.862,1.045
+                                                c-0.752,1.001-1.379,2.099-1.863,3.27c-0.186,0.448-0.349,0.906-0.49,1.375c-0.382,1.257-0.598,2.583-0.632,3.954
+                                                c-0.003,0.126-0.01,0.25-0.01,0.376c0,0.458,0.024,0.91,0.064,1.356c0.151,1.672,0.578,3.262,1.233,4.729
+                                                c0.341,0.763,0.741,1.491,1.199,2.181c2.616,3.937,7.044,6.565,12.085,6.705C25.324,38.575,25.325,38.592,25.325,38.596z
+                                                 M26.088,30.008c1.619-0.018,3.183-0.181,4.681-0.459c-0.354,1.498-0.812,2.848-1.271,3.99c-1.059,0.126-2.146,0.199-3.255,0.204
+                                                C26.187,32.624,26.131,31.36,26.088,30.008z M27.729,37.176c-0.417,0.062-0.84,0.103-1.268,0.125
+                                                c-0.042-0.593-0.095-1.385-0.149-2.328c0.894-0.006,1.771-0.053,2.632-0.137C28.414,35.99,27.95,36.805,27.729,37.176z
+                                                 M29.922,36.678c-0.194,0.062-0.392,0.114-0.589,0.168c0.301-0.562,0.668-1.301,1.048-2.185c0.555-0.082,1.104-0.173,1.641-0.284
+                                                C31.083,35.545,30.267,36.352,29.922,36.678z M30.91,33.334c0.445-1.193,0.876-2.561,1.194-4.072
+                                                c1.218-0.295,2.373-0.672,3.463-1.123c-0.607,1.783-1.506,3.385-2.415,4.715C32.427,33.045,31.676,33.202,30.91,33.334z
+                                                 M32.849,35.336c0.354-0.431,0.728-0.912,1.103-1.439c0.451-0.129,0.897-0.266,1.333-0.414
+                                                C34.548,34.189,33.727,34.805,32.849,35.336z M36.993,31.492c-0.638,0.291-1.308,0.553-1.994,0.791
+                                                c0.84-1.413,1.599-3.045,2.067-4.836c0.773-0.395,1.517-0.816,2.194-1.286C38.889,28.117,38.101,29.924,36.993,31.492z
+                                                 M39.509,23.58c0,0.31-0.014,0.615-0.034,0.92c-0.636,0.51-1.335,0.982-2.088,1.415c0.118-0.767,0.182-1.552,0.168-2.359
+                                                c-0.01-0.589-0.063-1.166-0.148-1.733c0.63-0.431,1.213-0.893,1.735-1.387C39.379,21.447,39.509,22.498,39.509,23.58z
+                                                 M38.759,19.112c-0.474,0.502-1.015,0.973-1.607,1.411c-0.248-1.008-0.597-1.973-1.009-2.886c0.495-0.376,0.952-0.778,1.354-1.207
+                                                C38.01,17.269,38.434,18.168,38.759,19.112z M34.281,12.803c0.946,0.751,1.795,1.621,2.516,2.591
+                                                c-0.35,0.4-0.753,0.777-1.198,1.132c-0.603-1.139-1.286-2.178-1.973-3.093C33.86,13.232,34.08,13.023,34.281,12.803z
+                                                 M34.571,17.246c-0.792,0.492-1.682,0.915-2.648,1.254c-0.303-1.226-0.674-2.385-1.072-3.444c0.641-0.247,1.229-0.548,1.767-0.888
+                                                C33.297,15.078,33.979,16.116,34.571,17.246z M33.295,12.089c-0.128,0.136-0.275,0.261-0.42,0.388
+                                                c-0.374-0.455-0.737-0.869-1.079-1.238C32.313,11.493,32.817,11.774,33.295,12.089z M28.993,10.22
+                                                c0.328,0.284,1.531,1.365,2.871,2.993c-0.445,0.271-0.935,0.511-1.461,0.712c-0.668-1.604-1.353-2.915-1.856-3.805
+                                                C28.697,10.152,28.845,10.184,28.993,10.22z M26.515,9.854c0.155,0.009,0.311,0.019,0.463,0.032
+                                                c0.414,0.676,1.334,2.27,2.231,4.407c-0.911,0.229-1.896,0.359-2.93,0.359c-0.002,0-0.003,0-0.003,0
+                                                C26.37,12.417,26.464,10.715,26.515,9.854z M26.225,15.881c0.019,0,0.037,0.002,0.055,0.002c1.194,0,2.334-0.162,3.386-0.445
+                                                c0.397,1.053,0.771,2.207,1.07,3.424c-1.381,0.362-2.882,0.566-4.456,0.566c-0.058,0-0.115-0.004-0.174-0.005
+                                                C26.142,18.163,26.183,16.973,26.225,15.881z M25.909,20.582c4.751,0.012,8.312-1.703,9.188-2.236
+                                                c0.406,0.923,0.896,2.676,0.951,2.908c0.055,0.232,0.215,0.818,0.206,1.281s-0.041,3.123-0.266,4.107
+                                                c-1.011,0.473-5.35,2.131-9.936,2.139c-4.587,0.008-9.145-1.561-10.251-2.066c-0.235-1.006-0.367-4.123-0.094-5.375
+                                                c0.117-0.406,0.65-2.322,1.149-3.386C17.672,18.515,20.722,20.219,25.909,20.582z M25.011,33.715
+                                                c-0.961-0.035-1.903-0.117-2.822-0.246c-0.445-1.119-0.889-2.434-1.234-3.888c1.255,0.229,2.561,0.372,3.902,0.418
+                                                C24.9,31.342,24.954,32.6,25.011,33.715z M20.77,33.236c-0.772-0.148-1.524-0.328-2.254-0.538
+                                                c-0.858-1.276-1.695-2.792-2.276-4.474c1.064,0.431,2.193,0.789,3.378,1.072C19.927,30.754,20.339,32.075,20.77,33.236z
+                                                 M17.414,16.864c0.619-1.125,1.32-2.148,2.011-3.039c0.47,0.345,0.993,0.652,1.56,0.921c-0.409,1.06-0.798,2.223-1.117,3.46
+                                                C18.962,17.83,18.139,17.378,17.414,16.864z M21.037,18.636c0.313-1.222,0.696-2.374,1.102-3.424
+                                                c0.885,0.302,1.845,0.512,2.857,0.608c-0.043,1.095-0.084,2.286-0.12,3.548C23.516,19.264,22.223,19.014,21.037,18.636z
+                                                 M25.283,9.84c-0.052,0.882-0.144,2.563-0.236,4.751c-0.869-0.086-1.687-0.268-2.444-0.517c0.877-2.051,1.76-3.572,2.152-4.213
+                                                C24.929,9.849,25.106,9.846,25.283,9.84z M22.862,10.132c0.112-0.024,0.226-0.046,0.339-0.067
+                                                c-0.475,0.833-1.116,2.051-1.755,3.546c-0.453-0.217-0.882-0.454-1.26-0.726c1.44-1.694,2.656-2.716,2.686-2.74L22.862,10.132z
+                                                 M20.209,10.993c-0.301,0.317-0.622,0.673-0.955,1.063c-0.124-0.132-0.255-0.263-0.361-0.402
+                                                C19.317,11.409,19.758,11.193,20.209,10.993z M17.865,12.306c0.183,0.244,0.388,0.479,0.61,0.703
+                                                c-0.699,0.896-1.41,1.925-2.048,3.06c-0.461-0.426-0.866-0.879-1.197-1.361C16,13.798,16.886,12.991,17.865,12.306z
+                                                 M14.453,15.715c0.397,0.52,0.867,1.008,1.396,1.464c-0.521,1.075-0.958,2.228-1.247,3.441c-0.691-0.497-1.312-1.038-1.845-1.619
+                                                C13.175,17.824,13.748,16.721,14.453,15.715z M11.995,24.371c-0.016-0.262-0.025-0.525-0.025-0.791
+                                                c0-1.122,0.139-2.213,0.394-3.258c0.593,0.573,1.262,1.105,1.993,1.593c-0.076,0.538-0.125,1.085-0.135,1.641
+                                                c-0.014,0.84,0.056,1.657,0.184,2.45C13.527,25.514,12.716,24.967,11.995,24.371z M14.122,30.95
+                                                c-0.938-1.472-1.604-3.129-1.927-4.907c0.779,0.553,1.632,1.057,2.542,1.508c0.448,1.67,1.147,3.201,1.926,4.541
+                                                C15.771,31.754,14.919,31.373,14.122,30.95z M15.764,33.047c0.627,0.254,1.28,0.479,1.947,0.686
+                                                c0.519,0.742,1.038,1.4,1.511,1.957C17.934,34.992,16.766,34.1,15.764,33.047z M22.007,36.818
+                                                c-0.162-0.146-1.171-1.074-2.352-2.562c0.538,0.123,1.088,0.229,1.645,0.321c0.413,0.97,0.812,1.765,1.129,2.353
+                                                C22.288,36.895,22.147,36.858,22.007,36.818z M24.017,37.225c-0.213-0.353-0.708-1.211-1.27-2.444
+                                                c0.765,0.088,1.541,0.146,2.331,0.174c0.055,0.954,0.108,1.761,0.151,2.369C24.821,37.309,24.416,37.273,24.017,37.225z">
+                                                </path>
+                                                <path
+                                                    d="M23.17,25.646h-2.504v-0.008c0.261-0.158,0.534-0.313,0.819-0.461c0.286-0.147,0.549-0.314,0.788-0.498
+                                                c0.238-0.182,0.434-0.396,0.587-0.64c0.154-0.243,0.231-0.544,0.231-0.898c0-0.291-0.055-0.548-0.164-0.768
+                                                c-0.106-0.22-0.262-0.401-0.46-0.544c-0.199-0.143-0.438-0.251-0.717-0.322c-0.277-0.071-0.584-0.108-0.917-0.108
+                                                c-0.372,0-0.707,0.055-1.007,0.159c-0.298,0.106-0.553,0.262-0.759,0.466c-0.206,0.205-0.36,0.454-0.462,0.751
+                                                c-0.101,0.298-0.14,0.638-0.117,1.019h1.494c-0.011-0.34,0.046-0.614,0.171-0.823c0.123-0.21,0.345-0.314,0.664-0.314
+                                                c0.186,0,0.343,0.048,0.472,0.148c0.131,0.097,0.195,0.273,0.195,0.527c0,0.101-0.025,0.191-0.075,0.271s-0.114,0.151-0.191,0.214
+                                                c-0.076,0.064-0.158,0.123-0.246,0.176s-0.166,0.102-0.235,0.145c-0.173,0.104-0.354,0.211-0.539,0.322
+                                                c-0.187,0.106-0.365,0.221-0.537,0.342c-0.173,0.117-0.334,0.246-0.486,0.385c-0.149,0.138-0.284,0.285-0.4,0.445
+                                                c-0.138,0.186-0.242,0.393-0.313,0.621c-0.071,0.227-0.1,0.477-0.083,0.746h4.792L23.17,25.646L23.17,25.646z">
+                                                </path>
+                                                <path d="M26.105,26.998h1.654v-1.097h0.747v-1.353h-0.747v-3.085h-1.583l-2.528,2.942V25.9h2.457V26.998z M24.753,24.549
+                                                l1.352-1.551v1.551H24.753z"></path>
+                                                <path
+                                                    d="M30.724,24.819c0-0.164,0.021-0.298,0.062-0.399c0.04-0.104,0.089-0.187,0.149-0.242c0.062-0.061,0.129-0.1,0.203-0.121
+                                                c0.073-0.021,0.146-0.031,0.215-0.031c0.117,0,0.207,0.021,0.274,0.061c0.065,0.039,0.117,0.096,0.154,0.168
+                                                c0.038,0.07,0.062,0.156,0.07,0.258c0.012,0.101,0.018,0.209,0.018,0.326V27h1.574v-2.83c0-0.239-0.039-0.445-0.115-0.621
+                                                c-0.077-0.175-0.183-0.319-0.313-0.433c-0.133-0.114-0.284-0.2-0.454-0.259c-0.17-0.059-0.349-0.088-0.531-0.088
+                                                c-0.334,0-0.602,0.053-0.795,0.155c-0.196,0.104-0.361,0.234-0.493,0.394h-0.018v-1.995h-1.572V27h1.572V24.819z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="feature-detailss">
+                                <h4>24x7 Contact Centre Availability</h4>
+                                <p>
+                                    Our dedicated contact center is available round the clock for you to address any
+                                    concerns or emergencies.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="feature-boxs three-two">
+                        <div class="main-absc text-start">
+                            <div class="feature-icon">
+                                <div class="svg-gc">
+                                    <!--<img src="images/commons/home-niches/gym/sr.png"  alt="">-->
+                                    <svg class="imgab svg-main" fill="#ea3762"
+                                        style="width: 45px;height: 43px;margin-left: 10px;margin-top: 5px;"
+                                        viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <path
+                                            d="M25.90625 -0.03125C25.863281 -0.0234375 25.820313 -0.0117188 25.78125 0C25.316406 0.105469 24.988281 0.523438 25 1L25 3C24.996094 3.359375 25.183594 3.695313 25.496094 3.878906C25.808594 4.058594 26.191406 4.058594 26.503906 3.878906C26.816406 3.695313 27.003906 3.359375 27 3L27 1C27.011719 0.710938 26.894531 0.433594 26.6875 0.238281C26.476563 0.0390625 26.191406 -0.0585938 25.90625 -0.03125 Z M 18.71875 2.90625C18.34375 2.972656 18.042969 3.246094 17.9375 3.609375C17.832031 3.976563 17.941406 4.367188 18.21875 4.625L19.625 6.0625C20.023438 6.460938 20.664063 6.460938 21.0625 6.0625C21.460938 5.664063 21.460938 5.023438 21.0625 4.625L19.625 3.21875C19.4375 3.019531 19.179688 2.910156 18.90625 2.90625C18.875 2.90625 18.84375 2.90625 18.8125 2.90625C18.78125 2.90625 18.75 2.90625 18.71875 2.90625 Z M 32.96875 2.90625C32.742188 2.9375 32.53125 3.050781 32.375 3.21875L30.9375 4.625C30.539063 5.023438 30.539063 5.664063 30.9375 6.0625C31.335938 6.460938 31.976563 6.460938 32.375 6.0625L33.78125 4.625C34.078125 4.339844 34.167969 3.898438 34.007813 3.519531C33.851563 3.140625 33.472656 2.898438 33.0625 2.90625C33.03125 2.90625 33 2.90625 32.96875 2.90625 Z M 26 6C23.800781 6 22 7.800781 22 10L22 13L2.78125 13C1.269531 13 0 14.234375 0 15.75L0 40.25C0 41.765625 1.269531 43 2.78125 43L7 43C7 46.300781 9.699219 49 13 49C16.300781 49 19 46.300781 19 43L33 43C33 46.300781 35.699219 49 39 49C42.300781 49 45 46.300781 45 43L47.21875 43C48.730469 43 50 41.765625 50 40.25L50 33.25C50 32.148438 49.59375 31.15625 49.21875 30.40625C48.859375 29.691406 48.535156 29.234375 48.5 29.1875L48.46875 29.125L39.46875 15.21875C39.441406 15.175781 39.410156 15.132813 39.375 15.09375C38.984375 14.628906 38.628906 14.144531 38.09375 13.71875C37.558594 13.292969 36.820313 13 35.96875 13L30 13L30 10C30 7.800781 28.195313 6 26 6 Z M 26 8C27.117188 8 28 8.882813 28 10L28 13L24 13L24 10C24 8.882813 24.882813 8 26 8 Z M 15.71875 9C15.167969 9.078125 14.78125 9.589844 14.859375 10.140625C14.9375 10.691406 15.449219 11.078125 16 11L18 11C18.359375 11.003906 18.695313 10.816406 18.878906 10.503906C19.058594 10.191406 19.058594 9.808594 18.878906 9.496094C18.695313 9.183594 18.359375 8.996094 18 9L16 9C15.96875 9 15.9375 9 15.90625 9C15.875 9 15.84375 9 15.8125 9C15.78125 9 15.75 9 15.71875 9 Z M 33.71875 9C33.167969 9.078125 32.78125 9.589844 32.859375 10.140625C32.9375 10.691406 33.449219 11.078125 34 11L36 11C36.359375 11.003906 36.695313 10.816406 36.878906 10.503906C37.058594 10.191406 37.058594 9.808594 36.878906 9.496094C36.695313 9.183594 36.359375 8.996094 36 9L34 9C33.96875 9 33.9375 9 33.90625 9C33.875 9 33.84375 9 33.8125 9C33.78125 9 33.75 9 33.71875 9 Z M 2.78125 15L35.96875 15C36.417969 15 36.578125 15.101563 36.84375 15.3125C37.109375 15.523438 37.425781 15.90625 37.84375 16.40625L38.21875 17L32 17C31.96875 17 31.9375 17 31.90625 17C31.875 17 31.84375 17 31.8125 17C31.335938 17.089844 30.992188 17.511719 31 18L31 29C31 29.550781 31.449219 30 32 30L46.15625 30C46.308594 30.003906 46.457031 29.96875 46.59375 29.90625L46.8125 30.25C46.820313 30.269531 46.832031 30.292969 46.84375 30.3125C46.84375 30.3125 47.136719 30.710938 47.4375 31.3125C47.738281 31.914063 48 32.691406 48 33.25L48 40.25C48 40.664063 47.65625 41 47.21875 41L44.65625 41C43.832031 38.671875 41.605469 37 39 37C36.394531 37 34.167969 38.671875 33.34375 41L18.65625 41C17.832031 38.671875 15.605469 37 13 37C10.394531 37 8.167969 38.671875 7.34375 41L2.78125 41C2.34375 41 2 40.664063 2 40.25L2 15.75C2 15.335938 2.34375 15 2.78125 15 Z M 33 19L39.53125 19L45.34375 28L33 28 Z M 14 21L14 25L10 25L10 27L14 27L14 31L16 31L16 27L20 27L20 25L16 25L16 21 Z M 13 39C15.222656 39 17 40.777344 17 43C17 45.222656 15.222656 47 13 47C10.777344 47 9 45.222656 9 43C9 40.777344 10.777344 39 13 39 Z M 39 39C41.222656 39 43 40.777344 43 43C43 45.222656 41.222656 47 39 47C36.777344 47 35 45.222656 35 43C35 40.777344 36.777344 39 39 39Z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="feature-detailss">
+                                <h4>Emergency Care Support and Ambulance Assistance</h4>
+                                <p>
+                                    <strong>Soukhya.Health</strong> offers 24/7 emergency support with ambulance
+                                    coordination and on-call doctor assistance for prompt, efficient care.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mbsr">
+                    <div class="feature-boxs three-two">
+                        <div class="main-absc text-start">
+                            <div class="feature-icon">
+                                <div class="svg-gc">
+                                    <!--<img src="images/commons/home-niches/gym/sr.png"  alt="">-->
+                                    <svg data-name="Layer 1" fill="#ea3762" id="Layer_1"
+                                        style="width: 45px;height:43px;margin-top:6px;margin-left:10px;"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M24,12a1,1,0,0,1-2,0A10.011,10.011,0,0,0,12,2a1,1,0,0,1,0-2A12.013,12.013,0,0,1,24,12Zm-8,1a1,1,0,0,0,0-2H13.723A2,2,0,0,0,13,10.277V7a1,1,0,0,0-2,0v3.277A1.994,1.994,0,1,0,13.723,13ZM1.827,6.784a1,1,0,1,0,1,1A1,1,0,0,0,1.827,6.784ZM2,12a1,1,0,1,0-1,1A1,1,0,0,0,2,12ZM12,22a1,1,0,1,0,1,1A1,1,0,0,0,12,22ZM4.221,3.207a1,1,0,1,0,1,1A1,1,0,0,0,4.221,3.207ZM7.779.841a1,1,0,1,0,1,1A1,1,0,0,0,7.779.841ZM1.827,15.216a1,1,0,1,0,1,1A1,1,0,0,0,1.827,15.216Zm2.394,3.577a1,1,0,1,0,1,1A1,1,0,0,0,4.221,18.793Zm3.558,2.366a1,1,0,1,0,1,1A1,1,0,0,0,7.779,21.159Zm14.394-5.943a1,1,0,1,0,1,1A1,1,0,0,0,22.173,15.216Zm-2.394,3.577a1,1,0,1,0,1,1A1,1,0,0,0,19.779,18.793Zm-3.558,2.366a1,1,0,1,0,1,1A1,1,0,0,0,16.221,21.159Z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="feature-detailss">
+                                <h4>Real-Time Updates</h4>
+                                <p>
+                                    <strong>Soukhya.Health</strong> ensures real-time updates, comprehensive support,
+                                    and compassionate care for seniors, including appointment booking, cost estimates,
+                                    and post-treatment assistance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container abpd" style="padding-top: 130px;padding-bottom: 130px;">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="tp-why-us-left-side">
+                    <h5 class="overheadline" style="color: #FF404C !important;">Elder Care</h5>
+                    <h2>Benefits of <strong>Soukhya.Health</strong> Elder Care Service</h2>
+                    <p>Ensuring comprehensive, convenient care for seniors in the comfort of their homes.</p>
+                    <div class="mc-flex-box-layer">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 top-col">
+                                <div class="d-flex">
+                                    <div class="flex-shrink-0">
+                                        <svg fill="none" height="25px" style="" viewBox="0 0 24 24" width="25px"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H15C20.43 1.25 22.75 3.57 22.75 9V15C22.75 20.43 20.43 22.75 15 22.75ZM9 2.75C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V9C21.25 4.39 19.61 2.75 15 2.75H9Z"
+                                                fill="#269bd6"></path>
+                                            <path
+                                                d="M10.5795 15.5801C10.3795 15.5801 10.1895 15.5001 10.0495 15.3601L7.21945 12.5301C6.92945 12.2401 6.92945 11.7601 7.21945 11.4701C7.50945 11.1801 7.98945 11.1801 8.27945 11.4701L10.5795 13.7701L15.7195 8.6301C16.0095 8.3401 16.4895 8.3401 16.7795 8.6301C17.0695 8.9201 17.0695 9.4001 16.7795 9.6901L11.1095 15.3601C10.9695 15.5001 10.7795 15.5801 10.5795 15.5801Z"
+                                                fill="#269bd6 "></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <p> Better manage comorbidities and physical, functional, and emotional
+                                            wellbeing.</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="flex-shrink-0">
+                                        <svg fill="none" height="25px" style="" viewBox="0 0 24 24" width="25px"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H15C20.43 1.25 22.75 3.57 22.75 9V15C22.75 20.43 20.43 22.75 15 22.75ZM9 2.75C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V9C21.25 4.39 19.61 2.75 15 2.75H9Z"
+                                                fill="#269bd6"></path>
+                                            <path
+                                                d="M10.5795 15.5801C10.3795 15.5801 10.1895 15.5001 10.0495 15.3601L7.21945 12.5301C6.92945 12.2401 6.92945 11.7601 7.21945 11.4701C7.50945 11.1801 7.98945 11.1801 8.27945 11.4701L10.5795 13.7701L15.7195 8.6301C16.0095 8.3401 16.4895 8.3401 16.7795 8.6301C17.0695 8.9201 17.0695 9.4001 16.7795 9.6901L11.1095 15.3601C10.9695 15.5001 10.7795 15.5801 10.5795 15.5801Z"
+                                                fill="#269bd6 "></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <p> Risk assessment and prevention of age-related falls and osteoporosis.</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="flex-shrink-0">
+                                        <svg fill="none" height="25px" style="" viewBox="0 0 24 24" width="25px"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H15C20.43 1.25 22.75 3.57 22.75 9V15C22.75 20.43 20.43 22.75 15 22.75ZM9 2.75C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V9C21.25 4.39 19.61 2.75 15 2.75H9Z"
+                                                fill="#269bd6"></path>
+                                            <path
+                                                d="M10.5795 15.5801C10.3795 15.5801 10.1895 15.5001 10.0495 15.3601L7.21945 12.5301C6.92945 12.2401 6.92945 11.7601 7.21945 11.4701C7.50945 11.1801 7.98945 11.1801 8.27945 11.4701L10.5795 13.7701L15.7195 8.6301C16.0095 8.3401 16.4895 8.3401 16.7795 8.6301C17.0695 8.9201 17.0695 9.4001 16.7795 9.6901L11.1095 15.3601C10.9695 15.5001 10.7795 15.5801 10.5795 15.5801Z"
+                                                fill="#269bd6 "></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <p> Timely health checkups, immunizations, labs, and investigations, as
+                                            required.</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="flex-shrink-0">
+                                        <svg fill="none" height="25px" style="" viewBox="0 0 24 24" width="25px"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H15C20.43 1.25 22.75 3.57 22.75 9V15C22.75 20.43 20.43 22.75 15 22.75ZM9 2.75C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V9C21.25 4.39 19.61 2.75 15 2.75H9Z"
+                                                fill="#269bd6"></path>
+                                            <path
+                                                d="M10.5795 15.5801C10.3795 15.5801 10.1895 15.5001 10.0495 15.3601L7.21945 12.5301C6.92945 12.2401 6.92945 11.7601 7.21945 11.4701C7.50945 11.1801 7.98945 11.1801 8.27945 11.4701L10.5795 13.7701L15.7195 8.6301C16.0095 8.3401 16.4895 8.3401 16.7795 8.6301C17.0695 8.9201 17.0695 9.4001 16.7795 9.6901L11.1095 15.3601C10.9695 15.5001 10.7795 15.5801 10.5795 15.5801Z"
+                                                fill="#269bd6 "></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <p> Specialized diet plan for better immunity and overall health.</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="flex-shrink-0">
+                                        <svg fill="none" height="25px" style="" viewBox="0 0 24 24" width="25px"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H15C20.43 1.25 22.75 3.57 22.75 9V15C22.75 20.43 20.43 22.75 15 22.75ZM9 2.75C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V9C21.25 4.39 19.61 2.75 15 2.75H9Z"
+                                                fill="#269bd6"></path>
+                                            <path
+                                                d="M10.5795 15.5801C10.3795 15.5801 10.1895 15.5001 10.0495 15.3601L7.21945 12.5301C6.92945 12.2401 6.92945 11.7601 7.21945 11.4701C7.50945 11.1801 7.98945 11.1801 8.27945 11.4701L10.5795 13.7701L15.7195 8.6301C16.0095 8.3401 16.4895 8.3401 16.7795 8.6301C17.0695 8.9201 17.0695 9.4001 16.7795 9.6901L11.1095 15.3601C10.9695 15.5001 10.7795 15.5801 10.5795 15.5801Z"
+                                                fill="#269bd6 "></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <p> Improvement in self-esteem, confidence, and quality of life.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 spacing-lg">
+                <div class="tp-why-us-right-side gc-ab">
+                    <div class="">
+                        <div class="gc-ab1">
+                            <img alt="" class="gc-ab-img" src="https://soukhya.health/assets/images/gc-ab1.jpg"
+                                style="width: 82%;">
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="gc-ab2">
+                            <img alt="" class="gc-ab-img" src="https://soukhya.health/assets/images/gc-ab.jpg"
+                                style="width: 90%;">
+                        </div>
+                    </div>
+                    <div class="ab-icon">
+                        <div class="feature-box-inner text-center">
+                            <div class="cea-featured-icon">
+                                <i aria-hidden="true" class="fas fa-stethoscope fass"></i>
+                            </div>
+                            <h4 class="feature-box-title">100+</h4>
+                            <p class="text-white">Happy customers</p>
+                        </div>
+                    </div>
+                    <div class="element d-flex justify-content-center align-items-center">
+                        <div class="media d-flex">
+                            <div class="media-icon-part align-self-center">
+                                <div class="">
+                                    <i aria-hidden="true" class="fas fa-stethoscope fass" style="font-size: 30px;"></i>
+                                </div>
+                            </div>
+                            <div class="media-body align-self-center">
+                                <h4 class="feature-box-title" style="color: #000 !important;">100+</h4>
+                                <p class="fbox-content" style="margin: 0 0 0px !important;">Customers support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section >
+    <div class="bgimg-packages-hero" id="packages"
+        style="background-image: url('https://soukhya.health/assets/images/bg_imageelder.jpg');background-position: center;padding-top:90px;">
+        <div class="container" style="position: relative;">
+            <div class="text-center mb-4 col-lg-12">
+                <h3 class="text-white mt-2 mb-3" style="font-size:45px">Your Parents Deserve the Best Health Care.</h3>
+                <h2 class="text-white">Explore our range of elder care packages designed to support their health and
+                    happiness.</h2>
+            </div>
+        </div>
+    </div>
+    <div class="section bg-cr desk-packages">
+        <div class="container packagescards">
+            <ul class="nav nav-tabs mb-3 d-flex justify-content-center text-center" id="myTab" role="tablist">
+              <li class="nav-item nav1" style="width:50%">
+                <a class="nav-link couple_button" id="couple-tab" data-bs-toggle="tab" data-bs-target="#couple_tab"
+                  type="button" role="tab" aria-controls="couple_tab" aria-selected="true"
+                  [class.active]="currentPackage==='couple'"
+       (click)="currentPackage='couple'">
+                  Couple
+                </a>
+              </li>
+              <li class="nav-item nav2" style="width:50%">
+                <a class="nav-link individual_button" id="individual-tab" data-bs-toggle="tab" data-bs-target="#individual_tab"
+                  type="button" role="tab" aria-controls="individual_tab" aria-selected="false"
+                  [class.active]="currentPackage==='individual'"
+       (click)="currentPackage='individual'">
+                  Individual
+                </a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="share-pck mbs-sh">
+                <span class="pack-button" style="font-size:20px;" role="button">
+                  Share Package <i class="fa fa-share-square"></i>
+                </span>
+              </div>
+          
+              <!-------------------- WEB COUPLE PACKAGES ---------------------->
+              <div class="tab-pane fade couple-container" [class.show]="currentPackage==='couple'"
+              [class.active]="currentPackage==='couple'" id="couple_tab" role="tabpanel" aria-labelledby="couple-tab">
+                <div class="row">
+                  <div class="col-lg-4 col-md-4 col-sm-12 mar_g"
+                       *ngFor="let package of eldercarePackages; let i = index">
+                    <div class="name-card pricing-table price-tb1" [ngStyle]="{'margin': i === 1 ? '-46px 0px' : '0px'}">
+                        <!-- HEADER -->
+                        <div class="sticky-top" [ngClass]="{'name-card-headers': i === 1,}">
+                            <div class="table-header"
+                                [ngStyle]="{'background': package.backgroundColor, 'padding-top': (i === 1 && !scrolledState['couple']) ? '4.12rem' : ''}">
+                                <h4 class="m-0 text-white" style="font-weight: 700 !important;font-size: 30px !important;">
+                                    {{ package.name }}
+                                </h4>
+                    
+                                <div class="price_div" #priceDiv [ngClass]="{'price_div1': i === 1}">
+                                    <div class="d-flex flex-column">
+                                        <span class="text-white pt-value strike_price">
+                                            <i class="bi bi-currency-rupee" style="font-size:30px"></i>
+                                            {{ package.couple_pckage.original_price }}
+                                        </span>
+                                        <span class="text-white pt-value" style="margin-top:-15px">
+                                            <i class="bi bi-currency-rupee" style="font-size:35px"></i>
+                                            {{ package.couple_pckage.price }}
+                                        </span>
+                                    </div>
+                                    <h5 style="font-weight: 400 !important;color:#FFF;margin-bottom: 0 !important;">
+                                        Per Month / Per Head
+                                    </h5>
+                                </div>
+                    
+                                <a class="tp-btn-primary" type="button" data-toggle="modal" [attr.data-target]="'#' + package.couple_pckage.modalId"
+                                    class="buy_now">
+                                    Buy Now
+                                </a>
+                            </div>
+                        </div>
+                        <!-- FEATURES -->
+                        <div class="name-card-body bg_colors"
+     [ngStyle]="{'padding-top': (i === 1 && scrolledState['couple']) ? '2.9rem' : ''}">
+                            <ul class="pricing-features sticky-wrapper">
+                                <li class="white" *ngFor="let feature of package.features"
+                                    [ngClass]="{'pos_rel': feature.hasTooltip, 'bg_blue':feature.id == 'pay-per-use-heading'}">
+                    
+                                    <!-- Conditionally render pay-per-use only once -->
+                                    <ng-container *ngIf="feature.id === 'pay-per-use-heading' && i === 1">
+                                        <div class="pay_per_use_bg text-center p-2">
+                                            <span>{{ feature.title }}</span>
+                    
+                                        </div>
+                                    </ng-container>
+                    
+                                    <!-- Render other features -->
+                                    <ng-container *ngIf="feature.id !== 'pay-per-use-heading'">
+                                        <div class="pdpk"
+                                            (mouseenter)="feature.hasTooltip ? showContent(getContentId(package.id, feature.id)) : null"
+                                            (mouseleave)="feature.hasTooltip ? hideContent(getContentId(package.id, feature.id)) : null">
+                    
+                                            <span class="tb-headings mb-2" [ngClass]="{
+                                                                  'tooltipheader': feature.hasTooltip,
+                                                                  'text_strike': feature.isStrikethrough
+                                                                }">
+                                                {{ feature.title }}
+                                                <span class="dsb" *ngIf="feature.badge">{{ feature.badge }}</span>
+                                            </span>
+                    
+                                            <!-- Tooltip -->
+                                            <div *ngIf="feature.description" [id]="getContentId(package.id, feature.id)"
+                                                class="custom-content tooltiptext" [class.show]="feature.showTooltip">
+                                                {{ feature.description }}
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                    
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          
+              <!------------------------ WEB INDIVIDUAL PACKAGES ------------------------------>
+              <div class="tab-pane fade individual-container" [class.show]="currentPackage==='individual'"
+              [class.active]="currentPackage==='individual'" id="individual_tab" role="tabpanel" aria-labelledby="individual-tab">
+                <div class="row">
+                  <div class="col-lg-4 col-md-4 col-sm-12 mar_g"
+                       *ngFor="let package of eldercarePackages; let i = index">
+                    <div class="name-card pricing-table price-tb1" [ngStyle]="{'margin': i === 1 ? '-46px 0px' : '0px'}">
+                        <!-- HEADER -->
+                        <div class="sticky-top" [ngClass]="{'name-card-headers': i === 1,}">
+                           <div class="table-header"
+                                [ngStyle]="{'background': package.backgroundColor, 'padding-top': (i === 1 && !scrolledState['individual']) ? '4.12rem' : ''}">
+                                <h4 class="m-0 text-white" style="font-weight: 700 !important;font-size: 30px !important;">
+                                    {{ package.name }}
+                                </h4>
+                    
+                                <div class="price_div" #priceDiv [ngClass]="{'price_div1': i === 1}">
+                                    <div class="d-flex flex-column">
+                                        <span class="text-white pt-value strike_price">
+                                            <i class="bi bi-currency-rupee" style="font-size:30px"></i>
+                                            {{ package.individual_pckage.original_price }}
+                                        </span>
+                                        <span class="text-white pt-value" style="margin-top:-15px">
+                                            <i class="bi bi-currency-rupee" style="font-size:35px"></i>
+                                            {{ package.individual_pckage.price }}
+                                        </span>
+                                    </div>
+                                    <h5 style="font-weight: 400 !important;color:#FFF;margin-bottom: 0 !important;">
+                                        Per Month
+                                    </h5>
+                                </div>
+                    
+                                <a class="tp-btn-primary" type="button" data-toggle="modal" [attr.data-target]="'#' + package.modalId"
+                                    class="buy_now">
+                                    Buy Now
+                                </a>
+                            </div>
+                        </div>
+                    
+                        <!-- FEATURES -->
+                        <div class="name-card-body bg_colors"
+     [ngStyle]="{'padding-top': (i === 1 && scrolledState['individual']) ? '2.9rem' : ''}">
+                            <ul class="pricing-features sticky-wrapper">
+                                <li class="white" *ngFor="let feature of package.features"
+                                    [ngClass]="{'pos_rel': feature.hasTooltip, 'bg_blue':feature.id == 'pay-per-use-heading'}">
+                    
+                                    <!-- Conditionally render pay-per-use only once -->
+                                    <ng-container *ngIf="feature.id === 'pay-per-use-heading' && i === 1">
+                                        <div class="pay_per_use_bg text-center p-2">
+                                            <span>{{ feature.title }}</span>
+                    
+                                        </div>
+                                    </ng-container>
+                    
+                                    <!-- Render other features -->
+                                    <ng-container *ngIf="feature.id !== 'pay-per-use-heading'">
+                                        <div class="pdpk"
+                                            (mouseenter)="feature.hasTooltip ? showContent(getContentId(package.id, feature.id)) : null"
+                                            (mouseleave)="feature.hasTooltip ? hideContent(getContentId(package.id, feature.id)) : null">
+                    
+                                            <span class="tb-headings mb-2" [ngClass]="{
+                                                                  'tooltipheader': feature.hasTooltip,
+                                                                  'text_strike': feature.isStrikethrough
+                                                                }">
+                                                {{ feature.title }}
+                                                <span class="dsb" *ngIf="feature.badge">{{ feature.badge }}</span>
+                                            </span>
+                    
+                                            <!-- Tooltip -->
+                                            <div *ngIf="feature.description" [id]="getContentId(package.id, feature.id)"
+                                                class="custom-content tooltiptext" [class.show]="feature.showTooltip">
+                                                {{ feature.description }}
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                    
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</section>
+
+<!-- Bootstrap Carousel Section -->
+<div class="" style="background-color:#473c59;padding-top:70px;padding-bottom:70px;">
+    <div class="container">
+        <div class="text-center col-lg-12">
+            <h2 class="text-white">Customize Your Own Package</h2>
+            <p class="text-white">We also offer customised packages! Contact us today to discuss your specific needs
+                and create a personalised healthcare plan that fits your lifestyle and budget.</p>
+            <button class="tp-btn-primary" data-target="#custmprice" data-toggle="modal" type="button">Reach
+                Us</button>
+        </div>
+    </div>
+</div>
+
+<section>
+    <div class="" style="background-color: #FFF;padding-top:70px;padding-bottom:70px;">
+        <div class="container">
+            <div class="text-center mb-4 col-lg-12">
+                <h2 class="feq_ques">Frequently Asked Questions</h2>
+                <p>Questions, you should have many, while making a decision for advanced treatment. We have listed a few
+                    questions people generally ask about your knowledge. If you have any further questions, please feel
+                    free to write to us at support@soukhya.health</p>
+            </div>
+            <ul class="accordion" id="faqAccordion">
+                <li>
+                  <div class="faq-line"></div>
+                  <a data-bs-toggle="collapse" href="#faq1" role="button" aria-expanded="false" aria-controls="faq1">
+                    What is elder care, and who can benefit from it?
+                  </a>
+                  <p id="faq1" class="collapse" data-bs-parent="#faqAccordion">
+                    Elder care focuses on addressing the unique healthcare needs of older adults,
+                    including medical, social, and emotional aspects. Anyone aged 60 and older
+                    or experiencing age-related health issues can benefit from elder care.
+                  </p>
+                </li>
+              
+                <li>
+                  <div class="faq-line"></div>
+                  <a data-bs-toggle="collapse" href="#faq2" role="button" aria-expanded="false" aria-controls="faq2">
+                    What types of services are included in elder care, and how can they help me or my loved one?
+                  </a>
+                  <p id="faq2" class="collapse" data-bs-parent="#faqAccordion">
+                    Elder care services may include medical assessment, medication management,
+                    regular health check-ups, physical therapy, pain management, mental health support,
+                    and end-of-life care.
+                  </p>
+                </li>
+              
+                <li>
+                  <div class="faq-line"></div>
+                  <a data-bs-toggle="collapse" href="#faq3" role="button" aria-expanded="false" aria-controls="faq3">
+                    How can I access elder care services in India, especially if I or my loved one prefer to receive care at home?
+                  </a>
+                  <p id="faq3" class="collapse" data-bs-parent="#faqAccordion">
+                    You can access elder care services through <strong>Soukhya.Health</strong>,
+                    an independent elder care provider who offers home-visit services.
+                  </p>
+                </li>
+              
+                <li>
+                  <div class="faq-line"></div>
+                  <a data-bs-toggle="collapse" href="#faq4" role="button" aria-expanded="false" aria-controls="faq4">
+                    What are the benefits of receiving Elder care at home compared to inpatient care in a hospital or nursing home?
+                  </a>
+                  <p id="faq4" class="collapse" data-bs-parent="#faqAccordion">
+                    Home-based elder care from <strong>Soukhya.Health</strong> offers comfort,
+                    familiarity, personalised attention, reduced risk of infection,
+                    and the ability to maintain independence and privacy.
+                  </p>
+                </li>
+              </ul>
+              
+            <div class="row mt-4">
+                <div class="col-lg-12 text-center">
+                    <a class="tp-btn-primary mt-3" href="https://soukhya.health/elder-care-faq" role="button">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="bg-gray" style="padding: 100px 0; background: #FFF;">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-10 text-center">
+                <h2 style="font-size: 2.5rem; font-weight: 700; color: #000; font-family: sans-serif; margin-bottom: 60px;">
+                    We are dedicated to fostering transparency within the Indian healthcare system.
+                </h2>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="row g-5">
+                    <!-- COLLABORATION -->
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-start">
+                            <div class="me-4" style="flex-shrink: 0;">
+                                <div class="icon-circle" style="width: 100px; height: 100px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M8 11C10.2091 11 12 9.20914 12 7C8 3C5.79086 3 4 4.79086 4 7C4 9.20914 5.79086 11 8 11Z" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M16 11C18.2091 11 20 9.20914 20 7C20 4.79086 18.2091 3 16 3C13.7909 3 12 4.79086 12 7C12 9.20914 13.7909 11 16 11Z" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 style="font-weight: 700; color: #000; font-size: 1.5rem; font-family: sans-serif; text-transform: uppercase; margin-bottom: 20px;">COLLABORATION</h3>
+                                <p style="color: #000; line-height: 1.6; font-family: sans-serif; margin: 0;">
+                                    We foster a culture of harmonious collaboration, propelled by humility and authentic respect for every team member. Together, we passionately pursue our mission with dedication, integrity, and mutual support, striving for excellence.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EXCELLENCE -->
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-start">
+                            <div class="me-4" style="flex-shrink: 0;">
+                                <div class="icon-circle" style="width: 100px; height: 100px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 12L11 14L15 10" stroke="#28a745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#28a745" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 style="font-weight: 700; color: #000; font-size: 1.5rem; font-family: sans-serif; text-transform: uppercase; margin-bottom: 20px;">EXCELLENCE</h3>
+                                <p style="color: #000; line-height: 1.6; font-family: sans-serif; margin: 0;">
+                                    We're renowned for breaking boundaries and consistently surpassing expectations. Our ethos is to go beyond, pushing limits, pioneering new paths, and achieving remarkable feats in all endeavours.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EMPATHY -->
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-start">
+                            <div class="me-4" style="flex-shrink: 0;">
+                                <div class="icon-circle" style="width: 100px; height: 100px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20.84 4.61C20.3292 4.099 19.7228 3.69364 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69364 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.9083 3.5783 8.50903 2.9987 7.05 2.9987C5.59096 2.9987 4.19169 3.5783 3.16 4.61C2.1283 5.6417 1.5487 7.04097 1.5487 8.5C1.5487 9.95903 2.1283 11.3583 3.16 12.39L12 21.23L20.84 12.39C21.351 11.8792 21.7564 11.2728 22.033 10.6054C22.3095 9.93789 22.4519 9.22249 22.4519 8.5C22.4519 7.77751 22.3095 7.0621 22.033 6.39464C21.7564 5.72718 21.351 5.12075 20.84 4.61Z" stroke="#dc3545" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 style="font-weight: 700; color: #000; font-size: 1.5rem; font-family: sans-serif; text-transform: uppercase; margin-bottom: 20px;">EMPATHY</h3>
+                                <p style="color: #000; line-height: 1.6; font-family: sans-serif; margin: 0;">
+                                    We are steadfast in our commitment to being the true ally of our customers in their lifelong journey towards better health and well-being, standing by them every step of the way.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- INNOVATION -->
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-start">
+                            <div class="me-4" style="flex-shrink: 0;">
+                                <div class="icon-circle" style="width: 100px; height: 100px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke="#ffc107" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 style="font-weight: 700; color: #000; font-size: 1.5rem; font-family: sans-serif; text-transform: uppercase; margin-bottom: 20px;">INNOVATION</h3>
+                                <p style="color: #000; line-height: 1.6; font-family: sans-serif; margin: 0;">
+                                    We're dynamic, innovative changemakers, embodying intelligence and inspiration. Through our ingenuity, we drive impactful change, shaping a brighter, transformative future.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

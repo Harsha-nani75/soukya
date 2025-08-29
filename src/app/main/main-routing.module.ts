@@ -8,6 +8,7 @@ import { EldercareComponent } from './eldercare/eldercare.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { MedicalTourismComponent } from './medicaltourism/medical-tourism.component';
+import { TestimonialsHomeComponent } from './testimonials-home/testimonials-home.component';
 
 const routes: Routes = [
   {
@@ -20,7 +21,7 @@ const routes: Routes = [
   {path: 'contact-us', component: ContactUsComponent },
   {path: 'eldercare', component: EldercareComponent },
   {path: 'medical-tourism', component:  MedicalTourismComponent},
-
+  {path:'testimonials',component:TestimonialsHomeComponent},
   {path:'home', component:HomeComponent},
   { path: 'blog', component: BlogComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' }

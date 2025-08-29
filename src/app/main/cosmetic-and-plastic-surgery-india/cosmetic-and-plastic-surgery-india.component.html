@@ -1,1 +1,50 @@
-<p>cosmetic-and-plastic-surgery-india works!</p>
+<!-- <div class="col-lg-4 col-md-6 col-sm-12 mb-4" *ngFor="let package of eldercarePackages; let i = index">
+    <div class="name-card pricing-table" [ngStyle]="{'margin-top': i === 1 ? '-46px' : '0px'}">
+      
+      <div class="name-card-header">
+        <div class="table-header" [ngStyle]="{'background-color': package.backgroundColor}">
+          <h4 class="package-title">{{ package.name }}</h4>
+          
+          <div class="price_div">
+            <div class="original-price" *ngIf="package.originalPrice">
+              <span class="strike">₹{{ package.originalPrice }}</span>
+            </div>
+            <div class="current-price">
+              <span>₹{{ package.price }}</span>
+            </div>
+            <div class="per-month">Per Month / Per Head</div>
+            <div class="yearly-price">
+              ₹{{ package.yearlyPrice | number }}/- Per year / per couple
+            </div>
+          </div>
+
+          <a class="btn-buy" type="button" data-toggle="modal"
+             [attr.data-target]="'#' + package.modalId">
+            Buy Now
+          </a>
+        </div>
+      </div>
+      
+      <div class="name-card-body">
+        <ul class="pricing-features">
+          <li *ngFor="let feature of package.features" [ngClass]="{'pos_rel': feature.hasTooltip}">
+            <div class="feature-item"
+                 (mouseenter)="feature.hasTooltip ? showContent(getContentId(package.id, feature.id)) : null"
+                 (mouseleave)="feature.hasTooltip ? hideContent(getContentId(package.id, feature.id)) : null">
+              <span class="feature-title" [ngClass]="{'tooltipheader': feature.hasTooltip, 'text_strike': feature.isStrikeThrough}">
+                {{ feature.title }}
+              </span>
+
+              <div *ngIf="feature.description"
+                   [id]="getContentId(package.id, feature.id)"
+                   class="tooltiptext"
+                   [class.show]="feature.showTooltip">
+                {{ feature.description }}
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div> -->

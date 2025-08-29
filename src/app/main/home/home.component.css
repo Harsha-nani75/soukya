@@ -6,6 +6,9 @@
     justify-content: center;
     text-align: center;
     padding-top: 60px; /* prevents content hiding behind navbar */
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
   }
 
   [data-aos] {
@@ -113,73 +116,12 @@ height: 55px;
   }
 }
 
-.person_dummy_icon{
-  background-color: #FFF;
-  border-radius: 50%;
-  border: solid 2px #FFFFFF;
-  position: absolute;
-  bottom: -30px;
-  left: 7px;
-  width: 50px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-
-.person_dummy_icon i{
-  font-size: 30px;
-}
-.youtube {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-.play_icon{
-  width: 80%;
-}
 /* .testmonials-main{
   width: 100%;
     max-height: 200px;
     overflow: auto;
 } */
-.testimonial-box {
-  background-color: #3156a4;
-  padding: 10px;
-  height: 300px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  overflow: hidden;
-  position: relative;
-}
 
-.testmonials-main {
-  height: 230px; /* adjust as needed */
-  overflow-y: auto;
-  padding-right: 8px; /* spacing for scrollbar */
-}
-
-/* Scrollbar style for Chrome, Edge, Safari */
-.testmonials-main::-webkit-scrollbar {
-  width: 6px;
-}
-
-.testmonials-main::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 10px;
-}
-
-.testmonials-main::-webkit-scrollbar-thumb {
-  background-color: #00bcd4; /* scrollbar color */
-  border-radius: 10px;
-}
-
-/* Scrollbar style for Firefox */
-.testmonials-main {
-  scrollbar-width: thin;
-  scrollbar-color: #00bcd4 #fff;
-}
 
 .learn_more{
   display: inline-block;
@@ -249,17 +191,10 @@ height: 55px;
   /* Section */
 .medical-partner-section {
   padding: 20px 10px;
+  position: relative;
+  z-index: 5;
 }
-.card-img-top:before{
-  content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #000;
-    opacity: 0.2 !important;
-}
+
 /* Headings */
 .section-subtitle {
   color: #fc5c1f;

@@ -1,174 +1,821 @@
-
-
 <main>
-	<div class="mt-hero container">
-		<div class="mt-hero__content">
-			<h1>Medical Tourism Company & Personalised care in India</h1>
-			<p>Embark on a journey to health and healing with Soukhya.Health's premier medical tourism services.</p>
-			<div class="mt-hero__cta">
-				<a class="btn btn-primary" href="#mt-enquiry">Get Enquiry</a>
-				<button class="btn btn-ghost" data-scroll-to="#mt-services">Go to Packages</button>
+
+	<div class="pages-hero hero_img">
+		<div class="pages-hero-diagonal" style="background-image: none !important;"></div>
+		<div class="container custom-caption-left">
+			<div class="pages-title-center">
+				<h1>Medical Tourism Company & Personalised care in India</h1>
+				<p>Embark on a journey to health and healing with <span
+						class="active_breadcrumb">Soukhya.Health's</span> premier medical tourism services.</p>
+			</div>
+			<div class="left-page-nav">
+				<ul class="breadcrumb d-flex gap-2">
+					<li><a class="fst text-decoration-none" href="home">Home</a></li>
+					<li class="current">Medical tourism services</li>
+				</ul>
 			</div>
 		</div>
-		<div class="mt-hero__visual">
-			<div class="mt-hero__card">
-				<div class="pill">Elder care services</div>
-				<div class="location">
-					<span class="dot"></span>
-					<span>Hyderabad</span>
+	</div>
+	<section>
+		<div class="marquee-horizontal">
+			<div class="track-horizontal-alt">
+				<div *ngFor="let city of cities" class="marquee-text">
+					{{ city }}
 				</div>
-				<div class="mt-hero__stats">
-					<div>
-						<strong>Top Hospitals</strong>
-						<span>Across India</span>
+				<!-- Duplicate for smooth looping -->
+				<div *ngFor="let city of cities" class="marquee-text">
+					{{ city }}
+				</div>
+			</div>
+		</div>
+	</section>
+	<section>
+		<div class="container brandsCarousel" style="margin-top:20px">
+			<div class="d-flex carouselTrack">
+				<div class="brandLogo" *ngFor="let logo of loopedLogos">
+					<img [src]="logo.src" [alt]="logo.alt">
+				</div>
+			</div>
+		</div>
+
+	</section>
+	<section>
+		<div class="advanced_medical_treatment">
+			<div class="container mt-5">
+				<div class="text-center">
+					<h2>Advanced medical treatments in India</h2>
+					<p>
+						<strong class="active_breadcrumb">Soukhya.Health</strong> stands as your trusted partner in
+						accessing advanced medical treatments in India. We specialize in connecting patients with
+						top-notch medical facilities, highly qualified doctors, and a world of savings. With us, you can
+						discover the myriad benefits of medical tourism, including access to cutting-edge treatments,
+						personalized care, and cost-effective solutions.
+					</p>
+				</div>
+			</div>
+
+			<div class="container my-5">
+				<div class="row">
+					<!-- Left: Sticky Video + Text -->
+					<div class="col-lg-6 mb-4 mb-lg-0">
+						<!-- Sticky wrapper -->
+						<div class="sticky-top" style="top: 90px;">
+
+							<!-- Video -->
+							<div class="ratio ratio-16x9 mb-3">
+								<video autoplay loop muted playsinline class="bg-video loaded playing video-mt"
+									id="video">
+									<source src="assets/home/news/bg.mp4" type="video/mp4">
+								</video>
+							</div>
+
+							<!-- Text block -->
+							<div class="row">
+								<div class="col-lg-12 top-col">
+									<div class="d-flex mb-3 align-items-start">
+										<div class="flex-shrink-0">
+											<svg fill="none" height="25px" style="" viewBox="0 0 24 24" width="25px"
+												xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H15C20.43 1.25 22.75 3.57 22.75 9V15C22.75 20.43 20.43 22.75 15 22.75ZM9 2.75C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V9C21.25 4.39 19.61 2.75 15 2.75H9Z"
+													fill="#269bd6"></path>
+												<path
+													d="M10.5795 15.5801C10.3795 15.5801 10.1895 15.5001 10.0495 15.3601L7.21945 12.5301C6.92945 12.2401 6.92945 11.7601 7.21945 11.4701C7.50945 11.1801 7.98945 11.1801 8.27945 11.4701L10.5795 13.7701L15.7195 8.6301C16.0095 8.3401 16.4895 8.3401 16.7795 8.6301C17.0695 8.9201 17.0695 9.4001 16.7795 9.6901L11.1095 15.3601C10.9695 15.5001 10.7795 15.5801 10.5795 15.5801Z"
+													fill="#269bd6 "></path>
+											</svg>
+										</div>
+										<div class="flex-grow-1 ms-3">
+											<p><strong>Soukhya.Health</strong> is your trusted partner in accessing
+												advanced medical treatments in India.</p>
+										</div>
+									</div>
+
+									<div class="d-flex mb-3 align-items-start">
+										<div class="flex-shrink-0">
+											<svg fill="none" height="25px" style="" viewBox="0 0 24 24" width="25px"
+												xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H15C20.43 1.25 22.75 3.57 22.75 9V15C22.75 20.43 20.43 22.75 15 22.75ZM9 2.75C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V9C21.25 4.39 19.61 2.75 15 2.75H9Z"
+													fill="#269bd6"></path>
+												<path
+													d="M10.5795 15.5801C10.3795 15.5801 10.1895 15.5001 10.0495 15.3601L7.21945 12.5301C6.92945 12.2401 6.92945 11.7601 7.21945 11.4701C7.50945 11.1801 7.98945 11.1801 8.27945 11.4701L10.5795 13.7701L15.7195 8.6301C16.0095 8.3401 16.4895 8.3401 16.7795 8.6301C17.0695 8.9201 17.0695 9.4001 16.7795 9.6901L11.1095 15.3601C10.9695 15.5001 10.7795 15.5801 10.5795 15.5801Z"
+													fill="#269bd6 "></path>
+											</svg>
+										</div>
+										<div class="flex-grow-1 ms-3">
+											<p>We provide personalized care.</p>
+										</div>
+									</div>
+
+									<div class="d-flex align-items-start">
+										<div class="flex-shrink-0">
+											<svg fill="none" height="25px" style="" viewBox="0 0 24 24" width="25px"
+												xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H15C20.43 1.25 22.75 3.57 22.75 9V15C22.75 20.43 20.43 22.75 15 22.75ZM9 2.75C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V9C21.25 4.39 19.61 2.75 15 2.75H9Z"
+													fill="#269bd6"></path>
+												<path
+													d="M10.5795 15.5801C10.3795 15.5801 10.1895 15.5001 10.0495 15.3601L7.21945 12.5301C6.92945 12.2401 6.92945 11.7601 7.21945 11.4701C7.50945 11.1801 7.98945 11.1801 8.27945 11.4701L10.5795 13.7701L15.7195 8.6301C16.0095 8.3401 16.4895 8.3401 16.7795 8.6301C17.0695 8.9201 17.0695 9.4001 16.7795 9.6901L11.1095 15.3601C10.9695 15.5001 10.7795 15.5801 10.5795 15.5801Z"
+													fill="#269bd6 "></path>
+											</svg>
+										</div>
+										<div class="flex-grow-1 ms-3">
+											<p>We offer cost-effective solutions.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div>
-						<strong>Personalised</strong>
-						<span>Care & Support</span>
+
+					<!-- Right: Service Cards -->
+					<div class="col-lg-6">
+						<div class="row g-4">
+							<div *ngFor="let service of services" [ngClass]="service.colsize">
+								<div class="card shadow-sm border-0" [style.backgroundColor]="service.bgColor">
+									<div [ngClass]="service?.imgstyle">
+										<img *ngIf="service.imageUrl" [src]="service.imageUrl"
+											[style.width]="service?.img_width" class="card-img-top"
+											alt="{{service.title}}">
+									</div>
+									<div class="card-body p-0" [style.color]="service.textColor">
+										<h5 class="card-title">{{ service.title }}</h5>
+										<p class="card-text fw_300" [ngClass]="service.text_color"
+											[innerHTML]="service.description"></p>
+										<a *ngIf="service.link" [ngClass]="service.learn_more" [href]="service.link"
+											target="_blank" class="btn btn-primary mt-2">Learn More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div> <!-- /row -->
+			</div> <!-- /container -->
+		</div>
+	</section>
+
+
+	<section>
+		<div class="container mt-5">
+			<div class="text-center">
+				<h2>How do we assist you?</h2>
+				<p>Our processes are more human. Because what you need at this stage is empathy and care.</p>
+			</div>
+		</div>
+		<div class="mt-5 mb-5">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6 col-md-6 col-sm-12 mb-4 mb-md-0 d-flex flex-column justify-content-center">
+						<div class="services-ws-left px-3">
+							<h3 class="fw-bold mb-3">Medical Travel Advisory</h3>
+							<p class="mb-4">
+								Send your reports to <a href="mailto:support@soukhya.health">support@soukhya.health</a>
+								or
+								upload them through <strong>Soukhya.Health</strong> to get free quotations for
+								treatments.
+								Our care coordinators will perform a holistic review of medical reports and work with
+								you
+								to understand your preferences and needs.
+							</p>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-12 text-center">
+						<img class="img-fluid rounded shadow-sm" src="https://soukhya.health/assets/images/img1.png"
+							alt="Medical Travel Advisory">
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+		<div class="mt-5 mb-5">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6 col-md-6 col-sm-12 mb-4 mb-md-0 d-flex flex-column justify-content-center">
+						<img alt="" src="https://soukhya.health/assets/images/img2.png">
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-12 left-section-bg mb-2">
+						<div class="services-ws-left" style="padding-right: 0% !important;">
+							<h3 style="">Obtaining Quotations</h3>
+							<p style="margin-bottom: 30px !important;">We work with multiple super speciality hospitals
+								simultaneously to validate medical treatments and secure quotations. Our team compares
+								each quotation and recommends the selected ones that provide the best service at the
+								most affordable price.</p>
+						</div>
 					</div>
 				</div>
-				<video class="hero-video" autoplay playsinline muted loop aria-label="Care journey">
-					<source src="" type="video/mp4" />
-				</video>
+			</div>
+		</div>
+		<div class="mt-5 mb-5">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6 col-md-6 col-sm-12 mb-4 mb-md-0 d-flex flex-column justify-content-center">
+						<div class="services-ws-left" style="padding-right: 0% !important;">
+							<h3 style="">Pre-Departure Assistance</h3>
+							<p style="margin-bottom: 30px !important;">Along with the assistance for documentation and
+								travel arrangements, <strong>Soukhya.Health</strong> also provides medical consultancy
+								and pre-departure health advisory to patients. Whether it is an invasive procedure or a
+								non-invasive treatment, our team will make sure you are aware of the treatment plan.</p>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-12 updown2 mb-2">
+						<div class="">
+							<img alt="" src="https://soukhya.health/assets/images/img3.png">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mt-5 mb-5">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6 col-md-6 col-sm-12 mb-4 mb-md-0 d-flex flex-column justify-content-center">
+						<div class="">
+							<img alt="" src="https://soukhya.health/assets/images/img4.png">
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-12 left-section-bg mb-2">
+						<div class="services-ws-left" style="padding-right: 0% !important;">
+							<h3 style="">Arrival and Hospitalization</h3>
+							<p style="margin-bottom: 30px !important;">We are at your service throughout the time after
+								your arrival and during the entire hospitalization and treatment process. We will find
+								any support service you need to make your stay more comfortable while keeping your
+								relatives back home abreast of your health status.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mt-5 mb-5">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6 col-md-6 col-sm-12 mb-4 mb-md-0 d-flex flex-column justify-content-center">
+						<div class="services-ws-left" style="padding-right: 0% !important;">
+							<h3 style="">Wellness Is The Key.</h3>
+							<p style="margin-bottom: 30px !important;">Getting the best treatment for your condition and
+								combining it with yoga, ayurveda, or other lifestyle-changing therapy is the key to
+								quick healing. <strong>Soukhya.Health</strong> will work with you to choose the best
+								post-treatment therapy program or luxurious leisure tour package option.</p>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-12 updown2 mb-2">
+						<div class="">
+							<img alt="" src="https://soukhya.health/assets/images/img5.png">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mt-5 mb-5">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6 col-md-6 col-sm-12 mb-4 mb-md-0 d-flex flex-column justify-content-center">
+						<div class="">
+							<img alt="" src="https://soukhya.health/assets/images/img6.png">
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-12 left-section-bg mb-2">
+						<div class="services-ws-left" style="padding-right: 0% !important;">
+							<h3 style="">Post-Treatment Care</h3>
+							<p style="margin-bottom: 30px !important;"><strong>Soukhya.Health</strong> makes
+								post-treatment care seamless with partnerships with doctors across India. Our partner
+								telehealth platform, which networks with doctors and leading thought leaders from across
+								the country, enables you to get a consultation from the convenience of your home.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mt-5 mb-5 desk"
+			style="background-image: url(https://soukhya.health/assets/images/why_choose_us2.png) !important;padding-top: 80px;padding-top: 90px;height: 790px;background-position: bottom;background: no-repeat;background-position-x: center;">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6 col-md-6 col-sm-12 mb-4 mb-md-0 d-flex flex-column justify-content-center">
+						<h2>Why choose <strong>Soukhya.Health</strong>?</h2>
+						<p><strong>Soukhya.Health</strong> is your trusted partner in accessing advanced medical
+							treatments in India. We bring you top-notch medical facilities, highly qualified doctors,
+							and a world of savings. Discover the benefits of medical tourism with us!</p>
+					</div>
+				</div>
+				&lt;
+				<!--<img class="mob" src="https://soukhya.health/assets/assets/images/why_choose_us2.png" style="" alt=""/>-->
+			</div>
+		</div>
+	</section>
+	<section>
+		<div class="container" style="padding-top:30px;padding-bottom:30px;">
+			<div class="text-center mb-4 col-lg-12">
+				<h2>Frequently Asked Questions</h2>
+				<p>Questions, you should have a many, while making a decision for advanced treatment. We have listed a
+					few questions people generally ask, for your knowledge. If you have any questions other than these,
+					please write to us at support@soukhya.health.</p>
+			</div>
+			<ul class="accordion">
+				<li>
+					<div class="faq-line"></div>
+					<a class="active">What is medical tourism?</a>
+					<p style="display: block;">Medical tourism refers to traveling to another country to receive medical
+						treatment. In the case of India, it often involves seeking medical care at renowned hospitals or
+						clinics for procedures ranging from cardiac surgeries to cosmetic surgeries.</p>
+				</li>
+				<li>
+					<div class="faq-line"></div>
+					<a>Why should I consider India for medical treatment?</a>
+					<p>India offers world-class medical facilities, highly skilled doctors, and cost-effective
+						treatments, making it a compelling choice for medical treatment.</p>
+				</li>
+				<li>
+					<div class="faq-line"></div>
+					<a>What types of medical treatments are available in India?</a>
+					<p>India provides a wide range of medical treatments, including cardiac surgery, orthopaedic
+						procedures, organ transplants, cancer treatment, cosmetic surgery, fertility treatments, and
+						more. The country is known for its expertise in complex surgeries and advanced medical
+						procedures.</p>
+				</li>
+				<li>
+					<div class="faq-line"></div>
+					<a>What language barriers might I encounter during my medical visit to India?</a>
+					<p>English is widely spoken and understood in India, especially in urban areas and at major
+						hospitals catering to international patients. Many medical professionals in India are fluent in
+						English, which helps facilitate communication between patients and healthcare providers.</p>
+				</li>
+			</ul> <!-- / accordion -->
+			<div class="row mt-4">
+				<div class="col-lg-12 text-center">
+					<a class="tp-btn-primary mt-3" href="https://soukhya.health/medical-tourism-faq" role="button">Learn
+						More</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- GetEnquire -->
+	<div class="form-md" id="targetform" style="background-image: url('https://soukhya.health/assets/assets/images/enq-mt.jpg') !important;background-repeat: no-repeat;background-size: cover;position: relative;height: 590px;
+background-position: center;">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-7">
+					<div class="cp-contact-side" style="background-color: transparent !important ;">
+						<div class="">
+							<!--<div class="dt-sc-small-separator " style="background-color: #FFF; width: 20%;">-->
+							<!--<hr style="height:3px !important;color: #FFF !important; background-color: #FFF !important;"/></div>-->
+							<h3 class="text-white">Get Enquiry</h3>
+						</div>
+						<form action="https://soukhya.health/mtestore " method="POST">
+							<input type="hidden" name="_token" value="3XwRRRgIfyCPCY0ZlmZw062HRFYOcsMUqbIZ2NAB"> <input
+								id="latitude" name="latitude" type="hidden">
+							<input id="longitude" name="longitude" type="hidden">
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-12 mb-2">
+									<div class="form-group">
+										<!-- <label for="state" style="color: #000;">Full Name</label> -->
+										<input class="form-control fc-custom" id="full_name" name="full_name"
+											placeholder="First Name" required="" type="text">
+										<div class="invalid-feedback">Please enter your Full Name.</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-12 mb-2">
+									<div class="form-group">
+										<!-- <label for="state" style="color: #000;">Email Address</label> -->
+										<input class="form-control fc-custom" id="email_address" name="email"
+											placeholder="Email Address" required="" type="text">
+										<div class="invalid-feedback">Please enter your email address.</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-12 mb-2">
+									<div class="col-lg-6 col-md-6 col-sm-12 input-group form-group">
+										<select class="form-select custom-select fc-custom" id="new_id_here"
+											name="country_code">
+											<option>Country</option>
+											<option value="+1">+1 (USA)</option>
+											<option value="+44">+44 (UK)</option>
+											<option value="+91">+91 (India)</option>
+											<option value="+92">+92 (PAK)</option>
+											<option value="+971">+971 (Dubai)</option>
+											<option value="+81">+81 (Japan)</option>
+											<option value="+86">+86 (China)</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-12 mb-2">
+									<div class="form-group">
+										<!-- <label for="state" style="color: #000;">Email Address</label> -->
+										<input class="form-control fc-custom" id="phone_number" name="phone_number"
+											placeholder="Phone Number" required="" type="text">
+										<div class="invalid-feedback">Please enter your phone number.</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+								<div class="sd-multiSelect form-group">
+									<!-- <label for="current-job-role">Multi Select</label> -->
+									<!-- <select class="sd-CustomSelect form-select fc-custom ms-offscreen"
+										id="current-job-role" multiple="" name="treatment_selection_id[]"
+										placeholder="Add Health Issues" style="">
+										<option value="Cardiac Care">Cardiac care</option>
+										<option value="Orthopedic Surgery">Orthopedic surgery</option>
+										<option value="Cosmetic and Plastic Surgery">Cosmetic and plastic surgery
+										</option>
+										<option value="Fertility Treatments"> Fertility treatments</option>
+										<option value="Neurosurgery">Neurosurgery</option>
+										<option value="Bariatric Surgery">Bariatric surgery</option>
+										<option value="Gastrointestinal Procedures">Gastrointestinal procedures</option>
+										<option value="Ophthalmology">Ophthalmology </option>
+										<option value="Neurosurgery">Neurosurgery</option>
+										<option value="Bariatric Surgery">Bariatric surgery</option>
+										<option value="Gastrointestinal Procedures">Gastrointestinal procedures</option>
+										<option value="Ophthalmology">Ophthalmology</option>
+										<option value="Organ Transplants">Organ transplants</option>
+										<option value="Pediatric Care">Pediatric care</option>
+										<option value="Rehabilitation Services">Rehabilitation services</option>
+										<option value="Mental Health and Wellness">Mental health and wellness</option>
+										<option value="Transgender Healthcare">Transgender Healthcare</option>
+										<option value="Rheumatology">Rheumatology</option>
+										<option value="Dermatology and Aesthetics">Dermatology and aesthetics</option>
+										<option value="ENT (Ear, Nose, and Throat) Care">ENT (Ear, Nose, and Throat)
+											care</option>
+										<option value="Pulmonology">Pulmonology</option>
+										<option value="Geriatric Care">Geriatric care</option>
+										<option value="Pain Management">Pain management</option>
+										<option value="Allied Healthcare">Allied healthcare</option>
+										<option value="Diabetes Management">Diabetes management</option>
+										<option value="Plastic and Reconstructive Surgery">Plastic and reconstructive
+											surgery</option>
+										<option value="Urology Services"> Urology services</option>
+										<option value="Neonatal Care">Neonatal care</option>
+										<option value="Robotic Surgery Center">Robotic surgery center</option>
+										<option value="Stem Cell Therapy">Stem cell therapy</option>
+										<option value="Genomic Medicine">Genomic medicine</option>
+										<option value="Telemedicine Services">Telemedicine services</option>
+										<option value="Traveler's Health Clinic">Traveler's health clinic</option>
+										<option value="Palliative Care">Palliative care</option>
+										<option value="Aesthetic Dentistry">Aesthetic dentistry</option>
+										<option value="Emergency Medical Assistance">Emergency medical assistance
+										</option>
+									</select> -->
+									<div class="ms-parent sd-CustomSelect form-select fc-custom" title=""
+										style="width: 100%;"><button type="button" class="ms-choice">
+											<span class="placeholder">Add Health Issues</span>
+
+											<div class="icon-caret"></div>
+										</button>
+										<!-- <div class="ms-drop bottom">
+											<ul>
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Cardiac Care" data-key="option_0"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Cardiac care</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Orthopedic Surgery"
+															data-key="option_1"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Orthopedic surgery</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Cosmetic and Plastic Surgery"
+															data-key="option_2"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Cosmetic and plastic surgery</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Fertility Treatments"
+															data-key="option_3"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Fertility treatments</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Neurosurgery" data-key="option_4"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Neurosurgery</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Bariatric Surgery"
+															data-key="option_5"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Bariatric surgery</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Gastrointestinal Procedures"
+															data-key="option_6"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Gastrointestinal procedures</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Ophthalmology" data-key="option_7"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Ophthalmology</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Neurosurgery" data-key="option_8"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Neurosurgery</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Bariatric Surgery"
+															data-key="option_9"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Bariatric surgery</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Gastrointestinal Procedures"
+															data-key="option_10"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Gastrointestinal procedures</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Ophthalmology"
+															data-key="option_11"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Ophthalmology</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Organ Transplants"
+															data-key="option_12"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Organ transplants</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Pediatric Care"
+															data-key="option_13"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Pediatric care</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Rehabilitation Services"
+															data-key="option_14"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Rehabilitation services</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Mental Health and Wellness"
+															data-key="option_15"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Mental health and wellness</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Transgender Healthcare"
+															data-key="option_16"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Transgender Healthcare</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Rheumatology" data-key="option_17"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Rheumatology</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Dermatology and Aesthetics"
+															data-key="option_18"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Dermatology and aesthetics</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="ENT (Ear, Nose, and Throat) Care"
+															data-key="option_19"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>ENT (Ear, Nose, and Throat) care</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Pulmonology" data-key="option_20"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Pulmonology</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Geriatric Care"
+															data-key="option_21"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Geriatric care</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Pain Management"
+															data-key="option_22"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Pain management</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Allied Healthcare"
+															data-key="option_23"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Allied healthcare</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Diabetes Management"
+															data-key="option_24"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Diabetes management</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox"
+															value="Plastic and Reconstructive Surgery"
+															data-key="option_25"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Plastic and reconstructive surgery</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Urology Services"
+															data-key="option_26"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Urology services</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Neonatal Care"
+															data-key="option_27"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Neonatal care</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Robotic Surgery Center"
+															data-key="option_28"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Robotic surgery center</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Stem Cell Therapy"
+															data-key="option_29"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Stem cell therapy</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Genomic Medicine"
+															data-key="option_30"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Genomic medicine</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Telemedicine Services"
+															data-key="option_31"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Telemedicine services</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Traveler's Health Clinic"
+															data-key="option_32"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Traveler's health clinic</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Palliative Care"
+															data-key="option_33"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Palliative care</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Aesthetic Dentistry"
+															data-key="option_34"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Aesthetic dentistry</span>
+													</label>
+												</li>
+
+												<li class=" ">
+													<label class="">
+														<input type="checkbox" value="Emergency Medical Assistance"
+															data-key="option_35"
+															data-name="selectItemtreatment_selection_id[]">
+														<span>Emergency medical assistance</span>
+													</label>
+												</li>
+												<li class="ms-no-results">No matches found</li>
+											</ul>
+										</div> -->
+									</div>
+								</div>
+							</div>
+
+							<div class="col-12 mb-2">
+								<div class="form-group">
+									<!-- <label for="state" style="color: #000;">Message</label> -->
+									<textarea class="form-control fc-custom" id="description" name="message"
+										placeholder="Message" required="" rows="3" type="text"></textarea>
+									<div class="invalid-feedback">Please enter a description.</div>
+								</div>
+							</div>
+							<!-- Google Recaptcha Widget-->
+							<!-- <div class="g-recaptcha" data-sitekey="6LdrPPIpAAAAAPI5q1Is-gvR3Uzvg25FBAkWW5vb">
+								<div><iframe
+										src="https://www.google.com/recaptcha/api/fallback?k=6LdrPPIpAAAAAPI5q1Is-gvR3Uzvg25FBAkWW5vb&amp;hl=en&amp;v=_mscDd1KHr60EWWbt2I_ULP0&amp;t=41507"
+										frameborder="0" scrolling="no" style="width: 302px; height: 422px;"></iframe>
+									<div
+										style="margin: -4px 0px 0px; padding: 0px; background: rgb(249, 249, 249); border: 1px solid rgb(193, 193, 193); border-radius: 3px; height: 60px; width: 300px;">
+										<textarea id="g-recaptcha-response" name="g-recaptcha-response"
+											class="g-recaptcha-response"
+											style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: block;"></textarea>
+									</div>
+								</div>
+							</div> -->
+							<div class="login-btn">
+								<button class="tp-btn-primary mt-2" type="submit">submit</button>
+							</div>
+						</form>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 
-	<section class="mt-marquee" aria-label="Cities we serve">
-		<div class="container">
-			<div class="marquee">
-				<div class="marquee__track" data-dup>
-					<span>Hyderabad</span><span>Mumbai</span><span>Delhi</span><span>Chennai</span>
-					<span>Bangalore</span><span>Pune</span><span>Hyderabad</span><span>Mumbai</span>
-					<span>Delhi</span><span>Chennai</span><span>Pune</span><span>Bangalore</span>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="mt-brands" aria-label="Partner Hospitals">
-		<div class="container">
-			<div class="brands__title">Our Network Hospitals</div>
-			<div class="brands">
-				<div class="brands__track" data-dup>
-					<span class="brand-pill">KIMS</span><span class="brand-pill">Yashoda</span>
-					<span class="brand-pill">Kamineni</span><span class="brand-pill">Continental</span>
-					<span class="brand-pill">Virinchi</span><span class="brand-pill">Manipal</span>
-					<span class="brand-pill">Kauvery</span><span class="brand-pill">Aster</span>
-					<span class="brand-pill">Gleneagles</span><span class="brand-pill">Fortis</span>
-					<span class="brand-pill">BLK MAX</span><span class="brand-pill">Jaslok</span>
-					<span class="brand-pill">Artemis</span><span class="brand-pill">Apollo</span>
-					<span class="brand-pill">AIIMS</span><span class="brand-pill">Sakra</span>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section id="mt-services" class="mt-services container">
-		<header class="section-head">
-			<h2>Advanced medical treatments in India</h2>
-			<p>We connect you with top-notch medical facilities, highly qualified doctors, and cost-effective solutions.</p>
-		</header>
-		<div class="cards">
-			<!-- cards (unchanged from your version) -->
-			<!-- ... keep your service cards here ... -->
-		</div>
-	</section>
-
-	<section class="mt-process container">
-		<header class="section-head">
-			<h2>How do we assist you?</h2>
-			<p>Our processes are more human. Because what you need at this stage is empathy and care.</p>
-		</header>
-		<ol class="steps">
-			<li><h4>Medical Travel Advisory</h4><p>Send reports to support@soukhya.health for free quotations. We review holistically and understand your preferences.</p></li>
-			<li><h4>Obtaining Quotations</h4><p>We validate treatments and secure quotations across multiple hospitals and recommend the best options.</p></li>
-			<li><h4>Pre-Departure Assistance</h4><p>Documentation, travel, consultancy, and health advisory—fully guided.</p></li>
-			<li><h4>Arrival and Hospitalization</h4><p>End-to-end support during arrival, hospitalization, and treatment, keeping your family informed.</p></li>
-			<li><h4>Wellness Is The Key</h4><p>Blend best treatment with yoga, ayurveda, and lifestyle therapies for healing.</p></li>
-			<li><h4>Post-Treatment Care</h4><p>Seamless follow-ups via our partner telehealth platform with leading doctors.</p></li>
-		</ol>
-	</section>
-
-	<section class="mt-why container">
-		<header class="section-head">
-			<h2>Why choose Soukhya.Health?</h2>
-			<p>Top medical facilities, highly qualified doctors, and a world of savings.</p>
-		</header>
-		<ul class="why-list">
-			<li>Personalised care coordination</li>
-			<li>Access to cutting-edge treatments</li>
-			<li>Cost-effective solutions</li>
-		</ul>
-	</section>
-
-	<section id="mt-faq" class="mt-faq container" aria-label="Frequently Asked Questions">
-		<header class="section-head">
-			<h2>Frequently Asked Questions</h2>
-			<p>Questions you may have when deciding on advanced treatment.</p>
-		</header>
-		<div class="faq">
-			<article class="faq-item">
-				<button class="faq-q" aria-expanded="false">What is medical tourism?</button>
-				<div class="faq-a" hidden>
-					<p>Traveling to another country to receive medical treatment—across cardiac to cosmetic surgeries in India’s renowned centres.</p>
-				</div>
-			</article>
-			<article class="faq-item">
-				<button class="faq-q" aria-expanded="false">Why consider India for medical treatment?</button>
-				<div class="faq-a" hidden>
-					<p>World-class facilities, skilled doctors, and cost-effective treatments.</p>
-				</div>
-			</article>
-			<article class="faq-item">
-				<button class="faq-q" aria-expanded="false">What treatments are available?</button>
-				<div class="faq-a" hidden>
-					<p>Cardiac, orthopaedic, transplants, cancer care, cosmetic, fertility, and more.</p>
-				</div>
-			</article>
-			<article class="faq-item">
-				<button class="faq-q" aria-expanded="false">Are there language barriers?</button>
-				<div class="faq-a" hidden>
-					<p>English is widely spoken in major hospitals serving international patients.</p>
-				</div>
-			</article>
-		</div>
-	</section>
-
-	<section id="mt-enquiry" class="mt-enquiry container" aria-label="Get Enquiry">
-		<header class="section-head"><h2>Get Enquiry</h2></header>
-		<form id="enquiryForm" novalidate>
-			<div class="grid">
-				<label><span>Full Name</span><input type="text" name="fullName" placeholder="Please enter your Full Name." required /></label>
-				<label><span>Email</span><input type="email" name="email" placeholder="Please enter your email address." required /></label>
-				<label><span>Phone</span><div class="phone-row"><select id="countryCode" name="countryCode" aria-label="Country code"></select><input type="tel" name="phone" placeholder="Please enter your phone number." required /></div></label>
-				<label class="full">
-					<span>Services interested in</span>
-					<select id="services" name="services" multiple size="6" aria-describedby="servicesHint">
-						<option>Cardiac care</option><option>Orthopedic surgery</option><option>Cosmetic and plastic surgery</option>
-						<option>Fertility treatments</option><option>Neurosurgery</option><option>Bariatric surgery</option>
-						<option>Gastrointestinal procedures</option><option>Ophthalmology</option><option>Organ transplants</option>
-						<option>Pediatric care</option><option>Rehabilitation services</option><option>Mental health and wellness</option>
-						<option>Transgender Healthcare</option><option>Rheumatology</option><option>Dermatology and aesthetics</option>
-						<option>ENT care</option><option>Pulmonology</option><option>Geriatric care</option><option>Pain management</option>
-						<option>Allied healthcare</option><option>Diabetes management</option><option>Plastic and reconstructive surgery</option>
-						<option>Urology services</option><option>Neonatal care</option><option>Robotic surgery center</option>
-						<option>Stem cell therapy</option><option>Genomic medicine</option><option>Telemedicine services</option>
-						<option>Traveler's health clinic</option><option>Palliative care</option><option>Aesthetic dentistry</option>
-						<option>Emergency medical assistance</option>
-					</select>
-					<small id="servicesHint" class="hint">No options selected.</small>
-				</label>
-				<label class="full"><span>Description</span><textarea name="description" rows="4" placeholder="Please enter a description." required></textarea></label>
-			</div>
-			<div class="actions">
-				<button type="submit" class="btn btn-primary">Submit</button>
-				<button type="button" class="btn btn-ghost" data-share>Share</button>
-			</div>
-		</form>
-		<div class="download">
-			<h5>Download Medical Tourism Brochure</h5>
-			<a class="btn btn-outline" href="#" download>Download!</a>
-		</div>
-	</section>
 </main>

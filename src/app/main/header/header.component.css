@@ -89,11 +89,11 @@
   /* new css */
 
   .main-nav {
-    background: transparent; /* default */
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    /* background: transparent; default */
+    /* position: sticky; */
+    /* top: 0; */
+    /* z-index: 999; */
+    /* transition: background-color 0.3s ease, box-shadow 0.3s ease; */
   }
   
   

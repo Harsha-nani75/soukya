@@ -54,13 +54,13 @@
                         <ul class="quick-links d-flex flex-column gap-2 pt-3">
                             <li><a href="index.html"><i class="bi bi-chevron-right me-2"></i>Home</a></li>
                             <li><a href="about-us.html"><i class="bi bi-chevron-right me-2"></i>Who We Are</a></li>
-                            <li><a href="elder-care-hyderabad.html"><i class="fbi bi-chevron-right me-2"></i>Elder
+                            <li><a routerLink="/eldercare"><i class="fbi bi-chevron-right me-2"></i>Elder
                                     Care</a></li>
-                            <li><a href="medical-tourism.html"><i class="bi bi-chevron-right me-2"></i>Medical
+                            <li><a routerLink="/medical-tourism"><i class="bi bi-chevron-right me-2"></i>Medical
                                     Tourism</a></li>
-                            <li><a href="testimonials.html"><i class="bi bi-chevron-right me-2"></i>Testimonials</a>
+                            <li><a routerLink="/testimonials"><i class="bi bi-chevron-right me-2"></i>Testimonials</a>
                             </li>
-                            <li><a href="contact-us.html"><i class="bi bi-chevron-right me-2"></i>Contact</a></li>
+                            <li><a routerLink="/contact-us"><i class="bi bi-chevron-right me-2"></i>Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -262,5 +262,5 @@
 <!-- PackagesButton -->
 <div id="packgesbutton">
     <button class="btn btn-primary btn-lg custom-btns" *ngIf="packagesButton" id="goToPackagesBtn"
-        onclick="goToPackages()">Go to Packages</button>
+        (click)="goToPackages()">Go to Packages</button>
 </div>

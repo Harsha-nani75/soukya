@@ -1,5 +1,6 @@
 import { Component, Renderer2 } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Enquiry, EnquiryService } from 'src/app/services/enquiry.service';
 import Swal from 'sweetalert2';
 
@@ -21,7 +22,7 @@ onCaptchaResolved(token: string) {
 
 
 private listenerFn: (() => void) | undefined;
-constructor(private renderer: Renderer2,private enquiryService:EnquiryService) {}
+constructor(private renderer: Renderer2,private enquiryService:EnquiryService,private router: Router) {}
 
 ngAfterViewInit(): void {
   this.listenerFn = this.renderer.listen(document, 'shown.bs.tab', (event: any) => {
@@ -89,5 +90,8 @@ onShare(){
     } else {
         alert('Web Share API is not supported in your browser.');
     }
+}
+goToPackages() {
+  this.router.navigate(['/eldercare'], { fragment: 'packages' });
 }
 }

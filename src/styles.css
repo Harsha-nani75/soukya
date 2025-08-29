@@ -1,1 +1,106 @@
-/* You can add global styles to this file, and also import other style files */
+/************* Banner image over text  ************/
+
+.pages-title-center h1 {
+    color: #FFF;
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+.pages-title-center p {
+    color: #FFF;
+    font-size: 18px;
+    margin: 0 0 15px;
+}
+.pages-hero {
+    background-color: #333333;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.pages-hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.3 !important;
+}
+.custom-caption-left {
+    position: absolute;
+    top: 49%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #FFF;
+}
+.left-page-nav {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    margin: 30px;
+    color: #FFF;
+}
+.breadcrumb{
+    position: relative;
+    padding: 3px 20px;
+    border-radius: 7px;
+    display: flex
+    ;
+        flex-wrap: wrap;
+}
+.breadcrumb:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.3 !important;
+    border-radius: 10px;
+    z-index: -1;
+}
+.breadcrumb li:first-child::after {
+    display: inline-block;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    /* content: "\f054"; */
+    content: "/";
+    margin: 10px;
+    color: #29abeb;
+    font-size: 14px;
+    line-height: 2;
+    margin: 0 0.80rem;
+}
+.fst {
+    color: #29abeb !important;
+    font-weight: 600 !important;
+}
+.active_breadcrumb {
+    font-weight: 600;
+    color: #269bd6;
+}
+
+
+/* #packages */
+.dsb {
+    display: block !important;
+        display: block !important;
+    font-size: 16px;
+    color: #2d6d99;
+}
+.dsb-mbs {
+    display: block !important;
+        display: block !important;
+    font-size: 20px;
+    color: #2d6d99;
+}
+.dsb-mbss {
+    display: block !important;
+        display: block !important;
+    font-size: 16px;
+    color: #2d6d99;
+}
