@@ -8,7 +8,6 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "vercel-build": "npm install --legacy-peer-deps && npm run build"
-
   },
   "private": true,
   "dependencies": {
@@ -24,7 +23,6 @@
     "bootstrap": "^5.3.7",
     "bootstrap-icons": "^1.13.1",
     "chart.js": "^4.5.0",
-    "ng-recaptcha": "^13.2.1",
     "ng2-charts": "^5.0.4",
     "ngx-pagination": "^6.0.3",
     "rxjs": "~7.8.0",
